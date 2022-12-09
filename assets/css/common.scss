@@ -1,0 +1,30 @@
+.content-wrapper {
+    padding: 64px 0;
+}
+
+.content-container {
+    max-width: 920px;
+    min-width: 760px;
+    margin: auto;
+}
+
+.text-normal {
+    text-decoration: none;
+    color: black;
+}
+
+.flex {
+    display: flex;
+}
+
+*:has(.full-link) {
+    position: relative;
+}
+.full-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+}
