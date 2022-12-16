@@ -1,3 +1,5 @@
 <template>
-    Opengame
+    <v-container>
+        OVGL
+    </v-container>
 </template>

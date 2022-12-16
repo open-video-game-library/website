@@ -12,25 +12,8 @@
                     {{ doc.description }}
                 </p>
                 <v-img :src="doc.thumbnail"></v-img>
-                    <ContentRenderer :value="doc" />
+                <ContentRenderer :value="doc" />
             </ContentDoc>
         </article>
     </v-container>
 </template>
-
-<style lang="scss">
-.content-doc h1 {
-    color: red;
-}
-::v-deep .content-renderer {
-    h1 {
-        color: red;
-    }
-}
-::v-deep ContentRenderer h1 {
-    color: red;
-}
-.nuxt-content h1 {
-    color: red;
-}
-</style>
