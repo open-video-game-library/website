@@ -1,5 +1,7 @@
 <template>
     <div class="marked">
-        <p><slot /></p>
+        <table>
+            <slot />
+        </table>
     </div>
 </template>

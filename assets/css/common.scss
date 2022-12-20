@@ -28,3 +28,16 @@
     bottom: 0;
     z-index: 10;
 }
+
+.marked {
+    img {
+        width: 100%;
+    }
+
+    blockquote {
+        border-left: solid lightgrey 4px;
+        background-color: #fafafa;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+}

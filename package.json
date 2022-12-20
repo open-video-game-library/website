@@ -14,5 +14,7 @@
     "sass": "1.56.1",
     "vuetify": "3.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "marked": "^4.2.4"
+  }
 }
