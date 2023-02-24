@@ -19,5 +19,6 @@ export default defineNuxtConfig({
                 'shellscript'
             ]
         }
-    }
+    },
+    ssr: true
 })
