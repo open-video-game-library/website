@@ -19,20 +19,33 @@ jobs:
         with:
           node-version: "16"
 
-      - name: Cache dependencies
-        uses: actions/cache@v2
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          static_site_generator: nuxt
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            dist
+            .nuxt
+          key: ${{ runner.os }}-nuxt-build-${{ hashFiles('dist') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-nuxt-build-
 
       - run: npm ci
       - run: npm run generate
 
-      - name: deploy
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main' }}
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          path: ./dist
+
+deploy:
+  permissions:
+    pages: write
+    id-token: write
+  environment:
+    name: github-pages
+    url: ${{ steps.deployment.outputs.page_url }}
