@@ -20,4 +20,7 @@ export default defineNuxtConfig({
             ]
         }
     },
+    app: {
+        baseURL: '/website'
+    }
 })
