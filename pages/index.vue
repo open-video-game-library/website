@@ -47,11 +47,13 @@ const download = (id, title) => {
                         <p class="my-4 py-4">「ゲーム研究を行いやすくし、ゲーム研究の発展に貢献すること」を目的とした、ゲーム研究者のためのライブラリ</p>
                         <v-row justify="center" class="my-4 py-4">
                             <v-btn
+                                color="primary"
                                 class="mx-8"
                                 :prepend-icon="mdiGithub"
                                 href="https://github.com/open-video-game-library"
                             >Download</v-btn>
                             <v-btn
+                                color="primary"
                                 class="mx-8"
                                 :prepend-icon="mdiController"
                                 to="/game"
@@ -100,13 +102,13 @@ const download = (id, title) => {
 
                     <v-row>
                         <v-col class="text-center">
-                            <v-btn>ゲームを見つける</v-btn>
+                            <v-btn color="primary">ゲームを見つける</v-btn>
                         </v-col>
                         <v-col class="text-center">
-                            <v-btn>ツールを見つける</v-btn>
+                            <v-btn color="primary">ツールを見つける</v-btn>
                         </v-col>
                         <v-col class="text-center">
-                            <v-btn>記事を読む</v-btn>
+                            <v-btn color="primary">記事を読む</v-btn>
                         </v-col>
                     </v-row>
             </v-container>
@@ -148,7 +150,7 @@ const download = (id, title) => {
                                 <span v-if="publication.doi"><a :href="publication.doi">{{ publication.doi }}</a>.</span>
                             </v-col>
                             <v-col cols="1">
-                                <v-btn :icon="mdiFilePdfBox" variant="plain" @click="download(publication.ID, publication.title)"></v-btn>
+                                <v-btn color="primary" :icon="mdiFilePdfBox" variant="plain" @click="download(publication.ID, publication.title)"></v-btn>
                             </v-col>
                         </v-row>
                     </p>
