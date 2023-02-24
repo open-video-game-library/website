@@ -16,5 +16,8 @@
   },
   "dependencies": {
     "marked": "^4.2.4"
+  },
+  "rules": {
+    "vue/multi-word-component-names": "off"
   }
 }

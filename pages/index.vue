@@ -1,25 +1,86 @@
+<script setup>
+import {
+    mdiGithub,
+    mdiController,
+    mdiFilePdfBox
+} from "@mdi/js"
+
+// name, engname, icon, affiliation, hp, twitter, isPubicLink
+const { data: memberdatas } = await useFetch('https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec', {
+    method: "GET",
+    query: { sheetName: "member" }
+})
+// title, author, journal, vol, no, pp, date, doi, , filename, isPublic
+const { data: publications } = await useFetch('https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec', {
+    method: "GET",
+    query: { sheetName: "publication" }
+})
+
+const logoImg = new URL('../assets/image/logo_white.png', import.meta.url).href
+const bgVideo = new URL('../assets/image/background.mp4', import.meta.url).href
+const canImg = [
+    new URL('../assets/image/can1.png', import.meta.url).href,
+    new URL('../assets/image/can2.png', import.meta.url).href,
+    new URL('../assets/image/can3.png', import.meta.url).href
+]
+
+const download = (id, title) => {
+    const a = document.createElement("a")
+    a.href = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href
+    a.target = "_blank"
+    a.rel = "noreferrer"
+    a.click()
+    a.remove()
+}
+</script>
+
 <template>
     <div>
+        <div class="video-wrapper">
+            <video autoplay muted loop playsinline>
+                <source :src="bgVideo" />
+            </video>
+            <v-container class="top-msg">
+                <v-row justify="center" align="center" style="height: calc(100vh - 61px);">
+                    <div>
+                        <v-img :src="logoImg" class="my-4 py-4" height="125"></v-img>
+                        <p class="my-4 py-4">「ゲーム研究を行いやすくし、ゲーム研究の発展に貢献すること」を目的とした、ゲーム研究者のためのライブラリ</p>
+                        <v-row justify="center" class="my-4 py-4">
+                            <v-btn
+                                class="mx-8"
+                                :prepend-icon="mdiGithub"
+                                href="https://github.com/open-video-game-library"
+                            >Download</v-btn>
+                            <v-btn
+                                class="mx-8"
+                                :prepend-icon="mdiController"
+                                to="/game"
+                            >Play</v-btn>
+                        </v-row>
+                    </div>
+                </v-row>
+            </v-container>
+        </div>
+
         <section class="content-wrapper">
-            <div class="content-container">
-                <h1>About</h1>
-                <v-container>
+            <v-container class="content-container">
+                    <h2 class="text-center my-4 py-4">Open Video Game Library で できること</h2>
                     <v-row>
                         <v-col>
                             <v-img
-                                src="https://res.cloudinary.com/dz1tqxdzg/image/upload/v1666508910/opengame-info/about/can1_qypqpk.png"
+                                :src="canImg[0]"
                                 height="80"
                             ></v-img>
                         </v-col>
                         <v-col>
                             <v-img
-                                src="https://res.cloudinary.com/dz1tqxdzg/image/upload/v1666508908/opengame-info/about/can2_xdo89d.png"
+                                :src="canImg[1]"
                                 height="80"
                             ></v-img>
                         </v-col>
                         <v-col>
                             <v-img
-                                src="https://res.cloudinary.com/dz1tqxdzg/image/upload/v1666508908/opengame-info/about/can3_qqjjte.png"
+                                :src="canImg[2]"
                                 height="80"
                             ></v-img>
                         </v-col>
@@ -48,8 +109,97 @@
                             <v-btn>記事を読む</v-btn>
                         </v-col>
                     </v-row>
-                </v-container>
-            </div>
+            </v-container>
         </section>
+
+        <section class="content-wrapper">
+            <v-container class="content-container">
+                <h2 class="text-center my-4 py-4">Member</h2>
+                <v-row>
+                    <v-col cols="4" justify="space-around" v-for="memberdata in memberdatas" :key="memberdata.name">
+                        <MemberCard
+                            :name="memberdata.name"
+                            :engname="memberdata.engname"
+                            :icon="memberdata.icon"
+                            :description="memberdata.description"
+                            :affiliation="memberdata.affiliation"
+                            :hp="memberdata.hp"
+                            :twitter="memberdata.twitter"
+                            class="my-8"
+                        />
+                    </v-col>
+                </v-row>
+            </v-container>
+        </section>
+
+        <section class="content-wrapper">
+                <v-container class="content-container">
+                    <h2 class="text-center my-4 py-4">Publications</h2>
+                    <p v-for="publication in publications" :key="publication.title" class="my-2 py-2">
+                        <v-row v-if="publication.isPublic">
+                            <v-col>
+                                {{ publication.author }}.
+                                "{{ publication.title }}".
+                                {{ publication.journal }},
+                                <span v-if="publication.vol">Vol. {{ publication.vol }}, </span>
+                                <span v-if="publication.no">No. {{ publication.no }}, </span>
+                                <span v-if="publication.pp">pp. {{ publication.pp }}, </span>
+                                {{ publication.date }}.
+                                <span v-if="publication.doi"><a :href="publication.doi">{{ publication.doi }}</a>.</span>
+                            </v-col>
+                            <v-col cols="1">
+                                <v-btn :icon="mdiFilePdfBox" variant="plain" @click="download(publication.ID, publication.title)"></v-btn>
+                            </v-col>
+                        </v-row>
+                    </p>
+                </v-container>
+            </section>
+
     </div>
 </template>
+
+<style scoped lang="scss">
+.top-msg {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: white;
+    font-weight: bold;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 61px);
+    overflow: hidden;
+
+    video {
+        object-fit: cover;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 61px);
+        background-color: rgba(0, 0, 0, 0.3);
+        background-image: radial-gradient(#111 30%, transparent 31%), radial-gradient(#111 30%, transparent 31%);
+        background-size: 4px 4px;
+        background-position: 0 0, 2px 2px;
+        background-repeat: repeat;
+    }
+}
+</style>

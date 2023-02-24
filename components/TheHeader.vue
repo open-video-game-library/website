@@ -22,7 +22,7 @@ import {
                 to="/"
             >About</v-btn>
             <v-btn
-                to="/openvideogame"
+                to="/game"
                 :prependIcon="mdiController"
             >Open Video Game</v-btn>
             <v-btn
