@@ -19,8 +19,5 @@ export default defineNuxtConfig({
                 'shellscript'
             ]
         }
-    },
-    app: {
-        baseURL: '/website/'
     }
 })
