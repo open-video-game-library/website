@@ -19,10 +19,5 @@
   },
   "dependencies": {
     "marked": "^4.2.4"
-  },
-  "config": {
-    "nuxt": {
-      "host": "0.0.0.0"
-    }
   }
 }
