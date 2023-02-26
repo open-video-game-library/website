@@ -17,11 +17,7 @@ const props = defineProps({
 
 <template>
     <v-card color="secondary" :elevation="2">
-<<<<<<< HEAD
-        <v-img :src="props.icon" cover height="200"></v-img>
-=======
         <v-img :src="props.icon" cover height="240"></v-img>
->>>>>>> main
         <v-card-title>{{ props.name }}</v-card-title>
         <v-card-subtitle>{{ props.engname }}</v-card-subtitle>
         <v-card-actions>

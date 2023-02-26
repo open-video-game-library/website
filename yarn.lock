@@ -3292,11 +3292,7 @@
   dependencies:
     "brace-expansion" "^1.1.7"
 
-<<<<<<< HEAD
-"minimist@^1.2.6":
-=======
 "minimist@^1.2.0", "minimist@^1.2.6":
->>>>>>> main
   "integrity" "sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g=="
   "resolved" "https://registry.npmjs.org/minimist/-/minimist-1.2.7.tgz"
   "version" "1.2.7"
@@ -4077,60 +4073,6 @@
   "resolved" "https://registry.npmjs.org/prr/-/prr-1.0.1.tgz"
   "version" "1.0.1"
 
-<<<<<<< HEAD
-"queue-microtask@^1.2.2":
-  "integrity" "sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A=="
-  "resolved" "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz"
-  "version" "1.2.3"
-
-"radix3@^1.0.0":
-  "integrity" "sha512-6n3AEXth91ASapMVKiEh2wrbFJmI+NBilrWE0AbiGgfm0xet0QXC8+a3K19r1UVYjUjctUgB053c3V/J6V0kCQ=="
-  "resolved" "https://registry.npmjs.org/radix3/-/radix3-1.0.0.tgz"
-  "version" "1.0.0"
-
-"randombytes@^2.1.0":
-  "integrity" "sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ=="
-  "resolved" "https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz"
-  "version" "2.1.0"
-  dependencies:
-    "safe-buffer" "^5.1.0"
-
-"range-parser@~1.2.1":
-  "integrity" "sha512-Hrgsx+orqoygnmhFbKaHE6c296J+HTAQXoxEF6gNupROmmGJRoyzfG3ccAveqCBrwr/2yxQ5BVd/GTl5agOwSg=="
-  "resolved" "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz"
-  "version" "1.2.1"
-
-"rc9@^2.0.0":
-  "integrity" "sha512-yVeYJHOpJLOhs3V6RKwz7RPPwPurrx3JjwK264sPgvo/lFdhuUrLien7iSvAO6STVkN0gSMk/MehQNHQhflqZw=="
-  "resolved" "https://registry.npmjs.org/rc9/-/rc9-2.0.0.tgz"
-  "version" "2.0.0"
-  dependencies:
-    "defu" "^6.1.1"
-    "destr" "^1.2.1"
-    "flat" "^5.0.2"
-
-"read-cache@^1.0.0":
-  "integrity" "sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA=="
-  "resolved" "https://registry.npmjs.org/read-cache/-/read-cache-1.0.0.tgz"
-  "version" "1.0.0"
-  dependencies:
-    "pify" "^2.3.0"
-
-"readable-stream@^2.0.0":
-  "integrity" "sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw=="
-  "resolved" "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.7.tgz"
-  "version" "2.3.7"
-  dependencies:
-    "core-util-is" "~1.0.0"
-    "inherits" "~2.0.3"
-    "isarray" "~1.0.0"
-    "process-nextick-args" "~2.0.0"
-    "safe-buffer" "~5.1.1"
-    "string_decoder" "~1.1.1"
-    "util-deprecate" "~1.0.1"
-
-"readable-stream@^2.0.1":
-=======
 "push-dir@^0.4.1":
   "integrity" "sha512-Nrrsly0c3kCfu725Jnif/s5adHpBwKCGWBttHVxTndF4iyGBSFtNi/pduFxHF5ks0kWtHcbA3XXP5MEra6iiCA=="
   "resolved" "https://registry.npmjs.org/push-dir/-/push-dir-0.4.1.tgz"
@@ -4177,7 +4119,6 @@
     "pify" "^2.3.0"
 
 "readable-stream@^2.0.0":
->>>>>>> main
   "integrity" "sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw=="
   "resolved" "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.7.tgz"
   "version" "2.3.7"
@@ -4190,11 +4131,7 @@
     "string_decoder" "~1.1.1"
     "util-deprecate" "~1.0.1"
 
-<<<<<<< HEAD
-"readable-stream@^2.0.5":
-=======
 "readable-stream@^2.0.1":
->>>>>>> main
   "integrity" "sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw=="
   "resolved" "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.7.tgz"
   "version" "2.3.7"
@@ -4207,24 +4144,6 @@
     "string_decoder" "~1.1.1"
     "util-deprecate" "~1.0.1"
 
-<<<<<<< HEAD
-"readable-stream@^3.1.1", "readable-stream@^3.4.0", "readable-stream@^3.6.0":
-  "integrity" "sha512-BViHy7LKeTz4oNnkcLJ+lVSL6vpiFeX6/d3oSH8zCW7UxP2onchk+vTGB143xuFjHS3deTgkKoXXymXqymiIdA=="
-  "resolved" "https://registry.npmjs.org/readable-stream/-/readable-stream-3.6.0.tgz"
-  "version" "3.6.0"
-  dependencies:
-    "inherits" "^2.0.3"
-    "string_decoder" "^1.1.1"
-    "util-deprecate" "^1.0.1"
-
-"readdir-glob@^1.0.0":
-  "integrity" "sha512-6RLVvwJtVwEDfPdn6X6Ille4/lxGl0ATOY4FN/B9nxQcgOazvvI0nodiD19ScKq0PvA/29VpaOQML36o5IzZWA=="
-  "resolved" "https://registry.npmjs.org/readdir-glob/-/readdir-glob-1.1.2.tgz"
-  "version" "1.1.2"
-  dependencies:
-    "minimatch" "^5.1.0"
-
-=======
 "readable-stream@^2.0.5":
   "integrity" "sha512-Ebho8K4jIbHAxnuxi7o42OrZgF/ZTNcsZj6nRKyUmkhLFq8CHItp/fy6hQZuZmP/n3yZ9VBUbp4zz/mX8hmYPw=="
   "resolved" "https://registry.npmjs.org/readable-stream/-/readable-stream-2.3.7.tgz"
@@ -4254,7 +4173,6 @@
   dependencies:
     "minimatch" "^5.1.0"
 
->>>>>>> main
 "readdirp@~3.6.0":
   "integrity" "sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA=="
   "resolved" "https://registry.npmjs.org/readdirp/-/readdirp-3.6.0.tgz"

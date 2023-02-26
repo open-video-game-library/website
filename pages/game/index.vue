@@ -20,12 +20,6 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url).href
     <section class="content-wrapper">
         <v-container class="content-container">
             <h2>オープンビデオゲーム一覧</h2>
-<<<<<<< HEAD
-            <p>営利目的以外であれば、ご自由にお使いいただけます。詳しいガイドラインは<NuxtLink to="/game/guideline">こちら</NuxtLink>。</p>
-        </v-container>
-    </section>
-</template>
-=======
             <aside>営利目的以外であれば、ご自由にお使いいただけます。詳しいガイドラインは<NuxtLink to="/game/guideline">こちら</NuxtLink>をご覧ください。</aside>
             <v-row>
                 <v-col v-for="game in games" :key="game.repository" cols="6">
@@ -79,4 +73,3 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url).href
     margin: auto;
 }
 </style>
->>>>>>> main
