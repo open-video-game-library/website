@@ -42,7 +42,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
             </v-container>
         </section>
 
-        <section class="content-wrapper bg-gray">
+        <section class="content-wrapper bg-gray" id="extool">
             <v-container class="content-container">
                 <h2>外部ツール</h2>
                 <aside>他の研究者やゲーム開発者が提供している、評価・実験・開発に役立つツールやゲームも紹介します。</aside>

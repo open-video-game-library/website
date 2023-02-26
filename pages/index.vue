@@ -65,7 +65,7 @@ const download = (id, title) => {
             </v-container>
         </div>
 
-        <section class="content-wrapper">
+        <section class="content-wrapper" id="abstract">
             <v-container class="content-container">
                 <h2>Open Video Game Library で できること</h2>
                 <v-row>
@@ -115,7 +115,7 @@ const download = (id, title) => {
             </v-container>
         </section>
 
-        <section class="content-wrapper bg-gray">
+        <section class="content-wrapper bg-gray" id="member">
             <v-container class="content-container">
                 <h2>Member</h2>
                 <v-row>
@@ -134,7 +134,7 @@ const download = (id, title) => {
             </v-container>
         </section>
 
-        <section class="content-wrapper">
+        <section class="content-wrapper" id="publication">
             <v-container class="content-container">
                 <h2>Publications</h2>
                 <p v-for="publication in publications" :key="publication.title" class="my-2 py-2">
