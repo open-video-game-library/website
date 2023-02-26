@@ -20,4 +20,17 @@ export default defineNuxtConfig({
             ]
         }
     },
+    ssr: true,
+    app:{
+        head: {
+            title: "Open Video Game Library",
+            meta: [
+                { charset: "utf-8" },
+                { name: "viewport", content: "width=device-width, initial-scale=1" },
+            ],
+            link: [
+                { rel: "icon", type: "image/png", href: "/favicon.png" }, // これを追記する
+            ],
+        },
+    }
 })

@@ -21,7 +21,7 @@ const props = withDefaults(
 </script>
 
 <template>
-    <v-container>
+    <div>
         <v-hover
             v-slot="{ isHovering, props }">
             <v-card color="secondary" :elevation="isHovering ? 8 : 2" v-bind="props">
@@ -44,5 +44,5 @@ const props = withDefaults(
                 </v-container>
             </v-card>
         </v-hover>
-    </v-container>
+    </div>
 </template>

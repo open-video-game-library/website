@@ -3,9 +3,13 @@
 }
 
 .content-container {
-  max-width: 920px;
-  min-width: 760px;
-  margin: auto;
+    max-width: 800px;
+    min-width: 760px;
+    margin: auto;
+}
+
+.bg-gray {
+    background-color: #fafafa;
 }
 
 .text-normal {
@@ -27,6 +31,19 @@
   left: 0;
   bottom: 0;
   z-index: 10;
+}
+
+h2 {
+    margin: 0 0 16px;
+}
+
+h3 {
+    margin: 32px 0 8px;
+    padding: 32px 0 8px;
+}
+
+aside {
+    margin: 8px 0 16px;
 }
 
 .marked {
