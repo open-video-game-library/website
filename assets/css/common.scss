@@ -8,6 +8,10 @@
     margin: auto;
 }
 
+.bg-gray {
+    background-color: #fafafa;
+}
+
 .text-normal {
     text-decoration: none;
     color: black;
@@ -27,6 +31,15 @@
     left: 0;
     bottom: 0;
     z-index: 10;
+}
+
+h3 {
+    margin: 32px 0 8px;
+    padding: 32px 0 8px;
+}
+
+aside {
+    margin: 8px 0 16px;
 }
 
 .marked {
