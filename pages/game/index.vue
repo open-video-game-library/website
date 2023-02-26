@@ -17,7 +17,7 @@ const { data: games } = await useFetch('https://script.google.com/macros/s/AKfyc
     <section class="content-wrapper">
         <v-container class="content-container">
             <h2>オープンビデオゲーム一覧</h2>
-            <p class="mb-4 pb-4">営利目的以外であれば、ご自由にお使いいただけます。詳しいガイドラインは<NuxtLink to="/game/guideline">こちら</NuxtLink>。</p>
+            <aside>営利目的以外であれば、ご自由にお使いいただけます。詳しいガイドラインは<NuxtLink to="/game/guideline">こちら</NuxtLink>。</aside>
             <v-row>
                 <v-col v-for="game in games" :key="game.repository" cols="6">
                     <GameCard
@@ -25,10 +25,15 @@ const { data: games } = await useFetch('https://script.google.com/macros/s/AKfyc
                         :image="game.image"
                         :description="game.description"
                         :repository="game.repository"
-                        class="my-8"
                     />
                 </v-col>
             </v-row>
         </v-container>
+    </section>
+
+    <section class="content-wrapper">
+            <v-container class="content-container">
+                
+            </v-container>
     </section>
 </template>

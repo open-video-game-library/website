@@ -15,7 +15,7 @@ const props = defineProps({
 <template>
     <v-hover v-slot="{ isHovering, props }">
         <v-card color="secondary" :elevation="isHovering ? 8 : 2" v-bind="props">
-            <v-img :src="image" height="240" cover />
+            <v-img :src="image" height="320" cover />
             <div v-if="isHovering" class="details align-center">
                 <v-card-title class="text-center">{{ name }}</v-card-title>
                 <v-card-text>{{ description }}</v-card-text>
