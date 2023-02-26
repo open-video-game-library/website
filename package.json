@@ -3,14 +3,17 @@
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
+    "start": "nuxt start",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "@mdi/js": "7.0.96",
     "@nuxt/content": "2.2.2",
     "nuxt": "3.0.0",
+    "push-dir": "^0.4.1",
     "sass": "1.56.1",
     "vuetify": "3.0.0"
   },

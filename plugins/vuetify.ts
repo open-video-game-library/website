@@ -1,5 +1,5 @@
 import { createVuetify } from "vuetify"
-import colors from "vuetify/lib/util/colors.mjs"
+// import colors from "vuetify/lib/util/colors.mjs"
 import { aliases, mdi } from "vuetify/lib/iconsets/mdi-svg"
 import * as components from "vuetify/components"
 import * as directives from "vuetify/directives"
@@ -13,8 +13,9 @@ export default defineNuxtPlugin((nuxtApp) => {
                 light: {
                     dark: false,
                     colors: {
-                        primary: colors.purple.darken4, // #4a148c
-                        secondary: colors.grey.lighten5 // #fafafa
+                        primary: '#5E1CE2', // #4a148c
+                        secondary: '#fafafa', // #fafafa
+                        info: '#0e0c0d'
                     }
                 }
             }

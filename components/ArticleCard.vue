@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <v-container>
+    <div>
         <v-hover
             v-slot="{ isHovering }">
             <v-card color="secondary" :elevation="isHovering ? 8 : 2">
@@ -33,5 +33,5 @@ const props = defineProps({
                 </v-container>
             </v-card>
         </v-hover>
-    </v-container>
+    </div>
 </template>
