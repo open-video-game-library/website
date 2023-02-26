@@ -38,15 +38,4 @@ const markdown = marked(atob).replace(/<h1+.*<\/h1>+/g, '')
 </template>
 
 <style scoped>
-.catchphrase {
-
-}
-
-.title {
-
-}
-
-.kana {
-
-}
 </style>

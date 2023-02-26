@@ -1,15 +1,15 @@
 <template>
     <div>
-        <section class="content-wrapper">
+        <section class="content-wrapper bg-gray">
             <v-container class="content-container">
                 <h2>ガイドライン</h2>
                 <p>このガイドラインでは、オープンビデオゲームを研究にご活用いただく際のルールと推奨事項についてご説明いたします。</p>
                 <p>オープンビデオゲームは基本的に<strong>MITライセンス</strong>として公開しております。各ゲームの<a href="https://github.com/open-video-game-library">GitHub</a>も併せてご覧ください。</p>
 
-                <h3 class="mt-8 pt-8 text-center">ご利用OK/NG例</h3>
+                <h3>ご利用OK/NG例</h3>
                 <v-row>
                     <v-col>
-                        <h4 class="my-4 py-4 text-center">OK</h4>
+                        <h4 class="mb-4">OK</h4>
                         <v-card>
                             <v-card-text>営利を目的としない以下のような利用</v-card-text>
                             <v-card-text>
@@ -31,14 +31,14 @@
                     </v-col>
 
                     <v-col>
-                        <h4 class="my-4 py-4 text-center">NG</h4>
+                        <h4 class="mb-4">NG</h4>
                         <v-card>
                             <v-card-text>営利を目的とする利用</v-card-text>
                         </v-card>
                     </v-col>
                 </v-row>
 
-                <h3 class="mt-12 pt-12 my-4 py-4 text-center">研究利用時の推奨事項</h3>
+                <h3>研究利用時の推奨事項</h3>
                 <v-row>
                     <v-col cols="12">
                         <v-card>

@@ -14,19 +14,21 @@ const props = defineProps({
 
 <template>
     <v-hover v-slot="{ isHovering, props }">
-        <v-card color="secondary" :elevation="isHovering ? 8 : 2" v-bind="props">
+        <v-card :elevation="isHovering ? 8 : 2" v-bind="props">
             <v-img :src="image" height="320" cover />
-            <div v-if="isHovering" class="details align-center">
-                <v-card-title class="text-center">{{ name }}</v-card-title>
-                <v-card-text>{{ description }}</v-card-text>
-                <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn v-if="repository" variant="flat" :prependIcon="mdiGithub" :href="`https://github.com/open-video-game-library/${repository}`" color="info">Download</v-btn>
-                    <v-spacer></v-spacer>
-                    <v-btn v-if="repository" variant="flat" :prependIcon="mdiController" :to="`/game/${repository}`" color="primary">Play</v-btn>
-                    <v-spacer></v-spacer>
-                </v-card-actions>
-            </div>
+            <v-row v-if="isHovering" class="details" align="center">
+                <v-col>
+                    <v-card-title class="text-center">{{ name }}</v-card-title>
+                    <v-card-text>{{ description }}</v-card-text>
+                    <v-card-actions>
+                        <v-spacer></v-spacer>
+                        <v-btn v-if="repository" variant="flat" :prependIcon="mdiGithub" :href="`https://github.com/open-video-game-library/${repository}`" color="info">Download</v-btn>
+                        <v-spacer></v-spacer>
+                        <v-btn v-if="repository" variant="flat" :prependIcon="mdiController" :href="`https://localhost:3000/game/${repository}`" color="primary">Play</v-btn>
+                        <v-spacer></v-spacer>
+                    </v-card-actions>
+                </v-col>
+            </v-row>
         </v-card>
     </v-hover>
 </template>
