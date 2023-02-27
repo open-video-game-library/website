@@ -15,7 +15,7 @@ const { data: pickups } = await useFetch('https://script.google.com/macros/s/AKf
     query: { sheetName: "pickup" }
 })
 
-const opensoursegames = pickups.value.filter(pickup => pickup.category == "opensoursegame")
+const opensourcegames = pickups.value.filter(pickup => pickup.category == "opensourcegame")
 const browsergames = pickups.value.filter(pickup => pickup.category == "browsergame")
 const frameworks = pickups.value.filter(pickup => pickup.category == "framework")
 const assets = pickups.value.filter(pickup => pickup.category == "asset")
@@ -59,7 +59,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
 
                 <h3>オープンソースゲーム</h3>
                 <v-row>
-                    <v-col v-for="game in opensoursegames" cols="4" :key="game.name">
+                    <v-col v-for="game in opensourcegames" cols="4" :key="game.name">
                         <ToolMiniCard
                             :name="game.name"
                             :image="game.image"
@@ -71,7 +71,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
                 </v-row>
                 <v-row>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" class="my-8" to="/game/opensoursegame">もっと見る→</v-btn>
+                    <v-btn color="primary" class="my-8" to="/tool/opensourcegame">もっと見る→</v-btn>
                     <v-spacer></v-spacer>
                 </v-row>
 
@@ -89,7 +89,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
                 </v-row>
                 <v-row>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" class="my-8" to="/game/browsergame">もっと見る→</v-btn>
+                    <v-btn color="primary" class="my-8" to="/tool/browsergame">もっと見る→</v-btn>
                     <v-spacer></v-spacer>
                 </v-row>
 
@@ -107,7 +107,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
                 </v-row>
                 <v-row>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" class="my-8" to="/game/framework">もっと見る→</v-btn>
+                    <v-btn color="primary" class="my-8" to="/tool/framework">もっと見る→</v-btn>
                     <v-spacer></v-spacer>
                 </v-row>
 
@@ -125,7 +125,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
                 </v-row>
                 <v-row>
                     <v-spacer></v-spacer>
-                    <v-btn color="primary" class="my-8" to="/game/asset">もっと見る→</v-btn>
+                    <v-btn color="primary" class="my-8" to="/tool/asset">もっと見る→</v-btn>
                     <v-spacer></v-spacer>
                 </v-row>
 
