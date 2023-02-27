@@ -1,5 +1,6 @@
 <script setup>
 const logoImg = new URL('../assets/image/logo_black.png', import.meta.url).href
+const thisyear = (new Date()).getFullYear()
 </script>
 
 <template>
@@ -40,6 +41,10 @@ const logoImg = new URL('../assets/image/logo_black.png', import.meta.url).href
                         <li><NuxtLink to="/tool#extool">その他外部ツール</NuxtLink></li>
                     </ul>
                 </v-col>
+            </v-row>
+
+            <v-row justify="center" class="mt-4 pt-4">
+                <address>OVGL Project from <a href="https://keita-lab.jp/" target="_blank" rel="noopener noreferrer">WATANABE LABORATORY</a> &copy; 2021 - {{ thisyear }}</address>
             </v-row>
         </v-container>
     </v-footer>
