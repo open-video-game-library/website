@@ -5,25 +5,27 @@ import {
     mdiFilePdfBox
 } from "@mdi/js"
 
+const bgPoster = new URL('../assets/image/background.png', import.meta.url).href
+const bgVideo = new URL('../assets/image/background.mp4', import.meta.url).href
+const logoImg = new URL('../assets/image/logo_white.png', import.meta.url).href
+const canImg = [
+    new URL('../assets/image/can1.png', import.meta.url).href,
+    new URL('../assets/image/can2.png', import.meta.url).href,
+    new URL('../assets/image/can3.png', import.meta.url).href
+]
+
 // name, engname, icon, affiliation, hp, twitter, isPubicLink
-const { data: memberdatas } = await useFetch('https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec', {
+const { data: memberData } = await useFetch('https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec', {
     method: "GET",
     query: { sheetName: "member" }
 })
+const members = (memberData.value).filter(data => data.isPublic)
 // title, author, journal, vol, no, pp, date, doi, , filename, isPublic
 const { data: publicationData } = await useFetch('https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec', {
     method: "GET",
     query: { sheetName: "publication" }
 })
 const publications = (publicationData.value).filter(data => data.isPublic)
-
-const logoImg = new URL('../assets/image/logo_white.png', import.meta.url).href
-const bgVideo = new URL('../assets/image/background.mp4', import.meta.url).href
-const canImg = [
-    new URL('../assets/image/can1.png', import.meta.url).href,
-    new URL('../assets/image/can2.png', import.meta.url).href,
-    new URL('../assets/image/can3.png', import.meta.url).href
-]
 
 const download = (id, title) => {
     const a = document.createElement("a")
@@ -38,8 +40,9 @@ const download = (id, title) => {
 <template>
     <div>
         <div class="video-wrapper">
+            <v-img :src="bgPoster" cover height="100%" />
             <video autoplay muted loop playsinline>
-                <source :src="bgVideo" />
+                <source :src="bgVideo" type="video/mp4" />
             </video>
             <v-container class="top-msg">
                 <v-row justify="center" align="center" style="height: calc(100vh - 61px);">
@@ -119,15 +122,15 @@ const download = (id, title) => {
             <v-container class="content-container">
                 <h2>Member</h2>
                 <v-row>
-                    <v-col cols="4" justify="space-around" v-for="memberdata in memberdatas" :key="memberdata.name">
+                    <v-col cols="4" justify="space-around" v-for="member in members" :key="member.name">
                         <MemberCard
-                            :name="memberdata.name"
-                            :engname="memberdata.engname"
-                            :icon="memberdata.icon"
-                            :description="memberdata.description"
-                            :affiliation="memberdata.affiliation"
-                            :hp="memberdata.hp"
-                            :twitter="memberdata.twitter"
+                            :name="member.name"
+                            :engname="member.engname"
+                            :icon="member.icon"
+                            :description="member.description"
+                            :affiliation="member.affiliation"
+                            :hp="member.hp"
+                            :twitter="member.twitter"
                         />
                     </v-col>
                 </v-row>
