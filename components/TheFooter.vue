@@ -1,4 +1,10 @@
 <script setup>
+import {
+    mdiTwitter,
+    mdiGithub,
+    mdiFileCode,
+} from "@mdi/js"
+
 const logoImg = new URL('../assets/image/logo_black.png', import.meta.url).href
 const thisyear = (new Date()).getFullYear()
 </script>
@@ -41,6 +47,17 @@ const thisyear = (new Date()).getFullYear()
                         <li><NuxtLink to="/tool#extool">その他外部ツール</NuxtLink></li>
                     </ul>
                 </v-col>
+
+                <v-col cols="2">
+                    <ul>
+                        <li>リンク</li>
+                        <v-divider></v-divider>
+                        <li><a href="https://github.com/open-video-game-library" class="d-flex align-center"><v-icon :icon="mdiGithub"/> <span>GitHub</span></a></li>
+                        <li><a href="" class="d-flex align-center"><v-icon :icon="mdiTwitter"/> <span>Twitter</span></a></li>
+                        <li><a href="" class="d-flex align-center"><v-icon :icon="mdiFileCode"/> <span>Qiita</span></a></li>
+                        
+                    </ul>
+                </v-col>
             </v-row>
 
             <v-row justify="center" class="mt-4 pt-4">
@@ -50,10 +67,13 @@ const thisyear = (new Date()).getFullYear()
     </v-footer>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 ul {
     list-style-type: none;
     padding: 0;
+    li {
+        margin: 4px 0;
+    }
 }
 
 a {
