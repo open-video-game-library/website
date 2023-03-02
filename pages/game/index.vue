@@ -20,7 +20,7 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url).href
     <section class="content-wrapper">
         <v-container class="content-container">
             <h2>オープンビデオゲーム一覧</h2>
-            <aside>営利目的以外であれば、ご自由にお使いいただけます。詳しいガイドラインは<NuxtLink to="/game/guideline">こちら</NuxtLink>をご覧ください。</aside>
+            <aside>オープンビデオゲームは<strong>MITライセンス</strong>として公開しております。詳しくは各ゲームの<a href="https://github.com/open-video-game-library">GitHub</a>をご覧ください。</aside>
             <v-row>
                 <v-col v-for="game in games" :key="game.name" cols="12" sm="6" xl="4">
                     <GameCard
