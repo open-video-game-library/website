@@ -10,11 +10,11 @@
                     Thank you for your interest in the Open Video Game Library! Please let us know your opinions and requests, so that
                     we continue to develop it to make it even better for you.
                 </aside>
-                <div style="width: 640px; margin: 0 auto;">
+                <v-row justify="center" height="880">
                     <iframe
                         src="https://docs.google.com/forms/d/e/1FAIpQLScpDBuQV0ca-PTrxrzm4QniH_u5_wF-3SGEHx1FT3SVJGbpqg/viewform?embedded=true"
                         width="640" height="880" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-                </div>
+                </v-row>
             </v-container>
         </section>
     </div>
