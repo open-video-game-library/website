@@ -6,6 +6,9 @@ import {
     mdiFileDocument,
     mdiEmail
 } from "@mdi/js"
+
+import { useDisplay } from 'vuetify'
+const { xs } = useDisplay()
 </script>
 
 <template>
@@ -16,7 +19,7 @@ import {
                 width="100"
             ></v-img>
         </template>
-        <template v-slot:append>
+        <template v-slot:append v-if="!xs">
             <v-btn
                 :prependIcon="mdiInformation"
                 to="/"

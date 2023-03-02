@@ -14,10 +14,10 @@ const datas = defineProps({
                 <a :href="datas.link" class="full-link" ></a>
                 <v-container>
                     <v-row>
-                        <v-col cols="4">
+                        <v-col cols="12" sm="4">
                             <v-img :src="datas.image" height="160px"></v-img>
                         </v-col>
-                        <v-col cols="8">
+                        <v-col cols="12" sm="8">
                             <v-card-title>{{ datas.name }}</v-card-title>
                             <v-card-text>{{ datas.description }}</v-card-text>
                         </v-col>

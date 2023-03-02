@@ -72,47 +72,41 @@ const download = (id, title) => {
             <v-container class="content-container">
                 <h2>Open Video Game Library で できること</h2>
                 <v-row>
-                    <v-col>
+                    <v-col cols="12" sm="4">
                         <v-img
+                            class="my-4"
                             :src="canImg[0]"
                             height="120"
                         ></v-img>
+                        <h4>研究で使えるゲームを見つける</h4>
+                        <p>研究で利用されることを前提に我々が作成したオープンビデオゲームや、研究に合わせて編集できる外部のオープンソースゲームを見つけ、利用することができます。</p>
+                        <v-row justify="center" class="my-4">
+                            <v-btn color="primary">ゲームを見つける</v-btn>
+                        </v-row>
                     </v-col>
-                    <v-col>
+                    <v-col cols="12" sm="4">
                         <v-img
+                            class="my-4"
                             :src="canImg[1]"
                             height="120"
                         ></v-img>
+                        <h4>研究で使えるツールを見つける</h4>
+                        <p>ゲームを用いた体験やデバイスの評価実験を行う際に有益な録画機能や、アンケートを見つけ、利用することができます。</p>
+                        <v-row justify="center" class="my-4">
+                            <v-btn color="primary">ツールを見つける</v-btn>
+                        </v-row>
                     </v-col>
-                    <v-col>
+                    <v-col cols="12" sm="4">
                         <v-img
+                            class="my-4"
                             :src="canImg[2]"
                             height="120"
                         ></v-img>
-                    </v-col>
-                </v-row>
-
-                <v-row>
-                    <v-col><h4>研究で使えるゲームを見つける</h4></v-col>
-                    <v-col><h4>研究で使えるツールを見つける</h4></v-col>
-                    <v-col><h4>ゲーム研究の知見を深める</h4></v-col>
-                </v-row>
-
-                <v-row>
-                    <v-col>研究で利用されることを前提に我々が作成したオープンビデオゲームや、研究に合わせて編集できる外部のオープンソースゲームを見つけ、利用することができます。</v-col>
-                    <v-col>ゲームを用いた体験やデバイスの評価実験を行う際に有益な録画機能や、アンケートを見つけ、利用することができます。</v-col>
-                    <v-col>ゲーム開発をする上でためになる情報や、ゲーム研究をする上で抑えておくべきポイントを知ることができます。</v-col>
-                </v-row>
-
-                <v-row>
-                    <v-col class="text-center">
-                        <v-btn color="primary">ゲームを見つける</v-btn>
-                    </v-col>
-                    <v-col class="text-center">
-                        <v-btn color="primary">ツールを見つける</v-btn>
-                    </v-col>
-                    <v-col class="text-center">
-                        <v-btn color="primary">記事を読む</v-btn>
+                        <h4>ゲーム研究の知見を深める</h4>
+                        <p>ゲーム開発をする上でためになる情報や、ゲーム研究をする上で抑えておくべきポイントを知ることができます。</p>
+                        <v-row justify="center" class="my-4">
+                            <v-btn color="primary">記事を読む</v-btn>
+                        </v-row>
                     </v-col>
                 </v-row>
             </v-container>
@@ -122,7 +116,7 @@ const download = (id, title) => {
             <v-container class="content-container">
                 <h2>Member</h2>
                 <v-row>
-                    <v-col cols="4" justify="space-around" v-for="member in members" :key="member.name">
+                    <v-col cols="12" sm="4" lg="3" justify="space-around" v-for="member in members" :key="member.name">
                         <MemberCard
                             :name="member.name"
                             :engname="member.engname"
@@ -140,23 +134,21 @@ const download = (id, title) => {
         <section class="content-wrapper" id="publication">
             <v-container class="content-container">
                 <h2>Publications</h2>
-                <p v-for="publication in publications" :key="publication.title" class="my-2 py-2">
-                    <v-row v-if="publication.isPublic">
-                        <v-col>
-                            {{ publication.author }}.
-                            "{{ publication.title }}".
-                            {{ publication.journal }},
-                            <span v-if="publication.vol">Vol. {{ publication.vol }}, </span>
-                            <span v-if="publication.no">No. {{ publication.no }}, </span>
-                            <span v-if="publication.pp">pp. {{ publication.pp }}, </span>
-                            {{ publication.date }}.
-                            <span v-if="publication.doi"><a :href="publication.doi">{{ publication.doi }}</a>.</span>
-                        </v-col>
-                        <v-col cols="1">
-                            <v-btn color="primary" :icon="mdiFilePdfBox" variant="plain" @click="download(publication.ID, publication.title)"></v-btn>
-                        </v-col>
-                    </v-row>
-                </p>
+                <v-row cols="12" sm="4" v-for="publication in publications" :key="publication.title" class="my-2 py-2">
+                    <v-col cols="10" sm="11" style="word-wrap: break-word;">
+                        {{ publication.author }}.
+                        "{{ publication.title }}".
+                        {{ publication.journal }},
+                        <span v-if="publication.vol">Vol. {{ publication.vol }}, </span>
+                        <span v-if="publication.no">No. {{ publication.no }}, </span>
+                        <span v-if="publication.pp">pp. {{ publication.pp }}, </span>
+                        {{ publication.date }}.
+                        <span v-if="publication.doi"><a :href="publication.doi">{{ publication.doi }}</a>.</span>
+                    </v-col>
+                    <v-col cols="2" sm="1" align-self="center">
+                        <v-btn color="primary" :icon="mdiFilePdfBox" variant="plain" @click="download(publication.ID, publication.title)"></v-btn>
+                    </v-col>
+                </v-row>
             </v-container>
         </section>
 
