@@ -12,8 +12,8 @@ import {
                 <h2>記事一覧</h2>
                 <aside class="d-flex justify-end align-center">
                     <p>各SNSでもゲーム研究・開発に関する情報を発信しています！</p>
-                    <v-btn :prependIcon="mdiFileCode" color="#55c500" class="ml-4 text-white">Qiita</v-btn>
-                    <v-btn :prependIcon="mdiTwitter" color="#1DA1F2" class="ml-4 text-white">Twitter</v-btn>
+                    <v-btn href="https://zenn.dev/openvideogame" :prependIcon="mdiFileCode" color="#3ea8ff" class="ml-4 text-white">Zenn</v-btn>
+                    <v-btn href="https://twitter.com/openvideogame" :prependIcon="mdiTwitter" color="#1DA1F2" class="ml-4 text-white">Twitter</v-btn>
                 </aside>
                 <ContentList path="/article" v-slot="{ list }">
                     <div v-for="article in list" :key="article._path">
