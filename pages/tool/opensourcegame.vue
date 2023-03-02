@@ -20,7 +20,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
                 
                 <h3>スポーツ</h3>
                 <v-row>
-                    <v-col v-for="game in sports" cols="4" :key="game.name">
+                    <v-col v-for="game in sports" cols="12" sm="4" xl="3" :key="game.name">
                         <ToolMiniCard
                             :name="game.name"
                             :image="game.image"
@@ -33,7 +33,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
 
                 <h3>シューティング</h3>
                 <v-row>
-                    <v-col v-for="game in shootings" cols="4" :key="game.name">
+                    <v-col v-for="game in shootings" cols="12" sm="4" xl="3" :key="game.name">
                         <ToolMiniCard
                             :name="game.name"
                             :image="game.image"
@@ -46,7 +46,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
 
                 <h3>プラットフォーム</h3>
                 <v-row>
-                    <v-col v-for="game in platforms" cols="4" :key="game.name">
+                    <v-col v-for="game in platforms" cols="12" sm="4" xl="3" :key="game.name">
                         <ToolMiniCard
                             :name="game.name"
                             :image="game.image"
@@ -59,7 +59,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
 
                 <h3>レーシング / ドライビング</h3>
                 <v-row>
-                    <v-col v-for="game in drivings" cols="4" :key="game.name">
+                    <v-col v-for="game in drivings" cols="12" sm="4" xl="3" :key="game.name">
                         <ToolMiniCard
                             :name="game.name"
                             :image="game.image"
@@ -72,7 +72,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
 
                 <h3>格闘</h3>
                 <v-row>
-                    <v-col v-for="game in fightings" cols="4" :key="game.name">
+                    <v-col v-for="game in fightings" cols="12" sm="4" xl="3" :key="game.name">
                         <ToolMiniCard
                             :name="game.name"
                             :image="game.image"
@@ -85,7 +85,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
 
                 <h3>パズル / ボードゲーム</h3>
                 <v-row>
-                    <v-col v-for="game in puzzles" cols="4" :key="game.name">
+                    <v-col v-for="game in puzzles" cols="12" sm="4" xl="3" :key="game.name">
                         <ToolMiniCard
                             :name="game.name"
                             :image="game.image"
@@ -98,7 +98,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
 
                 <h3>その他</h3>
                 <v-row>
-                    <v-col v-for="game in others" cols="4" :key="game.name">
+                    <v-col v-for="game in others" cols="12" sm="4" xl="3" :key="game.name">
                         <ToolMiniCard
                             :name="game.name"
                             :image="game.image"

@@ -59,7 +59,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
 
                 <h3>オープンソースゲーム</h3>
                 <v-row>
-                    <v-col v-for="game in opensourcegames" cols="4" :key="game.name">
+                    <v-col v-for="game in opensourcegames" cols="12" sm="4" xl="3" :key="game.name">
                         <ToolMiniCard
                             :name="game.name"
                             :image="game.image"
@@ -77,7 +77,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
 
                 <h3>ブラウザで遊べるゲーム</h3>
                 <v-row>
-                    <v-col v-for="game in browsergames" cols="4" :key="game.name">
+                    <v-col v-for="game in browsergames" cols="12" sm="4" xl="3" :key="game.name">
                         <ToolMiniCard
                             :name="game.name"
                             :image="game.image"
@@ -95,7 +95,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
 
                 <h3>開発フレームワーク</h3>
                 <v-row>
-                    <v-col v-for="framework in frameworks" cols="4" :key="framework.name">
+                    <v-col v-for="framework in frameworks" cols="12" sm="4" xl="3" :key="framework.name">
                         <ToolMiniCard
                             :name="framework.name"
                             :image="framework.image"
@@ -113,7 +113,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
 
                 <h3>アセット</h3>
                 <v-row>
-                    <v-col v-for="asset in assets" cols="4" :key="asset.name">
+                    <v-col v-for="asset in assets" cols="12" sm="4" xl="3" :key="asset.name">
                         <ToolMiniCard
                             :name="asset.name"
                             :image="asset.image"
