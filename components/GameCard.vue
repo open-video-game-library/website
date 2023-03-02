@@ -1,31 +1,34 @@
 <script lang="ts" setup>
 import {
     mdiGithub,
-    mdiController
+    mdiController,
+    mdiLanguageHtml5
 } from "@mdi/js"
 
-const props = defineProps({
+const datas = defineProps({
     name: { type: String },
     image: { type: String },
     description: { type: String },
-    repository: { type: String }
+    github: { type: String },
+    webgl: { type: String },
+    standalone: { type: String }
 })
 </script>
 
 <template>
     <v-hover v-slot="{ isHovering, props }">
         <v-card :elevation="isHovering ? 8 : 2" v-bind="props">
-            <v-img :src="image" height="320" cover />
+            <v-img :src="datas.image" height="320" cover />
             <v-row v-if="isHovering" class="details" align="center">
                 <v-col>
-                    <v-card-title class="text-center">{{ name }}</v-card-title>
-                    <v-card-text>{{ description }}</v-card-text>
+                    <v-card-title class="text-center">{{ datas.name }}</v-card-title>
+                    <v-card-text>{{ datas.description }}</v-card-text>
                     <v-card-actions>
+                        <v-btn variant="flat" :prependIcon="mdiGithub" :href="datas.github" color="info" :disabled="datas.github == ''">code</v-btn>
                         <v-spacer></v-spacer>
-                        <v-btn v-if="repository" variant="flat" :prependIcon="mdiGithub" :href="`https://github.com/open-video-game-library/${repository}`" color="info">Download</v-btn>
+                        <v-btn variant="flat" :prependIcon="mdiLanguageHtml5" :href="datas.webgl" color="primary" :disabled="datas.webgl == ''">WebGL</v-btn>
                         <v-spacer></v-spacer>
-                        <v-btn v-if="repository" variant="flat" :prependIcon="mdiController" :href="`https://localhost:3000/game/${repository}`" color="primary">Play</v-btn>
-                        <v-spacer></v-spacer>
+                        <v-btn variant="flat" :prependIcon="mdiController" :href="datas.standalone" color="primary" :disabled="datas.standalone == ''">Standalone</v-btn>
                     </v-card-actions>
                 </v-col>
             </v-row>

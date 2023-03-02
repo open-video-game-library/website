@@ -33,7 +33,7 @@ const thisyear = (new Date()).getFullYear()
                         <v-divider></v-divider>
                         <li><NuxtLink to="/game">オープンビデオゲーム</NuxtLink></li>
                         <li><NuxtLink to="/tool/opensoursegame">オープンソースゲーム</NuxtLink></li>
-                        <li><NuxtLink to="/tool/browsegame">ブラウザ遊べるゲーム</NuxtLink></li>
+                        <li><NuxtLink to="/tool/browsegame">ブラウザで遊べるゲーム</NuxtLink></li>
                         <li><NuxtLink to="/tool/asset">アセット</NuxtLink></li>
                     </ul>
                 </v-col>
@@ -53,7 +53,7 @@ const thisyear = (new Date()).getFullYear()
                         <li>リンク</li>
                         <v-divider></v-divider>
                         <li><a href="https://github.com/open-video-game-library" class="d-flex align-center"><v-icon :icon="mdiGithub"/> <span>GitHub</span></a></li>
-                        <li><a href="" class="d-flex align-center"><v-icon :icon="mdiTwitter"/> <span>Twitter</span></a></li>
+                        <li><a href="https://twitter.com/openvideogame" class="d-flex align-center"><v-icon :icon="mdiTwitter"/> <span>Twitter</span></a></li>
                         <li><a href="" class="d-flex align-center"><v-icon :icon="mdiFileCode"/> <span>Qiita</span></a></li>
                         
                     </ul>

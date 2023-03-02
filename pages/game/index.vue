@@ -27,7 +27,9 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url).href
                         :name="game.name"
                         :image="game.image"
                         :description="game.description"
-                        :repository="game.repository"
+                        :github="game.github"
+                        :webgl="game.webgl"
+                        :standalone="game.standalone"
                     />
                 </v-col>
                 <v-col cols="6">
