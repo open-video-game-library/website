@@ -7,6 +7,24 @@ import {
 
 const logoImg = new URL('../assets/image/logo_black.png', import.meta.url).href
 const thisyear = (new Date()).getFullYear()
+
+const webglSites = [
+    {
+        name: "Unity Play",
+        link: "https://play.unity.com/u/openvideogame",
+        image: "https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://play.unity.com/&size=32"
+    },
+    {
+        name: "unityroom",
+        link: "https://unityroom.com/users/i1tdqfmc0g2wa7y9hje5",
+        image: "https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://unityroom.com/&size=32"
+    },
+    {
+        name: "itch.io",
+        link: "https://open-video-game.itch.io/",
+        image: "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://itch.io/&size=32"
+    }
+]
 </script>
 
 <template>
@@ -16,8 +34,8 @@ const thisyear = (new Date()).getFullYear()
                 :src="logoImg"
                 height="125"
             ></v-img>
-            <v-row justify="space-around" class="mt-4 pt-4">
-                <v-col cols="3">
+            <v-row justify="space-between" class="mt-4 pt-4">
+                <v-col cols="6" sm="3">
                     <ul>
                         <li>この取り組みを知る</li>
                         <v-divider></v-divider>
@@ -27,7 +45,7 @@ const thisyear = (new Date()).getFullYear()
                     </ul>
                 </v-col>
 
-                <v-col cols="3">
+                <v-col cols="6" sm="3">
                     <ul>
                         <li>ゲームを見つける</li>
                         <v-divider></v-divider>
@@ -38,7 +56,7 @@ const thisyear = (new Date()).getFullYear()
                     </ul>
                 </v-col>
 
-                <v-col cols="3">
+                <v-col cols="6" sm="3">
                     <ul>
                         <li>実験ツールを見つける</li>
                         <v-divider></v-divider>
@@ -48,20 +66,43 @@ const thisyear = (new Date()).getFullYear()
                     </ul>
                 </v-col>
 
-                <v-col cols="2">
+                <v-col cols="6" sm="3">
+                    <ul>
+                        <li>　</li>
+                        <v-divider></v-divider>
+                        <li><NuxtLink to="/contact">お問い合わせ</NuxtLink></li>
+                        <li><a href="https://keita-lab.jp/" target="_blank" rel="noopener noreferrer">運営組織</a></li>
+                    </ul>
+                </v-col>
+            </v-row>
+
+            <v-row class="mt-4 pt-4">
+                <v-col cols="4" sm="3">
                     <ul>
                         <li>リンク</li>
                         <v-divider></v-divider>
                         <li><a href="https://github.com/open-video-game-library" class="d-flex align-center"><v-icon :icon="mdiGithub"/> <span>GitHub</span></a></li>
                         <li><a href="https://twitter.com/openvideogame" class="d-flex align-center"><v-icon :icon="mdiTwitter"/> <span>Twitter</span></a></li>
-                        <li><a href="" class="d-flex align-center"><v-icon :icon="mdiFileCode"/> <span>Qiita</span></a></li>
-                        
+                        <li><a href="https://zenn.dev/openvideogame" class="d-flex align-center"><v-icon :icon="mdiFileCode"/> <span>Zenn</span></a></li>
                     </ul>
                 </v-col>
-            </v-row>
+
+                <v-col cols="8" sm="9">
+                    <ul>
+                        <li>WebGL版 掲載サイト</li>
+                        <v-divider></v-divider>
+                        <li class="d-inline-flex">
+                            <v-card v-for="site in webglSites" :key="site.name" width="20" height="20" class="ma-1 pa-1">
+                                <a :href="site.link" class="full-link"></a>
+                                <v-img :src="site.image" cover/>
+                            </v-card>
+                        </li>
+                    </ul>
+                </v-col>
+             </v-row>
 
             <v-row justify="center" class="mt-4 pt-4">
-                <address>OVGL Project from <a href="https://keita-lab.jp/" target="_blank" rel="noopener noreferrer">WATANABE LABORATORY</a> &copy; 2021 - {{ thisyear }}</address>
+                <address>Open Video Game Project &copy; 2021 - {{ thisyear }}</address>
             </v-row>
         </v-container>
     </v-footer>
@@ -73,6 +114,7 @@ ul {
     padding: 0;
     li {
         margin: 4px 0;
+        font-size: 14px;
     }
 }
 
