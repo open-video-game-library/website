@@ -22,7 +22,7 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url).href
             <h2>オープンビデオゲーム一覧</h2>
             <aside>営利目的以外であれば、ご自由にお使いいただけます。詳しいガイドラインは<NuxtLink to="/game/guideline">こちら</NuxtLink>をご覧ください。</aside>
             <v-row>
-                <v-col v-for="game in games" :key="game.name" cols="6">
+                <v-col v-for="game in games" :key="game.name" cols="12" sm="6" xl="4">
                     <GameCard
                         :name="game.name"
                         :image="game.image"
@@ -32,7 +32,7 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url).href
                         :standalone="game.standalone"
                     />
                 </v-col>
-                <v-col cols="6">
+                <v-col cols="12" sm="6" xl="4">
                     <v-hover v-slot="{ isHovering, props }">
                         <v-card :elevation="isHovering ? 8 : 2" v-bind="props">
                             <NuxtLink to="/contact" class="full-link"></NuxtLink>

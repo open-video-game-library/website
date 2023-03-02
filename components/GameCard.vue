@@ -4,6 +4,7 @@ import {
     mdiController,
     mdiLanguageHtml5
 } from "@mdi/js"
+import { useDisplay } from 'vuetify'
 
 const datas = defineProps({
     name: { type: String },
@@ -13,6 +14,8 @@ const datas = defineProps({
     webgl: { type: String },
     standalone: { type: String }
 })
+
+const { xs, mobile } = useDisplay()
 </script>
 
 <template>
@@ -23,13 +26,14 @@ const datas = defineProps({
                 <v-col>
                     <v-card-title class="text-center">{{ datas.name }}</v-card-title>
                     <v-card-text>{{ datas.description }}</v-card-text>
-                    <v-card-actions>
+                    <v-card-actions v-if="!(xs && mobile)">
                         <v-btn variant="flat" :prependIcon="mdiGithub" :href="datas.github" color="info" :disabled="datas.github == ''">code</v-btn>
                         <v-spacer></v-spacer>
                         <v-btn variant="flat" :prependIcon="mdiLanguageHtml5" :href="datas.webgl" color="primary" :disabled="datas.webgl == ''">WebGL</v-btn>
                         <v-spacer></v-spacer>
                         <v-btn variant="flat" :prependIcon="mdiController" :href="datas.standalone" color="primary" :disabled="datas.standalone == ''">Standalone</v-btn>
                     </v-card-actions>
+                    <v-card-text v-else>ゲームで遊ぶにはPCでご覧ください。</v-card-text>
                 </v-col>
             </v-row>
         </v-card>
