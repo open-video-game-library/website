@@ -18,6 +18,7 @@ const browsergames = (browsergameData.value).filter(data => data.isPublic)
                             :image="game.image"
                             :description="game.description"
                             :link="game.link"
+                            style="height: 100%;"
                         />
                     </v-col>
                 </v-row>

@@ -28,6 +28,7 @@ const graphics = (graphicData.value).filter(data => data.isPublic)
                             :image="model.image"
                             :description="model.description"
                             :link="model.link"
+                            style="height: 100%;"
                         />
                     </v-col>
                 </v-row>
@@ -44,6 +45,7 @@ const graphics = (graphicData.value).filter(data => data.isPublic)
                             :image="sound.image"
                             :description="sound.description"
                             :link="sound.link"
+                            style="height: 100%;"
                         />
                     </v-col>
                 </v-row>
@@ -60,6 +62,7 @@ const graphics = (graphicData.value).filter(data => data.isPublic)
                             :image="graphic.image"
                             :description="graphic.description"
                             :link="graphic.link"
+                            style="height: 100%;"
                         />
                     </v-col>
                 </v-row>

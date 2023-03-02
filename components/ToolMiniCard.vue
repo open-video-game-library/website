@@ -12,7 +12,7 @@ const datas = defineProps({
 <template>
     <div>
         <v-hover v-slot="{ isHovering, props }">
-            <v-card color="secondary" :elevation="isHovering ? 8 : 2" v-bind="props" width="100%">
+            <v-card color="secondary" :elevation="isHovering ? 8 : 2" v-bind="props" style="height: 100%;">
                 <a :href="datas.link" target="_blank" rel="noopener noreferrer" class="full-link"></a>
                 <v-img :src="datas.image" height="200" cover></v-img>
                 <v-card-title>{{ datas.name }}</v-card-title>

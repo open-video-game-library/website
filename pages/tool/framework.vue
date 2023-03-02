@@ -18,6 +18,7 @@ const frameworks = (frameworkData.value).filter(data => data.isPublic)
                             :image="framework.image"
                             :description="framework.description"
                             :link="framework.link"
+                            style="height: 100%;"
                         />
                     </v-col>
                 </v-row>
