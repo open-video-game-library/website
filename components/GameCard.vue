@@ -27,11 +27,11 @@ const { xs, mobile } = useDisplay()
                     <v-card-title class="text-center">{{ datas.name }}</v-card-title>
                     <v-card-text>{{ datas.description }}</v-card-text>
                     <v-card-actions v-if="!(xs && mobile)">
+                        <v-spacer></v-spacer>
                         <v-btn variant="flat" :prependIcon="mdiGithub" :href="datas.github" color="info" :disabled="datas.github == ''">code</v-btn>
-                        <v-spacer></v-spacer>
                         <v-btn variant="flat" :prependIcon="mdiLanguageHtml5" :href="datas.webgl" color="primary" :disabled="datas.webgl == ''">WebGL</v-btn>
-                        <v-spacer></v-spacer>
                         <v-btn variant="flat" :prependIcon="mdiController" :href="datas.standalone" color="primary" :disabled="datas.standalone == ''">Standalone</v-btn>
+                        <v-spacer></v-spacer>
                     </v-card-actions>
                     <v-card-text v-else>ゲームで遊ぶにはPCでご覧ください。</v-card-text>
                 </v-col>
