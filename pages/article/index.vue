@@ -15,6 +15,7 @@ import {
                     <v-btn href="https://zenn.dev/openvideogame" :prependIcon="mdiFileCode" color="#3ea8ff" class="ml-4 text-white">Zenn</v-btn>
                     <v-btn href="https://twitter.com/openvideogame" :prependIcon="mdiTwitter" color="#1DA1F2" class="ml-4 text-white">Twitter</v-btn>
                 </aside>
+
                 <ContentList path="/article" v-slot="{ list }">
                     <div v-for="article in list" :key="article._path">
                         <ArticleCard
@@ -22,9 +23,9 @@ import {
                             :title="article.title"
                             :description="article.description"
                             :thumbnail="article.thumbnail"
+                            :link="article.link"
                             :created_at="article.created_at"
                             :updated_at="article.updated_at"
-                            class="my-8"
                         />
                     </div>
                 </ContentList>

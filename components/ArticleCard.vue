@@ -4,6 +4,7 @@ const props = defineProps({
     title: { type: String },
     description: { type: String },
     thumbnail: { type: String },
+    link: { type: String },
     created_at: { type: String },
     updated_at: { type: String }
 })
@@ -14,7 +15,8 @@ const props = defineProps({
         <v-hover
             v-slot="{ isHovering }">
             <v-card color="secondary" :elevation="isHovering ? 8 : 2">
-                <NuxtLink :to="props.path" class="full-link" />
+                <a v-if="props.link" :to="props.link" class="full-link"></a>
+                <NuxtLink v-else :to="props.path" class="full-link"></NuxtLink>
                 <v-container>
                     <v-row>
                         <v-col cols="4">
