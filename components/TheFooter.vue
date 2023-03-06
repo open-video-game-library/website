@@ -89,7 +89,7 @@ const webglSites = [
 
                 <v-col cols="8" sm="9">
                     <ul>
-                        <li>WebGL版 掲載サイト</li>
+                        <li>ゲーム掲載サイト</li>
                         <v-divider></v-divider>
                         <li class="d-inline-flex">
                             <v-card v-for="site in webglSites" :key="site.name" width="20" height="20" class="ma-1 pa-1">

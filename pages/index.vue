@@ -51,7 +51,7 @@ const download = (id, title) => {
                         <p>「ゲーム研究を行いやすくし、ゲーム研究の発展に貢献すること」を目的とした、ゲーム研究者のためのライブラリ</p>
                         <v-row justify="center" class="my-4 py-4">
                             <v-btn
-                                color="primary"
+                                color="info"
                                 class="mx-8"
                                 :prepend-icon="mdiGithub"
                                 href="https://github.com/open-video-game-library"
@@ -81,7 +81,7 @@ const download = (id, title) => {
                         <h4>研究で使えるゲームを見つける</h4>
                         <p>研究で利用されることを前提に我々が作成したオープンビデオゲームや、研究に合わせて編集できる外部のオープンソースゲームを見つけ、利用することができます。</p>
                         <v-row justify="center" class="my-4">
-                            <v-btn color="primary">ゲームを見つける</v-btn>
+                            <v-btn color="primary" to="/game">ゲームを見つける</v-btn>
                         </v-row>
                     </v-col>
                     <v-col cols="12" sm="4">
@@ -93,7 +93,7 @@ const download = (id, title) => {
                         <h4>研究で使えるツールを見つける</h4>
                         <p>ゲームを用いた体験やデバイスの評価実験を行う際に有益な録画機能や、アンケートを見つけ、利用することができます。</p>
                         <v-row justify="center" class="my-4">
-                            <v-btn color="primary">ツールを見つける</v-btn>
+                            <v-btn color="primary" to="/tool">ツールを見つける</v-btn>
                         </v-row>
                     </v-col>
                     <v-col cols="12" sm="4">
@@ -105,7 +105,7 @@ const download = (id, title) => {
                         <h4>ゲーム研究の知見を深める</h4>
                         <p>ゲーム開発をする上でためになる情報や、ゲーム研究をする上で抑えておくべきポイントを知ることができます。</p>
                         <v-row justify="center" class="my-4">
-                            <v-btn color="primary">記事を読む</v-btn>
+                            <v-btn color="primary" to="/article">記事を読む</v-btn>
                         </v-row>
                     </v-col>
                 </v-row>
