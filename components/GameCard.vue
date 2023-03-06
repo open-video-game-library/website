@@ -28,9 +28,9 @@ const { xs, mobile } = useDisplay()
                     <v-card-text>{{ datas.description }}</v-card-text>
                     <v-card-actions v-if="!(xs && mobile)">
                         <v-spacer></v-spacer>
-                        <v-btn variant="flat" :prependIcon="mdiGithub" :href="datas.github" color="info" :disabled="datas.github == ''">code</v-btn>
-                        <v-btn variant="flat" :prependIcon="mdiLanguageHtml5" :href="datas.webgl" color="primary" :disabled="datas.webgl == ''">WebGL</v-btn>
-                        <v-btn variant="flat" :prependIcon="mdiController" :href="datas.standalone" color="primary" :disabled="datas.standalone == ''">Standalone</v-btn>
+                        <v-btn :prependIcon="mdiGithub" :href="datas.github" color="info" variant="flat" :disabled="datas.github == ''">code</v-btn>
+                        <v-btn :prependIcon="mdiLanguageHtml5" :href="datas.webgl" color="primary" variant="flat" :disabled="datas.webgl == ''">WebGL</v-btn>
+                        <v-btn :prependIcon="mdiController" :href="datas.standalone" color="primary" variant="flat" :disabled="datas.standalone == ''">Standalone</v-btn>
                         <v-spacer></v-spacer>
                     </v-card-actions>
                     <v-card-text v-else>ゲームで遊ぶにはPCでご覧ください。</v-card-text>

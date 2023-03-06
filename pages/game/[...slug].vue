@@ -16,9 +16,9 @@ const gamedata = gamedatas.value.filter(
   (e) => e.repository === route.params.slug[0]
 )[0];
 
-// GithubからREADME.JP.mdの情報を取得する
+// GithubからREADME.mdの情報を取得する
 const { data: readme } = await useFetch(
-  `https://api.github.com/repos/open-video-game-library/${gamedata.repository}/contents/README.JP.md`,
+  `https://api.github.com/repos/open-video-game-library/${gamedata.repository}/contents/README.md`,
   {
     method: "GET",
   }
@@ -29,12 +29,12 @@ const markdown = marked(atob).replace(/<h1+.*<\/h1>+/g, "");
 </script>
 
 <template>
-  <v-container>
-    <article>
+  <article class="content-wrapper">
+    <v-container class="content-container">
       <p class="catchphrase">{{ gamedata.catchphrase }}</p>
       <h1 class="title">{{ gamedata.name }}</h1>
       <p class="kana">{{ gamedata.kana }}</p>
-      <div>
+      <div class="mx-auto">
         <iframe
           v-if="gamedata.webgl"
           :src="gamedata.webgl"
@@ -46,10 +46,10 @@ const markdown = marked(atob).replace(/<h1+.*<\/h1>+/g, "");
         ></iframe>
       </div>
       <v-btn
-        v-if="gamedata.repository"
+        v-if="gamedata.github"
         color="grey darken-3"
         elevation="2"
-        :href="`https://github.com/open-video-game-library/${gamedata.repository}`"
+        :href="gamedata.github"
         >Github</v-btn
       >
       <v-btn
@@ -62,8 +62,8 @@ const markdown = marked(atob).replace(/<h1+.*<\/h1>+/g, "");
         <h2 class="readme-title">README</h2>
         <div class="marked" v-html="markdown"></div>
       </div>
-    </article>
-  </v-container>
+    </v-container>
+  </article>
 </template>
 
 <style scoped>
@@ -75,8 +75,6 @@ const markdown = marked(atob).replace(/<h1+.*<\/h1>+/g, "");
   font-size: 36px;
   font-weight: bold;
   color: #04062d;
-}
-.kana {
 }
 
 .readme-title {

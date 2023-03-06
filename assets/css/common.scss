@@ -102,7 +102,13 @@ aside {
   }
 
   pre {
-    background-color: black;
+    background-color: #454545;
+    color: white;
     padding: 1%;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
