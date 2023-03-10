@@ -6,7 +6,10 @@ import {
 } from "@mdi/js"
 
 const config = useRuntimeConfig()
-console.log(config.public.internalDbApi)
+console.log("config.internalDbApi: " + config.internalDbApi)
+console.log("process.env.internalDbApi: " + process.env.internalDbApi)
+console.log("process.env.NUXT_INTERNAL_DB_API: " + process.env.NUXT_INTERNAL_DB_API)
+console.log("process.env.INTERNAL_DB_API: " + process.env.INTERNAL_DB_API)
 
 const bgPoster = new URL('../assets/image/background.png', import.meta.url).href
 const bgVideo = new URL('../assets/image/background.mp4', import.meta.url).href
