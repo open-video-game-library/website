@@ -4,6 +4,7 @@ import {
     mdiController,
     mdiFilePdfBox
 } from "@mdi/js"
+import sheetConfig from "assets/.sheetConfig.js"
 
 const bgPoster = new URL('../assets/image/background.png', import.meta.url).href
 const bgVideo = new URL('../assets/image/background.mp4', import.meta.url).href
@@ -14,20 +15,29 @@ const canImg = [
     new URL('../assets/image/can3.png', import.meta.url).href
 ]
 
-// name, engname, icon, affiliation, hp, twitter, isPubicLink
-const { data: memberData } = await useFetch('https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec', {
+/**
+ * opengame基本情報DBのスプレッドシートから、MemberとPublicationのデータを読み込む
+ */
+const { data: memberData } = await useFetch(sheetConfig.internalDatabaseApi, {
     method: "GET",
     query: { sheetName: "member" }
 })
-const members = (memberData.value).filter(data => data.isPublic)
-// title, author, journal, vol, no, pp, date, doi, , filename, isPublic
-const { data: publicationData } = await useFetch('https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec', {
+const { data: publicationData } = await useFetch(sheetConfig.internalDatabaseApi, {
     method: "GET",
     query: { sheetName: "publication" }
 })
+
+/**
+ * 上記で読み込んだMemberとPublicationのデータから、isPublicがtrueのものだけ抽出する
+ */
+const members = (memberData.value).filter(data => data.isPublic)
 const publications = (publicationData.value).filter(data => data.isPublic)
 
-const download = (id, title) => {
+/**
+ * 指定されたIDの論文をダウンロード（別タブでPDFファイルを表示）させる
+ * @param {*} id 論文のID
+ */
+const download = (id) => {
     const a = document.createElement("a")
     a.href = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href
     a.target = "_blank"
@@ -146,7 +156,7 @@ const download = (id, title) => {
                         <span v-if="publication.doi"><a :href="publication.doi">{{ publication.doi }}</a>.</span>
                     </v-col>
                     <v-col cols="2" sm="1" align-self="center">
-                        <v-btn color="primary" :icon="mdiFilePdfBox" variant="plain" @click="download(publication.ID, publication.title)"></v-btn>
+                        <v-btn color="primary" :icon="mdiFilePdfBox" variant="plain" @click="download(publication.ID)"></v-btn>
                     </v-col>
                 </v-row>
             </v-container>
