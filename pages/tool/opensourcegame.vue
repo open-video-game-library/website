@@ -1,14 +1,32 @@
 <script setup>
-const { data: opensourcegameData } = await useFetch('https://script.google.com/macros/s/AKfycbxc714YcsKPB0pP9K-o6JHhli4BjNjP6aGu17Bplr-H4j2vKhgoXYJT4Wr3HZWjLVGaLQ/exec', {
+/** 環境変数を扱うRuntimeConfigの使用 */
+const config = useRuntimeConfig()
+
+/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだオープンソースゲームのデータ */
+const { data: opensourcegameData } = await useFetch(config.public.externalDbApi, {
     method: "GET",
     query: { sheetName: "opensourcegame" }
 })
+
+/** @type {Object[]} オープンソースゲームのデータからスポーツのジャンルを抽出したデータ */
 const sports = (opensourcegameData.value).filter(data => data.genre == "sports" && data.isPublic)
+
+/** @type {Object[]} オープンソースゲームのデータからシューティングのジャンルを抽出したデータ */
 const shootings = (opensourcegameData.value).filter(data => data.genre == "shooting" && data.isPublic)
+
+/** @type {Object[]} オープンソースゲームのデータからプラットフォームのジャンルを抽出したデータ */
 const platforms = (opensourcegameData.value).filter(data => data.genre == "platform" && data.isPublic)
+
+/** @type {Object[]} オープンソースゲームのデータから格闘のジャンルを抽出したデータ */
 const fightings = (opensourcegameData.value).filter(data => data.genre == "fighting" && data.isPublic)
+
+/** @type {Object[]} オープンソースゲームのデータからパズルとボードゲームのジャンルを抽出したデータ */
 const puzzles = (opensourcegameData.value).filter(data => data.genre == "puzzle" && data.isPublic)
+
+/** @type {Object[]} オープンソースゲームのデータからドライビングのジャンルを抽出したデータ */
 const drivings = (opensourcegameData.value).filter(data => data.genre == "driving" && data.isPublic)
+
+/** @type {Object[]} オープンソースゲームのデータからその他のジャンルを抽出したデータ */
 const others = (opensourcegameData.value).filter(data => data.genre == "other" && data.isPublic)
 </script>
 

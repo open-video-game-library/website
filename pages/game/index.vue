@@ -1,18 +1,27 @@
 <script setup>
+/** Material Design Iconのインポート */
 import {
     mdiGithub,
     mdiController,
     mdiFilePdfBox
 } from "@mdi/js"
 
-// name, kana, catchphrase, description, repository, webgl, standalone
-const { data: games } = await useFetch('https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec', {
+/** 環境変数を扱うRuntimeConfigの使用 */
+const config = useRuntimeConfig()
+
+/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだ3Dモデルのアセットのデータ */
+const { data: games } = await useFetch(config.public.internalDbApi, {
     method: "GET",
     query: { sheetName: "openvideogame" }
 })
 
+/** @type {String} コンタクトへのリンク画像の参照URL */
 const moreImg = new URL('../../assets/image/more.png', import.meta.url).href
+
+/** @type {String} パラメータ入力の説明画像の参照URL */
 const inputImg = new URL('../../assets/image/input.png', import.meta.url).href
+
+/** @type {String} パラメータ出力の説明画像の参照URL */
 const outputImg = new URL('../../assets/image/output.png', import.meta.url).href
 </script>
 
@@ -55,10 +64,10 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url).href
             <aside>オープンビデオゲームでは、コードを書くことなくパラメータを調整・取得することができます。</aside>
             <h3>パラメータの調整</h3>
             <aside>パラメータ調整によって、実験環境などの都合に合わせてゲームの難易度や仕様を手軽に調整することができます。数値調整だけでなく、画像差し替えによるビジュアルの調整も可能です。</aside>
-            <v-img class="mx-auto" :src="inputImg" width="80%" />
+            <v-img class="mx-auto" :src="inputImg" />
             <h3>パラメータの取得</h3>
             <aside>観察だけでは把握しきれない、ゲームの内部データを取得することができます。ゲーム体験やコントローラデバイスの評価分析に活用できます。</aside>
-            <v-img class="mx-auto" :src="outputImg" width="80%" />
+            <v-img class="mx-auto" :src="outputImg" />
         </v-container>
     </section>
 </template>

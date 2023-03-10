@@ -1,10 +1,11 @@
 <script setup>
 import { marked } from "marked";
 
+/** 環境変数を扱うRuntimeConfigの使用 */
+const config = useRuntimeConfig()
+
 // DBの情報を一旦全部取得
-const { data: gamedatas } = await useFetch(
-  "https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec",
-  {
+const { data: gamedatas } = await useFetch(config.public.internalDbApi, {
     method: "GET",
     query: { sheetName: "openvideogame" },
   }

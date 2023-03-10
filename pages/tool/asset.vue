@@ -1,18 +1,32 @@
 <script setup>
-const { data: modelData } = await useFetch('https://script.google.com/macros/s/AKfycbxc714YcsKPB0pP9K-o6JHhli4BjNjP6aGu17Bplr-H4j2vKhgoXYJT4Wr3HZWjLVGaLQ/exec', {
+/** 環境変数を扱うRuntimeConfigの使用 */
+const config = useRuntimeConfig()
+
+/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだ3Dモデルのアセットのデータ */
+const { data: modelData } = await useFetch(config.public.externalDbApi, {
     method: "GET",
     query: { sheetName: "asset_3Dmodel" }
 })
+
+/** @type {Object[]} isPublicがtrueのものだけ抽出した3Dモデルのアセットのデータ */
 const models = (modelData.value).filter(data => data.isPublic)
-const { data: soundData } = await useFetch('https://script.google.com/macros/s/AKfycbxc714YcsKPB0pP9K-o6JHhli4BjNjP6aGu17Bplr-H4j2vKhgoXYJT4Wr3HZWjLVGaLQ/exec', {
+
+/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだサウンドのアセットのデータ */
+const { data: soundData } = await useFetch(config.public.externalDbApi, {
     method: "GET",
     query: { sheetName: "asset_sound" }
 })
+
+/** @type {Object[]} isPublicがtrueのものだけ抽出したサウンドのアセットのデータ */
 const sounds = (soundData.value).filter(data => data.isPublic)
-const { data: graphicData } = await useFetch('https://script.google.com/macros/s/AKfycbxc714YcsKPB0pP9K-o6JHhli4BjNjP6aGu17Bplr-H4j2vKhgoXYJT4Wr3HZWjLVGaLQ/exec', {
+
+/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだグラフィック/UIのアセットのデータ */
+const { data: graphicData } = await useFetch(config.public.externalDbApi, {
     method: "GET",
     query: { sheetName: "asset_graphic" }
 })
+
+/** @type {Object[]} isPublicがtrueのものだけ抽出したグラフィック/UIのデータ */
 const graphics = (graphicData.value).filter(data => data.isPublic)
 </script>
 
