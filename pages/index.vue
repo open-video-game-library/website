@@ -4,7 +4,7 @@ import {
     mdiController,
     mdiFilePdfBox
 } from "@mdi/js"
-import sheetConfig from "../assets/.sheetConfig.js"
+import sheetConfig from "./.sheetConfig.js"
 
 const bgPoster = new URL('../assets/image/background.png', import.meta.url).href
 const bgVideo = new URL('../assets/image/background.mp4', import.meta.url).href
