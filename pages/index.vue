@@ -6,7 +6,7 @@ import {
 } from "@mdi/js"
 
 const config = useRuntimeConfig()
-console.log("config.internalDbApi: " + config.internalDbApi)
+console.log("config.internalDbApi: " + config.public.internalDbApi)
 console.log("config.NUXT_INTERNAL_DB_API: " + config.NUXT_INTERNAL_DB_API)
 console.log("config.INTERNAL_DB_API: " + config.INTERNAL_DB_API)
 

@@ -35,7 +35,9 @@ export default defineNuxtConfig({
     },
     ssr: true,
     runtimeConfig: {
-        internalDbApi: NUXT_INTERNAL_DB_API,
-        externalDbApi: NUXT_EXTERNAL_DB_API
+        public: {
+            internalDbApi: NUXT_INTERNAL_DB_API,
+            externalDbApi: NUXT_EXTERNAL_DB_API
+        }
     }
 })
