@@ -1,54 +1,51 @@
 <script setup>
+/** Meterial Design Iconのインポート */
 import {
     mdiGithub,
     mdiController,
     mdiFilePdfBox
 } from "@mdi/js"
 
+/** 環境変数を扱うRuntimeConfigの使用 */
 const config = useRuntimeConfig()
-console.log("config.internalDbApi: " + config.public.internalDbApi)
-console.log("config.NUXT_INTERNAL_DB_API: " + config.NUXT_INTERNAL_DB_API)
-console.log("config.INTERNAL_DB_API: " + config.INTERNAL_DB_API)
 
-
+/** @type {String} 背景動画のサムネイル画像の参照URL */
 const bgPoster = new URL('../assets/image/background.png', import.meta.url).href
+
+/** @type {String} 背景動画の参照URL */
 const bgVideo = new URL('../assets/image/background.mp4', import.meta.url).href
+
+/** @type {String} ロゴ画像の参照URL */
 const logoImg = new URL('../assets/image/logo_white.png', import.meta.url).href
+
+/** @type {String[]} Open Video Game Library で できること の画像の参照URL */
 const canImg = [
     new URL('../assets/image/can1.png', import.meta.url).href,
     new URL('../assets/image/can2.png', import.meta.url).href,
     new URL('../assets/image/can3.png', import.meta.url).href
 ]
 
-/**
- * opengame基本情報DBのスプレッドシートから、MemberとPublicationのデータを読み込む
- */
+/** @type {Object[]} opengame基本情報DBのスプレッドシートから読み込んだメンバーデータ */
 const { data: memberData } = await useFetch(config.public.internalDbApi, {
     method: "GET",
     query: { sheetName: "member" }
 })
-// const { data: publicationData } = await useFetch(config.internalDbApi, {
-//     method: "GET",
-//     query: { sheetName: "publication" }
-// })
-// const { data: memberData } = await useFetch("https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec", {
-//     method: "GET",
-//     query: { sheetName: "member" }
-// })
-const { data: publicationData } = await useFetch("https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec", {
+
+/** @type {Object[]} isPublicがtrueのものだけ抽出したメンバーデータ */
+const members = (memberData.value).filter(data => data.isPublic)
+
+/** @type {Object[]} opengame基本情報DBのスプレッドシートから読み込んだ論文データ */
+const { data: publicationData } = await useFetch(config.public.internalDbApi, {
     method: "GET",
     query: { sheetName: "publication" }
 })
 
-/**
- * 上記で読み込んだMemberとPublicationのデータから、isPublicがtrueのものだけ抽出する
- */
-const members = (memberData.value).filter(data => data.isPublic)
+/** @type {Object[]} isPublicがtrueのものだけ抽出した論文データ */
 const publications = (publicationData.value).filter(data => data.isPublic)
 
 /**
  * 指定されたIDの論文をダウンロード（別タブでPDFファイルを表示）させる
- * @param {*} id 論文のID
+ * @param {Number} id 論文のID
  */
 const download = (id) => {
     const a = document.createElement("a")

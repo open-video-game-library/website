@@ -1,23 +1,35 @@
 <script setup>
-// name, description, image, link
-const { data: tools } = await useFetch('https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec', {
+/** 環境変数を扱うRuntimeConfigの使用 */
+const config = useRuntimeConfig()
+
+/** @type {Object[]} opengame基本情報DBのスプレッドシートから読み込んだツールデータ */
+const { data: tools } = await useFetch(config.public.internalDbApi, {
     method: "GET",
     query: { sheetName: "tool" }
 })
 
-const { data: extools } = await useFetch('https://script.google.com/macros/s/AKfycbxc714YcsKPB0pP9K-o6JHhli4BjNjP6aGu17Bplr-H4j2vKhgoXYJT4Wr3HZWjLVGaLQ/exec', {
+/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだ外部ツールデータ */
+const { data: extools } = await useFetch(config.public.externalDbApi, {
     method: "GET",
     query: { sheetName: "tool" }
 })
 
-const { data: pickups } = await useFetch('https://script.google.com/macros/s/AKfycbxc714YcsKPB0pP9K-o6JHhli4BjNjP6aGu17Bplr-H4j2vKhgoXYJT4Wr3HZWjLVGaLQ/exec', {
+/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだピックアップデータ */
+const { data: pickups } = await useFetch(config.public.externalDbApi, {
     method: "GET",
     query: { sheetName: "pickup" }
 })
 
+/** @type {Object[]} ピックアップデータからオープンソースゲームを抽出したデータ */
 const opensourcegames = pickups.value.filter(pickup => pickup.category == "opensourcegame")
+
+/** @type {Object[]} ピックアップデータからブラウザゲームを抽出したデータ */
 const browsergames = pickups.value.filter(pickup => pickup.category == "browsergame")
+
+/** @type {Object[]} ピックアップデータからフレームワークを抽出したデータ */
 const frameworks = pickups.value.filter(pickup => pickup.category == "framework")
+
+/** @type {Object[]} ピックアップデータからアセットを抽出したデータ */
 const assets = pickups.value.filter(pickup => pickup.category == "asset")
 </script>
 
