@@ -34,7 +34,11 @@ export default defineNuxtConfig({
     },
     ssr: true,
     runtimeConfig: {
-        internalDbApi: "",
-        externalDbApi: ""
+        internalDbApi: '',
+        externalDbApi: '',
+        public: {
+            internalDbApi: '',
+            externalDbApi: ''
+        }
     }
 })

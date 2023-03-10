@@ -6,7 +6,7 @@ import {
 } from "@mdi/js"
 
 const config = useRuntimeConfig()
-console.log(config)
+console.log(config.public.internalDbApi)
 
 const bgPoster = new URL('../assets/image/background.png', import.meta.url).href
 const bgVideo = new URL('../assets/image/background.mp4', import.meta.url).href
