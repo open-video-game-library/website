@@ -32,5 +32,11 @@ export default defineNuxtConfig({
             ]
         }
     },
-    ssr: true
+    ssr: true,
+    runtimeConfig: {
+        public: {
+            INTERNAL_DB_API: process.env.INTERNAL_DB_API,
+            EXTERNAL_DB_API: process.env.EXTERNAL_DB_API
+        },
+    },
 })

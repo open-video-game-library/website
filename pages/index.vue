@@ -4,7 +4,8 @@ import {
     mdiController,
     mdiFilePdfBox
 } from "@mdi/js"
-import sheetConfig from "./.sheetConfig.js"
+
+const config = useRuntimeConfig()
 
 const bgPoster = new URL('../assets/image/background.png', import.meta.url).href
 const bgVideo = new URL('../assets/image/background.mp4', import.meta.url).href
@@ -18,11 +19,11 @@ const canImg = [
 /**
  * opengame基本情報DBのスプレッドシートから、MemberとPublicationのデータを読み込む
  */
-const { data: memberData } = await useFetch(sheetConfig.internalDatabaseApi, {
+const { data: memberData } = await useFetch(config.INTERNAL_DB_API, {
     method: "GET",
     query: { sheetName: "member" }
 })
-const { data: publicationData } = await useFetch(sheetConfig.internalDatabaseApi, {
+const { data: publicationData } = await useFetch(config.INTERNAL_DB_API, {
     method: "GET",
     query: { sheetName: "publication" }
 })
