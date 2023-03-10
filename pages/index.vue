@@ -23,18 +23,18 @@ const canImg = [
 /**
  * opengame基本情報DBのスプレッドシートから、MemberとPublicationのデータを読み込む
  */
-// const { data: memberData } = await useFetch(config.internalDbApi, {
-//     method: "GET",
-//     query: { sheetName: "member" }
-// })
+const { data: memberData } = await useFetch(config.public.internalDbApi, {
+    method: "GET",
+    query: { sheetName: "member" }
+})
 // const { data: publicationData } = await useFetch(config.internalDbApi, {
 //     method: "GET",
 //     query: { sheetName: "publication" }
 // })
-const { data: memberData } = await useFetch("https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec", {
-    method: "GET",
-    query: { sheetName: "member" }
-})
+// const { data: memberData } = await useFetch("https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec", {
+//     method: "GET",
+//     query: { sheetName: "member" }
+// })
 const { data: publicationData } = await useFetch("https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec", {
     method: "GET",
     query: { sheetName: "publication" }
