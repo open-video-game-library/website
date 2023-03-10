@@ -1,5 +1,3 @@
-const { NUXT_INTERNAL_DB_API, NUXT_EXTERNAL_DB_API } = process.env
-
 export default defineNuxtConfig({
     app:{
         head: {
@@ -36,8 +34,8 @@ export default defineNuxtConfig({
     ssr: true,
     runtimeConfig: {
         public: {
-            internalDbApi: NUXT_INTERNAL_DB_API,
-            externalDbApi: NUXT_EXTERNAL_DB_API
+            internalDbApi: process.env.NUXT_INTERNAL_DB_API,
+            externalDbApi: process.env.NUXT_EXTERNAL_DB_API
         }
     }
 })
