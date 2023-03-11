@@ -43,7 +43,7 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url).href
                                 :standalone="game.standalone"
                             />
                         </v-col>
-                        <v-col cols="12" sm="6" xl="4">
+                        <v-col cols="12" sm="6">
                             <v-hover v-slot="{ isHovering, props }">
                                 <v-card :elevation="isHovering ? 8 : 2" v-bind="props">
                                     <NuxtLink to="/contact" class="full-link"></NuxtLink>
