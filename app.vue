@@ -2,7 +2,7 @@
     <NuxtLayout>
         <NuxtLoadingIndicator
             color="white"
-            :height="2"
+            :height="3"
             :duration="5000"
             :throttle="200"
         />

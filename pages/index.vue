@@ -88,90 +88,92 @@ const download = (id) => {
             </v-container>
         </div>
 
-        <section class="content-wrapper" id="abstract">
-            <v-container class="content-container">
-                <h2>Open Video Game Library で できること</h2>
-                <v-row>
-                    <v-col cols="12" sm="4">
-                        <v-img
-                            class="my-4"
-                            :src="canImg[0]"
-                            height="120"
-                        ></v-img>
-                        <h4>研究で使えるゲームを見つける</h4>
-                        <p>研究で利用されることを前提に我々が作成したオープンビデオゲームや、研究に合わせて編集できる外部のオープンソースゲームを見つけ、利用することができます。</p>
-                        <v-row justify="center" class="my-4">
-                            <v-btn color="primary" to="/game">ゲームを見つける</v-btn>
-                        </v-row>
-                    </v-col>
-                    <v-col cols="12" sm="4">
-                        <v-img
-                            class="my-4"
-                            :src="canImg[1]"
-                            height="120"
-                        ></v-img>
-                        <h4>研究で使えるツールを見つける</h4>
-                        <p>ゲームを用いた体験やデバイスの評価実験を行う際に有益な録画機能や、アンケートを見つけ、利用することができます。</p>
-                        <v-row justify="center" class="my-4">
-                            <v-btn color="primary" to="/tool">ツールを見つける</v-btn>
-                        </v-row>
-                    </v-col>
-                    <v-col cols="12" sm="4">
-                        <v-img
-                            class="my-4"
-                            :src="canImg[2]"
-                            height="120"
-                        ></v-img>
-                        <h4>ゲーム研究の知見を深める</h4>
-                        <p>ゲーム開発をする上でためになる情報や、ゲーム研究をする上で抑えておくべきポイントを知ることができます。</p>
-                        <v-row justify="center" class="my-4">
-                            <v-btn color="primary" to="/article">記事を読む</v-btn>
-                        </v-row>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </section>
+        <v-container>
+            <section class="content-wrapper" id="abstract">
+                <div class="content-container">
+                    <h2>Open Video Game Library で できること</h2>
+                    <v-row>
+                        <v-col cols="12" sm="4">
+                            <v-img
+                                class="my-4"
+                                :src="canImg[0]"
+                                height="120"
+                            ></v-img>
+                            <h4>研究で使えるゲームを見つける</h4>
+                            <p>研究で利用されることを前提に我々が作成したオープンビデオゲームや、研究に合わせて編集できる外部のオープンソースゲームを見つけ、利用することができます。</p>
+                            <v-row justify="center" class="my-4">
+                                <v-btn color="primary" to="/game">ゲームを見つける</v-btn>
+                            </v-row>
+                        </v-col>
+                        <v-col cols="12" sm="4">
+                            <v-img
+                                class="my-4"
+                                :src="canImg[1]"
+                                height="120"
+                            ></v-img>
+                            <h4>研究で使えるツールを見つける</h4>
+                            <p>ゲームを用いた体験やデバイスの評価実験を行う際に有益な録画機能や、アンケートを見つけ、利用することができます。</p>
+                            <v-row justify="center" class="my-4">
+                                <v-btn color="primary" to="/tool">ツールを見つける</v-btn>
+                            </v-row>
+                        </v-col>
+                        <v-col cols="12" sm="4">
+                            <v-img
+                                class="my-4"
+                                :src="canImg[2]"
+                                height="120"
+                            ></v-img>
+                            <h4>ゲーム研究の知見を深める</h4>
+                            <p>ゲーム開発をする上でためになる情報や、ゲーム研究をする上で抑えておくべきポイントを知ることができます。</p>
+                            <v-row justify="center" class="my-4">
+                                <v-btn color="primary" to="/article">記事を読む</v-btn>
+                            </v-row>
+                        </v-col>
+                    </v-row>
+                </div>
+            </section>
 
-        <section class="content-wrapper bg-gray" id="member">
-            <v-container class="content-container">
-                <h2>Member</h2>
-                <v-row>
-                    <v-col cols="12" sm="4" lg="3" justify="space-around" v-for="member in members" :key="member.name">
-                        <MemberCard
-                            :name="member.name"
-                            :engname="member.engname"
-                            :icon="member.icon"
-                            :description="member.description"
-                            :affiliation="member.affiliation"
-                            :hp="member.hp"
-                            :twitter="member.twitter"
-                        />
-                    </v-col>
-                </v-row>
-            </v-container>
-        </section>
+            <section class="content-wrapper bg-gray" id="member">
+                <div class="content-container">
+                    <h2>Member</h2>
+                    <v-row>
+                        <v-col cols="12" sm="4" lg="3" justify="space-around" v-for="member in members" :key="member.name">
+                            <MemberCard
+                                :name="member.name"
+                                :engname="member.engname"
+                                :icon="member.icon"
+                                :description="member.description"
+                                :affiliation="member.affiliation"
+                                :hp="member.hp"
+                                :twitter="member.twitter"
+                            />
+                        </v-col>
+                    </v-row>
+                </div>
+            </section>
 
-        <section class="content-wrapper" id="publication">
-            <v-container class="content-container">
-                <h2>Publications</h2>
-                <v-row cols="12" sm="4" v-for="publication in publications" :key="publication.title" class="my-2 py-2">
-                    <v-col cols="10" sm="11" style="word-wrap: break-word;">
-                        {{ publication.author }}.
-                        "{{ publication.title }}".
-                        {{ publication.journal }},
-                        <span v-if="publication.vol">Vol. {{ publication.vol }}, </span>
-                        <span v-if="publication.no">No. {{ publication.no }}, </span>
-                        <span v-if="publication.pp">pp. {{ publication.pp }}, </span>
-                        {{ publication.date }}.
-                        <span v-if="publication.doi"><a :href="publication.doi">{{ publication.doi }}</a>.</span>
-                    </v-col>
-                    <v-col cols="2" sm="1" align-self="center">
-                        <v-btn color="primary" :icon="mdiFilePdfBox" variant="plain" @click="download(publication.ID)"></v-btn>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </section>
+            <section class="content-wrapper" id="publication">
+                <div class="content-container">
+                    <h2>Publications</h2>
+                    <v-row cols="12" sm="4" v-for="publication in publications" :key="publication.title" class="my-2 py-2">
+                        <v-col cols="10" sm="11" style="word-wrap: break-word;">
+                            {{ publication.author }}.
+                            "{{ publication.title }}".
+                            {{ publication.journal }},
+                            <span v-if="publication.vol">Vol. {{ publication.vol }}, </span>
+                            <span v-if="publication.no">No. {{ publication.no }}, </span>
+                            <span v-if="publication.pp">pp. {{ publication.pp }}, </span>
+                            {{ publication.date }}.
+                            <span v-if="publication.doi"><a :href="publication.doi">{{ publication.doi }}</a>.</span>
+                        </v-col>
+                        <v-col cols="2" sm="1" align-self="center">
+                            <v-btn color="primary" :icon="mdiFilePdfBox" variant="plain" @click="download(publication.ID)"></v-btn>
+                        </v-col>
+                    </v-row>
+                </div>
+            </section>
 
+        </v-container>
     </div>
 </template>
 

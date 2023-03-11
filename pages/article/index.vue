@@ -1,10 +1,14 @@
 <script lang="ts" setup>
+/** Material Design Iconのインポート */
 import {
     mdiTwitter,
     mdiFileCode
 } from "@mdi/js"
+
+/** nuxt/contentのインポート */
 import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types'
 
+/** 記事のクエルの設定 */
 const query: QueryBuilderParams = {
     path: '/articles',
     sort: [{ created_at: -1 }]
@@ -12,9 +16,9 @@ const query: QueryBuilderParams = {
 </script>
 
 <template>
-    <div>
+    <v-container>
         <section class="content-wrapper">
-            <v-container class="content-container">
+            <div class="content-container">
                 <h2>記事一覧</h2>
                 <v-row align="center" justify="end" class="my-4">
                     <v-col cols="12" sm="auto">
@@ -43,9 +47,9 @@ const query: QueryBuilderParams = {
                         </v-col>
                     </v-row>
                 </ContentList>
-            </v-container>
+            </div>
         </section>
-    </div>
+    </v-container>
 </template>
 
 <style scoped>

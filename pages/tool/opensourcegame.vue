@@ -31,9 +31,9 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
 </script>
 
 <template>
-    <div>
+    <v-container>
         <section class="content-wrapper">
-            <v-container class="content-container">
+            <div class="content-container">
                 <h2>オープンソースゲーム</h2>
                 
                 <h3>スポーツ</h3>
@@ -126,7 +126,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
                         />
                     </v-col>
                 </v-row>
-            </v-container>
+            </div>
         </section>
-    </div>
+    </v-container>
 </template>

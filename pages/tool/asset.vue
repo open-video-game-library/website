@@ -31,9 +31,9 @@ const graphics = (graphicData.value).filter(data => data.isPublic)
 </script>
 
 <template>
-    <div>
+    <v-container>
         <section class="content-wrapper">
-            <v-container class="content-container">
+            <div class="content-container">
                 <h2>3Dモデル</h2>
                 <v-row>
                     <v-col v-for="model in models" cols="12" sm="4" xl="3" :key="model.name">
@@ -46,11 +46,11 @@ const graphics = (graphicData.value).filter(data => data.isPublic)
                         />
                     </v-col>
                 </v-row>
-            </v-container>
+            </div>
         </section>
 
         <section class="content-wrapper bg-gray">
-            <v-container class="content-container">
+            <div class="content-container">
                 <h2>BGM / SE</h2>
                 <v-row>
                     <v-col v-for="sound in sounds" cols="12" sm="4" xl="3" :key="sound.name">
@@ -63,11 +63,11 @@ const graphics = (graphicData.value).filter(data => data.isPublic)
                         />
                     </v-col>
                 </v-row>
-            </v-container>
+            </div>
         </section>
 
         <section class="content-wrapper">
-            <v-container class="content-container">
+            <div class="content-container">
                 <h2>グラフィック / UI</h2>
                 <v-row>
                     <v-col v-for="graphic in graphics" cols="12" sm="4" xl="3" :key="graphic.name">
@@ -80,7 +80,7 @@ const graphics = (graphicData.value).filter(data => data.isPublic)
                         />
                     </v-col>
                 </v-row>
-            </v-container>
+            </div>
         </section>
-    </div>
+    </v-container>
 </template>

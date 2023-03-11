@@ -36,9 +36,9 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
 
 
 <template>
-    <div>
+    <v-container>
         <section class="content-wrapper">
-            <v-container class="content-container">
+            <div class="content-container">
                 <h2>ツール</h2>
                 <aside>ゲーム研究の実験や評価に利用できるツールを開発し、提供しています。</aside>
                 <v-row>
@@ -51,11 +51,11 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
                         />
                     </v-col>
                 </v-row>
-            </v-container>
+            </div>
         </section>
 
         <section class="content-wrapper bg-gray" id="extool">
-            <v-container class="content-container">
+            <div class="content-container">
                 <h2>外部ツール</h2>
                 <aside>他の研究者やゲーム開発者が提供している、評価・実験・開発に役立つツールやゲームも紹介します。</aside>
                 <v-row>
@@ -141,7 +141,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
                     <v-spacer></v-spacer>
                 </v-row>
 
-            </v-container>
+            </div>
         </section>
-    </div>
+    </v-container>
 </template>
