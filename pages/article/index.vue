@@ -16,9 +16,10 @@ const query: QueryBuilderParams = {
 </script>
 
 <template>
-    <v-container>
+    <div>
         <section class="content-wrapper">
             <div class="content-container">
+                <v-container>
                 <h2>記事一覧</h2>
                 <v-row align="center" justify="end" class="my-4">
                     <v-col cols="12" sm="auto">
@@ -47,9 +48,10 @@ const query: QueryBuilderParams = {
                         </v-col>
                     </v-row>
                 </ContentList>
+                </v-container>
             </div>
         </section>
-    </v-container>
+    </div>
 </template>
 
 <style scoped>

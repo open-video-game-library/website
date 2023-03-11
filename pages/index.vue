@@ -88,9 +88,9 @@ const download = (id) => {
             </v-container>
         </div>
 
-        <v-container>
-            <section class="content-wrapper" id="abstract">
-                <div class="content-container">
+        <section class="content-wrapper" id="abstract">
+            <div class="content-container">
+                <v-container>
                     <h2>Open Video Game Library で できること</h2>
                     <v-row>
                         <v-col cols="12" sm="4">
@@ -130,11 +130,13 @@ const download = (id) => {
                             </v-row>
                         </v-col>
                     </v-row>
-                </div>
-            </section>
+                </v-container>
+            </div>
+        </section>
 
-            <section class="content-wrapper bg-gray" id="member">
-                <div class="content-container">
+        <section class="content-wrapper bg-gray" id="member">
+            <div class="content-container">
+                <v-container>
                     <h2>Member</h2>
                     <v-row>
                         <v-col cols="12" sm="4" lg="3" justify="space-around" v-for="member in members" :key="member.name">
@@ -149,11 +151,13 @@ const download = (id) => {
                             />
                         </v-col>
                     </v-row>
-                </div>
-            </section>
+                </v-container>
+            </div>
+        </section>
 
-            <section class="content-wrapper" id="publication">
-                <div class="content-container">
+        <section class="content-wrapper" id="publication">
+            <div class="content-container">
+                <v-container>
                     <h2>Publications</h2>
                     <v-row cols="12" sm="4" v-for="publication in publications" :key="publication.title" class="my-2 py-2">
                         <v-col cols="10" sm="11" style="word-wrap: break-word;">
@@ -170,10 +174,9 @@ const download = (id) => {
                             <v-btn color="primary" :icon="mdiFilePdfBox" variant="plain" @click="download(publication.ID)"></v-btn>
                         </v-col>
                     </v-row>
-                </div>
-            </section>
-
-        </v-container>
+                </v-container>
+            </div>
+        </section>
     </div>
 </template>
 

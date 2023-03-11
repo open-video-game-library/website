@@ -31,102 +31,104 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
 </script>
 
 <template>
-    <v-container>
+    <div>
         <section class="content-wrapper">
             <div class="content-container">
-                <h2>オープンソースゲーム</h2>
-                
-                <h3>スポーツ</h3>
-                <v-row>
-                    <v-col v-for="game in sports" cols="12" sm="4" xl="3" :key="game.name">
-                        <ToolMiniCard
-                            :name="game.name"
-                            :image="game.image"
-                            :description="game.description"
-                            :link="game.link"
-                            style="height: 100%;"
-                        />
-                    </v-col>
-                </v-row>
+                <v-container>
+                    <h2>オープンソースゲーム</h2>
+                    
+                    <h3>スポーツ</h3>
+                    <v-row>
+                        <v-col v-for="game in sports" cols="12" sm="4" xl="3" :key="game.name">
+                            <ToolMiniCard
+                                :name="game.name"
+                                :image="game.image"
+                                :description="game.description"
+                                :link="game.link"
+                                style="height: 100%;"
+                            />
+                        </v-col>
+                    </v-row>
 
-                <h3>シューティング</h3>
-                <v-row>
-                    <v-col v-for="game in shootings" cols="12" sm="4" xl="3" :key="game.name">
-                        <ToolMiniCard
-                            :name="game.name"
-                            :image="game.image"
-                            :description="game.description"
-                            :link="game.link"
-                            style="height: 100%;"
-                        />
-                    </v-col>
-                </v-row>
+                    <h3>シューティング</h3>
+                    <v-row>
+                        <v-col v-for="game in shootings" cols="12" sm="4" xl="3" :key="game.name">
+                            <ToolMiniCard
+                                :name="game.name"
+                                :image="game.image"
+                                :description="game.description"
+                                :link="game.link"
+                                style="height: 100%;"
+                            />
+                        </v-col>
+                    </v-row>
 
-                <h3>プラットフォーム</h3>
-                <v-row>
-                    <v-col v-for="game in platforms" cols="12" sm="4" xl="3" :key="game.name">
-                        <ToolMiniCard
-                            :name="game.name"
-                            :image="game.image"
-                            :description="game.description"
-                            :link="game.link"
-                            style="height: 100%;"
-                        />
-                    </v-col>
-                </v-row>
+                    <h3>プラットフォーム</h3>
+                    <v-row>
+                        <v-col v-for="game in platforms" cols="12" sm="4" xl="3" :key="game.name">
+                            <ToolMiniCard
+                                :name="game.name"
+                                :image="game.image"
+                                :description="game.description"
+                                :link="game.link"
+                                style="height: 100%;"
+                            />
+                        </v-col>
+                    </v-row>
 
-                <h3>レーシング / ドライビング</h3>
-                <v-row>
-                    <v-col v-for="game in drivings" cols="12" sm="4" xl="3" :key="game.name">
-                        <ToolMiniCard
-                            :name="game.name"
-                            :image="game.image"
-                            :description="game.description"
-                            :link="game.link"
-                            style="height: 100%;"
-                        />
-                    </v-col>
-                </v-row>
+                    <h3>レーシング / ドライビング</h3>
+                    <v-row>
+                        <v-col v-for="game in drivings" cols="12" sm="4" xl="3" :key="game.name">
+                            <ToolMiniCard
+                                :name="game.name"
+                                :image="game.image"
+                                :description="game.description"
+                                :link="game.link"
+                                style="height: 100%;"
+                            />
+                        </v-col>
+                    </v-row>
 
-                <h3>格闘</h3>
-                <v-row>
-                    <v-col v-for="game in fightings" cols="12" sm="4" xl="3" :key="game.name">
-                        <ToolMiniCard
-                            :name="game.name"
-                            :image="game.image"
-                            :description="game.description"
-                            :link="game.link"
-                            style="height: 100%;"
-                        />
-                    </v-col>
-                </v-row>
+                    <h3>格闘</h3>
+                    <v-row>
+                        <v-col v-for="game in fightings" cols="12" sm="4" xl="3" :key="game.name">
+                            <ToolMiniCard
+                                :name="game.name"
+                                :image="game.image"
+                                :description="game.description"
+                                :link="game.link"
+                                style="height: 100%;"
+                            />
+                        </v-col>
+                    </v-row>
 
-                <h3>パズル / ボードゲーム</h3>
-                <v-row>
-                    <v-col v-for="game in puzzles" cols="12" sm="4" xl="3" :key="game.name">
-                        <ToolMiniCard
-                            :name="game.name"
-                            :image="game.image"
-                            :description="game.description"
-                            :link="game.link"
-                            style="height: 100%;"
-                        />
-                    </v-col>
-                </v-row>
+                    <h3>パズル / ボードゲーム</h3>
+                    <v-row>
+                        <v-col v-for="game in puzzles" cols="12" sm="4" xl="3" :key="game.name">
+                            <ToolMiniCard
+                                :name="game.name"
+                                :image="game.image"
+                                :description="game.description"
+                                :link="game.link"
+                                style="height: 100%;"
+                            />
+                        </v-col>
+                    </v-row>
 
-                <h3>その他</h3>
-                <v-row>
-                    <v-col v-for="game in others" cols="12" sm="4" xl="3" :key="game.name">
-                        <ToolMiniCard
-                            :name="game.name"
-                            :image="game.image"
-                            :description="game.description"
-                            :link="game.link"
-                            style="height: 100%;"
-                        />
-                    </v-col>
-                </v-row>
+                    <h3>その他</h3>
+                    <v-row>
+                        <v-col v-for="game in others" cols="12" sm="4" xl="3" :key="game.name">
+                            <ToolMiniCard
+                                :name="game.name"
+                                :image="game.image"
+                                :description="game.description"
+                                :link="game.link"
+                                style="height: 100%;"
+                            />
+                        </v-col>
+                    </v-row>
+                </v-container>
             </div>
         </section>
-    </v-container>
+    </div>
 </template>

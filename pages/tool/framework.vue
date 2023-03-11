@@ -13,22 +13,24 @@ const frameworks = (frameworkData.value).filter(data => data.isPublic)
 </script>
 
 <template>
-    <v-container>
+    <div>
         <section class="content-wrapper">
             <div class="content-container">
-                <h2>開発フレームワーク</h2>
-                <v-row>
-                    <v-col v-for="framework in frameworks" cols="12" sm="4" xl="3" :key="framework.name">
-                        <ToolMiniCard
-                            :name="framework.name"
-                            :image="framework.image"
-                            :description="framework.description"
-                            :link="framework.link"
-                            style="height: 100%;"
-                        />
-                    </v-col>
-                </v-row>
+                <v-container>
+                    <h2>開発フレームワーク</h2>
+                    <v-row>
+                        <v-col v-for="framework in frameworks" cols="12" sm="4" xl="3" :key="framework.name">
+                            <ToolMiniCard
+                                :name="framework.name"
+                                :image="framework.image"
+                                :description="framework.description"
+                                :link="framework.link"
+                                style="height: 100%;"
+                            />
+                        </v-col>
+                    </v-row>
+                </v-container>
             </div>
         </section>
-    </v-container>
+    </div>
 </template>

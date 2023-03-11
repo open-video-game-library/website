@@ -1,7 +1,8 @@
 <template>
-    <v-container>
+    <div>
         <section class="content-wrapper">
             <div class="content-container">
+                <v-container>
                 <article>
                     <ContentDoc v-slot="{ doc }">
                         <h1>{{ doc.title }}</h1>
@@ -21,7 +22,8 @@
                 <v-row class="mt-16" justify="center">
                     <v-btn to="/article" color="primary">記事一覧に戻る</v-btn>
                 </v-row>
+                </v-container>
             </div>
         </section>
-    </v-container>
+    </div>
 </template>
