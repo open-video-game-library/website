@@ -75,7 +75,7 @@ const graphics = (graphicData.value).filter(data => data.isPublic)
                 <v-container>
                     <h2>グラフィック / UI</h2>
                     <v-row>
-                        <v-col v-for="graphic in graphics" cols="12" sm="4" xl="3" :key="graphic.name">
+                        <v-col v-for="graphic in graphics" cols="12" sm="4" :key="graphic.name">
                             <ToolMiniCard
                                 :name="graphic.name"
                                 :image="graphic.image"

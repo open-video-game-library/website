@@ -19,7 +19,7 @@ const frameworks = (frameworkData.value).filter(data => data.isPublic)
                 <v-container>
                     <h2>開発フレームワーク</h2>
                     <v-row>
-                        <v-col v-for="framework in frameworks" cols="12" sm="4" xl="3" :key="framework.name">
+                        <v-col v-for="framework in frameworks" cols="12" sm="4" :key="framework.name">
                             <ToolMiniCard
                                 :name="framework.name"
                                 :image="framework.image"

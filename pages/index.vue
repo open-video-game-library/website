@@ -139,7 +139,7 @@ const download = (id) => {
                 <v-container>
                     <h2>Member</h2>
                     <v-row>
-                        <v-col cols="12" sm="4" lg="3" justify="space-around" v-for="member in members" :key="member.name">
+                        <v-col cols="12" sm="4" justify="space-around" v-for="member in members" :key="member.name">
                             <MemberCard
                                 :name="member.name"
                                 :engname="member.engname"

@@ -33,7 +33,7 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url).href
                     <h2>オープンビデオゲーム一覧</h2>
                     <aside>オープンビデオゲームは<strong>MITライセンス</strong>として公開しております。詳しくは各ゲームの<a href="https://github.com/open-video-game-library">GitHub</a>をご覧ください。</aside>
                     <v-row>
-                        <v-col v-for="game in games" :key="game.name" cols="12" sm="6" xl="4">
+                        <v-col v-for="game in games" :key="game.name" cols="12" sm="6">
                             <GameCard
                                 :name="game.name"
                                 :image="game.image"

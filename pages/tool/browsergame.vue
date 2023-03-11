@@ -19,7 +19,7 @@ const browsergames = (browsergameData.value).filter(data => data.isPublic)
                 <v-container>
                     <h2>ブラウザで遊べるゲーム</h2>
                     <v-row>
-                        <v-col v-for="game in browsergames" cols="12" sm="4" xl="3" :key="game.name">
+                        <v-col v-for="game in browsergames" cols="12" sm="4" :key="game.name">
                             <ToolMiniCard
                                 :name="game.name"
                                 :image="game.image"
