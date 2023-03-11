@@ -17,7 +17,7 @@ const datas = defineProps({
         <v-hover
             v-slot="{ isHovering, props }">
             <v-card color="secondary" :elevation="isHovering ? 8 : 2" v-bind="props">
-                <a v-if="datas.exlink" :href="datas.exlink" class="full-link"></a>
+                <a v-if="datas.exlink" :href="datas.exlink" class="full-link" target="_blank" rel="noopener noreferrer"></a>
                 <NuxtLink v-else :to="datas.path" class="full-link"></NuxtLink>
                 <v-container>
                     <v-row>

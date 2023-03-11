@@ -51,7 +51,7 @@ const download = (id) => {
     const a = document.createElement("a")
     a.href = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href
     a.target = "_blank"
-    a.rel = "noreferrer"
+    a.rel = "noopener noreferrer"
     a.click()
     a.remove()
 }

@@ -11,7 +11,7 @@ const datas = defineProps({
     <div>
         <v-hover v-slot="{ isHovering, props }">
             <v-card color="secondary" :elevation="isHovering ? 8 : 2" v-bind="props">
-                <a :href="datas.link" class="full-link" ></a>
+                <a :href="datas.link" class="full-link" target="_blank" rel="noopener noreferrer"></a>
                 <v-container>
                     <v-row>
                         <v-col cols="12" sm="4">
