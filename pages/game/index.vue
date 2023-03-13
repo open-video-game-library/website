@@ -9,13 +9,13 @@ import {
 /** 環境変数を扱うRuntimeConfigの使用 */
 const config = useRuntimeConfig()
 
-/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだ3Dモデルのアセットのデータ */
+/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだオープンビデオゲームのデータ */
 const { data: gameData } = await useFetch(config.public.internalDbApi, {
     method: "GET",
     query: { sheetName: "openvideogame" }
 })
 
-/** @type {Object[]} isPublicがtrueのものだけ抽出した論文データ */
+/** @type {Object[]} isPublicがtrueのものだけ抽出したオープンビデオゲームのデータ */
 const games = (gameData.value).filter(data => data.isPublic)
 
 /** @type {String} コンタクトへのリンク画像の参照URL */

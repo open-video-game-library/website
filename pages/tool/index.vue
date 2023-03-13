@@ -3,16 +3,22 @@
 const config = useRuntimeConfig()
 
 /** @type {Object[]} opengame基本情報DBのスプレッドシートから読み込んだツールデータ */
-const { data: tools } = await useFetch(config.public.internalDbApi, {
+const { data: toolData } = await useFetch(config.public.internalDbApi, {
     method: "GET",
     query: { sheetName: "tool" }
 })
 
+/** @type {Object[]} isPublicがtrueのものだけ抽出したツールデータ */
+const tools = (toolData.value).filter(data => data.isPublic)
+
 /** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだ外部ツールデータ */
-const { data: extools } = await useFetch(config.public.externalDbApi, {
+const { data: extoolData } = await useFetch(config.public.externalDbApi, {
     method: "GET",
     query: { sheetName: "tool" }
 })
+
+/** @type {Object[]} isPublicがtrueのものだけ抽出した外部ツールデータ */
+const extools = (extoolData.value).filter(data => data.isPublic)
 
 /** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだピックアップデータ */
 const { data: pickups } = await useFetch(config.public.externalDbApi, {
