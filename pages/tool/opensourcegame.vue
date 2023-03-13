@@ -45,6 +45,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
                                 :image="game.image"
                                 :description="game.description"
                                 :link="game.link"
+                                :articleLink="game.articleLink"
                                 style="height: 100%;"
                             />
                         </v-col>
@@ -58,6 +59,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
                                 :image="game.image"
                                 :description="game.description"
                                 :link="game.link"
+                                :articleLink="game.articleLink"
                                 style="height: 100%;"
                             />
                         </v-col>
@@ -71,6 +73,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
                                 :image="game.image"
                                 :description="game.description"
                                 :link="game.link"
+                                :articleLink="game.articleLink"
                                 style="height: 100%;"
                             />
                         </v-col>
@@ -84,6 +87,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
                                 :image="game.image"
                                 :description="game.description"
                                 :link="game.link"
+                                :articleLink="game.articleLink"
                                 style="height: 100%;"
                             />
                         </v-col>
@@ -97,6 +101,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
                                 :image="game.image"
                                 :description="game.description"
                                 :link="game.link"
+                                :articleLink="game.articleLink"
                                 style="height: 100%;"
                             />
                         </v-col>
@@ -110,6 +115,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
                                 :image="game.image"
                                 :description="game.description"
                                 :link="game.link"
+                                :articleLink="game.articleLink"
                                 style="height: 100%;"
                             />
                         </v-col>
@@ -123,6 +129,7 @@ const others = (opensourcegameData.value).filter(data => data.genre == "other" &
                                 :image="game.image"
                                 :description="game.description"
                                 :link="game.link"
+                                :articleLink="game.articleLink"
                                 style="height: 100%;"
                             />
                         </v-col>

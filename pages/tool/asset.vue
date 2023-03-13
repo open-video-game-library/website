@@ -81,6 +81,7 @@ const graphics = (graphicData.value).filter(data => data.isPublic)
                                 :image="graphic.image"
                                 :description="graphic.description"
                                 :link="graphic.link"
+                                :articleLink="graphic.articleLink"
                                 style="height: 100%;"
                             />
                         </v-col>

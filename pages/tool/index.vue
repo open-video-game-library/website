@@ -68,6 +68,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
                                 :image="tool.image"
                                 :description="tool.description"
                                 :link="tool.link"
+                                :articleLink="tool.articleLink"
                             />
                         </v-col>
                     </v-row>
