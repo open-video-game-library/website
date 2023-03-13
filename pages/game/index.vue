@@ -10,10 +10,13 @@ import {
 const config = useRuntimeConfig()
 
 /** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだ3Dモデルのアセットのデータ */
-const { data: games } = await useFetch(config.public.internalDbApi, {
+const { data: gameData } = await useFetch(config.public.internalDbApi, {
     method: "GET",
     query: { sheetName: "openvideogame" }
 })
+
+/** @type {Object[]} isPublicがtrueのものだけ抽出した論文データ */
+const games = (gameData.value).filter(data => data.isPublic)
 
 /** @type {String} コンタクトへのリンク画像の参照URL */
 const moreImg = new URL('../../assets/image/more.png', import.meta.url).href
