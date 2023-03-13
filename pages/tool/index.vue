@@ -43,7 +43,7 @@ const assets = pickups.value.filter(pickup => pickup.category == "asset")
 
 <template>
     <div>
-        <section class="content-wrapper">
+        <section class="content-wrapper" id="tool">
             <div class="content-container">
                 <v-container>
                     <h2>ツール</h2>
