@@ -19,7 +19,7 @@ const props = defineProps({
     <v-card color="secondary" :elevation="2">
         <v-img :src="props.icon" cover height="240"></v-img>
         <v-card-title>{{ props.name }}</v-card-title>
-        <v-card-subtitle>{{ props.engname }}</v-card-subtitle>
+        <v-card-subtitle>{{ props.engname }} / {{ props.affiliation }}</v-card-subtitle>
         <v-card-actions>
             <v-spacer></v-spacer>
             <v-btn :icon="mdiHome" style="visibility: hidden;"></v-btn>
