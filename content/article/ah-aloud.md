@@ -9,8 +9,7 @@ updated_at:
 
 ## あアラウド法とは
 
-[![あアラウド法：体験中のリアルタイムな感情の起伏や種類の観測手法 - YouTube](http://img.youtube.com/vi/xpkJ13SegK4/maxresdefault.jpg)](https://youtu.be/xpkJ13SegK4)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/xpkJ13SegK4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="560" height="315" style="display: block; margin: 0 auto;" src="https://www.youtube.com/embed/xpkJ13SegK4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 あアラウド法は、リアルタイムな感情を観測する手法です。
 
