@@ -57,3 +57,8 @@ Minimum Tennisはシンプルなテニスゲームです。キーボードで操
 
 あアラウド法は感情や思考を観測したかったため、この2つのビデオゲームが利用しやすかったです。
 
+![Multi View Recorderによる実験の録画](https://user-images.githubusercontent.com/52689532/226542790-25b401ad-e6eb-4bee-b954-85b14103a035.jpeg)
+
+また[Multi View Recorder](https://open-video-game-library.github.io/MultiViewRecorder/)を利用して、実験の録画をおこないました。
+
+実験参加者に録画を見ながらタスク時の体験を振り返ってもらったため、このツールが役立ちました。
