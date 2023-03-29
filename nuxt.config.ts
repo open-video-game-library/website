@@ -35,7 +35,8 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             internalDbApi: process.env.NUXT_INTERNAL_DB_API,
-            externalDbApi: process.env.NUXT_EXTERNAL_DB_API
+            externalDbApi: process.env.NUXT_EXTERNAL_DB_API,
+            surveyDbApi: process.env.NUXT_SURVEY_DB_API
         }
     }
 })
