@@ -19,6 +19,12 @@ const { data: tennisData } = await useFetch(config.public.surveyDbApi, {
     method: "GET",
     query: { sheetName: "tennis" }
 })
+
+/** @type {Object[]} opengame調査論文DBのスプレッドシートから読み込んだ触覚体験サンプルのサーベイ論文のデータ */
+const { data: cesData } = await useFetch(config.public.surveyDbApi, {
+    method: "GET",
+    query: { sheetName: "ces" }
+})
 </script>
 
 <template>
@@ -34,6 +40,7 @@ const { data: tennisData } = await useFetch(config.public.surveyDbApi, {
                         <li><NuxtLink to="/game/survey#animals">動物ゲームに関するサーベイ</NuxtLink></li>
                         <li><NuxtLink to="/game/survey#fps">OpenFPSに関するサーベイ</NuxtLink></li>
                         <li><NuxtLink to="/game/survey#tennis">Minimum Tennisに関するサーベイ</NuxtLink></li>
+                        <li><NuxtLink to="/game/survey#ces">触覚体験サンプル（CES）に関するサーベイ</NuxtLink></li>
                     </ul>
 
                 </v-container>
@@ -137,6 +144,43 @@ const { data: tennisData } = await useFetch(config.public.surveyDbApi, {
                         </thead>
                         <tbody>
                             <tr v-for="paper in tennisData" :key="paper.title">
+                                <td
+                                    v-for="value in paper"
+                                    :key="value"
+                                    class="text-left"
+                                >
+                                    <a v-if="value.match(/http+s*:\/\/+/)" :href="value" target="_blank" rel="noopener noreferrer">{{ value }}</a>
+                                    <span v-else>{{ value }}</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </v-table>
+                </v-container>
+            </div>
+        </section>
+
+        <section class="content-wrapper" id="ces">
+            <div class="content-container">
+                <v-container>
+                    <h3>触覚体験サンプル（CES）</h3>
+                    <aside>
+                        研究者の触覚ディスプレイ体験アプリケーションに対するニーズを把握するため、触覚ディスプレイの論文を調査しました。
+                        全部で<b>{{ cesData.length + 1 }}</b>本の論文が見つかりました。
+                        触覚フィードバックするのものの特性を調査し、CESの開発では<a href="https://doi.org/10.1016/0010-0285(87)90008-9" target="_blank" rel="noopener noreferrer">Ledermanらの論文</a>を参考に6次元（質感・硬さ・温度・重さ・形状・動き）に分類しました。
+                    </aside>
+
+                    <v-table>
+                        <thead>
+                            <tr>
+                                <th
+                                    v-for="(value, key) in cesData[0]"
+                                    :key="value"
+                                    class="text-left"
+                                >{{ key }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="paper in cesData" :key="paper.title">
                                 <td
                                     v-for="value in paper"
                                     :key="value"
