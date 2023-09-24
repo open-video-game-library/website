@@ -29,7 +29,7 @@ const { data: memberData } = await useFetch(config.public.internalDbApi, {
 });
 
 /** @type {Object[]} isPublicがtrueのものだけ抽出したメンバーデータ */
-// const members = (memberData.value).filter(data => data.isPublic)
+const members = memberData.value.filter((data) => data.isPublic);
 
 /** @type {Object[]} opengame基本情報DBのスプレッドシートから読み込んだ論文データ */
 const { data: publicationData } = await useFetch(config.public.internalDbApi, {
@@ -38,7 +38,7 @@ const { data: publicationData } = await useFetch(config.public.internalDbApi, {
 });
 
 /** @type {Object[]} isPublicがtrueのものだけ抽出した論文データ */
-// const publications = (publicationData.value).filter(data => data.isPublic)
+const publications = publicationData.value.filter((data) => data.isPublic);
 
 /**
  * 指定されたIDの論文をダウンロード（別タブでPDFファイルを表示）させる
@@ -69,8 +69,12 @@ const download = (id) => {
         >
           <div>
             <v-img :src="logoImg" class="my-4 py-4" height="125"></v-img>
-            <p>
+            <!-- <p>
               「ゲーム研究を行いやすくし、ゲーム研究の発展に貢献すること」を目的とした、ゲーム研究者のためのライブラリ
+            </p> -->
+            <p>
+              A library for game researchers with the aim of "facilitating game
+              research and contributing to the development of game research.
             </p>
             <v-row justify="center" class="my-4 py-4">
               <v-btn
@@ -96,36 +100,58 @@ const download = (id) => {
     <section class="content-wrapper" id="abstract">
       <div class="content-container">
         <v-container>
-          <h2>Open Video Game Library で できること</h2>
+          <!-- <h2>Open Video Game Library で できること</h2> -->
+          <h2>What you can do with OVGL</h2>
           <v-row>
             <v-col cols="12" sm="4">
               <v-img class="my-4" :src="canImg[0]" height="120"></v-img>
-              <h4>研究で使えるゲームを見つける</h4>
-              <p>
+              <!-- <h4>研究で使えるゲームを見つける</h4> -->
+              <h4>Finding games to use in your research</h4>
+              <!-- <p>
                 研究で利用されることを前提に我々が作成したオープンビデオゲームや、研究に合わせて編集できる外部のオープンソースゲームを見つけ、利用することができます。
+              </p> -->
+              <p>
+                You can find and use open video games that we have created to be
+                used in your research, or external open source games that you
+                can edit to suit your research.
               </p>
               <v-row justify="center" class="my-4">
-                <v-btn color="primary" to="/game">ゲームを見つける</v-btn>
+                <!-- <v-btn color="primary" to="/game">ゲームを見つける</v-btn> -->
+                <v-btn color="primary" to="/game">Find a game</v-btn>
               </v-row>
             </v-col>
             <v-col cols="12" sm="4">
               <v-img class="my-4" :src="canImg[1]" height="120"></v-img>
-              <h4>研究で使えるツールを見つける</h4>
-              <p>
+              <!-- <h4>研究で使えるツールを見つける</h4> -->
+              <h4>Find tools to use in your research</h4>
+              <!-- <p>
                 ゲームを用いた体験やデバイスの評価実験を行う際に有益な録画機能や、アンケートを見つけ、利用することができます。
+              </p> -->
+              <p>
+                You can find and use recording functions and questionnaires that
+                are useful when conducting experiments to evaluate experiences
+                and devices with games.
               </p>
               <v-row justify="center" class="my-4">
-                <v-btn color="primary" to="/tool">ツールを見つける</v-btn>
+                <!-- <v-btn color="primary" to="/tool">ツールを見つける</v-btn> -->
+                <v-btn color="primary" to="/tool">Find Tools</v-btn>
               </v-row>
             </v-col>
             <v-col cols="12" sm="4">
               <v-img class="my-4" :src="canImg[2]" height="120"></v-img>
-              <h4>ゲーム研究の知見を深める</h4>
-              <p>
+              <!-- <h4>ゲーム研究の知見を深める</h4> -->
+              <h4>Deepen your knowledge of game research</h4>
+              <!-- <p>
                 ゲーム開発をする上でためになる情報や、ゲーム研究をする上で抑えておくべきポイントを知ることができます。
+              </p> -->
+              <p>
+                You will be able to find out information that will be useful for
+                game development and points to keep in mind when conducting game
+                research.
               </p>
               <v-row justify="center" class="my-4">
-                <v-btn color="primary" to="/article">記事を読む</v-btn>
+                <!-- <v-btn color="primary" to="/article">記事を読む</v-btn> -->
+                <v-btn color="primary" to="/article">Read Article</v-btn>
               </v-row>
             </v-col>
           </v-row>

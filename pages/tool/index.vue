@@ -1,157 +1,215 @@
 <script setup>
 /** 環境変数を扱うRuntimeConfigの使用 */
-const config = useRuntimeConfig()
+const config = useRuntimeConfig();
 
 /** @type {Object[]} opengame基本情報DBのスプレッドシートから読み込んだツールデータ */
 const { data: toolData } = await useFetch(config.public.internalDbApi, {
-    method: "GET",
-    query: { sheetName: "tool" }
-})
+  method: "GET",
+  query: { sheetName: "tool" },
+});
 
 /** @type {Object[]} isPublicがtrueのものだけ抽出したツールデータ */
-const tools = (toolData.value).filter(data => data.isPublic)
+const tools = toolData.value.filter((data) => data.isPublic);
 
 /** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだ外部ツールデータ */
 const { data: extoolData } = await useFetch(config.public.externalDbApi, {
-    method: "GET",
-    query: { sheetName: "tool" }
-})
+  method: "GET",
+  query: { sheetName: "tool" },
+});
 
 /** @type {Object[]} isPublicがtrueのものだけ抽出した外部ツールデータ */
-const extools = (extoolData.value).filter(data => data.isPublic)
+const extools = extoolData.value.filter((data) => data.isPublic);
 
 /** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだピックアップデータ */
 const { data: pickups } = await useFetch(config.public.externalDbApi, {
-    method: "GET",
-    query: { sheetName: "pickup" }
-})
+  method: "GET",
+  query: { sheetName: "pickup" },
+});
 
 /** @type {Object[]} ピックアップデータからオープンソースゲームを抽出したデータ */
-const opensourcegames = pickups.value.filter(pickup => pickup.category == "opensourcegame")
+const opensourcegames = pickups.value.filter(
+  (pickup) => pickup.category == "opensourcegame"
+);
 
 /** @type {Object[]} ピックアップデータからブラウザゲームを抽出したデータ */
-const browsergames = pickups.value.filter(pickup => pickup.category == "browsergame")
+const browsergames = pickups.value.filter(
+  (pickup) => pickup.category == "browsergame"
+);
 
 /** @type {Object[]} ピックアップデータからフレームワークを抽出したデータ */
-const frameworks = pickups.value.filter(pickup => pickup.category == "framework")
+const frameworks = pickups.value.filter(
+  (pickup) => pickup.category == "framework"
+);
 
 /** @type {Object[]} ピックアップデータからアセットを抽出したデータ */
-const assets = pickups.value.filter(pickup => pickup.category == "asset")
+const assets = pickups.value.filter((pickup) => pickup.category == "asset");
 </script>
 
-
-
 <template>
-    <div>
-        <section class="content-wrapper" id="tool">
-            <div class="content-container">
-                <v-container>
-                    <h2>ツール</h2>
-                    <aside>ゲーム研究の実験や評価に利用できるツールを開発し、提供しています。</aside>
-                    <v-row>
-                        <v-col v-for="tool in tools" cols="12" :key="tool.name">
-                            <ToolCard
-                                :name="tool.name"
-                                :image="tool.image"
-                                :description="tool.description"
-                                :link="tool.link"
-                            />
-                        </v-col>
-                    </v-row>
-                </v-container>
-            </div>
-        </section>
+  <div>
+    <section class="content-wrapper" id="tool">
+      <div class="content-container">
+        <v-container>
+          <!-- <h2>ツール</h2> -->
+          <h2>Tools</h2>
+          <!-- <aside>
+            ゲーム研究の実験や評価に利用できるツールを開発し、提供しています。
+          </aside> -->
+          <aside>
+            We develop and provide tools that can be used for experimentation
+            and evaluation of game research.
+          </aside>
+          <v-row>
+            <v-col v-for="tool in tools" cols="12" :key="tool.name">
+              <ToolCard
+                :name="tool.name"
+                :image="tool.image"
+                :description="tool.description"
+                :link="tool.link"
+              />
+            </v-col>
+          </v-row>
+        </v-container>
+      </div>
+    </section>
 
-        <section class="content-wrapper bg-gray" id="extool">
-            <div class="content-container">
-                <v-container>
-                    <h2>外部ツール</h2>
-                    <aside>他の研究者やゲーム開発者が提供している、評価・実験・開発に役立つツールやゲームも紹介します。</aside>
-                    <v-row>
-                        <v-col v-for="tool in extools" cols="12" :key="tool.name">
-                            <ToolCard
-                                :name="tool.name"
-                                :image="tool.image"
-                                :description="tool.description"
-                                :link="tool.link"
-                                :articleLink="tool.articleLink"
-                            />
-                        </v-col>
-                    </v-row>
+    <section class="content-wrapper bg-gray" id="extool">
+      <div class="content-container">
+        <v-container>
+          <!-- <h2>外部ツール</h2> -->
+          <h2>External Tools</h2>
+          <!-- <aside>
+            他の研究者やゲーム開発者が提供している、評価・実験・開発に役立つツールやゲームも紹介します。
+          </aside> -->
+          <aside>
+            Tools and games provided by other researchers and game developers
+            that are useful for evaluation, experimentation, and development
+            will also be presented.
+          </aside>
+          <v-row>
+            <v-col v-for="tool in extools" cols="12" :key="tool.name">
+              <ToolCard
+                :name="tool.name"
+                :image="tool.image"
+                :description="tool.description"
+                :link="tool.link"
+                :articleLink="tool.articleLink"
+              />
+            </v-col>
+          </v-row>
 
-                    <h3>オープンソースゲーム</h3>
-                    <v-row>
-                        <v-col v-for="game in opensourcegames" cols="12" sm="4" :key="game.name">
-                            <ToolMiniCard
-                                :name="game.name"
-                                :image="game.image"
-                                :sub="game.description"
-                                :link="game.link"
-                                :tags="game.tags"
-                            />
-                        </v-col>
-                    </v-row>
-                    <v-row>
-                        <v-spacer></v-spacer>
-                        <v-btn color="primary" class="my-8" to="/tool/opensourcegame">もっと見る→</v-btn>
-                        <v-spacer></v-spacer>
-                    </v-row>
+          <!-- <h3>オープンソースゲーム</h3> -->
+          <h3>Open Source Games</h3>
+          <v-row>
+            <v-col
+              v-for="game in opensourcegames"
+              cols="12"
+              sm="4"
+              :key="game.name"
+            >
+              <ToolMiniCard
+                :name="game.name"
+                :image="game.image"
+                :sub="game.description"
+                :link="game.link"
+                :tags="game.tags"
+              />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-spacer></v-spacer>
+            <!-- <v-btn color="primary" class="my-8" to="/tool/opensourcegame"
+              >もっと見る→</v-btn
+            > -->
+            <v-btn color="primary" class="my-8" to="/tool/opensourcegame"
+              >See more→</v-btn
+            >
+            <v-spacer></v-spacer>
+          </v-row>
 
-                    <h3>ブラウザで遊べるゲーム</h3>
-                    <v-row>
-                        <v-col v-for="game in browsergames" cols="12" sm="4" :key="game.name">
-                            <ToolMiniCard
-                                :name="game.name"
-                                :image="game.image"
-                                :sub="game.description"
-                                :link="game.link"
-                                :tags="game.tags"
-                            />
-                        </v-col>
-                    </v-row>
-                    <v-row>
-                        <v-spacer></v-spacer>
-                        <v-btn color="primary" class="my-8" to="/tool/browsergame">もっと見る→</v-btn>
-                        <v-spacer></v-spacer>
-                    </v-row>
+          <!-- <h3>ブラウザで遊べるゲーム</h3> -->
+          <h3>Browser Games</h3>
+          <v-row>
+            <v-col
+              v-for="game in browsergames"
+              cols="12"
+              sm="4"
+              :key="game.name"
+            >
+              <ToolMiniCard
+                :name="game.name"
+                :image="game.image"
+                :sub="game.description"
+                :link="game.link"
+                :tags="game.tags"
+              />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-spacer></v-spacer>
+            <!-- <v-btn color="primary" class="my-8" to="/tool/browsergame"
+              >もっと見る→</v-btn
+            > -->
+            <v-btn color="primary" class="my-8" to="/tool/browsergame"
+              >See more→</v-btn
+            >
+            <v-spacer></v-spacer>
+          </v-row>
 
-                    <h3>開発フレームワーク</h3>
-                    <v-row>
-                        <v-col v-for="framework in frameworks" cols="12" sm="4" :key="framework.name">
-                            <ToolMiniCard
-                                :name="framework.name"
-                                :image="framework.image"
-                                :sub="framework.description"
-                                :link="framework.link"
-                                :tags="framework.tags"
-                            />
-                        </v-col>
-                    </v-row>
-                    <v-row>
-                        <v-spacer></v-spacer>
-                        <v-btn color="primary" class="my-8" to="/tool/framework">もっと見る→</v-btn>
-                        <v-spacer></v-spacer>
-                    </v-row>
+          <!-- <h3>開発フレームワーク</h3> -->
+          <h3>Development Frameworks</h3>
+          <v-row>
+            <v-col
+              v-for="framework in frameworks"
+              cols="12"
+              sm="4"
+              :key="framework.name"
+            >
+              <ToolMiniCard
+                :name="framework.name"
+                :image="framework.image"
+                :sub="framework.description"
+                :link="framework.link"
+                :tags="framework.tags"
+              />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-spacer></v-spacer>
+            <!-- <v-btn color="primary" class="my-8" to="/tool/framework"
+              >もっと見る→</v-btn
+            > -->
+            <v-btn color="primary" class="my-8" to="/tool/framework"
+              >see more→</v-btn
+            >
+            <v-spacer></v-spacer>
+          </v-row>
 
-                    <h3>アセット</h3>
-                    <v-row>
-                        <v-col v-for="asset in assets" cols="12" sm="4" :key="asset.name">
-                            <ToolMiniCard
-                                :name="asset.name"
-                                :image="asset.image"
-                                :sub="asset.description"
-                                :link="asset.link"
-                                :tags="asset.tags"
-                            />
-                        </v-col>
-                    </v-row>
-                    <v-row>
-                        <v-spacer></v-spacer>
-                        <v-btn color="primary" class="my-8" to="/tool/asset">もっと見る→</v-btn>
-                        <v-spacer></v-spacer>
-                    </v-row>
-                </v-container>
-            </div>
-        </section>
-    </div>
+          <!-- <h3>アセット</h3> -->
+          <h3>Asset</h3>
+          <v-row>
+            <v-col v-for="asset in assets" cols="12" sm="4" :key="asset.name">
+              <ToolMiniCard
+                :name="asset.name"
+                :image="asset.image"
+                :sub="asset.description"
+                :link="asset.link"
+                :tags="asset.tags"
+              />
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-spacer></v-spacer>
+            <!-- <v-btn color="primary" class="my-8" to="/tool/asset"
+              >もっと見る→</v-btn
+            > -->
+            <v-btn color="primary" class="my-8" to="/tool/asset"
+              >see more→</v-btn
+            >
+            <v-spacer></v-spacer>
+          </v-row>
+        </v-container>
+      </div>
+    </section>
+  </div>
 </template>
