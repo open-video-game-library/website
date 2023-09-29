@@ -74,7 +74,7 @@ const download = (id) => {
             </p> -->
             <p>
               A library for game researchers with the aim of "facilitating game
-              research and contributing to the development of game research.
+              research and contributing to the development of game research"
             </p>
             <v-row justify="center" class="my-4 py-4">
               <v-btn

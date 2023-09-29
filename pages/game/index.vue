@@ -31,7 +31,7 @@ const outputImg = new URL("../../assets/image/output.png", import.meta.url)
       <div class="content-container">
         <v-container>
           <!-- <h2>オープンビデオゲーム一覧</h2> -->
-          <h2>Contents of OVGL</h2>
+          <h2>Open Video Games</h2>
           <!-- <aside>
             オープンビデオゲームは<strong>MITライセンス</strong>として公開しております。
             詳しくは<a href="https://github.com/open-video-game-library"
