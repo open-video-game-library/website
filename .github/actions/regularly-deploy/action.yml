@@ -1,12 +1,13 @@
-name: "CreateMessage"
-description: "JSONオブジェクトから情報を抽出して文字列を生成する何か"
+name: "Hello World"
+description: "Greet someone and record the time"
 inputs:
-  json-data: # inputするときの名前
-    description: "JSONオブジェクト"
+  who-to-greet: # id of input
+    description: "Who to greet"
     required: true
+    default: "World"
 outputs:
-  result-message: # outputして他から参照するための名前
-    description: "生成した文字列"
+  time: # id of output
+    description: "The time we greeted you"
 runs:
   using: "node20"
   main: "dist/index.js"
