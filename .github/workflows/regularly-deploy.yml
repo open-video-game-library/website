@@ -3,6 +3,7 @@ name: update-and-build
 on:
   schedule:
     - cron: "0 18 * * *" # NOTE: タイムゾーンはUTC
+  workflow_dispatch:
 jobs:
   fetch_spreadsheets:
     name: スプレッドシートの内容をJSONに反映
