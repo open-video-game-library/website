@@ -2,9 +2,9 @@
 name: update-and-build
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 18 * * *" # NOTE: タイムゾーンはUTC
-on: workflow_dispatch
 
 jobs:
   fetch_spreadsheets:
