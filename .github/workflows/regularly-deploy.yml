@@ -9,7 +9,7 @@ on:
 jobs:
   fetch_spreadsheets:
     name: スプレッドシートの内容をJSONに反映
-    runs-on: ubuntsu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
