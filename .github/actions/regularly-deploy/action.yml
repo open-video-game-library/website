@@ -9,4 +9,4 @@ outputs:
     description: "生成した文字列"
 runs:
   using: "node20"
-  main: "index.js"
+  main: "dist/index.js"
