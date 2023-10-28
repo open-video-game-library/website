@@ -1,0 +1,14 @@
+# 毎日3時にスプレッドシートのデータを反映し静的ビルドするワークフロー
+name: update-and-build
+on:
+  schedule:
+    - cron: "0 18 * * *" # NOTE: タイムゾーンはUTC
+jobs:
+  fetch_spreadsheets:
+    name: スプレッドシートの内容をJSONに反映
+    runs-on: ubuntsu-latest
+      - name: Checkout 
+        uses: actions/checkout@v3
+      - name: Create Message 
+        uses: ./.github/actions/reguraly-deploy 
+        id: create-message 

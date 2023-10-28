@@ -18,6 +18,7 @@
     "vuetify": "3.0.0"
   },
   "dependencies": {
+    "google-spreadsheet": "^4.1.0",
     "marked": "^4.2.4"
   },
   "rules": {
