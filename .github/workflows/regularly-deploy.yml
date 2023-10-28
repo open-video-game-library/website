@@ -14,5 +14,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Create Message
-        uses: ./.github/actions/regularly-deploy
+        uses: ./dist
         id: create-message
