@@ -7,8 +7,9 @@ jobs:
   fetch_spreadsheets:
     name: スプレッドシートの内容をJSONに反映
     runs-on: ubuntsu-latest
-      - name: Checkout 
+    steps:
+      - name: Checkout
         uses: actions/checkout@v3
-      - name: Create Message 
-        uses: ./.github/actions/reguraly-deploy 
-        id: create-message 
+      - name: Create Message
+        uses: ./.github/actions/reguraly-deploy
+        id: create-message
