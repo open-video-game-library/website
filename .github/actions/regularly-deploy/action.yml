@@ -1,5 +1,9 @@
-name: データをインポートするJSファイルを実行
-description: "Greet someone and record the time"
+name: データをインポートするJSファイルを実行する
+
+outputs:
+  game:
+    description: GAMEページで読み込むデータ
+
 runs:
-  using: "node20"
-  main: "dist/index.js"
+  using: node20
+  main: dist/index.js

@@ -1,18 +1,6 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 const axios = require('axios');
-const fs = require('fs');
-
-const createJsonFile = (data, fileName) => {
-    const jsonData = JSON.stringify(data);
-    fs.writeFile(`${__dirname}/${fileName}.json`, jsonData, (err) => {
-        console.log('path', `${__dirname}/${fileName}.json`);
-        if (err) console.log(err);
-        if (!err) {
-            console.log('JSONファイルを生成しました');
-        }
-    });
-};
 
 const getSheetDatas = async () => {
     const internalApiUrl = process.env.API_INTERNAL_DB_URL;
@@ -24,9 +12,8 @@ const getSheetDatas = async () => {
             sheetName: "openvideogame",
         }
     });
-    const games = gameData.filter((data) => data.isPublic);
-
-    createJsonFile(games, 'games'); 
+    const game = gameData.filter((data) => data.isPublic);
+    core.setOutput("game", game);
 };
 
 try {

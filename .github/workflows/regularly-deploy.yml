@@ -20,4 +20,9 @@ jobs:
         uses: actions/checkout@v4
       - name: JSファイルを実行するYAMLを実行
         uses: ./.github/actions/regularly-deploy
-        id: create-message
+        id: import-data
+      - name: GAMEページで読み込むデータのJSONファイルを生成
+        uses: jossef/action-set-json-field@v1
+        with:
+          file: game.json
+          value: ${{ steps.import-data.outputs.game }}

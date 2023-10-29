@@ -37877,18 +37877,6 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(4219);
 const github = __nccwpck_require__(5122);
 const axios = __nccwpck_require__(1366);
-const fs = __nccwpck_require__(7147);
-
-const createJsonFile = (data, fileName) => {
-    const jsonData = JSON.stringify(data);
-    fs.writeFile(`${__dirname}/${fileName}.json`, jsonData, (err) => {
-        console.log('path', `${__dirname}/${fileName}.json`);
-        if (err) console.log(err);
-        if (!err) {
-            console.log('JSONファイルを生成しました');
-        }
-    });
-};
 
 const getSheetDatas = async () => {
     const internalApiUrl = process.env.API_INTERNAL_DB_URL;
@@ -37900,9 +37888,8 @@ const getSheetDatas = async () => {
             sheetName: "openvideogame",
         }
     });
-    const games = gameData.filter((data) => data.isPublic);
-
-    createJsonFile(games, 'games'); 
+    const game = gameData.filter((data) => data.isPublic);
+    core.setOutput("game", game);
 };
 
 try {
