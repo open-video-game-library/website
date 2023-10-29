@@ -37882,7 +37882,6 @@ const fs = __nccwpck_require__(7147);
 const createJsonFile = (data, fileName) => {
     const jsonData = JSON.stringify(data);
     fs.writeFile(`../../../assets/json/${fileName}.json`, jsonData, (err) => {
-        if (err) rej(err);
         if (!err) {
             console.log('JSONファイルを生成しました');
         }
@@ -37901,7 +37900,7 @@ const getSheetDatas = async () => {
     });
     const games = gameData.filter((data) => data.isPublic);
 
-    createJsonFile(games); 
+    createJsonFile(games, 'games'); 
 };
 
 try {
