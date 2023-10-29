@@ -22,11 +22,10 @@ jobs:
         uses: ./.github/actions/regularly-deploy
         id: import-data
       - name: GAMEページで読み込むデータのJSONファイルを生成
-        uses: jossef/action-set-json-field@v2.1
+        uses: jsdaniell/create-json@v1.2.2
         with:
-          file: assets/json/game.json
-          field: data
-          value: ${{ steps.import-data.outputs.game }}
+          name: assets/json/game.json
+          json: ${{ steps.import-data.outputs.game }}
       - name: 差分をpush
         run: |
           git config --global user.email "ttttt.fms5@gmail.com"
