@@ -25,4 +25,5 @@ jobs:
         uses: jossef/action-set-json-field@v1
         with:
           file: game.json
+          field: game
           value: ${{ steps.import-data.outputs.game }}
