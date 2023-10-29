@@ -27,7 +27,6 @@ jobs:
           file: assets/json/game.json
           field: data
           value: ${{ steps.import-data.outputs.game }}
-          parse_json:
       - name: 差分をpush
         run: |
           git config --global user.email "ttttt.fms5@gmail.com"
