@@ -23,7 +23,7 @@ jobs:
         id: import-data
       - name: GAMEページで読み込むデータのJSONファイルを生成
         uses: jsdaniell/create-json@1.1.2
-          with:
-            name: game.json
-            json: ${{ steps.import-data.outputs.game }}
-            dir: assets/json/
+        with:
+          name: game.json
+          json: ${{ steps.import-data.outputs.game }}
+          dir: assets/json/
