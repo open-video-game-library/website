@@ -37880,7 +37880,11 @@ const getSheetDatas = async () => {
     const axios = __nccwpck_require__(1366);
 
     try {
-        axios.get('https://script.google.com/macros/s/AKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g/exec', {
+        const internalApiUrl = process.env.API_INTERNAL_DB_URL;
+        console.log("API_INTERNAL_DB_URL = ", internalApiUrl);
+        console.log("API_EXTERNAL_DB_URL = ", process.env.API_EXTERNAL_DB_URL);
+        console.log("API_SURVEY_DB_URL = ", process.env.API_SURVEY_DB_URL);
+        axios.get(internalApiUrl, {
             params: {
                 sheetName: "openvideogame",
             }

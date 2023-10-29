@@ -6,6 +6,11 @@ on:
   schedule:
     - cron: "0 18 * * *" # NOTE: タイムゾーンはUTC
 
+env:
+  API_INTERNAL_DB_URL: ${{secrets.API_INTERNAL_DB_URL}}
+  API_EXTERNAL_DB_URL: ${{secrets.API_EXTERNAL_DB_URL}}
+  API_SURVEY_DB_URL: ${{secrets.API_SURVEY_DB_URL}}
+
 jobs:
   import_spreadsheets:
     name: スプレッドシートのデータをJSONファイルにインポート
