@@ -6,6 +6,7 @@ const fs = require('fs');
 const createJsonFile = (data, fileName) => {
     const jsonData = JSON.stringify(data);
     fs.writeFile(`../../../assets/json/${fileName}.json`, jsonData, (err) => {
+        if (err) console.log(err);
         if (!err) {
             console.log('JSONファイルを生成しました');
         }
