@@ -37889,12 +37889,8 @@ const getSheetDatas = async () => {
         }
     });
     const game = gameData.filter((data) => data.isPublic);
-    console.log('加工前', game);
-    const stringify = JSON.stringify(game);
-    console.log('stringify', stringify);
-    const escapedGame = stringify.replace(/'/g, "\\'");
-    console.log("escapedGame", escapedGame);
-    core.setOutput("game", escapedGame);
+    const escapedGame = (JSON.stringify(game)).replace(/'/g, "\\'");
+    core.setOutput("game", JSON.parse(escapedGame));
 };
 
 try {
