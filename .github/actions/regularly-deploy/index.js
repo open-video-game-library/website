@@ -13,7 +13,8 @@ const getSheetDatas = async () => {
         }
     });
     const game = gameData.filter((data) => data.isPublic);
-    core.setOutput("game", game);
+    const escapedGame = JSON.stringify(game).replace('"', '\"');
+    core.setOutput("game", JSON.parse(escapedGame));
 };
 
 try {
