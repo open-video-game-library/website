@@ -22,8 +22,5 @@ jobs:
         uses: ./.github/actions/regularly-deploy
         id: import-data
       - name: GAMEページで読み込むデータのJSONファイルを生成
-        uses: jossef/action-set-json-field@v2.1
-        with:
-          file: assets/json/datas.json
-          field: game
-          value: ${{ steps.import-data.outputs.game }}
+        run: |
+          echo -e ${{ steps.import-data.outputs.game }} >> assets/json/game.json
