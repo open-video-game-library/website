@@ -23,5 +23,11 @@ jobs:
         id: import-data
       - name: GAMEページで読み込むデータのJSONファイルを生成
         run: |
-          echo -e "${{ steps.import-data.outputs.game }}" > assets/json/game.json
+          echo -e ${{ steps.import-data.outputs.game }} > assets/json/game.json
         timeout-minutes: 60
+      - name: Update createdAt config.json
+        uses: jossef/action-set-json-field@v2
+        with:
+          file: assets/json/datas.json
+          field: game
+          value: ${{ steps.import-data.outputs.game }}
