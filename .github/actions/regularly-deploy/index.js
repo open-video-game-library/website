@@ -8,9 +8,9 @@ const getSheetDatas = async () => {
             params: {
                 sheetName: "openvideogame",
             }
-        }).then((response) => {
+        }).then(({ data }) => {
             // handle success
-            console.log('response', response);
+            console.log('data', data);
         }).catch((error) => {
             // handle error
             console.log(error)
