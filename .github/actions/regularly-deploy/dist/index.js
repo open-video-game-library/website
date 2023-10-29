@@ -37886,13 +37886,11 @@ const getSheetDatas = async () => {
             }
         }).then((response) => {
             // handle success
-            console.log('response', JSON.stringify(response));
-        })
-        .catch((error) => {
+            console.log('response', response);
+        }).catch((error) => {
             // handle error
             console.log(error)
-        })
-        .finally(() => {
+        }).finally(() => {
             console.log(`always executed`);
         });
     } catch (error) {
