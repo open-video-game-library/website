@@ -24,6 +24,6 @@ jobs:
       - name: GAMEページで読み込むデータのJSONファイルを生成
         uses: jossef/action-set-json-field@v1
         with:
-          file: game.json
+          file: assets/json/datas.json
           field: game
           value: ${{ steps.import-data.outputs.game }}
