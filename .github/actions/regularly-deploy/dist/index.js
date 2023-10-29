@@ -37874,35 +37874,41 @@ module.exports = JSON.parse('{"application/1d-interleaved-parityfec":{"source":"
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const getSheetDatas = async () => {
-    const core = __nccwpck_require__(4219);
-    const github = __nccwpck_require__(5122);
-    const axios = __nccwpck_require__(1366);
+const core = __nccwpck_require__(4219);
+const github = __nccwpck_require__(5122);
+const axios = __nccwpck_require__(1366);
+const fs = __nccwpck_require__(7147);
 
-    try {
-        const internalApiUrl = process.env.API_INTERNAL_DB_URL;
-        console.log("API_INTERNAL_DB_URL = ", internalApiUrl);
-        console.log("API_EXTERNAL_DB_URL = ", process.env.API_EXTERNAL_DB_URL);
-        console.log("API_SURVEY_DB_URL = ", process.env.API_SURVEY_DB_URL);
-        axios.get(internalApiUrl, {
-            params: {
-                sheetName: "openvideogame",
-            }
-        }).then(({ data }) => {
-            // handle success
-            console.log('data', data);
-        }).catch((error) => {
-            // handle error
-            console.log(error)
-        }).finally(() => {
-            console.log(`always executed`);
-        });
-    } catch (error) {
-        core.setFailed(error.message);
-    }
+const createJsonFile = (data, fileName) => {
+    const jsonData = JSON.stringify(data);
+    fs.writeFile(`../../../assets/json/${fileName}.json`, jsonData, (err) => {
+        if (err) rej(err);
+        if (!err) {
+            console.log('JSONファイルを生成しました');
+        }
+    });
 };
 
-getSheetDatas();
+const getSheetDatas = async () => {
+    const internalApiUrl = process.env.API_INTERNAL_DB_URL;
+    const externalApiUrl = process.env.API_EXTERNAL_DB_URL;
+    const surveyApiUrl = process.env.API_SURVEY_DB_URL;
+
+    const { data: gameData } = await axios.get(internalApiUrl, {
+        params: {
+            sheetName: "openvideogame",
+        }
+    });
+    const games = gameData.value.filter((data) => data.isPublic);
+
+    createJsonFile(games); 
+};
+
+try {
+    getSheetDatas();
+} catch (error) {
+    core.setFailed(error.message);
+}
 
 })();
 
