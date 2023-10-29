@@ -22,5 +22,8 @@ jobs:
         uses: ./.github/actions/regularly-deploy
         id: import-data
       - name: GAMEページで読み込むデータのJSONファイルを生成
-        run: |
-          echo -e ${{ steps.import-data.outputs.game }} > assets/json/datas.json
+        uses: jsdaniell/create-json@1.1.2
+          with:
+            name: game.json
+            json: ${{ steps.import-data.outputs.game }}
+            dir: assets/json/
