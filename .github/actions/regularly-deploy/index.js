@@ -23,7 +23,7 @@ const getSheetDatas = async () => {
             sheetName: "openvideogame",
         }
     });
-    const games = gameData.value.filter((data) => data.isPublic);
+    const games = gameData.filter((data) => data.isPublic);
 
     createJsonFile(games); 
 };
