@@ -1,1 +1,0 @@
-import{a as o,o as n,b as s,e as r,w as f,r as l,f as _}from"./entry.50b7321b.js";const c={class:"marked"},u=o({__name:"ProseA",props:{href:{type:String,default:""},blank:{type:Boolean,default:!1}},setup(e){return(t,p)=>{const a=_;return n(),s("span",c,[r(a,{href:e.href},{default:f(()=>[l(t.$slots,"default")]),_:3},8,["href"])])}}});export{u as default};
