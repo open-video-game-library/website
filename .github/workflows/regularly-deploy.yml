@@ -24,3 +24,4 @@ jobs:
       - name: GAMEページで読み込むデータのJSONファイルを生成
         run: |
           echo ${{ steps.import-data.outputs.game }} | jq > assets/json/game.json
+        timeout-minutes: 60
