@@ -23,4 +23,4 @@ jobs:
         id: import-data
       - name: GAMEページで読み込むデータのJSONファイルを生成
         run: |
-          echo -e "${{ steps.import-data.outputs.game }}" > assets/json/game.json
+          echo ${{ steps.import-data.outputs.game }} | jq > assets/json/game.json

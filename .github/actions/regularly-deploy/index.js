@@ -13,7 +13,7 @@ const getSheetDatas = async () => {
         }
     });
     const game = gameData.filter((data) => data.isPublic);
-    core.setOutput("game", JSON.stringify(game));
+    core.setOutput("game", game);
 };
 
 try {
