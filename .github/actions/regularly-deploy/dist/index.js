@@ -37882,6 +37882,7 @@ const fs = __nccwpck_require__(7147);
 const createJsonFile = (data, fileName) => {
     const jsonData = JSON.stringify(data);
     fs.writeFile(`${__dirname}/${fileName}.json`, jsonData, (err) => {
+        console.log('path', `${__dirname}/${fileName}.json`);
         if (err) console.log(err);
         if (!err) {
             console.log('JSONファイルを生成しました');
