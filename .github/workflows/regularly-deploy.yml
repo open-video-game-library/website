@@ -24,3 +24,6 @@ jobs:
       - name: GAMEページで読み込むデータのJSONファイルを生成
         run: |
           cat assets/json/game.json | jq '.+ {"user":{"name": "hoge","age": 30}}' > tmp && mv tmp assets/json/game.json
+          git add game.json
+          git commit -m "✨ データの更新"
+          git push origin HEAD
