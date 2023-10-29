@@ -37889,7 +37889,7 @@ const getSheetDatas = async () => {
         }
     });
     const game = gameData.filter((data) => data.isPublic);
-    const escapedGame = (JSON.stringify(game)).replace(/'/g, "\\'");
+    const escapedGame = (JSON.stringify(game)).replace(/'/g, "\\'").replace(/[\u0000-\u001F]+/g, "");
     core.setOutput("game", JSON.parse(escapedGame));
 };
 
