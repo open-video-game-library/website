@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html >
+<head><meta charset="utf-8">
+<title>The "Ah-Aloud Method" was presented at an academic conference.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/png" href="/favicon.png">
+<style type="text/css" id="vuetify-theme-stylesheet">.v-theme--light {
+      color-scheme: normal;
+      --v-theme-background: 255,255,255;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 255,255,255;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-variant: 66,66,66;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 238,238,238;
+      --v-theme-primary: 94,28,226;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 55,0,179;
+      --v-theme-primary-darken-1-overlay-multiplier: 2;
+      --v-theme-secondary: 250,250,250;
+      --v-theme-secondary-overlay-multiplier: 1;
+      --v-theme-secondary-darken-1: 1,135,134;
+      --v-theme-secondary-darken-1-overlay-multiplier: 1;
+      --v-theme-error: 176,0,32;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 14,12,13;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 1;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 1;
+      --v-theme-on-background: 0,0,0;
+      --v-theme-on-surface: 0,0,0;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 0,0,0;
+      --v-theme-on-secondary-darken-1: 255,255,255;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 0, 0, 0;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.04;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.12;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 245, 245, 245;
+      --v-theme-on-code: 0, 0, 0;
+    }
+    .v-theme--dark {
+      color-scheme: dark;
+      --v-theme-background: 18,18,18;
+      --v-theme-background-overlay-multiplier: 1;
+      --v-theme-surface: 33,33,33;
+      --v-theme-surface-overlay-multiplier: 1;
+      --v-theme-surface-variant: 189,189,189;
+      --v-theme-surface-variant-overlay-multiplier: 2;
+      --v-theme-on-surface-variant: 66,66,66;
+      --v-theme-primary: 187,134,252;
+      --v-theme-primary-overlay-multiplier: 2;
+      --v-theme-primary-darken-1: 55,0,179;
+      --v-theme-primary-darken-1-overlay-multiplier: 1;
+      --v-theme-secondary: 3,218,197;
+      --v-theme-secondary-overlay-multiplier: 2;
+      --v-theme-secondary-darken-1: 3,218,197;
+      --v-theme-secondary-darken-1-overlay-multiplier: 2;
+      --v-theme-error: 207,102,121;
+      --v-theme-error-overlay-multiplier: 2;
+      --v-theme-info: 33,150,243;
+      --v-theme-info-overlay-multiplier: 2;
+      --v-theme-success: 76,175,80;
+      --v-theme-success-overlay-multiplier: 2;
+      --v-theme-warning: 251,140,0;
+      --v-theme-warning-overlay-multiplier: 2;
+      --v-theme-on-background: 255,255,255;
+      --v-theme-on-surface: 255,255,255;
+      --v-theme-on-primary: 255,255,255;
+      --v-theme-on-primary-darken-1: 255,255,255;
+      --v-theme-on-secondary: 0,0,0;
+      --v-theme-on-secondary-darken-1: 0,0,0;
+      --v-theme-on-error: 255,255,255;
+      --v-theme-on-info: 255,255,255;
+      --v-theme-on-success: 255,255,255;
+      --v-theme-on-warning: 255,255,255;
+      --v-border-color: 255, 255, 255;
+      --v-border-opacity: 0.12;
+      --v-high-emphasis-opacity: 0.87;
+      --v-medium-emphasis-opacity: 0.6;
+      --v-disabled-opacity: 0.38;
+      --v-idle-opacity: 0.1;
+      --v-hover-opacity: 0.04;
+      --v-focus-opacity: 0.12;
+      --v-selected-opacity: 0.08;
+      --v-activated-opacity: 0.12;
+      --v-pressed-opacity: 0.16;
+      --v-dragged-opacity: 0.08;
+      --v-theme-kbd: 33, 37, 41;
+      --v-theme-on-kbd: 255, 255, 255;
+      --v-theme-code: 52, 52, 52;
+      --v-theme-on-code: 204, 204, 204;
+    }
+    .bg-background {
+      --v-theme-overlay-multiplier: var(--v-theme-background-overlay-multiplier);
+      background: rgb(var(--v-theme-background)) !important;
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .bg-surface {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-overlay-multiplier);
+      background: rgb(var(--v-theme-surface)) !important;
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .bg-surface-variant {
+      --v-theme-overlay-multiplier: var(--v-theme-surface-variant-overlay-multiplier);
+      background: rgb(var(--v-theme-surface-variant)) !important;
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .bg-primary {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-overlay-multiplier);
+      background: rgb(var(--v-theme-primary)) !important;
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .bg-primary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-primary-darken-1-overlay-multiplier);
+      background: rgb(var(--v-theme-primary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .bg-secondary {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-overlay-multiplier);
+      background: rgb(var(--v-theme-secondary)) !important;
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .bg-secondary-darken-1 {
+      --v-theme-overlay-multiplier: var(--v-theme-secondary-darken-1-overlay-multiplier);
+      background: rgb(var(--v-theme-secondary-darken-1)) !important;
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .bg-error {
+      --v-theme-overlay-multiplier: var(--v-theme-error-overlay-multiplier);
+      background: rgb(var(--v-theme-error)) !important;
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .bg-info {
+      --v-theme-overlay-multiplier: var(--v-theme-info-overlay-multiplier);
+      background: rgb(var(--v-theme-info)) !important;
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .bg-success {
+      --v-theme-overlay-multiplier: var(--v-theme-success-overlay-multiplier);
+      background: rgb(var(--v-theme-success)) !important;
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .bg-warning {
+      --v-theme-overlay-multiplier: var(--v-theme-warning-overlay-multiplier);
+      background: rgb(var(--v-theme-warning)) !important;
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+    .text-background {
+      color: rgb(var(--v-theme-background)) !important;
+    }
+    .border-background {
+      --v-border-color: var(--v-theme-background);
+    }
+    .text-surface {
+      color: rgb(var(--v-theme-surface)) !important;
+    }
+    .border-surface {
+      --v-border-color: var(--v-theme-surface);
+    }
+    .text-surface-variant {
+      color: rgb(var(--v-theme-surface-variant)) !important;
+    }
+    .border-surface-variant {
+      --v-border-color: var(--v-theme-surface-variant);
+    }
+    .on-surface-variant {
+      color: rgb(var(--v-theme-on-surface-variant)) !important;
+    }
+    .text-primary {
+      color: rgb(var(--v-theme-primary)) !important;
+    }
+    .border-primary {
+      --v-border-color: var(--v-theme-primary);
+    }
+    .text-primary-darken-1 {
+      color: rgb(var(--v-theme-primary-darken-1)) !important;
+    }
+    .border-primary-darken-1 {
+      --v-border-color: var(--v-theme-primary-darken-1);
+    }
+    .text-secondary {
+      color: rgb(var(--v-theme-secondary)) !important;
+    }
+    .border-secondary {
+      --v-border-color: var(--v-theme-secondary);
+    }
+    .text-secondary-darken-1 {
+      color: rgb(var(--v-theme-secondary-darken-1)) !important;
+    }
+    .border-secondary-darken-1 {
+      --v-border-color: var(--v-theme-secondary-darken-1);
+    }
+    .text-error {
+      color: rgb(var(--v-theme-error)) !important;
+    }
+    .border-error {
+      --v-border-color: var(--v-theme-error);
+    }
+    .text-info {
+      color: rgb(var(--v-theme-info)) !important;
+    }
+    .border-info {
+      --v-border-color: var(--v-theme-info);
+    }
+    .text-success {
+      color: rgb(var(--v-theme-success)) !important;
+    }
+    .border-success {
+      --v-border-color: var(--v-theme-success);
+    }
+    .text-warning {
+      color: rgb(var(--v-theme-warning)) !important;
+    }
+    .border-warning {
+      --v-border-color: var(--v-theme-warning);
+    }
+    .on-background {
+      color: rgb(var(--v-theme-on-background)) !important;
+    }
+    .on-surface {
+      color: rgb(var(--v-theme-on-surface)) !important;
+    }
+    .on-primary {
+      color: rgb(var(--v-theme-on-primary)) !important;
+    }
+    .on-primary-darken-1 {
+      color: rgb(var(--v-theme-on-primary-darken-1)) !important;
+    }
+    .on-secondary {
+      color: rgb(var(--v-theme-on-secondary)) !important;
+    }
+    .on-secondary-darken-1 {
+      color: rgb(var(--v-theme-on-secondary-darken-1)) !important;
+    }
+    .on-error {
+      color: rgb(var(--v-theme-on-error)) !important;
+    }
+    .on-info {
+      color: rgb(var(--v-theme-on-info)) !important;
+    }
+    .on-success {
+      color: rgb(var(--v-theme-on-success)) !important;
+    }
+    .on-warning {
+      color: rgb(var(--v-theme-on-warning)) !important;
+    }
+</style>
+<meta name="description" content="Open video game use cases will also be presented. We have presented our method of observing emotions, called the &quot;Ah-Aloud Method&quot; at two conferences."><link rel="modulepreload" href="/article/ah-aloud/_payload.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/entry.b748aa34.js"><link rel="preload" as="style" href="/_nuxt/entry.ffcca624.css"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/default.d1f2be1d.js"><link rel="preload" as="style" href="/_nuxt/TheFooter.4bb9d416.css"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/TheHeader.vue_vue_type_script_setup_true_lang.ae9f77b9.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/mdi.30da656a.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/TheFooter.5b2ace3e.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/TheHeader.46c355bd.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/_...slug_.9f28cdce.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/ContentRenderer.2b50f13a.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/ContentRendererMarkdown.ce43bc2a.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/_commonjsHelpers.fed2a411.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/ContentDoc.4e23c6ad.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/composables.a0e86e43.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/utils.647bdf48.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/ContentQuery.5666c9b6.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/asyncData.3b22f021.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/index.9bb628c0.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/ProseH2.755fa1e6.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/ProseP.4cec3721.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/ProseCode.4b9ba42a.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/ProseCode.vue_vue_type_style_index_0_lang.84bd13a8.js"><link rel="preload" as="style" href="/_nuxt/ProseCode.7a079c04.css"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/ProseA.815a0201.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/ProseImg.11ba4acd.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/web-socket.5bf92e02.js"><link rel="prefetch" as="script" crossorigin href="/_nuxt/error-component.b330456f.js"><link rel="prefetch" as="image" type="image/png" href="/_nuxt/logo_white.9ba91892.png"><link rel="prefetch" as="image" type="image/png" href="/_nuxt/logo_black.805a747e.png"><link rel="stylesheet" href="/_nuxt/entry.ffcca624.css"><link rel="stylesheet" href="/_nuxt/TheFooter.4bb9d416.css"><link rel="stylesheet" href="/_nuxt/ProseCode.7a079c04.css"><style>pre code .line{display:block;min-height:1rem}pre{-ms-overflow-style:none;overflow-x:scroll}pre::-webkit-scrollbar{display:none}</style></head>
+<body ><div id="__nuxt"><!--[--><div class="v-application v-theme--light v-layout v-layout--full-height v-locale--is-ltr" style="z-index:1000;"><div class="v-application__wrap"><!--[--><!--[--><header class="v-toolbar v-toolbar--density-default bg-primary v-theme--light v-app-bar" style="top:0;z-index:1004;transform:translateY(0%);position:fixed;"><!----><div class="v-toolbar__content" style="height:64px;"><div class="v-toolbar__prepend"><!--[--><div class="v-responsive v-img v-img--booting" style="width:100px;"><div class="v-responsive__sizer" style=""></div><!--[--><!--[--><!----><!----><!----><!----><!----><!--]--><!--]--><!----></div><!--]--></div><!----><!--[--><button type="button" class="v-btn v-btn--icon v-theme--light v-btn--density-default v-btn--size-default v-btn--variant-text v-app-bar-nav-icon" style=""><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><i class="v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z"></path></svg></i><!--]--></span><!----><!----></button><!--]--><!----></div><!----></header><!--[--><nav class="v-navigation-drawer v-navigation-drawer--right v-navigation-drawer--temporary v-theme--light bg-primary" style="right:0;z-index:1006;transform:translateX(110%);position:fixed;transition:none !important;"><!----><!----><div class="v-navigation-drawer__content"><!--[--><div class="v-list v-theme--light bg-transparent v-list--density-default v-list--one-line" style="" role="listbox"><!--[--><!--[--><div class="v-list-item v-theme--light v-list-item--density-default v-list-item--one-line v-list-item--variant-text" style=""><!--[--><!----><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content"><!----><!----><!--[--><a class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated" style="" href="/"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!--[--><span class="v-btn__prepend"><i class="v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"></path></svg></i></span><!--]--><span class="v-btn__content" data-no-activator><!--[--><!--[-->About<!--]--><!--]--></span><!----><!----></a><!--]--></div><!----></div><div class="v-list-item v-theme--light v-list-item--density-default v-list-item--one-line v-list-item--variant-text" style=""><!--[--><!----><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content"><!----><!----><!--[--><a class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated" style="" href="/game"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!--[--><span class="v-btn__prepend"><i class="v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.97,16L5,19C4.67,19.3 4.23,19.5 3.75,19.5A1.75,1.75 0 0,1 2,17.75V17.5L3,10.12C3.21,7.81 5.14,6 7.5,6H16.5C18.86,6 20.79,7.81 21,10.12L22,17.5V17.75A1.75,1.75 0 0,1 20.25,19.5C19.77,19.5 19.33,19.3 19,19L16.03,16H7.97M7,8V10H5V11H7V13H8V11H10V10H8V8H7M16.5,8A0.75,0.75 0 0,0 15.75,8.75A0.75,0.75 0 0,0 16.5,9.5A0.75,0.75 0 0,0 17.25,8.75A0.75,0.75 0 0,0 16.5,8M14.75,9.75A0.75,0.75 0 0,0 14,10.5A0.75,0.75 0 0,0 14.75,11.25A0.75,0.75 0 0,0 15.5,10.5A0.75,0.75 0 0,0 14.75,9.75M18.25,9.75A0.75,0.75 0 0,0 17.5,10.5A0.75,0.75 0 0,0 18.25,11.25A0.75,0.75 0 0,0 19,10.5A0.75,0.75 0 0,0 18.25,9.75M16.5,11.5A0.75,0.75 0 0,0 15.75,12.25A0.75,0.75 0 0,0 16.5,13A0.75,0.75 0 0,0 17.25,12.25A0.75,0.75 0 0,0 16.5,11.5Z"></path></svg></i></span><!--]--><span class="v-btn__content" data-no-activator><!--[--><!--[-->Open Video Game<!--]--><!--]--></span><!----><!----></a><!--]--></div><!----></div><div class="v-list-item v-theme--light v-list-item--density-default v-list-item--one-line v-list-item--variant-text" style=""><!--[--><!----><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content"><!----><!----><!--[--><a class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated" style="" href="/tool"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!--[--><span class="v-btn__prepend"><i class="v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M13.78 15.3L19.78 21.3L21.89 19.14L15.89 13.14L13.78 15.3M17.5 10.1C17.11 10.1 16.69 10.05 16.36 9.91L4.97 21.25L2.86 19.14L10.27 11.74L8.5 9.96L7.78 10.66L6.33 9.25V12.11L5.63 12.81L2.11 9.25L2.81 8.55H5.62L4.22 7.14L7.78 3.58C8.95 2.41 10.83 2.41 12 3.58L9.89 5.74L11.3 7.14L10.59 7.85L12.38 9.63L14.2 7.75C14.06 7.42 14 7 14 6.63C14 4.66 15.56 3.11 17.5 3.11C18.09 3.11 18.61 3.25 19.08 3.53L16.41 6.2L17.91 7.7L20.58 5.03C20.86 5.5 21 6 21 6.63C21 8.55 19.45 10.1 17.5 10.1Z"></path></svg></i></span><!--]--><span class="v-btn__content" data-no-activator><!--[--><!--[-->Tool<!--]--><!--]--></span><!----><!----></a><!--]--></div><!----></div><div class="v-list-item v-theme--light v-list-item--density-default v-list-item--one-line v-list-item--variant-text" style=""><!--[--><!----><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content"><!----><!----><!--[--><a class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated" style="" href="/article"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!--[--><span class="v-btn__prepend"><i class="v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"></path></svg></i></span><!--]--><span class="v-btn__content" data-no-activator><!--[--><!--[-->Article<!--]--><!--]--></span><!----><!----></a><!--]--></div><!----></div><div class="v-list-item v-theme--light v-list-item--density-default v-list-item--one-line v-list-item--variant-text" style=""><!--[--><!----><span class="v-list-item__underlay"></span><!--]--><!----><div class="v-list-item__content"><!----><!----><!--[--><a class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated" style="" href="/contact"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!--[--><span class="v-btn__prepend"><i class="v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true"><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"></path></svg></i></span><!--]--><span class="v-btn__content" data-no-activator><!--[--><!--[-->Contact<!--]--><!--]--></span><!----><!----></a><!--]--></div><!----></div><!--]--><!--]--></div><!--]--></div><!----></nav><!----><!--]--><!--]--><main class="wrapper" style="padding-top:64px;"><!--[--><div class="nuxt-loading-indicator" style="position:fixed;top:0;right:0;left:0;pointer-events:none;width:0%;height:3px;opacity:0;background:white;background-size:Infinity% auto;transition:width 0.1s, height 0.4s, opacity 0.4s;z-index:999999;"></div><!--[--><div><section class="content-wrapper"><div class="content-container"><div class="v-container"><article><!--[--><h1>The &quot;Ah-Aloud Method&quot; was presented at an academic conference.</h1><hr><p class="text-caption text-right mb-8">2022.11.19 <!----></p><aside class="text-caption">Open video game use cases will also be presented. We have presented our method of observing emotions, called the &quot;Ah-Aloud Method&quot; at two conferences.</aside><div class="v-responsive v-img v-img--booting" style=""><div class="v-responsive__sizer" style=""></div><!--[--><!--[--><!----><!----><!----><!----><!----><!--]--><!--]--><!----></div><div><div class="marked"><h2 id="what-is-the-ah-aloud-method"><a href="#what-is-the-ah-aloud-method"><!--[-->What is the Ah-Aloud Method?<!--]--></a></h2></div><iframe width="560" height="315" style="display: block; margin: 0 auto;" src="https://www.youtube.com/embed/xpkJ13SegK4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><div class="marked"><p><!--[-->The &quot;Ah-Aloud Method&quot; method is a real-time emotion observation technique.<!--]--></p></div><div class="marked"><p><!--[-->Experimental participants express their emotions with &quot;ah&quot; concurrently with the task, and the experimenter determines the experimental participant&#39;s emotion based on the magnitude and tone of the &quot;ah&quot;.<!--]--></p></div><div class="marked"><p><!--[-->Since &quot;ah&quot;-sounding verbs are used as emotional verbs in daily life, they are considered to be suitable for expressing emotions in a natural way.<!--]--></p></div><div class="marked"><p><!--[-->They are also useful for casual experimentation, as they use only the vocalization of &quot;ah&quot; and do not require special equipment.<!--]--></p></div><div class="marked"><p><!--[-->We encourage you to use it in conjunction with open video games for your video game experiments.<!--]--></p></div><div class="marked"><h2 id="conferences-and-papers-presented"><a href="#conferences-and-papers-presented"><!--[-->Conferences and papers presented<!--]--></a></h2></div><div class="marked"><p><!--[-->We were invited to speak and present a demo at Entertainment Computing (EC) 2022.<!--]--></p></div><div class="marked"><code><!--[--><pre><code><span class="line"><span>川島 拓也, 渡邊 恵太. &quot;あアラウド法：体験中の心理プロセスを「あ」の音声情報で評価する手法の提案と検証&quot;. エンタテインメントコンピューティングシンポジウム2022論文集, Vol. 2022, pp. 178-183, Aug. 2022. http://id.nii.ac.jp/1001/00219408/.</span></span></code></pre><!--]--></code></div><div class="marked"><p><!--[-->Here we received the Best Paper Award and the Good Presentation Award!（<span class="marked" rel="nofollow"><a href="https://scrapbox.io/ec2022/%E8%A1%A8%E5%BD%B0%E6%83%85%E5%A0%B1" rel="noopener noreferrer"><!--[-->Link<!--]--></a></span>）<!--]--></p></div><div class="marked"><p><!--[-->He also gave the English name &quot;ah-aloud&quot; and gave a presentation on stage at the 8th International HCI and UX Conference in Indonesia (CHIuXiD2023).<!--]--></p></div><div class="marked"><code><!--[--><pre><code><span class="line"><span>Takuya Kawashima and Keita Watanabe. &quot;&quot;Ah-aloud&quot;: Method for Evaluating Cognitive Processes Occurring During Tasks from Vocal Information&quot;. 2022 8th International HCI and UX Conference in Indonesia (CHIuXiD), Vol. 2022, pp. 42-46, Jan. 2023. https://doi.org/10.1109/CHIuXiD57244.2022.10009797.</span></span></code></pre><!--]--></code></div><div class="marked"><p><!--[--><span class="marked" rel="nofollow"><a href="https://openvideogame.cc/#publication" rel="noopener noreferrer"><!--[-->TOP Page<!--]--></a></span>, where the papers can also be viewed.<!--]--></p></div><div class="marked"><h2 id="use-cases"><a href="#use-cases"><!--[-->Use Cases<!--]--></a></h2></div><div class="marked"><p><!--[-->In the course of our research on the &quot;Aaroud&quot; method, we experimented with an open video game.<!--]--></p></div><div class="marked"><p><!--[-->The games used are <span class="marked" rel="nofollow"><a href="https://github.com/open-video-game-library/SlidingPenguin" rel="noopener noreferrer"><!--[-->Sliding Penguin<!--]--></a></span> and <span class="marked" rel="nofollow"><a href="https://github.com/open-video-game-library/MinimumTennis" rel="noopener noreferrer"><!--[-->Minimum Tennis<!--]--></a></span>.<!--]--></p></div><div class="marked"><p><!--[--><div class="marked"><img src="https://user-images.githubusercontent.com/52689532/226538593-8938b70c-5271-4ac3-8bfb-682059706c33.png" alt="Sliding Penguin（左）とMinimum Tennis（右）"></div><!--]--></p></div><div class="marked"><p><!--[-->Sliding Penguin was controlled with an XBox gamepad using the standalone (Mac) version, while Minimum Tennis was controlled with a keyboard using the WebGL version.<!--]--></p></div><div class="marked"><p><!--[-->Both video games were selected because of the emotional and thought-provoking nature of their gameplay.<!--]--></p></div><div class="marked"><p><!--[-->Slidin Penguin is a driving game in which a penguin slides on ice. It requires continuous control and is thrilling.<!--]--></p></div><div class="marked"><p><!--[-->Minimum Tennis is a simple tennis game. When controlled with the keyboard, the controls are complex and it is easy to get an impression of the game.<!--]--></p></div><div class="marked"><p><!--[-->These two video games were easy to use because the Ah-Aloud Method wanted to observe emotions and thoughts.<!--]--></p></div><div class="marked"><p><!--[-->We also used <span class="marked" rel="nofollow"><a href="https://open-video-game-library.github.io/MultiViewRecorder/" rel="noopener noreferrer"><!--[-->Multi View Recorder<!--]--></a></span> to record the experiment.<!--]--></p></div><div class="marked"><p><!--[--><div class="marked"><img src="https://user-images.githubusercontent.com/52689532/226542790-25b401ad-e6eb-4bee-b954-85b14103a035.jpeg" alt="Multi View Recorderによる実験の録画"></div><!--]--></p></div><div class="marked"><p><!--[-->Multi View Recorder is a tool that allows you to record up to four videos simultaneously in your browser.<!--]--></p></div><div class="marked"><p><!--[-->This tool was useful because we asked the experiment participants to watch the recordings and reflect on their experience during the task.<!--]--></p></div></div><!--]--></article><div class="v-row justify-center mt-16"><a class="v-btn v-btn--elevated v-theme--light bg-primary v-btn--density-default v-btn--size-default v-btn--variant-elevated" style="" href="/article"><!--[--><span class="v-btn__overlay"></span><span class="v-btn__underlay"></span><!--]--><!----><span class="v-btn__content" data-no-activator><!--[--><!--[-->Back to the article list<!--]--><!--]--></span><!----><!----></a></div></div></div></section></div><!--]--><!--]--></main><footer class="v-footer v-theme--light bg-grey-lighten-3 py-16" style="_key:colorStyles;" data-v-253ef97c><div class="v-container" data-v-253ef97c><div class="v-responsive v-img v-img--booting" style="height:125px;" data-v-253ef97c><div class="v-responsive__sizer" style=""></div><!--[--><!--[--><!----><!----><!----><!----><!----><!--]--><!--]--><!----></div><div class="v-row justify-space-between mt-4 pt-4" data-v-253ef97c><div class="v-col-sm-3 v-col-6" data-v-253ef97c><ul data-v-253ef97c><li data-v-253ef97c>Learn about OVGL</li><hr class="v-divider v-theme--light" style="" aria-orientation="horizontal" role="separator" data-v-253ef97c><li data-v-253ef97c><a href="/#abstract" class="" data-v-253ef97c>Summary</a></li><li data-v-253ef97c><a href="/#member" class="" data-v-253ef97c>Member</a></li><li data-v-253ef97c><a href="/#publication" class="" data-v-253ef97c>Publications</a></li></ul></div><div class="v-col-sm-3 v-col-6" data-v-253ef97c><ul data-v-253ef97c><li data-v-253ef97c>Find Games</li><hr class="v-divider v-theme--light" style="" aria-orientation="horizontal" role="separator" data-v-253ef97c><li data-v-253ef97c><a href="/game" class="" data-v-253ef97c>Open Video Games</a></li><li data-v-253ef97c><a href="/tool/opensoursegame" class="" data-v-253ef97c>Open Source Games</a></li><li data-v-253ef97c><a href="/tool/browsegame" class="" data-v-253ef97c>Browser Games</a></li><li data-v-253ef97c><a href="/tool/asset" class="" data-v-253ef97c>Asset</a></li></ul></div><div class="v-col-sm-3 v-col-6" data-v-253ef97c><ul data-v-253ef97c><li data-v-253ef97c>Finding Experimental Tools</li><hr class="v-divider v-theme--light" style="" aria-orientation="horizontal" role="separator" data-v-253ef97c><li data-v-253ef97c><a href="https://open-video-game-library.github.io/MultiViewRecorder/" data-v-253ef97c>Multi View Recorder</a></li><li data-v-253ef97c><a href="https://youtu.be/xpkJ13SegK4" data-v-253ef97c>Ah-Aloud Method</a></li><li data-v-253ef97c><a href="/tool#extool" class="" data-v-253ef97c>Other External Tools</a></li></ul></div><div class="v-col-sm-3 v-col-6" data-v-253ef97c><ul data-v-253ef97c><li data-v-253ef97c>　</li><hr class="v-divider v-theme--light" style="" aria-orientation="horizontal" role="separator" data-v-253ef97c><li data-v-253ef97c><a href="/contact" class="" data-v-253ef97c>Contact</a></li><li data-v-253ef97c><a href="https://keita-lab.jp/" target="_blank" rel="noopener noreferrer" data-v-253ef97c>Organization</a></li></ul></div></div><div class="v-row mt-4 pt-4" data-v-253ef97c><div class="v-col-sm-3 v-col-4" data-v-253ef97c><ul data-v-253ef97c><li data-v-253ef97c>Links</li><hr class="v-divider v-theme--light" style="" aria-orientation="horizontal" role="separator" data-v-253ef97c><li data-v-253ef97c><a href="https://github.com/open-video-game-library" class="d-flex align-center" data-v-253ef97c><i class="v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true" data-v-253ef97c><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z"></path></svg></i> <span data-v-253ef97c>GitHub</span></a></li><li data-v-253ef97c><a href="https://twitter.com/openvideogame" class="d-flex align-center" data-v-253ef97c><i class="v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true" data-v-253ef97c><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16 6,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"></path></svg></i> <span data-v-253ef97c>Twitter</span></a></li><li data-v-253ef97c><a href="https://zenn.dev/openvideogame" class="d-flex align-center" data-v-253ef97c><i class="v-icon notranslate v-theme--light v-icon--size-default" style="" aria-hidden="true" data-v-253ef97c><svg class="v-icon__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M6.12,15.5L9.86,19.24L11.28,17.83L8.95,15.5L11.28,13.17L9.86,11.76L6.12,15.5M17.28,15.5L13.54,11.76L12.12,13.17L14.45,15.5L12.12,17.83L13.54,19.24L17.28,15.5Z"></path></svg></i> <span data-v-253ef97c>Zenn</span></a></li></ul></div><div class="v-col-sm-9 v-col-8" data-v-253ef97c><ul data-v-253ef97c><li data-v-253ef97c>Game Listing Site</li><hr class="v-divider v-theme--light" style="" aria-orientation="horizontal" role="separator" data-v-253ef97c><li class="d-inline-flex" data-v-253ef97c><!--[--><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated ma-1 pa-1" style="height:20px;width:20px;" data-v-253ef97c><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light" style="height:0;--v-progress-linear-height:2px;" role="progressbar" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style="width:100%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><a href="https://play.unity.com/u/openvideogame" class="full-link" data-v-253ef97c></a><div class="v-responsive v-img v-img--booting" style="" data-v-253ef97c><div class="v-responsive__sizer" style=""></div><!--[--><!--[--><!----><!----><!----><!----><!----><!--]--><!--]--><!----></div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated ma-1 pa-1" style="height:20px;width:20px;" data-v-253ef97c><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light" style="height:0;--v-progress-linear-height:2px;" role="progressbar" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style="width:100%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><a href="https://unityroom.com/users/i1tdqfmc0g2wa7y9hje5" class="full-link" data-v-253ef97c></a><div class="v-responsive v-img v-img--booting" style="" data-v-253ef97c><div class="v-responsive__sizer" style=""></div><!--[--><!--[--><!----><!----><!----><!----><!----><!--]--><!--]--><!----></div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div><div class="v-card v-theme--light v-card--density-default v-card--variant-elevated ma-1 pa-1" style="height:20px;width:20px;" data-v-253ef97c><!----><div class="v-card__loader"><div class="v-progress-linear v-theme--light" style="height:0;--v-progress-linear-height:2px;" role="progressbar" aria-valuemin="0" aria-valuemax="100"><!----><div class="v-progress-linear__background" style="width:100%;"></div><div class="v-progress-linear__indeterminate"><!--[--><div class="v-progress-linear__indeterminate long" style=""></div><div class="v-progress-linear__indeterminate short" style=""></div><!--]--></div><!----></div></div><!----><!----><!--[--><a href="https://open-video-game.itch.io/" class="full-link" data-v-253ef97c></a><div class="v-responsive v-img v-img--booting" style="" data-v-253ef97c><div class="v-responsive__sizer" style=""></div><!--[--><!--[--><!----><!----><!----><!----><!----><!--]--><!--]--><!----></div><!--]--><!----><!--[--><!----><span class="v-card__underlay"></span><!--]--></div><!--]--></li></ul></div></div><div class="v-row justify-center mt-4 pt-4" data-v-253ef97c><address data-v-253ef97c>Open Video Game Project © 2021 - 2023</address></div></div></footer><!--]--></div></div><!--]--></div><script type="module">import p from "/article/ah-aloud/_payload.js";window.__NUXT__={...p,...((function(a,b){return {state:{},_errors:{},serverRendered:true,config:{public:{internalDbApi:"https:\u002F\u002Fscript.google.com\u002Fmacros\u002Fs\u002FAKfycbxcxVKsmiwo3Pip-D_l29-XGgJiraYgVCMOLkJ2SWxEyFYS0paBbmTYAxZDm6zmsX-v8g\u002Fexec",externalDbApi:"https:\u002F\u002Fscript.google.com\u002Fmacros\u002Fs\u002FAKfycbxc714YcsKPB0pP9K-o6JHhli4BjNjP6aGu17Bplr-H4j2vKhgoXYJT4Wr3HZWjLVGaLQ\u002Fexec",surveyDbApi:"https:\u002F\u002Fscript.google.com\u002Fmacros\u002Fs\u002FAKfycbzi4ldCsqKbSLPeORVH7fRazRWY6J-TcVWzV-E4ZimSAIKBHIs_Owd2UBwRrIQDgeqM\u002Fexec",content:{clientDB:{isSPA:a,integrity:1698670857200},navigation:{fields:[]},base:"_content",tags:{p:"prose-p",a:"prose-a",blockquote:"prose-blockquote","code-inline":"prose-code-inline",code:"prose-code",em:"prose-em",h1:"prose-h1",h2:"prose-h2",h3:"prose-h3",h4:"prose-h4",h5:"prose-h5",h6:"prose-h6",hr:"prose-hr",img:"prose-img",ul:"prose-ul",ol:"prose-ol",li:"prose-li",strong:"prose-strong",table:"prose-table",thead:"prose-thead",tbody:"prose-tbody",td:"prose-td",th:"prose-th",tr:"prose-tr"},highlight:{theme:"github-dark",preload:["bibtex","csharp","shellscript"],apiURL:"\u002Fapi\u002F_content\u002Fhighlight"},wsUrl:b,documentDriven:a,anchorLinks:{depth:4,exclude:[1]}}},app:{baseURL:"\u002F",buildAssetsDir:"\u002F_nuxt\u002F",cdnURL:b}},prerenderedAt:1698670964755}}(false,"")))}</script><script type="module" src="/_nuxt/entry.b748aa34.js" crossorigin></script><script type="module" src="/_nuxt/default.d1f2be1d.js" crossorigin></script><script type="module" src="/_nuxt/TheHeader.46c355bd.js" crossorigin></script><script type="module" src="/_nuxt/_...slug_.9f28cdce.js" crossorigin></script><script type="module" src="/_nuxt/ContentDoc.4e23c6ad.js" crossorigin></script><script type="module" src="/_nuxt/TheFooter.5b2ace3e.js" crossorigin></script><script type="module" src="/_nuxt/ContentRenderer.2b50f13a.js" crossorigin></script><script type="module" src="/_nuxt/ContentRendererMarkdown.ce43bc2a.js" crossorigin></script><script type="module" src="/_nuxt/ProseH2.755fa1e6.js" crossorigin></script><script type="module" src="/_nuxt/ProseP.4cec3721.js" crossorigin></script><script type="module" src="/_nuxt/ProseCode.4b9ba42a.js" crossorigin></script><script type="module" src="/_nuxt/ProseA.815a0201.js" crossorigin></script><script type="module" src="/_nuxt/ProseImg.11ba4acd.js" crossorigin></script></body>
+</html>
