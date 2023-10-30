@@ -1,1 +1,0 @@
-import{_ as o}from"./ProseCode.vue_vue_type_style_index_0_lang.84bd13a8.js";import{h as s,o as r,b as t,i as a,r as c}from"./entry.b748aa34.js";const n={class:"marked"};function d(e,l,_,p,f,i){return r(),t("div",n,[a("code",null,[c(e.$slots,"default")])])}const $=s(o,[["render",d]]);export{$ as default};

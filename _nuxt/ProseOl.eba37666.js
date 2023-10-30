@@ -1,0 +1,1 @@
+import{h as s,o,b as r,i as t,r as a}from"./entry.2ba7b7f7.js";const c={},n={class:"marked"};function l(e,d){return o(),r("div",n,[t("ol",null,[a(e.$slots,"default")])])}const f=s(c,[["render",l]]);export{f as default};
