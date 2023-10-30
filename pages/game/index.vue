@@ -1,18 +1,6 @@
 <script setup>
-/** Material Design Iconのインポート */
 import { mdiGithub, mdiController, mdiFilePdfBox } from "@mdi/js";
-
-/** 環境変数を扱うRuntimeConfigの使用 */
-const config = useRuntimeConfig();
-
-/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだオープンビデオゲームのデータ */
-const { data: gameData } = await useFetch(config.public.internalDbApi, {
-  method: "GET",
-  query: { sheetName: "openvideogame" },
-});
-
-/** @type {Object[]} isPublicがtrueのものだけ抽出したオープンビデオゲームのデータ */
-const games = gameData.value.filter((data) => data.isPublic);
+import games from '~/assets/json/game.json';
 
 /** @type {String} コンタクトへのリンク画像の参照URL */
 const moreImg = new URL("../../assets/image/more.png", import.meta.url).href;
