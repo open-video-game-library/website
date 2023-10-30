@@ -1,6 +1,6 @@
 <script setup>
 import { mdiGithub, mdiController, mdiFilePdfBox } from "@mdi/js";
-import games from '~/assets/json/game.json';
+import { games } from '~/assets/json/game.json';
 
 /** @type {String} コンタクトへのリンク画像の参照URL */
 const moreImg = new URL("../../assets/image/more.png", import.meta.url).href;

@@ -12,7 +12,7 @@ const getSheetDatas = async () => {
             sheetName: "openvideogame",
         }
     });
-    const game = { "game": gameData.filter((data) => data.isPublic) };
+    const game = { "games": gameData.filter((data) => data.isPublic) };
     core.setOutput("game", game);
 };
 
