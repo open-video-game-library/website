@@ -25,7 +25,7 @@ jobs:
         uses: jsdaniell/create-json@v1.2.2
         with:
           name: assets/json/game.json
-          json: {"games":${{ steps.import-data.outputs.game }}}
+          json: ${{ steps.import-data.outputs.game }}
       - name: 差分をpush
         run: |
           git config --global user.email "ttttt.fms5@gmail.com"
