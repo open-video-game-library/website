@@ -36,7 +36,7 @@ jobs:
           git config --global user.email "ttttt.fms5@gmail.com"
           git config --global user.name "tkawa15"
           if (git diff --shortstat | grep '[0-9]'); then \
-            git add assets/json/game.json
+            git add assets/json/about.json assets/json/game.json assets/json/tool.json
             git commit -m "✨ データの更新"
             git push origin HEAD
           fi
