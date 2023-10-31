@@ -26,6 +26,11 @@ jobs:
         with:
           name: assets/json/game.json
           json: ${{ steps.import-data.outputs.game }}
+      - name: TOOLページで読み込むデータのJSONファイルを生成
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: assets/json/tool.json
+          json: ${{ steps.import-data.outputs.tool }}
       - name: 差分をpush
         run: |
           git config --global user.email "ttttt.fms5@gmail.com"

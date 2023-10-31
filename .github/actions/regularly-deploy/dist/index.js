@@ -37883,13 +37883,36 @@ const getSheetDatas = async () => {
     const externalApiUrl = process.env.API_EXTERNAL_DB_URL;
     const surveyApiUrl = process.env.API_SURVEY_DB_URL;
 
-    const { data: gameData } = await axios.get(internalApiUrl, {
+    // オープンビデオゲーム
+    const { data: openVideoGameData } = await axios.get(internalApiUrl, {
         params: {
             sheetName: "openvideogame",
         }
     });
-    const game = { "games": gameData.filter((data) => data.isPublic) };
+    const game = { "games": openVideoGameData.filter((data) => data.isPublic) };
     core.setOutput("game", game);
+
+    // 内部ツール
+    const { data: internalToolData } = await axios.get(internalApiUrl, {
+        params: {
+            sheetName: "tool",
+        }
+    });
+    const internalTool = internalToolData.filter((data) => data.isPublic);
+    // 外部ツール
+    const { data: externalToolData } = await axios.get(externalApiUrl, {
+        params: {
+            sheetName: "tool",
+        }
+    });
+    const externalTool = externalToolData.filter((data) => data.isPublic);
+    // ピックアップツール
+    const { data: pickedToolData } = await axios.get(externalApiUrl, {
+        params: {
+            sheetName: "pickup",
+        }
+    });
+    core.setOutput("tool", { "internalTools": internalTool, "externalTools": externalTool, "pickedTools": pickedToolData});
 };
 
 try {

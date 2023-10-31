@@ -1,48 +1,10 @@
 <script setup>
-/** 環境変数を扱うRuntimeConfigの使用 */
-const config = useRuntimeConfig();
+import { internalTools, externalTools, pickedTools } from '~/assets/json/game.json';
 
-/** @type {Object[]} opengame基本情報DBのスプレッドシートから読み込んだツールデータ */
-const { data: toolData } = await useFetch(config.public.internalDbApi, {
-  method: "GET",
-  query: { sheetName: "tool" },
-});
-
-/** @type {Object[]} isPublicがtrueのものだけ抽出したツールデータ */
-const tools = toolData.value.filter((data) => data.isPublic);
-
-/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだ外部ツールデータ */
-const { data: extoolData } = await useFetch(config.public.externalDbApi, {
-  method: "GET",
-  query: { sheetName: "tool" },
-});
-
-/** @type {Object[]} isPublicがtrueのものだけ抽出した外部ツールデータ */
-const extools = extoolData.value.filter((data) => data.isPublic);
-
-/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだピックアップデータ */
-const { data: pickups } = await useFetch(config.public.externalDbApi, {
-  method: "GET",
-  query: { sheetName: "pickup" },
-});
-
-/** @type {Object[]} ピックアップデータからオープンソースゲームを抽出したデータ */
-const opensourcegames = pickups.value.filter(
-  (pickup) => pickup.category == "opensourcegame"
-);
-
-/** @type {Object[]} ピックアップデータからブラウザゲームを抽出したデータ */
-const browsergames = pickups.value.filter(
-  (pickup) => pickup.category == "browsergame"
-);
-
-/** @type {Object[]} ピックアップデータからフレームワークを抽出したデータ */
-const frameworks = pickups.value.filter(
-  (pickup) => pickup.category == "framework"
-);
-
-/** @type {Object[]} ピックアップデータからアセットを抽出したデータ */
-const assets = pickups.value.filter((pickup) => pickup.category == "asset");
+const openSourceGames = pickedTools.filter(tool => tool.category == "opensourcegame");
+const browserGames = pickedTools.filter(tool => tool.category == "browsergame");
+const frameworks = pickedTools.filter(tool => tool.category == "framework");
+const assets = pickedTools.filter(tool => tool.category == "asset");
 </script>
 
 <template>
@@ -60,7 +22,7 @@ const assets = pickups.value.filter((pickup) => pickup.category == "asset");
             and evaluation of game research.
           </aside>
           <v-row>
-            <v-col v-for="tool in tools" cols="12" :key="tool.name">
+            <v-col v-for="tool in internalTools" cols="12" :key="tool.name">
               <ToolCard
                 :name="tool.name"
                 :image="tool.image"
@@ -87,7 +49,7 @@ const assets = pickups.value.filter((pickup) => pickup.category == "asset");
             will also be presented.
           </aside>
           <v-row>
-            <v-col v-for="tool in extools" cols="12" :key="tool.name">
+            <v-col v-for="tool in externalTools" cols="12" :key="tool.name">
               <ToolCard
                 :name="tool.name"
                 :image="tool.image"
@@ -102,7 +64,7 @@ const assets = pickups.value.filter((pickup) => pickup.category == "asset");
           <h3>Open Source Games</h3>
           <v-row>
             <v-col
-              v-for="game in opensourcegames"
+              v-for="game in openSourceGames"
               cols="12"
               sm="4"
               :key="game.name"
@@ -131,7 +93,7 @@ const assets = pickups.value.filter((pickup) => pickup.category == "asset");
           <h3>Browser Games</h3>
           <v-row>
             <v-col
-              v-for="game in browsergames"
+              v-for="game in browserGames"
               cols="12"
               sm="4"
               :key="game.name"

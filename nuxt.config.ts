@@ -1,6 +1,6 @@
 export default defineNuxtConfig({
     app: {
-        cdnURL: '/website/',
+        baseURL: process.env.MODE === "prod" ? '/website/' : '/',
         head: {
             title: "Open Video Game Library",
             meta: [
