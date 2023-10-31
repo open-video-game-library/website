@@ -1,5 +1,5 @@
 <script setup>
-import { internalTools, externalTools, pickedTools } from '~/assets/json/game.json';
+import { internalTools, externalTools, pickedTools } from '~/assets/json/tool.json';
 
 const openSourceGames = pickedTools.filter(tool => tool.category == "opensourcegame");
 const browserGames = pickedTools.filter(tool => tool.category == "browsergame");

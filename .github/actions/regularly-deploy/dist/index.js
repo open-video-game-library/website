@@ -37883,6 +37883,22 @@ const getSheetDatas = async () => {
     const externalApiUrl = process.env.API_EXTERNAL_DB_URL;
     const surveyApiUrl = process.env.API_SURVEY_DB_URL;
 
+    // メンバー
+    const { data: memberData } = await axios.get(internalApiUrl, {
+        params: {
+            sheetName: "member",
+        }
+    });
+    const member = memberData.filter((data) => data.isPublic);
+    // 論文
+    const { data: publicationData } = await axios.get(internalApiUrl, {
+        params: {
+            sheetName: "publication",
+        }
+    });
+    const publication = publicationData.filter((data) => data.isPublic);
+    core.setOutput("about", { "members": member, "publications": publication });
+
     // オープンビデオゲーム
     const { data: openVideoGameData } = await axios.get(internalApiUrl, {
         params: {
