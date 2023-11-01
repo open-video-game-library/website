@@ -1,5 +1,5 @@
 # mainブランチにpushされたとき、自動的に静的デプロイするワークフロー
-name: 定期データ更新
+name: 自動デプロイ
 
 on:
   workflow_dispatch:
