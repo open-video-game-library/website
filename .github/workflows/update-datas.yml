@@ -41,6 +41,11 @@ jobs:
         with:
           name: assets/json/tool.json
           json: ${{ steps.import-data.outputs.tool }}
+      - name: TOOL詳細ページで読み込むデータのJSONファイルを更新
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: assets/json/extool.json
+          json: ${{ steps.import-data.outputs.extool }}
       - name: 差分をマージ
         run: |
           git config --global user.email "ttttt.fms5@gmail.com"

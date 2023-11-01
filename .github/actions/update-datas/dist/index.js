@@ -37933,6 +37933,50 @@ const getSheetDatas = async () => {
     "externalTools": externalTool,
     "pickedTools": pickedToolData,
   });
+
+  // オープンソースゲーム
+  const opensSourceGameData = await fetchData(externalApiUrl, "opensourcegame");
+  const sportsGames = opensSourceGameData.filter((data) => data.genre === "sports" && data.isPublic);
+  const shootingGames = opensSourceGameData.filter((data) => data.genre === "shooting" && data.isPublic);
+  const platformGames = opensSourceGameData.filter((data) => data.genre === "platform" && data.isPublic);
+  const fightingGames = opensSourceGameData.filter((data) => data.genre === "fighting" && data.isPublic);
+  const puzzleGames = opensSourceGameData.filter((data) => data.genre === "puzzle" && data.isPublic);
+  const drivingGames = opensSourceGameData.filter((data) => data.genre === "driving" && data.isPublic);
+  const otherGames  = opensSourceGameData.filter((data) => data.genre === "other" && data.isPublic);
+  // ブラウザゲーム
+  const browserGameData = await fetchData(externalApiUrl, "browsergame");
+  const browserGames = browserGameData.filter((data) => data.isPublic);
+  // フレームワーク
+  const frameworkData = await fetchData(externalApiUrl, "framework");
+  const frameworks = frameworkData.filter((data) => data.isPublic);
+  // 3Dモデル
+  const modelData = await fetchData(externalApiUrl, "asset_3Dmodel");
+  const models = modelData.filter((data) => data.isPublic);
+  // サウンド
+  const soundData = await fetchData(externalApiUrl, "asset_sound");
+  const sounds = soundData.filter((data) => data.isPublic);
+  // グラフィック・UI
+  const graphicData = await fetchData(externalApiUrl, "asset_graphic");
+  const graphics = graphicData.filter((data) => data.isPublic);
+  core.setOutput("extool", {
+    "opensSourceGames": {
+      "sportsGames": sportsGames,
+      "shootingGames": shootingGames,
+      "platformGames": platformGames,
+      "fightingGames": fightingGames,
+      "puzzleGames": puzzleGames,
+      "drivingGames": drivingGames,
+      "otherGames": otherGames,
+    },
+    "browserGames": browserGames,
+    "frameworks": frameworks,
+    "assets": {
+      "models": models,
+      "sounds": sounds,
+      "graphics": graphics,
+    }
+  });
+
 };
 
 try {
