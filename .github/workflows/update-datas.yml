@@ -1,5 +1,5 @@
 # 毎日3時にスプレッドシートのデータをJSONに反映するワークフロー
-name: 定期データ更新
+name: update-datas
 
 on:
   workflow_dispatch:
