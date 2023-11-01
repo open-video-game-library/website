@@ -5,6 +5,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "0 18 * * *" # NOTE: タイムゾーンはUTC
+  push:
+    branches:
+      - feature/deploy-workflow
 
 env:
   API_INTERNAL_DB_URL: ${{secrets.API_INTERNAL_DB_URL}}
