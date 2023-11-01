@@ -1,9 +1,5 @@
 name: データをインポートするJSファイルを実行する
 
-outputs:
-  game:
-    description: GAMEページで読み込むデータ
-
 runs:
   using: node20
   main: dist/index.js
