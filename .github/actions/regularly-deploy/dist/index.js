@@ -37878,63 +37878,67 @@ const core = __nccwpck_require__(4219);
 const github = __nccwpck_require__(5122);
 const axios = __nccwpck_require__(1366);
 
+const internalApiUrl = process.env.API_INTERNAL_DB_URL;
+const externalApiUrl = process.env.API_EXTERNAL_DB_URL;
+const surveyApiUrl = process.env.API_SURVEY_DB_URL;
+
+const fetchData = async (apiUrl, sheetName) => {
+  const { data } = await axios.get(apiUrl, {
+    params: {
+      sheetName,
+    }
+  });
+  return data;
+};
+
 const getSheetDatas = async () => {
-    const internalApiUrl = process.env.API_INTERNAL_DB_URL;
-    const externalApiUrl = process.env.API_EXTERNAL_DB_URL;
-    const surveyApiUrl = process.env.API_SURVEY_DB_URL;
+  // メンバー
+  const memberData = await fetchData(internalApiUrl, "member");
+  const member = memberData.filter((data) => data.isPublic);
+  // 論文
+  const publicationData = await fetchData(internalApiUrl, "publication");
+  const publication = publicationData.filter((data) => data.isPublic);
+  core.setOutput("about", { "members": member, "publications": publication });
 
-    // メンバー
-    const { data: memberData } = await axios.get(internalApiUrl, {
-        params: {
-            sheetName: "member",
-        }
-    });
-    const member = memberData.filter((data) => data.isPublic);
-    // 論文
-    const { data: publicationData } = await axios.get(internalApiUrl, {
-        params: {
-            sheetName: "publication",
-        }
-    });
-    const publication = publicationData.filter((data) => data.isPublic);
-    core.setOutput("about", { "members": member, "publications": publication });
+  // オープンビデオゲーム
+  const openVideoGameData = await fetchData(internalApiUrl, "openvideogame");
+  const game = { "games": openVideoGameData.filter((data) => data.isPublic) };
+  core.setOutput("game", game);
 
-    // オープンビデオゲーム
-    const { data: openVideoGameData } = await axios.get(internalApiUrl, {
-        params: {
-            sheetName: "openvideogame",
-        }
-    });
-    const game = { "games": openVideoGameData.filter((data) => data.isPublic) };
-    core.setOutput("game", game);
+  // 動物ゲームのサーベイ論文
+  const animalsPapersData = await fetchData(surveyApiUrl, "animals");
+  // FPSゲームのサーベイ論文
+  const fpsPapersData = await fetchData(surveyApiUrl, "fps");
+  // テニスゲームのサーベイ論文
+  const tennisPapersData = await fetchData(surveyApiUrl, "tennis");
+  // 共通体験サンプルのサーベイ論文
+  const cesPapersData = await fetchData(surveyApiUrl, "ces");
+  core.setOutput("survey", {
+    "animalsPapers": animalsPapersData,
+    "fpsPapers": fpsPapersData,
+    "tennisPapers": tennisPapersData,
+    "cesPapers": cesPapersData,
+  });
 
-    // 内部ツール
-    const { data: internalToolData } = await axios.get(internalApiUrl, {
-        params: {
-            sheetName: "tool",
-        }
-    });
-    const internalTool = internalToolData.filter((data) => data.isPublic);
-    // 外部ツール
-    const { data: externalToolData } = await axios.get(externalApiUrl, {
-        params: {
-            sheetName: "tool",
-        }
-    });
-    const externalTool = externalToolData.filter((data) => data.isPublic);
-    // ピックアップツール
-    const { data: pickedToolData } = await axios.get(externalApiUrl, {
-        params: {
-            sheetName: "pickup",
-        }
-    });
-    core.setOutput("tool", { "internalTools": internalTool, "externalTools": externalTool, "pickedTools": pickedToolData});
+  // 内部ツール
+  const internalToolData = await fetchData(internalApiUrl, "tool");
+  const internalTool = internalToolData.filter((data) => data.isPublic);
+  // 外部ツール
+  const externalToolData = await fetchData(externalApiUrl, "tool");
+  const externalTool = externalToolData.filter((data) => data.isPublic);
+  // ピックアップツール
+  const pickedToolData = await fetchData(externalApiUrl, "pickup");
+  core.setOutput("tool", {
+    "internalTools": internalTool,
+    "externalTools": externalTool,
+    "pickedTools": pickedToolData,
+  });
 };
 
 try {
-    getSheetDatas();
+  getSheetDatas();
 } catch (error) {
-    core.setFailed(error.message);
+  core.setFailed(error.message);
 }
 
 })();

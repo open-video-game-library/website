@@ -1,30 +1,5 @@
 <script setup>
-/** 環境変数を扱うRuntimeConfigの使用 */
-const config = useRuntimeConfig();
-
-/** @type {Object[]} opengame調査論文DBのスプレッドシートから読み込んだ動物ゲームに関するサーベイ論文のデータ */
-const { data: animalsData } = await useFetch(config.public.surveyDbApi, {
-  method: "GET",
-  query: { sheetName: "animals" },
-});
-
-/** @type {Object[]} opengame調査論文DBのスプレッドシートから読み込んだFPSゲームのサーベイ論文のデータ */
-const { data: fpsData } = await useFetch(config.public.surveyDbApi, {
-  method: "GET",
-  query: { sheetName: "fps" },
-});
-
-/** @type {Object[]} opengame調査論文DBのスプレッドシートから読み込んだテニスゲームのサーベイ論文のデータ */
-const { data: tennisData } = await useFetch(config.public.surveyDbApi, {
-  method: "GET",
-  query: { sheetName: "tennis" },
-});
-
-/** @type {Object[]} opengame調査論文DBのスプレッドシートから読み込んだ触覚体験サンプルのサーベイ論文のデータ */
-const { data: cesData } = await useFetch(config.public.surveyDbApi, {
-  method: "GET",
-  query: { sheetName: "ces" },
-});
+import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json/survey.json';
 </script>
 
 <template>
@@ -97,7 +72,7 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
               >
             </p>
             そこからさらにスクリーニングをおこない、最終的に<b>{{
-              animalsData.length + 1
+              animalsPapers.length + 1
             }}</b
             >本の論文を抽出しました。 ジャンル分けは<a
               href="https://www.academia.edu/download/1979904/9h2wevyakguizku.pdf"
@@ -119,7 +94,7 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
               >
             </p>
             From there, we conducted further screening and finally extracted
-            <b>{{ animalsData.length + 1 }}</b> papers. The genre classification
+            <b>{{ animalsPapers.length + 1 }}</b> papers. The genre classification
             was based on
             <a
               href="https://www.academia.edu/download/1979904/9h2wevyakguizku.pdf"
@@ -133,7 +108,7 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
             <thead>
               <tr>
                 <th
-                  v-for="(value, key) in animalsData[0]"
+                  v-for="(value, key) in animalsPapers[0]"
                   :key="value"
                   class="text-left"
                 >
@@ -142,7 +117,7 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
               </tr>
             </thead>
             <tbody>
-              <tr v-for="paper in animalsData" :key="paper.title">
+              <tr v-for="paper in animalsPapers" :key="paper.title">
                 <td v-for="value in paper" :key="value" class="text-left">
                   <a
                     v-if="value.match(/http+s*:\/\/+/)"
@@ -166,20 +141,20 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
           <h3>Open FPS</h3>
           <!-- <aside>
             FPSゲームが利用されている論文を調査しました。 全部で<b>{{
-              fpsData.length + 1
+              fpsPapers.length + 1
             }}</b
             >本の論文が見つかりました。
           </aside> -->
           <aside>
             We researched papers in which FPS games are used. In total, we found
-            <b>{{ fpsData.length + 1 }}</b> papers.
+            <b>{{ fpsPapers.length + 1 }}</b> papers.
           </aside>
 
           <v-table>
             <thead>
               <tr>
                 <th
-                  v-for="(value, key) in fpsData[0]"
+                  v-for="(value, key) in fpsPapers[0]"
                   :key="value"
                   class="text-left"
                 >
@@ -188,7 +163,7 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
               </tr>
             </thead>
             <tbody>
-              <tr v-for="paper in fpsData" :key="paper.title">
+              <tr v-for="paper in fpsPapers" :key="paper.title">
                 <td v-for="value in paper" :key="value" class="text-left">
                   <a
                     v-if="value.match(/http+s*:\/\/+/)"
@@ -212,20 +187,20 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
           <h3>Minimum Tennis</h3>
           <!-- <aside>
             テニスゲームが利用されている論文を調査しました。 全部で<b>{{
-              tennisData.length + 1
+              tennisPapers.length + 1
             }}</b
             >本の論文が見つかりました。
           </aside> -->
           <aside>
             We surveyed the papers in which tennis games are used. In total, we
-            found <b>{{ tennisData.length + 1 }}</b> papers.
+            found <b>{{ tennisPapers.length + 1 }}</b> papers.
           </aside>
 
           <v-table>
             <thead>
               <tr>
                 <th
-                  v-for="(value, key) in tennisData[0]"
+                  v-for="(value, key) in tennisPapers[0]"
                   :key="value"
                   class="text-left"
                 >
@@ -234,7 +209,7 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
               </tr>
             </thead>
             <tbody>
-              <tr v-for="paper in tennisData" :key="paper.title">
+              <tr v-for="paper in tennisPapers" :key="paper.title">
                 <td v-for="value in paper" :key="value" class="text-left">
                   <a
                     v-if="value.match(/http+s*:\/\/+/)"
@@ -259,7 +234,7 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
           <h3>Common Experience Sample（CES）</h3>
           <!-- <aside>
             研究者の触覚ディスプレイ体験アプリケーションに対するニーズを把握するため、触覚ディスプレイの論文を調査しました。
-            全部で<b>{{ cesData.length + 1 }}</b
+            全部で<b>{{ cesPapers.length + 1 }}</b
             >本の論文が見つかりました。
             触覚フィードバックするのものの特性を調査し、CESの開発では<a
               href="https://doi.org/10.1016/0010-0285(87)90008-9"
@@ -271,7 +246,7 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
           <aside>
             To understand researchers' needs for tactile display experience
             applications, we surveyed papers on tactile displays. In total, we
-            found <b>{{ cesData.length + 1 }}</b> papers. We investigated the
+            found <b>{{ cesPapers.length + 1 }}</b> papers. We investigated the
             characteristics of objects that provide tactile feedback and
             classified them into six dimensions (texture, hardness, temperature,
             weight, shape, and motion) with reference to the paper by
@@ -287,7 +262,7 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
             <thead>
               <tr>
                 <th
-                  v-for="(value, key) in cesData[0]"
+                  v-for="(value, key) in cesPapers[0]"
                   :key="value"
                   class="text-left"
                 >
@@ -296,7 +271,7 @@ const { data: cesData } = await useFetch(config.public.surveyDbApi, {
               </tr>
             </thead>
             <tbody>
-              <tr v-for="paper in cesData" :key="paper.title">
+              <tr v-for="paper in cesPapers" :key="paper.title">
                 <td v-for="value in paper" :key="value" class="text-left">
                   <a
                     v-if="value.match(/http+s*:\/\/+/)"
