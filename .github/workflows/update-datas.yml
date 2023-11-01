@@ -1,0 +1,57 @@
+# 毎日3時にスプレッドシートのデータをJSONに反映するワークフロー
+name: 定期データ更新
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 18 * * *" # NOTE: タイムゾーンはUTC
+
+env:
+  API_INTERNAL_DB_URL: ${{secrets.API_INTERNAL_DB_URL}}
+  API_EXTERNAL_DB_URL: ${{secrets.API_EXTERNAL_DB_URL}}
+  API_SURVEY_DB_URL: ${{secrets.API_SURVEY_DB_URL}}
+
+jobs:
+  update_datas:
+    name: スプレッドシートのデータをJSONファイルにインポート
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v4
+      - name: JSファイルを実行するYAMLを実行
+        uses: ./.github/actions/update-datas
+        id: import-data
+      - name: ABOUTページで読み込むデータのJSONファイルを生成
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: assets/json/about.json
+          json: ${{ steps.import-data.outputs.about }}
+      - name: GAMEページで読み込むデータのJSONファイルを生成
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: assets/json/game.json
+          json: ${{ steps.import-data.outputs.game }}
+      - name: サーベイページで読み込むデータのJSONファイルを生成
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: assets/json/survey.json
+          json: ${{ steps.import-data.outputs.survey }}
+      - name: TOOLページで読み込むデータのJSONファイルを生成
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: assets/json/tool.json
+          json: ${{ steps.import-data.outputs.tool }}
+      - name: TOOL詳細ページで読み込むデータのJSONファイルを更新
+        uses: jsdaniell/create-json@v1.2.2
+        with:
+          name: assets/json/extool.json
+          json: ${{ steps.import-data.outputs.extool }}
+      - name: 差分をマージ
+        run: |
+          git config --global user.email "ttttt.fms5@gmail.com"
+          git config --global user.name "tkawa15"
+          if (git diff --shortstat | grep '[0-9]'); then \
+            git add .
+            git commit -m "🚀 定期データ更新"
+            git push origin HEAD
+          fi
