@@ -19,7 +19,7 @@ jobs:
       - name: チェックアウト
         uses: actions/checkout@v4
       - name: JSファイルを実行するYAMLを実行
-        uses: ./.github/actions/regularly-deploy
+        uses: ./.github/actions/update-datas
         id: import-data
       - name: ABOUTページで読み込むデータのJSONファイルを生成
         uses: jsdaniell/create-json@v1.2.2
