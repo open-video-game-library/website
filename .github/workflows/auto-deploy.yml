@@ -1,0 +1,16 @@
+# mainブランチにpushされたとき、自動的に静的デプロイするワークフロー
+name: 定期データ更新
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  auto_deploy:
+    name: GitHub Pagesに静的デプロイ
+    runs-on: ubuntu-latest
+    steps:
+      - name: GitHub Pagesに静的デプロイ
+        run: yarn deploy

@@ -1,5 +1,5 @@
-# 毎日3時にスプレッドシートのデータをJSONに反映し、静的ビルドするワークフロー
-name: データの更新とデプロイ
+# 毎日3時にスプレッドシートのデータをJSONに反映するワークフロー
+name: 定期データ更新
 
 on:
   workflow_dispatch:
@@ -12,7 +12,7 @@ env:
   API_SURVEY_DB_URL: ${{secrets.API_SURVEY_DB_URL}}
 
 jobs:
-  import_spreadsheets:
+  update_datas:
     name: スプレッドシートのデータをJSONファイルにインポート
     runs-on: ubuntu-latest
     steps:
@@ -41,13 +41,12 @@ jobs:
         with:
           name: assets/json/tool.json
           json: ${{ steps.import-data.outputs.tool }}
-      - name: 差分をマージ & デプロイ
+      - name: 差分をマージ
         run: |
           git config --global user.email "ttttt.fms5@gmail.com"
           git config --global user.name "tkawa15"
           if (git diff --shortstat | grep '[0-9]'); then \
             git add .
-            git commit -m "🚀 定期自動デプロイ"
+            git commit -m "🚀 定期データ更新"
             git push origin HEAD
-            yarn deploy
           fi
