@@ -1,5 +1,5 @@
 # 毎日3時にスプレッドシートのデータをJSONに反映し、静的ビルドするワークフロー
-name: update-and-build
+name: データの更新とデプロイ
 
 on:
   workflow_dispatch:
