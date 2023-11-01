@@ -47,6 +47,6 @@ jobs:
           git config --global user.name "tkawa15"
           if (git diff --shortstat | grep '[0-9]'); then \
             git add .
-            git commit -m "🚀 自動定期デプロイ"
+            git commit -m "🚀 定期自動デプロイ"
             git push origin HEAD
           fi
