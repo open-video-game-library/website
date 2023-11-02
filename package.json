@@ -6,7 +6,7 @@
     "start": "nuxt start",
     "generate": "cross-env MODE=prod nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
     "@mdi/js": "7.0.96",
