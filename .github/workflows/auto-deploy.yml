@@ -18,4 +18,6 @@ jobs:
       - name: GitHub Pagesに静的デプロイ
         run: |
           yarn install
+          git config --global user.email "ttttt.fms5@gmail.com"
+          git config --global user.name "tkawa15"
           yarn deploy
