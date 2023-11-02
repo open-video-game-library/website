@@ -7,13 +7,12 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "deploy": "cross-env MODE=prod nuxt generate && gh-pages --dotfiles -d .output/public"
+    "deploy": "cross-env MODE=prod nuxt generate && push-dir --dir=.output/public --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "@mdi/js": "7.0.96",
     "@nuxt/content": "2.2.2",
     "cross-env": "^7.0.3",
-    "gh-pages": "^6.0.0",
     "nuxt": "3.0.0",
     "push-dir": "^0.4.1",
     "sass": "1.56.1",
