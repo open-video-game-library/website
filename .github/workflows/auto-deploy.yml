@@ -14,5 +14,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: GitHub Pagesに静的デプロイ
-        working-directory: ./website
+        working-directory: ..
         run: yarn deploy
