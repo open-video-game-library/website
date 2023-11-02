@@ -1,13 +1,10 @@
-# 毎日3時にスプレッドシートのデータをJSONに反映するワークフロー
+# 毎日0時にスプレッドシートのデータをJSONに反映するワークフロー
 name: 定期データ更新
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 18 * * *" # NOTE: タイムゾーンはUTC
-  push:
-    branches:
-      - feature/deploy-workflow
+    - cron: "0 15 * * *" # NOTE: タイムゾーンはUTC
 
 env:
   API_INTERNAL_DB_URL: ${{secrets.API_INTERNAL_DB_URL}}
