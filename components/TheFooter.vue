@@ -59,7 +59,7 @@ const webglSites = [
               >
             </li>
             <li>
-              <NuxtLink to="/tool/browsegame">ブラウザで遊べるゲーム</NuxtLink>
+              <NuxtLink to="/tool/browsergame">ブラウザで遊べるゲーム</NuxtLink>
             </li>
             <li><NuxtLink to="/tool/asset">アセット</NuxtLink></li>
           </ul> -->
@@ -71,7 +71,7 @@ const webglSites = [
               <NuxtLink to="/tool/opensourcegame">Open Source Games</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/tool/browsegame">Browser Games</NuxtLink>
+              <NuxtLink to="/tool/browsergame">Browser Games</NuxtLink>
             </li>
             <li><NuxtLink to="/tool/asset">Asset</NuxtLink></li>
           </ul>
