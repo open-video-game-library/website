@@ -54,7 +54,7 @@ const webglSites = [
             <v-divider></v-divider>
             <li><NuxtLink to="/game">オープンビデオゲーム</NuxtLink></li>
             <li>
-              <NuxtLink to="/tool/opensoursegame"
+              <NuxtLink to="/tool/opensourcegame"
                 >オープンソースゲーム</NuxtLink
               >
             </li>
@@ -68,7 +68,7 @@ const webglSites = [
             <v-divider></v-divider>
             <li><NuxtLink to="/game">Open Video Games</NuxtLink></li>
             <li>
-              <NuxtLink to="/tool/opensoursegame">Open Source Games</NuxtLink>
+              <NuxtLink to="/tool/opensourcegame">Open Source Games</NuxtLink>
             </li>
             <li>
               <NuxtLink to="/tool/browsegame">Browser Games</NuxtLink>
