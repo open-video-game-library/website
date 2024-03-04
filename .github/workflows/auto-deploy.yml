@@ -1,0 +1,27 @@
+# mainブランチにpushされたとき、自動的に静的デプロイするワークフロー
+name: 自動デプロイ
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  auto_deploy:
+    name: GitHub Pagesに静的デプロイ
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v4
+      - name: 静的ビルド
+        run: |
+          yarn install
+          yarn generate
+      - name: GitHub Pagesにデプロイ
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./.output/public
+          user_name: tkawa15
+          user_email: ttttt.fms5@gmail.com

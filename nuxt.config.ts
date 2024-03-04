@@ -1,5 +1,8 @@
+const isProd = process.env.MODE === "prod";
+
 export default defineNuxtConfig({
-    app:{
+    app: {
+        baseURL: isProd ? '/website/' : '/',
         head: {
             title: "Open Video Game Library",
             meta: [
@@ -7,7 +10,7 @@ export default defineNuxtConfig({
                 // { name: "viewport", content: "width=device-width, initial-scale=1" },
             ],
             link: [
-                { rel: "icon", type: "image/png", href: "/favicon.png" }, // これを追記する
+                { rel: "icon", type: "image/png", href: isProd ? "/website/favicon.png" : "/favicon.png" },
             ],
         },
     },

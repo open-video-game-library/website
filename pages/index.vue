@@ -1,9 +1,6 @@
 <script setup>
-/** Meterial Design Iconのインポート */
 import { mdiGithub, mdiController, mdiFilePdfBox } from "@mdi/js";
-
-/** 環境変数を扱うRuntimeConfigの使用 */
-const config = useRuntimeConfig();
+import { members, publications } from '~/assets/json/about.json';
 
 /** @type {String} 背景動画のサムネイル画像の参照URL */
 const bgPoster = new URL("../assets/image/background.png", import.meta.url)
@@ -21,24 +18,6 @@ const canImg = [
   new URL("../assets/image/can2.png", import.meta.url).href,
   new URL("../assets/image/can3.png", import.meta.url).href,
 ];
-
-/** @type {Object[]} opengame基本情報DBのスプレッドシートから読み込んだメンバーデータ */
-const { data: memberData } = await useFetch(config.public.internalDbApi, {
-  method: "GET",
-  query: { sheetName: "member" },
-});
-
-/** @type {Object[]} isPublicがtrueのものだけ抽出したメンバーデータ */
-const members = memberData.value.filter((data) => data.isPublic);
-
-/** @type {Object[]} opengame基本情報DBのスプレッドシートから読み込んだ論文データ */
-const { data: publicationData } = await useFetch(config.public.internalDbApi, {
-  method: "GET",
-  query: { sheetName: "publication" },
-});
-
-/** @type {Object[]} isPublicがtrueのものだけ抽出した論文データ */
-const publications = publicationData.value.filter((data) => data.isPublic);
 
 /**
  * 指定されたIDの論文をダウンロード（別タブでPDFファイルを表示）させる

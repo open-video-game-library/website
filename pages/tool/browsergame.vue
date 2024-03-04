@@ -1,15 +1,5 @@
 <script setup>
-/** 環境変数を扱うRuntimeConfigの使用 */
-const config = useRuntimeConfig();
-
-/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだブラウザゲームのデータ */
-const { data: browsergameData } = await useFetch(config.public.externalDbApi, {
-  method: "GET",
-  query: { sheetName: "browsergame" },
-});
-
-/** @type {Object[]} isPublicがtrueのものだけ抽出したブラウザゲームのデータ */
-const browsergames = browsergameData.value.filter((data) => data.isPublic);
+import { browserGames } from '~/assets/json/extool.json';
 </script>
 
 <template>
@@ -21,7 +11,7 @@ const browsergames = browsergameData.value.filter((data) => data.isPublic);
           <h2>Browser Games</h2>
           <v-row>
             <v-col
-              v-for="game in browsergames"
+              v-for="game in browserGames"
               cols="12"
               sm="4"
               :key="game.name"
