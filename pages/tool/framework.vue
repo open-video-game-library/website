@@ -1,15 +1,5 @@
 <script setup>
-/** 環境変数を扱うRuntimeConfigの使用 */
-const config = useRuntimeConfig();
-
-/** @type {Object[]} opengame外部ツールDBのスプレッドシートから読み込んだフレームワークのデータ */
-const { data: frameworkData } = await useFetch(config.public.externalDbApi, {
-  method: "GET",
-  query: { sheetName: "framework" },
-});
-
-/** @type {Object[]} isPublicがtrueのものだけ抽出したフレームワークのデータ */
-const frameworks = frameworkData.value.filter((data) => data.isPublic);
+import { frameworks } from '~/assets/json/extool.json';
 </script>
 
 <template>
