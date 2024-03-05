@@ -1,0 +1,1 @@
+import{h as s,o as a,b as o,i as r,r as t}from"./entry.f156ef45.js";const c={},n={class:"marked"};function l(e,d){return a(),o("div",n,[r("table",null,[t(e.$slots,"default")])])}const f=s(c,[["render",l]]);export{f as default};

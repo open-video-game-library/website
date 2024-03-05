@@ -1,1 +1,0 @@
-import{h as s,o,b as r,i as t,r as a}from"./entry.abc5ca77.js";const c={},n={class:"marked"};function l(e,d){return o(),r("div",n,[t("li",null,[a(e.$slots,"default")])])}const i=s(c,[["render",l]]);export{i as default};
