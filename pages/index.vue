@@ -1,23 +1,14 @@
 <script setup>
 import { mdiGithub, mdiController, mdiFilePdfBox } from "@mdi/js";
-import { members, publications } from '~/assets/json/about.json';
+import { members, publications } from '@/assets/json/about.json';
+import logoImg from '@/assets/image/logo_white.png';
+import bgVideo from '@/assets/image/background.mp4';
+import bgPoster from '@/assets/image/background.png';
+import canImg1 from '@/assets/image/can1.png';
+import canImg2 from '@/assets/image/can2.png';
+import canImg3 from '@/assets/image/can3.png';
 
-/** @type {String} 背景動画のサムネイル画像の参照URL */
-const bgPoster = new URL("../assets/image/background.png", import.meta.url)
-  .href;
-
-/** @type {String} 背景動画の参照URL */
-const bgVideo = new URL("../assets/image/background.mp4", import.meta.url).href;
-
-/** @type {String} ロゴ画像の参照URL */
-const logoImg = new URL("../assets/image/logo_white.png", import.meta.url).href;
-
-/** @type {String[]} Open Video Game Library で できること の画像の参照URL */
-const canImg = [
-  new URL("../assets/image/can1.png", import.meta.url).href,
-  new URL("../assets/image/can2.png", import.meta.url).href,
-  new URL("../assets/image/can3.png", import.meta.url).href,
-];
+const canImg = [canImg1, canImg2, canImg3];
 
 /**
  * 指定されたIDの論文をダウンロード（別タブでPDFファイルを表示）させる

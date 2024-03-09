@@ -6,3 +6,4 @@
 .env
 /dist
 node_modules
+.yarn
