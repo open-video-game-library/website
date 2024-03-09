@@ -73,8 +73,8 @@ const download = (id) => {
           <!-- <h2>Open Video Game Library で できること</h2> -->
           <h2>What you can do with OVGL</h2>
           <v-row>
-            <v-col cols="12" sm="4">
-              <v-img class="my-4" :src="canImg[0]" height="120"></v-img>
+            <v-col cols="12" sm="4" class="abstract-part">
+              <v-img :src="canImg[0]" max-height="120"></v-img>
               <!-- <h4>研究で使えるゲームを見つける</h4> -->
               <h4>Finding games to use in your research</h4>
               <!-- <p>
@@ -85,13 +85,13 @@ const download = (id) => {
                 used in your research, or external open source games that you
                 can edit to suit your research.
               </p>
-              <v-row justify="center" class="my-4">
+              <div class="d-flex justify-center">
                 <!-- <v-btn color="primary" to="/game">ゲームを見つける</v-btn> -->
                 <v-btn color="primary" to="/game">Find a game</v-btn>
-              </v-row>
+              </div>
             </v-col>
-            <v-col cols="12" sm="4">
-              <v-img class="my-4" :src="canImg[1]" height="120"></v-img>
+            <v-col cols="12" sm="4" class="abstract-part">
+              <v-img :src="canImg[1]" max-height="120"></v-img>
               <!-- <h4>研究で使えるツールを見つける</h4> -->
               <h4>Find tools to use in your research</h4>
               <!-- <p>
@@ -102,13 +102,13 @@ const download = (id) => {
                 are useful when conducting experiments to evaluate experiences
                 and devices with games.
               </p>
-              <v-row justify="center" class="my-4">
+              <div class="d-flex justify-center">
                 <!-- <v-btn color="primary" to="/tool">ツールを見つける</v-btn> -->
                 <v-btn color="primary" to="/tool">Find Tools</v-btn>
-              </v-row>
+              </div>
             </v-col>
-            <v-col cols="12" sm="4">
-              <v-img class="my-4" :src="canImg[2]" height="120"></v-img>
+            <v-col cols="12" sm="4" class="abstract-part">
+              <v-img :src="canImg[2]" max-height="120"></v-img>
               <!-- <h4>ゲーム研究の知見を深める</h4> -->
               <h4>Deepen your knowledge of game research</h4>
               <!-- <p>
@@ -119,10 +119,10 @@ const download = (id) => {
                 game development and points to keep in mind when conducting game
                 research.
               </p>
-              <v-row justify="center" class="my-4">
+              <div class="d-flex justify-center">
                 <!-- <v-btn color="primary" to="/article">記事を読む</v-btn> -->
                 <v-btn color="primary" to="/article">Read Article</v-btn>
-              </v-row>
+              </div>
             </v-col>
           </v-row>
         </v-container>
@@ -237,6 +237,22 @@ const download = (id) => {
     background-size: 4px 4px;
     background-position: 0 0, 2px 2px;
     background-repeat: repeat;
+  }
+}
+
+.abstract-part {
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0;
+  margin: 20px 0;
+
+  h4 {
+    margin: 0;
+    flex-grow: 0;
+  }
+
+  p {
+    flex-grow: 1;
   }
 }
 </style>
