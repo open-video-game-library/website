@@ -2,10 +2,9 @@
 name: 自動デプロイ
 
 on:
-  workflow_dispatch:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   auto_deploy:
