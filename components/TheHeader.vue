@@ -1,16 +1,15 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { 
     mdiInformation, 
     mdiController, 
     mdiHammerWrench, 
     mdiFileDocument,
     mdiEmail
-} from "@mdi/js"
+} from "@mdi/js";
+import { useDisplay } from 'vuetify';
+import logoImg from '@/assets/image/logo_white.png';
 
-import { useDisplay } from 'vuetify'
-const { xs } = useDisplay()
-
-const logoImg = new URL('../assets/image/logo_white.png', import.meta.url).href
+const { xs } = useDisplay();
 
 const headerLinks = [
     {
@@ -44,7 +43,7 @@ const showDrawer = ref(false)
 </script>
 
 <template>
-    <v-app-bar color="primary">
+    <v-app-bar color="primary" class="w-100">
         <template v-slot:prepend>
             <v-img
                 :src="logoImg"

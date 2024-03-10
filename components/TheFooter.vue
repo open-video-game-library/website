@@ -147,7 +147,7 @@ const webglSites = [
               <a
                 href="https://twitter.com/openvideogame"
                 class="d-flex align-center"
-                ><v-icon :icon="mdiTwitter" /> <span>Twitter</span></a
+                ><v-icon :icon="mdiTwitter" /> <span>X(Twitter)</span></a
               >
             </li>
             <li>

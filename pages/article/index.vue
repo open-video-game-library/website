@@ -19,32 +19,18 @@ const query: QueryBuilderParams = {
         <v-container>
           <!-- <h2>記事一覧</h2> -->
           <h2>Articles</h2>
-          <v-row align="center" justify="end" class="my-4">
-            <v-col cols="12" sm="auto">
-              <!-- <p>各SNSでもゲーム研究・開発に関する情報を発信しています！</p> -->
-              <p>
-                Information on game research and development is also available
-                on each social networking site!
-              </p>
-            </v-col>
-            <v-col cols="6" sm="auto">
-              <v-btn
-                href="https://zenn.dev/openvideogame"
-                :prependIcon="mdiFileCode"
-                color="#3ea8ff"
-                class="ml-4 text-white"
-                >Zenn</v-btn
-              >
-            </v-col>
-            <v-col cols="6" sm="auto">
-              <v-btn
-                href="https://twitter.com/openvideogame"
-                :prependIcon="mdiTwitter"
-                color="#1DA1F2"
-                class="ml-4 text-white"
-                >Twitter</v-btn
-              >
-            </v-col>
+          <v-row align="center" justify="end" class="my-4 px-3">
+            <!-- <span>各SNSでもゲーム研究・開発に関する情報を発信しています！</span> -->
+            <span>
+              Get latest information from
+            </span>
+            <v-btn
+              href="https://twitter.com/openvideogame"
+              :prependIcon="mdiTwitter"
+              color="#1DA1F2"
+              class="ml-2 text-white"
+              >X(Twitter)</v-btn
+            >
           </v-row>
 
           <ContentList :query="query" path="/article" v-slot="{ list }">
