@@ -8,7 +8,6 @@ const ERROR_CODE = {
 
 <template>
     <NuxtLayout>
-        <NuxtLoadingIndicator color="white" :height="3" :duration="5000" :throttle="200" />
         <section class="content-wrapper">
             <div class="content-container">
                 <v-container>
