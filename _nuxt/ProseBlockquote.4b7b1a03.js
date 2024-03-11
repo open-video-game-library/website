@@ -1,1 +1,0 @@
-import{h as o,o as s,b as t,i as r,r as c}from"./entry.f156ef45.js";const a={},n={class:"marked"};function l(e,d){return s(),t("div",n,[r("blockquote",null,[c(e.$slots,"default")])])}const f=o(a,[["render",l]]);export{f as default};
