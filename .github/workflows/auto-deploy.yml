@@ -3,7 +3,7 @@ name: 自動デプロイ
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
@@ -22,5 +22,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./.output/public
+          cname: openvideogame.cc
           user_name: tkawa15
           user_email: ttttt.fms5@gmail.com
