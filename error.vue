@@ -2,7 +2,7 @@
 const error = useError();
 
 const ERROR_CODE = {
-    NOT_FOUND: "404",
+    NOT_FOUND: 404,
 };
 </script>
 
