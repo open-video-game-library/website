@@ -1,5 +1,5 @@
 <script setup>
-import { mdiGithub, mdiController, mdiFilePdfBox } from "@mdi/js";
+import { mdiGithub, mdiController, mdiFilePdfBox } from '@mdi/js';
 import { members, publications } from '@/assets/json/about.json';
 import logoImg from '@/assets/image/logo_white.png';
 import bgVideo from '@/assets/image/background.mp4';
@@ -15,10 +15,10 @@ const canImg = [canImg1, canImg2, canImg3];
  * @param {Number} id 論文のID
  */
 const download = (id) => {
-  const a = document.createElement("a");
+  const a = document.createElement('a');
   a.href = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href;
-  a.target = "_blank";
-  a.rel = "noopener noreferrer";
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
   a.click();
   a.remove();
 };
@@ -27,9 +27,21 @@ const download = (id) => {
 <template>
   <div>
     <div class="video-wrapper">
-      <v-img :src="bgPoster" cover height="100%" />
-      <video autoplay muted loop playsinline>
-        <source :src="bgVideo" type="video/mp4" />
+      <v-img
+        :src="bgPoster"
+        cover
+        height="100%"
+      />
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+      >
+        <source
+          :src="bgVideo"
+          type="video/mp4"
+        >
       </video>
       <v-container class="top-msg">
         <v-row
@@ -38,7 +50,11 @@ const download = (id) => {
           style="height: calc(100vh - 61px)"
         >
           <div>
-            <v-img :src="logoImg" class="my-4 py-4" height="125"></v-img>
+            <v-img
+              :src="logoImg"
+              class="my-4 py-4"
+              height="125"
+            />
             <!-- <p>
               「ゲーム研究を行いやすくし、ゲーム研究の発展に貢献すること」を目的とした、ゲーム研究者のためのライブラリ
             </p> -->
@@ -46,35 +62,50 @@ const download = (id) => {
               A library for game researchers with the aim of "facilitating game
               research and contributing to the development of game research"
             </p>
-            <v-row justify="center" class="my-4 py-4">
+            <v-row
+              justify="center"
+              class="my-4 py-4"
+            >
               <v-btn
                 color="info"
                 class="mx-8"
                 :prepend-icon="mdiGithub"
                 href="https://github.com/open-video-game-library"
-                >Download</v-btn
               >
+                Download
+              </v-btn>
               <v-btn
                 color="primary"
                 class="mx-8"
                 :prepend-icon="mdiController"
                 to="/game"
-                >Play</v-btn
               >
+                Play
+              </v-btn>
             </v-row>
           </div>
         </v-row>
       </v-container>
     </div>
 
-    <section class="content-wrapper" id="abstract">
+    <section
+      id="abstract"
+      class="content-wrapper"
+    >
       <div class="content-container">
         <v-container>
           <!-- <h2>Open Video Game Library で できること</h2> -->
           <h2>What you can do with OVGL</h2>
           <v-row>
-            <v-col cols="12" sm="4" class="abstract-part">
-              <v-img :src="canImg[0]" max-height="120"></v-img>
+            <v-col
+              cols="12"
+              sm="4"
+              class="abstract-part"
+            >
+              <v-img
+                :src="canImg[0]"
+                max-height="120"
+              />
               <!-- <h4>研究で使えるゲームを見つける</h4> -->
               <h4>Finding games to use in your research</h4>
               <!-- <p>
@@ -87,11 +118,23 @@ const download = (id) => {
               </p>
               <div class="d-flex justify-center">
                 <!-- <v-btn color="primary" to="/game">ゲームを見つける</v-btn> -->
-                <v-btn color="primary" to="/game">Find a game</v-btn>
+                <v-btn
+                  color="primary"
+                  to="/game"
+                >
+                  Find a game
+                </v-btn>
               </div>
             </v-col>
-            <v-col cols="12" sm="4" class="abstract-part">
-              <v-img :src="canImg[1]" max-height="120"></v-img>
+            <v-col
+              cols="12"
+              sm="4"
+              class="abstract-part"
+            >
+              <v-img
+                :src="canImg[1]"
+                max-height="120"
+              />
               <!-- <h4>研究で使えるツールを見つける</h4> -->
               <h4>Find tools to use in your research</h4>
               <!-- <p>
@@ -104,11 +147,23 @@ const download = (id) => {
               </p>
               <div class="d-flex justify-center">
                 <!-- <v-btn color="primary" to="/tool">ツールを見つける</v-btn> -->
-                <v-btn color="primary" to="/tool">Find Tools</v-btn>
+                <v-btn
+                  color="primary"
+                  to="/tool"
+                >
+                  Find Tools
+                </v-btn>
               </div>
             </v-col>
-            <v-col cols="12" sm="4" class="abstract-part">
-              <v-img :src="canImg[2]" max-height="120"></v-img>
+            <v-col
+              cols="12"
+              sm="4"
+              class="abstract-part"
+            >
+              <v-img
+                :src="canImg[2]"
+                max-height="120"
+              />
               <!-- <h4>ゲーム研究の知見を深める</h4> -->
               <h4>Deepen your knowledge of game research</h4>
               <!-- <p>
@@ -121,7 +176,12 @@ const download = (id) => {
               </p>
               <div class="d-flex justify-center">
                 <!-- <v-btn color="primary" to="/article">記事を読む</v-btn> -->
-                <v-btn color="primary" to="/article">Read Article</v-btn>
+                <v-btn
+                  color="primary"
+                  to="/article"
+                >
+                  Read Article
+                </v-btn>
               </div>
             </v-col>
           </v-row>
@@ -129,17 +189,20 @@ const download = (id) => {
       </div>
     </section>
 
-    <section class="content-wrapper bg-gray" id="member">
+    <section
+      id="member"
+      class="content-wrapper bg-gray"
+    >
       <div class="content-container">
         <v-container>
           <h2>Member</h2>
           <v-row>
             <v-col
+              v-for="member in members"
+              :key="member.name"
               cols="12"
               sm="4"
               justify="space-around"
-              v-for="member in members"
-              :key="member.name"
             >
               <MemberCard
                 :name="member.name"
@@ -156,36 +219,44 @@ const download = (id) => {
       </div>
     </section>
 
-    <section class="content-wrapper" id="publication">
+    <section
+      id="publication"
+      class="content-wrapper"
+    >
       <div class="content-container">
         <v-container>
           <h2>Publications</h2>
           <v-row
-            cols="12"
-            sm="4"
             v-for="publication in publications"
             :key="publication.title"
+            cols="12"
+            sm="4"
             class="my-2 py-2"
           >
-            <v-col cols="10" sm="11" style="word-wrap: break-word">
+            <v-col
+              cols="10"
+              sm="11"
+              style="word-wrap: break-word"
+            >
               {{ publication.author }}. "{{ publication.title }}".
               {{ publication.journal }},
               <span v-if="publication.vol">Vol. {{ publication.vol }}, </span>
               <span v-if="publication.no">No. {{ publication.no }}, </span>
               <span v-if="publication.pp">pp. {{ publication.pp }}, </span>
               {{ publication.date }}.
-              <span v-if="publication.doi"
-                ><a :href="publication.doi">{{ publication.doi }}</a
-                >.</span
-              >
+              <span v-if="publication.doi"><a :href="publication.doi">{{ publication.doi }}</a>.</span>
             </v-col>
-            <v-col cols="2" sm="1" align-self="center">
+            <v-col
+              cols="2"
+              sm="1"
+              align-self="center"
+            >
               <v-btn
                 color="primary"
                 :icon="mdiFilePdfBox"
                 variant="plain"
                 @click="download(publication.ID)"
-              ></v-btn>
+              />
             </v-col>
           </v-row>
         </v-container>

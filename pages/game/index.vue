@@ -1,15 +1,14 @@
 <script setup>
-import { mdiGithub, mdiController, mdiFilePdfBox } from "@mdi/js";
 import { games } from '~/assets/json/game.json';
 
 /** @type {String} コンタクトへのリンク画像の参照URL */
-const moreImg = new URL("../../assets/image/more.png", import.meta.url).href;
+const moreImg = new URL('../../assets/image/more.png', import.meta.url).href;
 
 /** @type {String} パラメータ入力の説明画像の参照URL */
-const inputImg = new URL("../../assets/image/input.png", import.meta.url).href;
+const inputImg = new URL('../../assets/image/input.png', import.meta.url).href;
 
 /** @type {String} パラメータ出力の説明画像の参照URL */
-const outputImg = new URL("../../assets/image/output.png", import.meta.url)
+const outputImg = new URL('../../assets/image/output.png', import.meta.url)
   .href;
 </script>
 
@@ -36,11 +35,18 @@ const outputImg = new URL("../../assets/image/output.png", import.meta.url)
             <a href="https://github.com/open-video-game-library">GitHub</a>
             for more information. For the design and development of each open
             video game, please click
-            <NuxtLink to="/game/survey">here</NuxtLink> to see the surveyed
+            <NuxtLink to="/game/survey">
+              here
+            </NuxtLink> to see the surveyed
             papers.
           </aside>
           <v-row>
-            <v-col v-for="game in games" :key="game.name" cols="12" sm="6">
+            <v-col
+              v-for="game in games"
+              :key="game.name"
+              cols="12"
+              sm="6"
+            >
               <GameCard
                 :name="game.name"
                 :image="game.image"
@@ -50,21 +56,38 @@ const outputImg = new URL("../../assets/image/output.png", import.meta.url)
                 :standalone="game.standalone"
               />
             </v-col>
-            <v-col cols="12" sm="6">
+            <v-col
+              cols="12"
+              sm="6"
+            >
               <v-hover v-slot="{ isHovering, props }">
-                <v-card :elevation="isHovering ? 8 : 2" v-bind="props">
-                  <NuxtLink to="/contact" class="full-link"></NuxtLink>
-                  <v-img :src="moreImg" height="320" cover />
-                  <v-row v-if="isHovering" class="details" align="center">
+                <v-card
+                  :elevation="isHovering ? 8 : 2"
+                  v-bind="props"
+                >
+                  <NuxtLink
+                    to="/contact"
+                    class="full-link"
+                  />
+                  <v-img
+                    :src="moreImg"
+                    height="320"
+                    cover
+                  />
+                  <v-row
+                    v-if="isHovering"
+                    class="details"
+                    align="center"
+                  >
                     <v-col>
                       <!-- <v-card-text
                         >その他、研究利用したいジャンルのビデオゲームがありましたら、ぜひご連絡ください。</v-card-text
                       > -->
-                      <v-card-text
-                        >If you have other video games in your genre that you
+                      <v-card-text>
+                        If you have other video games in your genre that you
                         would like to research and use, please contact
-                        us.</v-card-text
-                      >
+                        us.
+                      </v-card-text>
                     </v-col>
                   </v-row>
                 </v-card>
@@ -98,7 +121,10 @@ const outputImg = new URL("../../assets/image/output.png", import.meta.url)
             circumstances. In addition to numerical adjustments, visual
             adjustments can also be made by replacing images.
           </aside>
-          <v-img class="mx-auto" :src="inputImg" />
+          <v-img
+            class="mx-auto"
+            :src="inputImg"
+          />
           <!-- <h3>パラメータの取得</h3> -->
           <h3>Retrieval</h3>
           <!-- <aside>
@@ -109,7 +135,10 @@ const outputImg = new URL("../../assets/image/output.png", import.meta.url)
             ascertained by observation alone. It can be used for evaluation and
             analysis of game experience and controller devices.
           </aside>
-          <v-img class="mx-auto" :src="outputImg" />
+          <v-img
+            class="mx-auto"
+            :src="outputImg"
+          />
         </v-container>
       </div>
     </section>

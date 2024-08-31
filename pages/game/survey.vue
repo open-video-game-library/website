@@ -25,36 +25,41 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
               <!-- <NuxtLink to="/game/survey#animals"
                 >動物ゲームに関するサーベイ</NuxtLink
               > -->
-              <NuxtLink to="/game/survey#animals"
-                >Survey on Animal Games</NuxtLink
-              >
+              <NuxtLink to="/game/survey#animals">
+                Survey on Animal Games
+              </NuxtLink>
             </li>
             <li>
               <!-- <NuxtLink to="/game/survey#fps">OpenFPSに関するサーベイ</NuxtLink> -->
-              <NuxtLink to="/game/survey#fps">Survey on OpenFPS</NuxtLink>
+              <NuxtLink to="/game/survey#fps">
+                Survey on OpenFPS
+              </NuxtLink>
             </li>
             <li>
               <!-- <NuxtLink to="/game/survey#tennis"
                 >Minimum Tennisに関するサーベイ</NuxtLink
               > -->
-              <NuxtLink to="/game/survey#tennis"
-                >Survey on Minimum Tennis</NuxtLink
-              >
+              <NuxtLink to="/game/survey#tennis">
+                Survey on Minimum Tennis
+              </NuxtLink>
             </li>
             <li>
               <!-- <NuxtLink to="/game/survey#ces"
                 >触覚体験サンプル（CES）に関するサーベイ</NuxtLink
               > -->
-              <NuxtLink to="/game/survey#ces"
-                >Survey on Common Experience Sample(CES)</NuxtLink
-              >
+              <NuxtLink to="/game/survey#ces">
+                Survey on Common Experience Sample(CES)
+              </NuxtLink>
             </li>
           </ul>
         </v-container>
       </div>
     </section>
 
-    <section class="content-wrapper bg-gray" id="animals">
+    <section
+      id="animals"
+      class="content-wrapper bg-gray"
+    >
       <div class="content-container">
         <v-container>
           <!-- <h3>動物ゲーム</h3> -->
@@ -87,11 +92,9 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
             determine the genres to be developed, we searched the ACM Digital
             Library and the IPSJ electronic library using the following queries.
             <p class="my-4">
-              <i
-                >"Title:((game AND device) OR (game AND controller) OR (game AND
+              <i>"Title:((game AND device) OR (game AND controller) OR (game AND
                 experience)) AND Abstract:((game AND device) OR (game AND
-                controller) OR (game AND experience))"</i
-              >
+                controller) OR (game AND experience))"</i>
             </p>
             From there, we conducted further screening and finally extracted
             <b>{{ animalsPapers.length + 1 }}</b> papers. The genre classification
@@ -100,8 +103,7 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
               href="https://www.academia.edu/download/1979904/9h2wevyakguizku.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              >Wolf et al</a
-            >.
+            >Wolf et al</a>.
           </aside>
 
           <v-table>
@@ -117,15 +119,21 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
               </tr>
             </thead>
             <tbody>
-              <tr v-for="paper in animalsPapers" :key="paper.title">
-                <td v-for="value in paper" :key="value" class="text-left">
+              <tr
+                v-for="paper in animalsPapers"
+                :key="paper.title"
+              >
+                <td
+                  v-for="value in paper"
+                  :key="value"
+                  class="text-left"
+                >
                   <a
                     v-if="value.match(/http+s*:\/\/+/)"
                     :href="value"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >{{ value }}</a
-                  >
+                  >{{ value }}</a>
                   <span v-else>{{ value }}</span>
                 </td>
               </tr>
@@ -135,7 +143,10 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
       </div>
     </section>
 
-    <section class="content-wrapper" id="fps">
+    <section
+      id="fps"
+      class="content-wrapper"
+    >
       <div class="content-container">
         <v-container>
           <h3>Open FPS</h3>
@@ -163,15 +174,21 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
               </tr>
             </thead>
             <tbody>
-              <tr v-for="paper in fpsPapers" :key="paper.title">
-                <td v-for="value in paper" :key="value" class="text-left">
+              <tr
+                v-for="paper in fpsPapers"
+                :key="paper.title"
+              >
+                <td
+                  v-for="value in paper"
+                  :key="value"
+                  class="text-left"
+                >
                   <a
                     v-if="value.match(/http+s*:\/\/+/)"
                     :href="value"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >{{ value }}</a
-                  >
+                  >{{ value }}</a>
                   <span v-else>{{ value }}</span>
                 </td>
               </tr>
@@ -181,7 +198,10 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
       </div>
     </section>
 
-    <section class="content-wrapper bg-gray" id="tennis">
+    <section
+      id="tennis"
+      class="content-wrapper bg-gray"
+    >
       <div class="content-container">
         <v-container>
           <h3>Minimum Tennis</h3>
@@ -209,15 +229,21 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
               </tr>
             </thead>
             <tbody>
-              <tr v-for="paper in tennisPapers" :key="paper.title">
-                <td v-for="value in paper" :key="value" class="text-left">
+              <tr
+                v-for="paper in tennisPapers"
+                :key="paper.title"
+              >
+                <td
+                  v-for="value in paper"
+                  :key="value"
+                  class="text-left"
+                >
                   <a
                     v-if="value.match(/http+s*:\/\/+/)"
                     :href="value"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >{{ value }}</a
-                  >
+                  >{{ value }}</a>
                   <span v-else>{{ value }}</span>
                 </td>
               </tr>
@@ -227,7 +253,10 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
       </div>
     </section>
 
-    <section class="content-wrapper" id="ces">
+    <section
+      id="ces"
+      class="content-wrapper"
+    >
       <div class="content-container">
         <v-container>
           <!-- <h3>触覚体験サンプル（CES）</h3> -->
@@ -254,8 +283,7 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
               href="https://doi.org/10.1016/0010-0285(87)90008-9"
               target="_blank"
               rel="noopener noreferrer"
-              >Lederman et al</a
-            >. in the development of CES.
+            >Lederman et al</a>. in the development of CES.
           </aside>
 
           <v-table>
@@ -271,15 +299,21 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
               </tr>
             </thead>
             <tbody>
-              <tr v-for="paper in cesPapers" :key="paper.title">
-                <td v-for="value in paper" :key="value" class="text-left">
+              <tr
+                v-for="paper in cesPapers"
+                :key="paper.title"
+              >
+                <td
+                  v-for="value in paper"
+                  :key="value"
+                  class="text-left"
+                >
                   <a
                     v-if="value.match(/http+s*:\/\/+/)"
                     :href="value"
                     target="_blank"
                     rel="noopener noreferrer"
-                    >{{ value }}</a
-                  >
+                  >{{ value }}</a>
                   <span v-else>{{ value }}</span>
                 </td>
               </tr>

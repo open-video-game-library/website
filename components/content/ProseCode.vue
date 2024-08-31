@@ -1,33 +1,34 @@
 <script lang="ts">
-import { defineComponent } from '#imports'
+import { defineComponent } from '#imports';
+
 export default defineComponent({
   props: {
     code: {
       type: String,
-      default: ''
+      default: '',
     },
     language: {
       type: String,
-      default: null
+      default: null,
     },
     filename: {
       type: String,
-      default: null
+      default: null,
     },
     highlights: {
       type: Array as () => number[],
-      default: () => []
-    }
-  }
-})
+      default: () => [],
+    },
+  },
+});
 </script>
 
 <template>
-    <div class="marked">
-      <code>
-        <slot />
-      </code>
-    </div>
+  <div class="marked">
+    <code>
+      <slot />
+    </code>
+  </div>
 </template>
 
 <style>

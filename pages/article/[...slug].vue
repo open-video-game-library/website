@@ -6,7 +6,7 @@
           <article>
             <ContentDoc v-slot="{ doc }">
               <h1>{{ doc.title }}</h1>
-              <hr />
+              <hr>
               <!-- <p class="text-caption text-right mb-8">
                 作成日：{{ doc.created_at }}
                 <span v-if="doc.updated_at"
@@ -20,15 +20,21 @@
               <aside class="text-caption">
                 {{ doc.description }}
               </aside>
-              <v-img :src="doc.thumbnail"></v-img>
+              <v-img :src="doc.thumbnail" />
               <ContentRenderer :value="doc" />
             </ContentDoc>
           </article>
 
-          <v-row class="mt-16" justify="center">
-            <v-btn to="/article" color="primary"
-              >Back to the article list</v-btn
+          <v-row
+            class="mt-16"
+            justify="center"
+          >
+            <v-btn
+              to="/article"
+              color="primary"
             >
+              Back to the article list
+            </v-btn>
           </v-row>
         </v-container>
       </div>
