@@ -1,9 +1,6 @@
 <script lang="ts" setup>
-/** Material Design Iconのインポート */
 import { mdiTwitter } from '@mdi/js';
-
-/** nuxt/contentのインポート */
-import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
+import { type QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
 
 /** 記事のクエリの設定 */
 const query: QueryBuilderParams = {
@@ -25,9 +22,7 @@ const query: QueryBuilderParams = {
             class="my-4 px-3"
           >
             <!-- <span>各SNSでもゲーム研究・開発に関する情報を発信しています！</span> -->
-            <span>
-              Get latest information from
-            </span>
+            <span>Get latest information from</span>
             <v-btn
               href="https://twitter.com/openvideogame"
               :prepend-icon="mdiTwitter"
