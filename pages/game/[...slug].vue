@@ -32,7 +32,9 @@ const markdown = marked(atob).replace(/<h1+.*<\/h1>+/g, '');
 <template>
   <article class="content-wrapper">
     <v-container class="content-container">
-      <p class="catchphrase">{{ gamedata.catchphrase }}</p>
+      <p class="catchphrase">
+        {{ gamedata.catchphrase }}
+      </p>
       <h1 class="title">
         {{ gamedata.name }}
       </h1>
