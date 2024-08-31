@@ -10,7 +10,7 @@ export default withNuxt({
     },
   },
   rules: {
-    'vue/max-attributes-per-line': 'off',
+    'vue/max-attributes-per-line': ['warn', { singleline: 3, multiline: 1 }],
   },
   ignores: [
     '**/node_modules',

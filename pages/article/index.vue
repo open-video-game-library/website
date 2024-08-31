@@ -5,7 +5,7 @@ import { mdiTwitter } from '@mdi/js';
 /** nuxt/contentのインポート */
 import type { QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
 
-/** 記事のクエルの設定 */
+/** 記事のクエリの設定 */
 const query: QueryBuilderParams = {
   path: '/articles',
   sort: [{ created_at: -1 }],

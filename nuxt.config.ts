@@ -36,6 +36,7 @@ export default defineNuxtConfig({
   eslint: {
     config: {
       stylistic: {
+        commaDangle: 'always-multiline',
         indent: 2,
         quotes: 'single',
         semi: true,
