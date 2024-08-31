@@ -14,7 +14,7 @@ const { data: gamedatas } = await useFetch(config.public.internalDbApi, {
 // name, kana, catchphrase, description, repository, webgl, standalone
 const route = useRoute();
 const gamedata = gamedatas.value.filter(
-  e => e.repository === route.params.slug[0],
+  game => game.repository === route.params.slug[0],
 )[0];
 
 // GithubからREADME.mdの情報を取得する
@@ -32,9 +32,7 @@ const markdown = marked(atob).replace(/<h1+.*<\/h1>+/g, '');
 <template>
   <article class="content-wrapper">
     <v-container class="content-container">
-      <p class="catchphrase">
-        {{ gamedata.catchphrase }}
-      </p>
+      <p class="catchphrase">{{ gamedata.catchphrase }}</p>
       <h1 class="title">
         {{ gamedata.name }}
       </h1>
