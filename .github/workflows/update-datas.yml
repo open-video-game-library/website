@@ -55,3 +55,22 @@ jobs:
             git commit -m "🚀 定期データ更新"
             git push origin HEAD
           fi
+  auto_deploy:
+    name: GitHub Pagesに静的デプロイ
+    description: このワークフローのあとにauto-deprol.ymlが実行できないのでここにも追加
+    runs-on: ubuntu-latest
+    steps:
+      - name: チェックアウト
+        uses: actions/checkout@v4
+      - name: 静的ビルド
+        run: |
+          yarn install
+          yarn generate
+      - name: GitHub Pagesにデプロイ
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./.output/public
+          cname: openvideogame.cc
+          user_name: tkawa15
+          user_email: ttttt.fms5@gmail.com
