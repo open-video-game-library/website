@@ -55,12 +55,6 @@ jobs:
             git commit -m "🚀 定期データ更新"
             git push origin HEAD
           fi
-  auto_deploy:
-    name: GitHub Pagesに静的デプロイ
-    runs-on: ubuntu-latest
-    steps:
-      - name: チェックアウト
-        uses: actions/checkout@v4
       - name: 静的ビルド
         run: |
           yarn install
