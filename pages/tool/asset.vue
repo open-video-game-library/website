@@ -12,10 +12,10 @@ import { assets } from '~/assets/json/extool.json';
           <v-row>
             <v-col
               v-for="model in assets.models"
+              :key="model.name"
               cols="12"
               sm="4"
               xl="3"
-              :key="model.name"
             >
               <ToolMiniCard
                 :name="model.name"
@@ -37,10 +37,10 @@ import { assets } from '~/assets/json/extool.json';
           <v-row>
             <v-col
               v-for="sound in assets.sounds"
+              :key="sound.name"
               cols="12"
               sm="4"
               xl="3"
-              :key="sound.name"
             >
               <ToolMiniCard
                 :name="sound.name"
@@ -63,16 +63,16 @@ import { assets } from '~/assets/json/extool.json';
           <v-row>
             <v-col
               v-for="graphic in assets.graphics"
+              :key="graphic.name"
               cols="12"
               sm="4"
-              :key="graphic.name"
             >
               <ToolMiniCard
                 :name="graphic.name"
                 :image="graphic.image"
                 :description="graphic.description"
                 :link="graphic.link"
-                :articleLink="graphic.articleLink"
+                :article-link="graphic.articleLink"
                 style="height: 100%"
               />
             </v-col>

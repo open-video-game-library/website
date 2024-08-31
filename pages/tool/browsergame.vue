@@ -12,16 +12,16 @@ import { browserGames } from '~/assets/json/extool.json';
           <v-row>
             <v-col
               v-for="game in browserGames"
+              :key="game.name"
               cols="12"
               sm="4"
-              :key="game.name"
             >
               <ToolMiniCard
                 :name="game.name"
                 :image="game.image"
                 :description="game.description"
                 :link="game.link"
-                :articleLink="game.articleLink"
+                :article-link="game.articleLink"
                 style="height: 100%"
               />
             </v-col>

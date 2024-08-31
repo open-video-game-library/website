@@ -12,16 +12,16 @@ import { frameworks } from '~/assets/json/extool.json';
           <v-row>
             <v-col
               v-for="framework in frameworks"
+              :key="framework.name"
               cols="12"
               sm="4"
-              :key="framework.name"
             >
               <ToolMiniCard
                 :name="framework.name"
                 :image="framework.image"
                 :description="framework.description"
                 :link="framework.link"
-                :articleLink="framework.articleLink"
+                :article-link="framework.articleLink"
                 style="height: 100%"
               />
             </v-col>

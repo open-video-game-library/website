@@ -1,15 +1,18 @@
 <script setup>
 import { internalTools, externalTools, pickedTools } from '~/assets/json/tool.json';
 
-const openSourceGames = pickedTools.filter(tool => tool.category == "opensourcegame");
-const browserGames = pickedTools.filter(tool => tool.category == "browsergame");
-const frameworks = pickedTools.filter(tool => tool.category == "framework");
-const assets = pickedTools.filter(tool => tool.category == "asset");
+const openSourceGames = pickedTools.filter(tool => tool.category == 'opensourcegame');
+const browserGames = pickedTools.filter(tool => tool.category == 'browsergame');
+const frameworks = pickedTools.filter(tool => tool.category == 'framework');
+const assets = pickedTools.filter(tool => tool.category == 'asset');
 </script>
 
 <template>
   <div>
-    <section class="content-wrapper" id="tool">
+    <section
+      id="tool"
+      class="content-wrapper"
+    >
       <div class="content-container">
         <v-container>
           <!-- <h2>ツール</h2> -->
@@ -22,7 +25,11 @@ const assets = pickedTools.filter(tool => tool.category == "asset");
             and evaluation of game research.
           </aside>
           <v-row>
-            <v-col v-for="tool in internalTools" cols="12" :key="tool.name">
+            <v-col
+              v-for="tool in internalTools"
+              :key="tool.name"
+              cols="12"
+            >
               <ToolCard
                 :name="tool.name"
                 :image="tool.image"
@@ -35,7 +42,10 @@ const assets = pickedTools.filter(tool => tool.category == "asset");
       </div>
     </section>
 
-    <section class="content-wrapper bg-gray" id="extool">
+    <section
+      id="extool"
+      class="content-wrapper bg-gray"
+    >
       <div class="content-container">
         <v-container>
           <!-- <h2>外部ツール</h2> -->
@@ -49,13 +59,17 @@ const assets = pickedTools.filter(tool => tool.category == "asset");
             will also be presented.
           </aside>
           <v-row>
-            <v-col v-for="tool in externalTools" cols="12" :key="tool.name">
+            <v-col
+              v-for="tool in externalTools"
+              :key="tool.name"
+              cols="12"
+            >
               <ToolCard
                 :name="tool.name"
                 :image="tool.image"
                 :description="tool.description"
                 :link="tool.link"
-                :articleLink="tool.articleLink"
+                :article-link="tool.articleLink"
               />
             </v-col>
           </v-row>
@@ -65,9 +79,9 @@ const assets = pickedTools.filter(tool => tool.category == "asset");
           <v-row>
             <v-col
               v-for="game in openSourceGames"
+              :key="game.name"
               cols="12"
               sm="4"
-              :key="game.name"
             >
               <ToolMiniCard
                 :name="game.name"
@@ -79,14 +93,18 @@ const assets = pickedTools.filter(tool => tool.category == "asset");
             </v-col>
           </v-row>
           <v-row>
-            <v-spacer></v-spacer>
+            <v-spacer />
             <!-- <v-btn color="primary" class="my-8" to="/tool/opensourcegame"
               >もっと見る→</v-btn
             > -->
-            <v-btn color="primary" class="my-8" to="/tool/opensourcegame"
-              >See more→</v-btn
+            <v-btn
+              color="primary"
+              class="my-8"
+              to="/tool/opensourcegame"
             >
-            <v-spacer></v-spacer>
+              See more→
+            </v-btn>
+            <v-spacer />
           </v-row>
 
           <!-- <h3>ブラウザで遊べるゲーム</h3> -->
@@ -94,9 +112,9 @@ const assets = pickedTools.filter(tool => tool.category == "asset");
           <v-row>
             <v-col
               v-for="game in browserGames"
+              :key="game.name"
               cols="12"
               sm="4"
-              :key="game.name"
             >
               <ToolMiniCard
                 :name="game.name"
@@ -108,14 +126,18 @@ const assets = pickedTools.filter(tool => tool.category == "asset");
             </v-col>
           </v-row>
           <v-row>
-            <v-spacer></v-spacer>
+            <v-spacer />
             <!-- <v-btn color="primary" class="my-8" to="/tool/browsergame"
               >もっと見る→</v-btn
             > -->
-            <v-btn color="primary" class="my-8" to="/tool/browsergame"
-              >See more→</v-btn
+            <v-btn
+              color="primary"
+              class="my-8"
+              to="/tool/browsergame"
             >
-            <v-spacer></v-spacer>
+              See more→
+            </v-btn>
+            <v-spacer />
           </v-row>
 
           <!-- <h3>開発フレームワーク</h3> -->
@@ -123,9 +145,9 @@ const assets = pickedTools.filter(tool => tool.category == "asset");
           <v-row>
             <v-col
               v-for="framework in frameworks"
+              :key="framework.name"
               cols="12"
               sm="4"
-              :key="framework.name"
             >
               <ToolMiniCard
                 :name="framework.name"
@@ -137,20 +159,29 @@ const assets = pickedTools.filter(tool => tool.category == "asset");
             </v-col>
           </v-row>
           <v-row>
-            <v-spacer></v-spacer>
+            <v-spacer />
             <!-- <v-btn color="primary" class="my-8" to="/tool/framework"
               >もっと見る→</v-btn
             > -->
-            <v-btn color="primary" class="my-8" to="/tool/framework"
-              >see more→</v-btn
+            <v-btn
+              color="primary"
+              class="my-8"
+              to="/tool/framework"
             >
-            <v-spacer></v-spacer>
+              see more→
+            </v-btn>
+            <v-spacer />
           </v-row>
 
           <!-- <h3>アセット</h3> -->
           <h3>Asset</h3>
           <v-row>
-            <v-col v-for="asset in assets" cols="12" sm="4" :key="asset.name">
+            <v-col
+              v-for="asset in assets"
+              :key="asset.name"
+              cols="12"
+              sm="4"
+            >
               <ToolMiniCard
                 :name="asset.name"
                 :image="asset.image"
@@ -161,14 +192,18 @@ const assets = pickedTools.filter(tool => tool.category == "asset");
             </v-col>
           </v-row>
           <v-row>
-            <v-spacer></v-spacer>
+            <v-spacer />
             <!-- <v-btn color="primary" class="my-8" to="/tool/asset"
               >もっと見る→</v-btn
             > -->
-            <v-btn color="primary" class="my-8" to="/tool/asset"
-              >see more→</v-btn
+            <v-btn
+              color="primary"
+              class="my-8"
+              to="/tool/asset"
             >
-            <v-spacer></v-spacer>
+              see more→
+            </v-btn>
+            <v-spacer />
           </v-row>
         </v-container>
       </div>
