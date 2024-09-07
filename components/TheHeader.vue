@@ -80,8 +80,12 @@ const changeLocale = (language: 'en' | 'ja') => {
         density="compact"
         mandatory
       >
-        <v-btn value="en" @click="changeLocale('en')">EN</v-btn>
-        <v-btn value="ja" @click="changeLocale('ja')">JA</v-btn>
+        <v-btn value="en" @click="changeLocale('en')">
+          EN
+        </v-btn>
+        <v-btn value="ja" @click="changeLocale('ja')">
+          JA
+        </v-btn>
       </v-btn-toggle>
     </template>
 
@@ -121,8 +125,12 @@ const changeLocale = (language: 'en' | 'ja') => {
           mandatory
           density="compact"
         >
-          <v-btn value="en" @click="setLocale('en')">EN</v-btn>
-          <v-btn value="ja" @click="setLocale('ja')">JA</v-btn>
+          <v-btn value="en" @click="setLocale('en')">
+            EN
+          </v-btn>
+          <v-btn value="ja" @click="setLocale('ja')">
+            JA
+          </v-btn>
         </v-btn-toggle>
       </v-list-item>
     </v-list>
