@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { mdiGithub, mdiController, mdiFilePdfBox } from '@mdi/js';
 import { members, publications } from '@/assets/json/about.json';
 import logoImg from '@/assets/image/logo_white.png';
@@ -11,10 +11,19 @@ import canImg3 from '@/assets/image/can3.png';
 const canImg = [canImg1, canImg2, canImg3];
 
 /**
- * 指定されたIDの論文をダウンロード（別タブでPDFファイルを表示）させる
- * @param {Number} id 論文のID
+ * 論文のPDFファイルが存在するか
+ * @param {number} id 論文のID
  */
-const download = (id) => {
+const hasPdfFile = (id: number): boolean => {
+  const generatedUrl = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href;
+  return !generatedUrl.includes('undefined');
+};
+
+/**
+ * 指定されたIDの論文をダウンロード（別タブでPDFファイルを表示）させる
+ * @param {number} id 論文のID
+ */
+const download = (id: number) => {
   const a = document.createElement('a');
   a.href = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href;
   a.target = '_blank';
@@ -55,13 +64,7 @@ const download = (id) => {
               class="my-4 py-4"
               height="125"
             />
-            <!-- <p>
-              「ゲーム研究を行いやすくし、ゲーム研究の発展に貢献すること」を目的とした、ゲーム研究者のためのライブラリ
-            </p> -->
-            <p>
-              A library for game researchers with the aim of "facilitating game
-              research and contributing to the development of game research"
-            </p>
+            <p>{{ $t('about.firstView.catchCopy') }}</p>
             <v-row
               justify="center"
               class="my-4 py-4"
@@ -72,7 +75,7 @@ const download = (id) => {
                 :prepend-icon="mdiGithub"
                 href="https://github.com/open-video-game-library"
               >
-                Download
+                {{ $t('about.firstView.links.gitHub') }}
               </v-btn>
               <v-btn
                 color="primary"
@@ -80,7 +83,7 @@ const download = (id) => {
                 :prepend-icon="mdiController"
                 to="/game"
               >
-                Play
+                {{ $t('about.firstView.links.game') }}
               </v-btn>
             </v-row>
           </div>
@@ -94,8 +97,7 @@ const download = (id) => {
     >
       <div class="content-container">
         <v-container>
-          <!-- <h2>Open Video Game Library で できること</h2> -->
-          <h2>What you can do with OVGL</h2>
+          <h2>{{ $t('about.features.title') }}</h2>
           <v-row>
             <v-col
               cols="12"
@@ -106,23 +108,14 @@ const download = (id) => {
                 :src="canImg[0]"
                 max-height="120"
               />
-              <!-- <h4>研究で使えるゲームを見つける</h4> -->
-              <h4>Finding games to use in your research</h4>
-              <!-- <p>
-                研究で利用されることを前提に我々が作成したオープンビデオゲームや、研究に合わせて編集できる外部のオープンソースゲームを見つけ、利用することができます。
-              </p> -->
-              <p>
-                You can find and use open video games that we have created to be
-                used in your research, or external open source games that you
-                can edit to suit your research.
-              </p>
+              <h4>{{ $t('about.features.feature1.title') }}</h4>
+              <p>{{ $t('about.features.feature1.description') }}</p>
               <div class="d-flex justify-center">
-                <!-- <v-btn color="primary" to="/game">ゲームを見つける</v-btn> -->
                 <v-btn
                   color="primary"
                   to="/game"
                 >
-                  Find a game
+                  {{ $t('about.features.feature1.link') }}
                 </v-btn>
               </div>
             </v-col>
@@ -135,23 +128,14 @@ const download = (id) => {
                 :src="canImg[1]"
                 max-height="120"
               />
-              <!-- <h4>研究で使えるツールを見つける</h4> -->
-              <h4>Find tools to use in your research</h4>
-              <!-- <p>
-                ゲームを用いた体験やデバイスの評価実験を行う際に有益な録画機能や、アンケートを見つけ、利用することができます。
-              </p> -->
-              <p>
-                You can find and use recording functions and questionnaires that
-                are useful when conducting experiments to evaluate experiences
-                and devices with games.
-              </p>
+              <h4>{{ $t('about.features.feature2.title') }}</h4>
+              <p>{{ $t('about.features.feature2.description') }}</p>
               <div class="d-flex justify-center">
-                <!-- <v-btn color="primary" to="/tool">ツールを見つける</v-btn> -->
                 <v-btn
                   color="primary"
                   to="/tool"
                 >
-                  Find Tools
+                  {{ $t('about.features.feature2.link') }}
                 </v-btn>
               </div>
             </v-col>
@@ -164,23 +148,15 @@ const download = (id) => {
                 :src="canImg[2]"
                 max-height="120"
               />
-              <!-- <h4>ゲーム研究の知見を深める</h4> -->
-              <h4>Deepen your knowledge of game research</h4>
-              <!-- <p>
-                ゲーム開発をする上でためになる情報や、ゲーム研究をする上で抑えておくべきポイントを知ることができます。
-              </p> -->
-              <p>
-                You will be able to find out information that will be useful for
-                game development and points to keep in mind when conducting game
-                research.
-              </p>
+              <h4>{{ $t('about.features.feature3.title') }}</h4>
+              <p>{{ $t('about.features.feature3.description') }}</p>
               <div class="d-flex justify-center">
                 <!-- <v-btn color="primary" to="/article">記事を読む</v-btn> -->
                 <v-btn
                   color="primary"
                   to="/article"
                 >
-                  Read Article
+                  {{ $t('about.features.feature3.link') }}
                 </v-btn>
               </div>
             </v-col>
@@ -195,7 +171,7 @@ const download = (id) => {
     >
       <div class="content-container">
         <v-container>
-          <h2>Member</h2>
+          <h2>{{ $t('about.member.title') }}</h2>
           <v-row>
             <v-col
               v-for="member in members"
@@ -225,7 +201,7 @@ const download = (id) => {
     >
       <div class="content-container">
         <v-container>
-          <h2>Publications</h2>
+          <h2>{{ $t('about.publications.title') }}</h2>
           <v-row
             v-for="publication in publications"
             :key="publication.title"
@@ -247,6 +223,7 @@ const download = (id) => {
               <span v-if="publication.doi"><a :href="publication.doi">{{ publication.doi }}</a>.</span>
             </v-col>
             <v-col
+              v-if="hasPdfFile(publication.ID)"
               cols="2"
               sm="1"
               align-self="center"

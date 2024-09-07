@@ -9,7 +9,8 @@ import {
 import { useDisplay } from 'vuetify';
 import logoImg from '@/assets/image/logo_white.png';
 
-const { xs } = useDisplay();
+const { sm } = useDisplay();
+const { setLocaleCookie, setLocale } = useI18n();
 
 const headerLinks = [
   {
@@ -40,6 +41,12 @@ const headerLinks = [
 ];
 
 const showDrawer = ref(false);
+const language = ref('en');
+
+const changeLocale = (language: 'en' | 'ja') => {
+  setLocaleCookie(language);
+  setLocale(language);
+};
 </script>
 
 <template>
@@ -54,7 +61,7 @@ const showDrawer = ref(false);
       />
     </template>
     <template
-      v-if="!xs"
+      v-if="!sm"
       #append
     >
       <v-btn
@@ -65,17 +72,28 @@ const showDrawer = ref(false);
       >
         {{ link.name }}
       </v-btn>
+      <v-btn-toggle
+        v-model="language"
+        divided
+        rounded="xl"
+        color="primary"
+        density="compact"
+        mandatory
+      >
+        <v-btn value="en" @click="changeLocale('en')">EN</v-btn>
+        <v-btn value="ja" @click="changeLocale('ja')">JA</v-btn>
+      </v-btn-toggle>
     </template>
 
     <v-app-bar-nav-icon
-      v-if="xs"
+      v-if="sm"
       variant="text"
       @click.stop="showDrawer = !showDrawer"
     />
   </v-app-bar>
 
   <v-navigation-drawer
-    v-if="xs"
+    v-if="sm"
     v-model="showDrawer"
     color="primary"
     location="right"
@@ -93,6 +111,19 @@ const showDrawer = ref(false);
         >
           {{ link.name }}
         </v-btn>
+      </v-list-item>
+      <v-list-item>
+        <v-btn-toggle
+          v-model="language"
+          divided
+          rounded="xl"
+          color="primary"
+          mandatory
+          density="compact"
+        >
+          <v-btn value="en" @click="setLocale('en')">EN</v-btn>
+          <v-btn value="ja" @click="setLocale('ja')">JA</v-btn>
+        </v-btn-toggle>
       </v-list-item>
     </v-list>
   </v-navigation-drawer>

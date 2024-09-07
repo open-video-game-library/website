@@ -17,29 +17,20 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url)
     <section class="content-wrapper">
       <div class="content-container">
         <v-container>
-          <!-- <h2>オープンビデオゲーム一覧</h2> -->
-          <h2>Open Video Games</h2>
-          <!-- <aside>
-            オープンビデオゲームは<strong>MITライセンス</strong>として公開しております。
-            詳しくは<a href="https://github.com/open-video-game-library"
-              >GitHub</a
-            >をご覧ください。
-            各オープンビデオゲームの設計・開発のため、サーベイした論文は<NuxtLink
-              to="/game/survey"
-              >こちら</NuxtLink
-            >をご覧ください。
-          </aside> -->
-          <aside>
-            Open Video Game is released under the <strong>MIT License</strong>.
-            Please see
-            <a href="https://github.com/open-video-game-library">GitHub</a>
-            for more information. For the design and development of each open
-            video game, please click
-            <NuxtLink to="/game/survey">
-              here
-            </NuxtLink> to see the surveyed
-            papers.
-          </aside>
+          <h2>{{ $t('game.title') }}</h2>
+          <I18nT keypath="game.description" tag="aside" for="tos">
+            <template #license>
+              <strong>{{ $t("game.details.license") }}</strong>
+            </template>
+            <template #gitHub>
+              <a href="https://github.com/open-video-game-library">{{ $t("game.details.gitHub") }}</a>
+            </template>
+            <template #survey>
+              <NuxtLink to="/game/survey">
+                {{ $t("game.details.survey") }}
+              </NuxtLink>
+            </template>
+          </I18nT>
           <v-row>
             <v-col
               v-for="game in games"
@@ -101,40 +92,16 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url)
     <section class="content-wrapper bg-gray">
       <div class="content-container">
         <v-container>
-          <!-- <h2>パラメータの調整・取得</h2> -->
-          <h2>Parameter Adjustment and Retrieval</h2>
-          <!-- <aside>
-            オープンビデオゲームでは、コードを書くことなくパラメータを調整・取得することができます。
-          </aside> -->
-          <aside>
-            Open video games allow you to adjust and retrieve parameters without
-            writing code.
-          </aside>
-          <!-- <h3>パラメータの調整</h3> -->
-          <h3>Adjustment</h3>
-          <!-- <aside>
-            パラメータ調整によって、実験環境などの都合に合わせてゲームの難易度や仕様を手軽に調整することができます。数値調整だけでなく、画像差し替えによるビジュアルの調整も可能です。
-          </aside> -->
-          <aside>
-            Parameter adjustment allows for easy adjustment of game difficulty
-            and specifications to suit the experimental environment and other
-            circumstances. In addition to numerical adjustments, visual
-            adjustments can also be made by replacing images.
-          </aside>
+          <h2>{{ $t('game.parameter.title') }}</h2>
+          <aside>{{ $t('game.parameter.description') }}</aside>
+          <h3>{{ $t('game.parameter.adjustment.title') }}</h3>
+          <aside>{{ $t('game.parameter.adjustment.description') }}</aside>
           <v-img
             class="mx-auto"
             :src="inputImg"
           />
-          <!-- <h3>パラメータの取得</h3> -->
-          <h3>Retrieval</h3>
-          <!-- <aside>
-            観察だけでは把握しきれない、ゲームの内部データを取得することができます。ゲーム体験やコントローラデバイスの評価分析に活用できます。
-          </aside> -->
-          <aside>
-            It is possible to obtain internal game data that cannot be
-            ascertained by observation alone. It can be used for evaluation and
-            analysis of game experience and controller devices.
-          </aside>
+          <h3>{{ $t('game.parameter.retrieval.title') }}</h3>
+          <aside>{{ $t('game.parameter.retrieval.description') }}</aside>
           <v-img
             class="mx-auto"
             :src="outputImg"
