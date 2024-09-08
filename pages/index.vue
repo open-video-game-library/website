@@ -69,14 +69,12 @@ const download = (id: number) => {
               justify="center"
               class="my-4 py-4"
             >
-              <v-btn
+              <CommonButton
+                :value="$t('about.firstView.links.gitHub')"
+                :icon="mdiGithub"
                 color="info"
-                class="mx-8"
-                :prepend-icon="mdiGithub"
                 href="https://github.com/open-video-game-library"
-              >
-                {{ $t('about.firstView.links.gitHub') }}
-              </v-btn>
+              />
               <v-btn
                 color="primary"
                 class="mx-8"

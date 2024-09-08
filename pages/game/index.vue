@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { games } from '~/assets/json/game.json';
 
 /** @type {String} コンタクトへのリンク画像の参照URL */
@@ -26,9 +26,9 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url)
               <a href="https://github.com/open-video-game-library">{{ $t("game.details.gitHub") }}</a>
             </template>
             <template #survey>
-              <NuxtLink to="/game/survey">
+              <CommonLink to="/game/survey">
                 {{ $t("game.details.survey") }}
-              </NuxtLink>
+              </CommonLink>
             </template>
           </I18nT>
           <v-row>
@@ -56,7 +56,7 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url)
                   :elevation="isHovering ? 8 : 2"
                   v-bind="props"
                 >
-                  <NuxtLink
+                  <CommonLink
                     to="/contact"
                     class="full-link"
                   />

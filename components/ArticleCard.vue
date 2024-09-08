@@ -1,15 +1,16 @@
 <script lang="ts" setup>
 import { mdiOpenInNew } from '@mdi/js';
 
-const datas = defineProps({
-  path: { type: String },
-  title: { type: String },
-  description: { type: String },
-  thumbnail: { type: String },
-  exlink: { type: String },
-  createdAt: { type: String },
-  updatedAt: { type: String },
-});
+type Props = {
+  to: string;
+  title: string;
+  description: string;
+  thumbnail: string;
+  exlink?: string;
+  createdAt?: string;
+  updatedAt?: string;
+};
+const datas = defineProps<Props>();
 </script>
 
 <template>
@@ -27,9 +28,9 @@ const datas = defineProps({
           target="_blank"
           rel="noopener noreferrer"
         />
-        <NuxtLink
+        <CommonLink
           v-else
-          :to="datas.path"
+          :to="to"
           class="full-link"
         />
         <v-container>

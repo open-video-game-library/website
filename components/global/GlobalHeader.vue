@@ -9,10 +9,10 @@ import {
 import { useDisplay } from 'vuetify';
 import logoImg from '@/assets/image/logo_white.png';
 
-const { sm } = useDisplay();
-const { setLocaleCookie, setLocale } = useI18n();
+const { smAndDown } = useDisplay();
+const { defaultLocale, getBrowserLocale, getLocaleCookie, setLocale, setLocaleCookie } = useI18n();
 
-const headerLinks = [
+const HEADER_LINKS = [
   {
     name: 'About',
     icon: mdiInformation,
@@ -41,11 +41,18 @@ const headerLinks = [
 ];
 
 const showDrawer = ref(false);
-const language = ref('en');
+const locale = ref();
 
-const changeLocale = (language: 'en' | 'ja') => {
-  setLocaleCookie(language);
-  setLocale(language);
+onMounted(() => {
+  const cookieLocale = getLocaleCookie();
+  const browserLocale = getBrowserLocale();
+  setLocale(cookieLocale || browserLocale || defaultLocale);
+  locale.value = cookieLocale || browserLocale || defaultLocale;
+});
+
+const changeLocale = (selectedLocale: 'en' | 'ja') => {
+  setLocaleCookie(selectedLocale);
+  setLocale(selectedLocale);
 };
 </script>
 
@@ -61,19 +68,19 @@ const changeLocale = (language: 'en' | 'ja') => {
       />
     </template>
     <template
-      v-if="!sm"
+      v-if="!smAndDown"
       #append
     >
-      <v-btn
-        v-for="link in headerLinks"
+      <CommonButton
+        v-for="link in HEADER_LINKS"
         :key="link.name"
+        variant="flat"
+        :value="link.name"
         :prepend-icon="link.icon"
         :to="link.to"
-      >
-        {{ link.name }}
-      </v-btn>
+      />
       <v-btn-toggle
-        v-model="language"
+        v-model="locale"
         divided
         rounded="xl"
         color="primary"
@@ -90,14 +97,14 @@ const changeLocale = (language: 'en' | 'ja') => {
     </template>
 
     <v-app-bar-nav-icon
-      v-if="sm"
+      v-if="smAndDown"
       variant="text"
       @click.stop="showDrawer = !showDrawer"
     />
   </v-app-bar>
 
   <v-navigation-drawer
-    v-if="sm"
+    v-if="smAndDown"
     v-model="showDrawer"
     color="primary"
     location="right"
@@ -105,30 +112,29 @@ const changeLocale = (language: 'en' | 'ja') => {
   >
     <v-list>
       <v-list-item
-        v-for="link in headerLinks"
+        v-for="link in HEADER_LINKS"
         :key="link.name"
       >
-        <v-btn
-          color="primary"
+        <CommonButton
+          variant="flat"
+          :value="link.name"
           :prepend-icon="link.icon"
           :to="link.to"
-        >
-          {{ link.name }}
-        </v-btn>
+        />
       </v-list-item>
       <v-list-item>
         <v-btn-toggle
-          v-model="language"
+          v-model="locale"
           divided
           rounded="xl"
           color="primary"
-          mandatory
           density="compact"
+          mandatory
         >
-          <v-btn value="en" @click="setLocale('en')">
+          <v-btn value="en" @click="changeLocale('en')">
             EN
           </v-btn>
-          <v-btn value="ja" @click="setLocale('ja')">
+          <v-btn value="ja" @click="changeLocale('ja')">
             JA
           </v-btn>
         </v-btn-toggle>

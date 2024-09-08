@@ -13,8 +13,8 @@ defineProps({
 
 <template>
   <span class="marked">
-    <NuxtLink :href="href">
+    <CommonLink :to="href" tag="a">
       <slot />
-    </NuxtLink>
+    </CommonLink>
   </span>
 </template>

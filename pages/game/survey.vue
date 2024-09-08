@@ -22,34 +22,34 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
           <h3>Contents</h3>
           <ul class="pl-8">
             <li>
-              <!-- <NuxtLink to="/game/survey#animals"
+              <!-- <CommonLink to="/game/survey#animals"
                 >動物ゲームに関するサーベイ</NuxtLink
               > -->
-              <NuxtLink to="/game/survey#animals">
+              <CommonLink to="/game/survey#animals">
                 Survey on Animal Games
-              </NuxtLink>
+              </CommonLink>
             </li>
             <li>
-              <!-- <NuxtLink to="/game/survey#fps">OpenFPSに関するサーベイ</NuxtLink> -->
-              <NuxtLink to="/game/survey#fps">
+              <!-- <CommonLink to="/game/survey#fps">OpenFPSに関するサーベイ</CommonLink> -->
+              <CommonLink to="/game/survey#fps">
                 Survey on OpenFPS
-              </NuxtLink>
+              </CommonLink>
             </li>
             <li>
-              <!-- <NuxtLink to="/game/survey#tennis"
+              <!-- <CommonLink to="/game/survey#tennis"
                 >Minimum Tennisに関するサーベイ</NuxtLink
               > -->
-              <NuxtLink to="/game/survey#tennis">
+              <CommonLink to="/game/survey#tennis">
                 Survey on Minimum Tennis
-              </NuxtLink>
+              </CommonLink>
             </li>
             <li>
-              <!-- <NuxtLink to="/game/survey#ces"
+              <!-- <CommonLink to="/game/survey#ces"
                 >触覚体験サンプル（CES）に関するサーベイ</NuxtLink
               > -->
-              <NuxtLink to="/game/survey#ces">
+              <CommonLink to="/game/survey#ces">
                 Survey on Common Experience Sample(CES)
-              </NuxtLink>
+              </CommonLink>
             </li>
           </ul>
         </v-container>
