@@ -1,1 +1,0 @@
-import{_ as s,o,c as a,a as r,y as t}from"./entry.D34-V3p4.js";const c={},n={class:"marked"};function l(e,_){return o(),a("div",n,[r("p",null,[t(e.$slots,"default")])])}const f=s(c,[["render",l]]);export{f as default};
