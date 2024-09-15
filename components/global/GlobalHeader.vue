@@ -40,8 +40,8 @@ const HEADER_LINKS = [
   },
 ];
 
-const showDrawer = ref(false);
-const locale = ref();
+const showDrawer = ref<boolean>(false);
+const locale = ref<string>('en');
 
 onMounted(() => {
   const cookieLocale = getLocaleCookie();

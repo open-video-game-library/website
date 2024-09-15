@@ -15,15 +15,8 @@ const assets = pickedTools.filter(tool => tool.category == 'asset');
     >
       <div class="content-container">
         <v-container>
-          <!-- <h2>ツール</h2> -->
-          <h2>Tools</h2>
-          <!-- <aside>
-            ゲーム研究の実験や評価に利用できるツールを開発し、提供しています。
-          </aside> -->
-          <aside>
-            We develop and provide tools that can be used for experimentation
-            and evaluation of game research.
-          </aside>
+          <h2>{{ $t('tool.internal.title') }}</h2>
+          <aside>{{ $t('tool.internal.description') }}</aside>
           <v-row>
             <v-col
               v-for="tool in internalTools"
@@ -48,16 +41,8 @@ const assets = pickedTools.filter(tool => tool.category == 'asset');
     >
       <div class="content-container">
         <v-container>
-          <!-- <h2>外部ツール</h2> -->
-          <h2>External Tools</h2>
-          <!-- <aside>
-            他の研究者やゲーム開発者が提供している、評価・実験・開発に役立つツールやゲームも紹介します。
-          </aside> -->
-          <aside>
-            Tools and games provided by other researchers and game developers
-            that are useful for evaluation, experimentation, and development
-            will also be presented.
-          </aside>
+          <h2>{{ $t('tool.external.title') }}</h2>
+          <aside>{{ $t('tool.external.description') }}</aside>
           <v-row>
             <v-col
               v-for="tool in externalTools"
@@ -74,8 +59,7 @@ const assets = pickedTools.filter(tool => tool.category == 'asset');
             </v-col>
           </v-row>
 
-          <!-- <h3>オープンソースゲーム</h3> -->
-          <h3>Open Source Games</h3>
+          <h3>{{ $t('tool.external.openSourceGame') }}</h3>
           <v-row>
             <v-col
               v-for="game in openSourceGames"
@@ -94,21 +78,17 @@ const assets = pickedTools.filter(tool => tool.category == 'asset');
           </v-row>
           <v-row>
             <v-spacer />
-            <!-- <v-btn color="primary" class="my-8" to="/tool/opensourcegame"
-              >もっと見る→</v-btn
-            > -->
             <v-btn
               color="primary"
               class="my-8"
               to="/tool/opensourcegame"
             >
-              See more→
+              {{ $t('tool.seeMore') }}
             </v-btn>
             <v-spacer />
           </v-row>
 
-          <!-- <h3>ブラウザで遊べるゲーム</h3> -->
-          <h3>Browser Games</h3>
+          <h3>{{ $t('tool.external.browserGame') }}</h3>
           <v-row>
             <v-col
               v-for="game in browserGames"
@@ -127,21 +107,17 @@ const assets = pickedTools.filter(tool => tool.category == 'asset');
           </v-row>
           <v-row>
             <v-spacer />
-            <!-- <v-btn color="primary" class="my-8" to="/tool/browsergame"
-              >もっと見る→</v-btn
-            > -->
             <v-btn
               color="primary"
               class="my-8"
               to="/tool/browsergame"
             >
-              See more→
+              {{ $t('tool.seeMore') }}
             </v-btn>
             <v-spacer />
           </v-row>
 
-          <!-- <h3>開発フレームワーク</h3> -->
-          <h3>Development Frameworks</h3>
+          <h3>{{ $t('tool.external.developmentFramework') }}</h3>
           <v-row>
             <v-col
               v-for="framework in frameworks"
@@ -160,21 +136,17 @@ const assets = pickedTools.filter(tool => tool.category == 'asset');
           </v-row>
           <v-row>
             <v-spacer />
-            <!-- <v-btn color="primary" class="my-8" to="/tool/framework"
-              >もっと見る→</v-btn
-            > -->
             <v-btn
               color="primary"
               class="my-8"
               to="/tool/framework"
             >
-              see more→
+              {{ $t('tool.seeMore') }}
             </v-btn>
             <v-spacer />
           </v-row>
 
-          <!-- <h3>アセット</h3> -->
-          <h3>Asset</h3>
+          <h3>{{ $t('tool.external.asset') }}</h3>
           <v-row>
             <v-col
               v-for="asset in assets"
@@ -193,15 +165,12 @@ const assets = pickedTools.filter(tool => tool.category == 'asset');
           </v-row>
           <v-row>
             <v-spacer />
-            <!-- <v-btn color="primary" class="my-8" to="/tool/asset"
-              >もっと見る→</v-btn
-            > -->
             <v-btn
               color="primary"
               class="my-8"
               to="/tool/asset"
             >
-              see more→
+              {{ $t('tool.seeMore') }}
             </v-btn>
             <v-spacer />
           </v-row>

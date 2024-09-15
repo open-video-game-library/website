@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <VApp>
     <GlobalHeader />
     <main
       class="wrapper"
@@ -8,5 +8,5 @@
       <slot class="container" />
     </main>
     <GlobalFooter />
-  </v-app>
+  </VApp>
 </template>

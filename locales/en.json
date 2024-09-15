@@ -52,5 +52,20 @@
         "description": "It is possible to obtain internal game data that cannot be ascertained by observation alone. It can be used for evaluation and analysis of game experience and controller devices."
       }
     }
+  },
+  "tool": {
+    "internal": {
+      "title": "Tools",
+      "description": "We develop and provide tools that can be used for experimentation and evaluation of game research."
+    },
+    "external": {
+      "title": "External Tools",
+      "description": "Tools and games provided by other researchers and game developers that are useful for evaluation, experimentation, and development will also be presented.",
+      "openSourceGame": "Open Source Games",
+      "browserGame": "Browser Games",
+      "developmentFramework": "Development Frameworks",
+      "asset": "Assets"
+    },
+    "seeMore": "See more→"
   }
 }
