@@ -57,12 +57,12 @@ const changeLocale = (selectedLocale: 'en' | 'ja') => {
 </script>
 
 <template>
-  <v-app-bar
+  <VAppBar
     color="primary"
     class="w-100"
   >
     <template #prepend>
-      <v-img
+      <VImg
         :src="logoImg"
         width="100"
       />
@@ -79,7 +79,7 @@ const changeLocale = (selectedLocale: 'en' | 'ja') => {
         :prepend-icon="link.icon"
         :to="link.to"
       />
-      <v-btn-toggle
+      <VBtnToggle
         v-model="locale"
         divided
         rounded="xl"
@@ -87,31 +87,31 @@ const changeLocale = (selectedLocale: 'en' | 'ja') => {
         density="compact"
         mandatory
       >
-        <v-btn value="en" @click="changeLocale('en')">
+        <VBtn value="en" size="small" @click="changeLocale('en')">
           EN
-        </v-btn>
-        <v-btn value="ja" @click="changeLocale('ja')">
+        </VBtn>
+        <VBtn value="ja" size="small" @click="changeLocale('ja')">
           JA
-        </v-btn>
-      </v-btn-toggle>
+        </VBtn>
+      </VBtnToggle>
     </template>
 
-    <v-app-bar-nav-icon
+    <VAppBarNavIcon
       v-if="smAndDown"
       variant="text"
       @click.stop="showDrawer = !showDrawer"
     />
-  </v-app-bar>
+  </VAppBar>
 
-  <v-navigation-drawer
+  <VNavigationDrawer
     v-if="smAndDown"
     v-model="showDrawer"
     color="primary"
     location="right"
     temporary
   >
-    <v-list>
-      <v-list-item
+    <VList>
+      <VListItem
         v-for="link in HEADER_LINKS"
         :key="link.name"
       >
@@ -121,9 +121,9 @@ const changeLocale = (selectedLocale: 'en' | 'ja') => {
           :prepend-icon="link.icon"
           :to="link.to"
         />
-      </v-list-item>
-      <v-list-item>
-        <v-btn-toggle
+      </VListItem>
+      <VListItem>
+        <VBtnToggle
           v-model="locale"
           divided
           rounded="xl"
@@ -131,14 +131,14 @@ const changeLocale = (selectedLocale: 'en' | 'ja') => {
           density="compact"
           mandatory
         >
-          <v-btn value="en" @click="changeLocale('en')">
+          <VBtn value="en" size="small" @click="changeLocale('en')">
             EN
-          </v-btn>
-          <v-btn value="ja" @click="changeLocale('ja')">
+          </VBtn>
+          <VBtn value="ja" size="small" @click="changeLocale('ja')">
             JA
-          </v-btn>
-        </v-btn-toggle>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
+          </VBtn>
+        </VBtnToggle>
+      </VListItem>
+    </VList>
+  </VNavigationDrawer>
 </template>
