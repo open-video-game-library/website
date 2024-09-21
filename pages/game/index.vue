@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { games } from '~/assets/json/game.json';
+import { games } from '@/assets/json/game.json';
 
 /** @type {String} コンタクトへのリンク画像の参照URL */
 const moreImg = new URL('../../assets/image/more.png', import.meta.url).href;

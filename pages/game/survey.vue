@@ -1,5 +1,5 @@
 <script setup>
-import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json/survey.json';
+import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '@/assets/json/survey.json';
 </script>
 
 <template>

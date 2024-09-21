@@ -1,5 +1,5 @@
 <script setup>
-import { assets } from '~/assets/json/extool.json';
+import { assets } from '@/assets/json/extool.json';
 </script>
 
 <template>

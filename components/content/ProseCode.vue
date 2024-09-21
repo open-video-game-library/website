@@ -1,26 +1,12 @@
-<script lang="ts">
-import { defineComponent } from '#imports';
+<script setup lang="ts">
+type Props = {
+  code: string;
+  language: string;
+  filename: string;
+  highlights: Array<number>;
+};
 
-export default defineComponent({
-  props: {
-    code: {
-      type: String,
-      default: '',
-    },
-    language: {
-      type: String,
-      default: null,
-    },
-    filename: {
-      type: String,
-      default: null,
-    },
-    highlights: {
-      type: Array as () => number[],
-      default: () => [],
-    },
-  },
-});
+defineProps<Props>();
 </script>
 
 <template>

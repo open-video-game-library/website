@@ -1,5 +1,5 @@
 <script setup>
-import { browserGames } from '~/assets/json/extool.json';
+import { browserGames } from '@/assets/json/extool.json';
 </script>
 
 <template>
