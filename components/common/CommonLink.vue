@@ -37,6 +37,7 @@ const localeLink = computed(() => locale ? localePath(to, locale) : localePath(t
     :to="to"
     :target="target && '_blank'"
     :rel="target && 'noopener noreferrer'"
+    class="external-link"
   >
     <slot />
   </a>
@@ -44,3 +45,9 @@ const localeLink = computed(() => locale ? localePath(to, locale) : localePath(t
     <slot />
   </div>
 </template>
+
+<style scoped>
+.external-link:hover {
+  cursor: pointer;
+};
+</style>

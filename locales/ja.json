@@ -67,5 +67,9 @@
       "asset": "アセット"
     },
     "seeMore": "もっと見る→"
+  },
+  "article": {
+    "title": "記事一覧",
+    "description": "SNSでもゲーム研究・開発に関する情報を発信しています"
   }
 }

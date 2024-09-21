@@ -2,8 +2,8 @@
 import { mdiOpenInNew } from '@mdi/js';
 
 type Props = {
-  to: string;
-  title: string;
+  to?: string;
+  title?: string;
   description: string;
   thumbnail: string;
   exlink?: string;
@@ -15,63 +15,57 @@ const datas = defineProps<Props>();
 
 <template>
   <div>
-    <v-hover v-slot="{ isHovering, props }">
-      <v-card
+    <VHover v-slot="{ isHovering, props }">
+      <VCard
         color="secondary"
         :elevation="isHovering ? 8 : 2"
         v-bind="props"
       >
-        <a
-          v-if="datas.exlink"
-          :href="datas.exlink"
-          class="full-link"
-          target="_blank"
-          rel="noopener noreferrer"
-        />
         <CommonLink
-          v-else
-          :to="to"
+          v-if="datas.to || datas.exlink"
+          :to="datas.to || datas.exlink || 'div'"
+          :tag="datas.exlink ? 'a' : 'NuxtLink'"
           class="full-link"
         />
-        <v-container>
-          <v-row>
-            <v-col
+        <VContainer>
+          <VRow>
+            <VCol
               cols="12"
               sm="4"
             >
-              <v-img
+              <VImg
                 :src="datas.thumbnail"
                 height="160px"
               />
-            </v-col>
-            <v-col
+            </VCol>
+            <VCol
               cols="12"
               sm="8"
             >
-              <v-card-title>{{ title }}</v-card-title>
-              <v-card-subtitle v-if="datas.updatedAt">
+              <VCardTitle>{{ title }}</VCardTitle>
+              <VCardSubtitle v-if="datas.updatedAt">
                 {{
                   datas.updatedAt
                 }}
-              </v-card-subtitle>
-              <v-card-subtitle v-else>
+              </VCardSubtitle>
+              <VCardSubtitle v-else>
                 {{ datas.createdAt }}
-              </v-card-subtitle>
-              <v-card-text>{{ datas.description }}</v-card-text>
-              <v-card-actions v-if="datas.exlink">
-                <v-spacer />
+              </VCardSubtitle>
+              <VCardText>{{ datas.description }}</VCardText>
+              <VCardActions v-if="datas.exlink">
+                <VSpacer />
                 <p>{{ datas.exlink.split("/")[2] }}</p>
-                <v-icon
+                <VIcon
                   :icon="mdiOpenInNew"
                   class="mx-2"
                   color="grey"
                   size="20"
                 />
-              </v-card-actions>
-            </v-col>
-          </v-row>
-        </v-container>
-      </v-card>
-    </v-hover>
+              </VCardActions>
+            </VCol>
+          </VRow>
+        </VContainer>
+      </VCard>
+    </VHover>
   </div>
 </template>

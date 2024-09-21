@@ -67,5 +67,9 @@
       "asset": "Assets"
     },
     "seeMore": "See more→"
+  },
+  "article": {
+    "title": "Articles",
+    "description": "Get latest information from"
   }
 }

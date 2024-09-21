@@ -1,6 +1,6 @@
-<script lang="ts" setup>
-import { mdiTwitter } from '@mdi/js';
+<script setup lang="ts">
 import { type QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
+import logoX from '@/assets/image/logo_x.svg';
 
 /** 記事のクエリの設定 */
 const query: QueryBuilderParams = {
@@ -13,39 +13,37 @@ const query: QueryBuilderParams = {
   <div>
     <section class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <!-- <h2>記事一覧</h2> -->
-          <h2>Articles</h2>
-          <v-row
+        <VContainer>
+          <h2>{{ $t('article.title') }}</h2>
+          <VRow
             align="center"
             justify="end"
             class="my-4 px-3"
           >
-            <!-- <span>各SNSでもゲーム研究・開発に関する情報を発信しています！</span> -->
-            <span>Get latest information from</span>
-            <v-btn
+            <span>{{ $t('article.description') }}</span>
+            <VBtn
               href="https://twitter.com/openvideogame"
-              :prepend-icon="mdiTwitter"
-              color="#1DA1F2"
-              class="ml-2 text-white"
+              color="#0F1419"
+              rounded="pill"
+              class="ml-2 fill-white"
             >
-              X(Twitter)
-            </v-btn>
-          </v-row>
+              <VImg :src="logoX" width="16" />
+            </VBtn>
+          </VRow>
 
           <ContentList
-            v-slot="{ list }"
+            v-slot="{ list: articleList }"
             :query="query"
             path="/article"
           >
-            <v-row>
-              <v-col
-                v-for="article in list"
+            <VRow>
+              <VCol
+                v-for="article in articleList"
                 :key="article._path"
                 cols="12"
               >
                 <ArticleCard
-                  :path="article._path"
+                  :to="article._path"
                   :title="article.title"
                   :description="article.description"
                   :thumbnail="article.thumbnail"
@@ -53,17 +51,17 @@ const query: QueryBuilderParams = {
                   :created-at="article.created_at"
                   :updated-at="article.updated_at"
                 />
-              </v-col>
-            </v-row>
+              </VCol>
+            </VRow>
           </ContentList>
-        </v-container>
+        </VContainer>
       </div>
     </section>
   </div>
 </template>
 
 <style scoped>
-.text-white {
-  color: white;
+.fill-white {
+  fill: white;
 }
 </style>
