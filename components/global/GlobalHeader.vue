@@ -86,6 +86,7 @@ const changeLocale = (selectedLocale: 'en' | 'ja') => {
         color="primary"
         density="compact"
         mandatory
+        class="ml-2"
       >
         <VBtn value="en" size="small" @click="changeLocale('en')">
           EN

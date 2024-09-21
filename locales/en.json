@@ -71,5 +71,9 @@
   "article": {
     "title": "Articles",
     "description": "Get latest information from"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Thank you for your interest in the Open Video Game Library! Please let us know your opinions and requests, so that we continue to develop it to make it even better for you."
   }
 }
