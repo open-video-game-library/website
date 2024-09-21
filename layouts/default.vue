@@ -1,12 +1,12 @@
 <template>
-  <v-app>
-    <TheHeader />
+  <VApp>
+    <GlobalHeader />
     <main
       class="wrapper"
       style="padding-top: 64px;"
     >
       <slot class="container" />
     </main>
-    <TheFooter />
-  </v-app>
+    <GlobalFooter />
+  </VApp>
 </template>

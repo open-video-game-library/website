@@ -1,7 +1,7 @@
 <script setup>
 import { mdiTwitter, mdiGithub, mdiFileCode } from '@mdi/js';
+import logoImg from '@/assets/image/logo_black.png';
 
-const logoImg = new URL('../assets/image/logo_black.png', import.meta.url).href;
 const thisyear = new Date().getFullYear();
 
 const webglSites = [
@@ -47,27 +47,27 @@ const webglSites = [
           <!-- <ul>
                         <li>この取り組みを知る</li>
                         <v-divider></v-divider>
-                        <li><NuxtLink to="/#abstract">概要</NuxtLink></li>
-                        <li><NuxtLink to="/#member">メンバー</NuxtLink></li>
-                        <li><NuxtLink to="/#publication">出版</NuxtLink></li>
+                        <li><CommonLink to="/#abstract">概要</CommonLink></li>
+                        <li><CommonLink to="/#member">メンバー</CommonLink></li>
+                        <li><CommonLink to="/#publication">出版</CommonLink></li>
                     </ul> -->
           <ul>
             <li>Learn about OVGL</li>
             <v-divider />
             <li>
-              <NuxtLink to="/#abstract">
+              <CommonLink to="/#abstract">
                 Summary
-              </NuxtLink>
+              </CommonLink>
             </li>
             <li>
-              <NuxtLink to="/#member">
+              <CommonLink to="/#member">
                 Member
-              </NuxtLink>
+              </CommonLink>
             </li>
             <li>
-              <NuxtLink to="/#publication">
+              <CommonLink to="/#publication">
                 Publications
-              </NuxtLink>
+              </CommonLink>
             </li>
           </ul>
         </v-col>
@@ -79,39 +79,39 @@ const webglSites = [
           <!-- <ul>
             <li>ゲームを見つける</li>
             <v-divider></v-divider>
-            <li><NuxtLink to="/game">オープンビデオゲーム</NuxtLink></li>
+            <li><CommonLink to="/game">オープンビデオゲーム</CommonLink></li>
             <li>
-              <NuxtLink to="/tool/opensourcegame"
+              <CommonLink to="/tool/opensourcegame"
                 >オープンソースゲーム</NuxtLink
               >
             </li>
             <li>
-              <NuxtLink to="/tool/browsergame">ブラウザで遊べるゲーム</NuxtLink>
+              <CommonLink to="/tool/browsergame">ブラウザで遊べるゲーム</CommonLink>
             </li>
-            <li><NuxtLink to="/tool/asset">アセット</NuxtLink></li>
+            <li><CommonLink to="/tool/asset">アセット</CommonLink></li>
           </ul> -->
           <ul>
             <li>Find Games</li>
             <v-divider />
             <li>
-              <NuxtLink to="/game">
+              <CommonLink to="/game">
                 Open Video Games
-              </NuxtLink>
+              </CommonLink>
             </li>
             <li>
-              <NuxtLink to="/tool/opensourcegame">
+              <CommonLink to="/tool/opensourcegame">
                 Open Source Games
-              </NuxtLink>
+              </CommonLink>
             </li>
             <li>
-              <NuxtLink to="/tool/browsergame">
+              <CommonLink to="/tool/browsergame">
                 Browser Games
-              </NuxtLink>
+              </CommonLink>
             </li>
             <li>
-              <NuxtLink to="/tool/asset">
+              <CommonLink to="/tool/asset">
                 Asset
-              </NuxtLink>
+              </CommonLink>
             </li>
           </ul>
         </v-col>
@@ -130,7 +130,7 @@ const webglSites = [
               >
             </li>
             <li><a href="https://youtu.be/xpkJ13SegK4">あアラウド法</a></li>
-            <li><NuxtLink to="/tool#extool">その他外部ツール</NuxtLink></li>
+            <li><CommonLink to="/tool#extool">その他外部ツール</CommonLink></li>
           </ul> -->
           <ul>
             <li>Finding Experimental Tools</li>
@@ -142,9 +142,9 @@ const webglSites = [
             </li>
             <li><a href="https://youtu.be/xpkJ13SegK4">Ah-Aloud Method</a></li>
             <li>
-              <NuxtLink to="/tool#extool">
+              <CommonLink to="/tool#extool">
                 Other External Tools
-              </NuxtLink>
+              </CommonLink>
             </li>
           </ul>
         </v-col>
@@ -154,9 +154,9 @@ const webglSites = [
           sm="3"
         >
           <ul>
-            <li />
+            <li>Others</li>
             <v-divider />
-            <!-- <li><NuxtLink to="/contact">お問い合わせ</NuxtLink></li>
+            <!-- <li><CommonLink to="/contact">お問い合わせ</CommonLink></li>
             <li>
               <a
                 href="https://keita-lab.jp/"
@@ -166,9 +166,9 @@ const webglSites = [
               >
             </li> -->
             <li>
-              <NuxtLink to="/contact">
+              <CommonLink to="/contact">
                 Contact
-              </NuxtLink>
+              </CommonLink>
             </li>
             <li>
               <a

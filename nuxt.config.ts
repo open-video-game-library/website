@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   },
   css: [
     'vuetify/lib/styles/main.sass',
-    '~/assets/css/common.scss',
+    '@/assets/css/common.scss',
   ],
   build: {
     transpile: ['vuetify'],
@@ -22,6 +22,17 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxt/eslint',
+    [
+      '@nuxtjs/i18n',
+      {
+        locales: [
+          { code: 'en', file: 'en.json', iso: 'en-US' },
+          { code: 'ja', file: 'ja.json', iso: 'ja-JP' },
+        ],
+        defaultLocale: 'en',
+        langDir: 'locales/',
+      },
+    ],
   ],
   content: {
     highlight: {
