@@ -8,7 +8,9 @@
       />
 
       <nav class="navigation-list">
-        <p class="title">{{ $t('footer.about.title') }}</p>
+        <p class="title">
+          {{ $t('footer.about.title') }}
+        </p>
         <ul class="list">
           <li>
             <GlobalLink to="/#feature">
@@ -29,7 +31,9 @@
       </nav>
 
       <nav class="navigation-list">
-        <p class="title">{{ $t('footer.game.title') }}</p>
+        <p class="title">
+          {{ $t('footer.game.title') }}
+        </p>
         <ul class="list">
           <li>
             <GlobalLink to="/game">
@@ -55,7 +59,9 @@
       </nav>
 
       <nav class="navigation-list">
-        <p class="title">{{ $t('footer.tool.title') }}</p>
+        <p class="title">
+          {{ $t('footer.tool.title') }}
+        </p>
         <ul class="list">
           <li>
             <GlobalLink
@@ -78,7 +84,9 @@
       </nav>
 
       <nav class="navigation-list">
-        <p class="title">{{ $t('footer.others.title') }}</p>
+        <p class="title">
+          {{ $t('footer.others.title') }}
+        </p>
         <ul class="list">
           <li>
             <GlobalLink to="/contact">
@@ -97,7 +105,9 @@
       </nav>
 
       <nav class="navigation-list">
-        <p class="title">{{ $t('footer.links.title') }}</p>
+        <p class="title">
+          {{ $t('footer.links.title') }}
+        </p>
         <ul class="list">
           <li>
             <GlobalLink
@@ -125,7 +135,9 @@
       </nav>
 
       <nav class="navigation-list">
-        <p class="title">{{ $t('footer.webgl.title') }}</p>
+        <p class="title">
+          {{ $t('footer.webgl.title') }}
+        </p>
         <ul class="list favicons">
           <li class="favicon">
             <GlobalLink to="https://play.unity.com/u/openvideogame">

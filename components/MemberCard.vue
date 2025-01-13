@@ -28,8 +28,12 @@ const { name, engname, icon, affiliation, hp, twitter } = defineProps<Props>();
       class="image"
     />
     <div class="detail">
-      <p class="title">{{ name }}</p>
-      <p class="subtitle">{{ engname }} / {{ affiliation }}</p>
+      <p class="title">
+        {{ name }}
+      </p>
+      <p class="subtitle">
+        {{ engname }} / {{ affiliation }}
+      </p>
       <div class="buttons">
         <GlobalLink v-if="hp" :to="hp">
           <div class="sns-icon">

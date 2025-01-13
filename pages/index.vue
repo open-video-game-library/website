@@ -38,7 +38,9 @@ const download = (id: number) => {
           src="/logos/white.png"
           height="125"
         />
-        <p class="description">{{ $t('about.firstView.catchCopy') }}</p>
+        <p class="description">
+          {{ $t('about.firstView.catchCopy') }}
+        </p>
         <div class="buttons">
           <GlobalLink to="https://github.com/open-video-game-library">
             <div class="icon-button background-black">
