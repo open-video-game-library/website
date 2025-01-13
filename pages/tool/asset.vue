@@ -1,5 +1,5 @@
 <script setup>
-import { assets } from '~/assets/json/extool.json';
+import { assets } from '@/assets/json/extool.json';
 </script>
 
 <template>
@@ -30,7 +30,7 @@ import { assets } from '~/assets/json/extool.json';
       </div>
     </section>
 
-    <section class="content-wrapper bg-gray">
+    <section class="content-wrapper background-gray">
       <div class="content-container">
         <v-container>
           <h2>BGM / SE</h2>

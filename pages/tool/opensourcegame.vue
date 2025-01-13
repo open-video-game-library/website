@@ -1,5 +1,5 @@
 <script setup>
-import { opensSourceGames } from '~/assets/json/extool.json';
+import { opensSourceGames } from '@/assets/json/extool.json';
 </script>
 
 <template>

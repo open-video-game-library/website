@@ -3,26 +3,19 @@ export default defineNuxtConfig({
     baseURL: '/',
     head: {
       title: 'Open Video Game Library',
-      meta: [
-        { charset: 'utf-8' },
-        // { name: "viewport", content: "width=device-width, initial-scale=1" },
-      ],
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+        { rel: 'stylesheet', href: 'https://unpkg.com/modern-css-reset/dist/reset.min.css' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;600&family=Roboto:wght@300;600&display=swap',
+        },
       ],
     },
   },
-  css: [
-    'vuetify/lib/styles/main.sass',
-    '~/assets/css/common.scss',
-  ],
-  build: {
-    transpile: ['vuetify'],
-  },
-  modules: [
-    '@nuxt/content',
-    '@nuxt/eslint',
-  ],
+  compatibilityDate: '2025-01-12',
   content: {
     highlight: {
       theme: 'github-dark',
@@ -33,6 +26,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+  css: [
+    '@/assets/css/common.scss',
+  ],
   eslint: {
     config: {
       stylistic: {
@@ -43,7 +39,17 @@ export default defineNuxtConfig({
       },
     },
   },
-  ssr: true,
+  modules: ['@nuxt/content', '@nuxt/eslint', '@nuxt/image', [
+    '@nuxtjs/i18n',
+    {
+      locales: [
+        { code: 'en', file: 'en.json', iso: 'en-US' },
+        { code: 'ja', file: 'ja.json', iso: 'ja-JP' },
+      ],
+      defaultLocale: 'en',
+      langDir: 'locales/',
+    },
+  ]],
   runtimeConfig: {
     public: {
       internalDbApi: process.env.NUXT_INTERNAL_DB_API,
@@ -51,4 +57,5 @@ export default defineNuxtConfig({
       surveyDbApi: process.env.NUXT_SURVEY_DB_API,
     },
   },
+  ssr: true,
 });

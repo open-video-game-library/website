@@ -20,7 +20,7 @@
               <aside class="text-caption">
                 {{ doc.description }}
               </aside>
-              <v-img :src="doc.thumbnail" />
+              <NuxtImg :src="doc.thumbnail" />
               <ContentRenderer :value="doc" />
             </ContentDoc>
           </article>

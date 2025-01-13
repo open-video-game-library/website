@@ -1,0 +1,117 @@
+{
+  "about": {
+    "firstView": {
+      "catchCopy": "A library for game researchers with the aim of \"facilitating game research and contributing to the development of game research\"",
+      "links": {
+        "gitHub": "DOWNLOAD",
+        "game": "PLAY"
+      }
+    },
+    "features": {
+      "title": "What you can do with OVGL",
+      "feature1": {
+        "title": "Finding games to use in your research",
+        "description": "You can find and use open video games that we have created to be used in your research, or external open source games that you can edit to suit your research.",
+        "link": "Find a game"
+      },
+      "feature2": {
+        "title": "Find tools to use in your research",
+        "description": "You can find and use recording functions and questionnaires that are useful when conducting experiments to evaluate experiences and devices with games.",
+        "link": "Find Tools"
+      },
+      "feature3": {
+        "title": "Deepen your knowledge of game research",
+        "description": "You will be able to find out information that will be useful for game development and points to keep in mind when conducting game research.",
+        "link": "Read Article"
+      }
+    },
+    "member": {
+      "title": "Member"
+    },
+    "publications": {
+      "title": "Publications"
+    }
+  },
+  "game": {
+    "title": "Open Video Games",
+    "description": "Open Video Game is released under the {license}. Please see {gitHub} for more information. For the design and development of each open video game, please click {survey}.",
+    "details": {
+      "license": "MIT License",
+      "gitHub": "GitHub",
+      "survey": "here"
+    },
+    "parameter": {
+      "title": "Parameter Adjustment and Retrieval",
+      "description": "Open video games allow you to adjust and retrieve parameters without writing code.",
+      "adjustment": {
+        "title": "Adjustment",
+        "description": "Parameter adjustment allows for easy adjustment of game difficulty and specifications to suit the experimental environment and other circumstances. In addition to numerical adjustments, visual adjustments can also be made by replacing images."
+      },
+      "retrieval": {
+        "title": "Retrieval",
+        "description": "It is possible to obtain internal game data that cannot be ascertained by observation alone. It can be used for evaluation and analysis of game experience and controller devices."
+      }
+    }
+  },
+  "tool": {
+    "internal": {
+      "title": "Tools",
+      "description": "We develop and provide tools that can be used for experimentation and evaluation of game research."
+    },
+    "external": {
+      "title": "External Tools",
+      "description": "Tools and games provided by other researchers and game developers that are useful for evaluation, experimentation, and development will also be presented.",
+      "openSourceGame": "Open Source Games",
+      "browserGame": "Browser Games",
+      "developmentFramework": "Development Frameworks",
+      "asset": "Assets"
+    },
+    "seeMore": "See more→"
+  },
+  "article": {
+    "title": "Articles",
+    "description": "Get latest information from"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Thank you for your interest in the Open Video Game Library! Please let us know your opinions and requests, so that we continue to develop it to make it even better for you."
+  },
+  "footer": {
+    "about": {
+      "title": "Learn about OVGL",
+      "summary": "Summary",
+      "member": "Member",
+      "publication": "Publications"
+    },
+    "game": {
+      "title": "Find games",
+      "ovgl": "Open Video Games",
+      "source": "Open Source Games",
+      "browser": "Browser Games",
+      "asset": "Assets"
+    },
+    "tool": {
+      "title": "Find research tools",
+      "recorder": "Multi View Recorder",
+      "aloud": "Ah-Aloud Method",
+      "others": "Other research tools"
+    },
+    "others": {
+      "title": "Others",
+      "contact": "Contact",
+      "organization": "Organization"
+    },
+    "links": {
+      "title": "Links",
+      "github": "GitHub",
+      "x": "X(Twitter)",
+      "zenn": "Zenn"
+    },
+    "webgl": {
+      "title": "Game listing sites",
+      "unity": "Unity Play",
+      "unityroom": "unityroom",
+      "itch": "itch.io"
+    }
+  }
+}

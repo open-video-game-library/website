@@ -1,11 +1,4 @@
 <script lang="ts" setup>
-import {
-  mdiGithub,
-  mdiController,
-  mdiLanguageHtml5,
-} from '@mdi/js';
-import { useDisplay } from 'vuetify';
-
 const datas = defineProps({
   name: { type: String },
   image: { type: String },
@@ -14,8 +7,6 @@ const datas = defineProps({
   webgl: { type: String },
   standalone: { type: String },
 });
-
-const { xs, mobile } = useDisplay();
 </script>
 
 <template>
@@ -24,10 +15,10 @@ const { xs, mobile } = useDisplay();
       :elevation="isHovering ? 8 : 2"
       v-bind="props"
     >
-      <v-img
-        :src="datas.image"
+      <NuxtImg
+        :src="datxas.image"
         height="320"
-        cover
+        fit="cover"
       />
       <v-row
         v-if="isHovering"
@@ -39,38 +30,38 @@ const { xs, mobile } = useDisplay();
             {{ datas.name }}
           </v-card-title>
           <v-card-text>{{ datas.description }}</v-card-text>
-          <v-card-actions v-if="!(xs && mobile)">
+          <v-card-actions>
             <v-spacer />
             <v-btn
-              :prepend-icon="mdiGithub"
               :href="datas.github"
               color="info"
               variant="flat"
               :disabled="datas.github == ''"
             >
+              <NuxtIcon name="icons:github" />
               code
             </v-btn>
             <v-btn
-              :prepend-icon="mdiLanguageHtml5"
               :href="datas.webgl"
               color="primary"
               variant="flat"
               :disabled="datas.webgl == ''"
             >
+              <NuxtIcon name="icons:html5" />
               WebGL
             </v-btn>
             <v-btn
-              :prepend-icon="mdiController"
               :href="datas.standalone"
               color="primary"
               variant="flat"
               :disabled="datas.standalone == ''"
             >
+              <NuxtIcon name="icons:controller" />
               Standalone
             </v-btn>
             <v-spacer />
           </v-card-actions>
-          <v-card-text v-else>
+          <v-card-text>
             ゲームで遊ぶにはPCでご覧ください。
           </v-card-text>
         </v-col>

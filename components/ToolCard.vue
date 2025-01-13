@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import { mdiFileDocumentOutline } from '@mdi/js';
-
 const datas = defineProps({
   name: { type: String },
   image: { type: String },
@@ -30,7 +28,7 @@ const datas = defineProps({
               cols="12"
               sm="4"
             >
-              <v-img
+              <NuxtImg
                 :src="datas.image"
                 height="160px"
               />
@@ -43,11 +41,12 @@ const datas = defineProps({
               <v-card-text>{{ datas.description }}</v-card-text>
               <v-card-actions v-if="datas.articleLink">
                 <v-spacer />
-                <v-btn
+                <!-- <v-btn
                   :icon="mdiFileDocumentOutline"
                   :href="datas.articleLink"
                   style="z-index: 100;"
-                />
+                /> -->
+                <NuxtIcon name="icons:document" />
               </v-card-actions>
             </v-col>
           </v-row>
