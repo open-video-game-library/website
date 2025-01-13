@@ -1,6 +1,4 @@
-<script lang="ts" setup>
-import { mdiOpenInNew } from '@mdi/js';
-
+<script setup lang="ts">
 type Props = {
   to?: string;
   title?: string;
@@ -21,7 +19,7 @@ const datas = defineProps<Props>();
         :elevation="isHovering ? 8 : 2"
         v-bind="props"
       >
-        <CommonLink
+        <GlobalLink
           v-if="datas.to || datas.exlink"
           :to="datas.to || datas.exlink || 'div'"
           :tag="datas.exlink ? 'a' : 'NuxtLink'"
@@ -55,12 +53,7 @@ const datas = defineProps<Props>();
               <VCardActions v-if="datas.exlink">
                 <VSpacer />
                 <p>{{ datas.exlink.split("/")[2] }}</p>
-                <VIcon
-                  :icon="mdiOpenInNew"
-                  class="mx-2"
-                  color="grey"
-                  size="20"
-                />
+                <NuxtIcon name="icons:tab" />
               </VCardActions>
             </VCol>
           </VRow>

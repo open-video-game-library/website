@@ -37,7 +37,7 @@ const assets = pickedTools.filter(tool => tool.category == 'asset');
 
     <section
       id="extool"
-      class="content-wrapper bg-gray"
+      class="content-wrapper background-gray"
     >
       <div class="content-container">
         <v-container>

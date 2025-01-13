@@ -1,145 +1,123 @@
 <script setup lang="ts">
-import {
-  mdiInformation,
-  mdiController,
-  mdiHammerWrench,
-  mdiFileDocument,
-  mdiEmail,
-} from '@mdi/js';
-import { useDisplay } from 'vuetify';
-import logoImg from '@/assets/image/logo_white.png';
-
-const { smAndDown } = useDisplay();
-const { defaultLocale, getBrowserLocale, getLocaleCookie, setLocale, setLocaleCookie } = useI18n();
-
-const HEADER_LINKS = [
-  {
-    name: 'About',
-    icon: mdiInformation,
-    to: '/',
-  },
-  {
-    name: 'Open Video Game',
-    icon: mdiController,
-    to: '/game',
-  },
-  {
-    name: 'Tool',
-    icon: mdiHammerWrench,
-    to: '/tool',
-  },
-  {
-    name: 'Article',
-    icon: mdiFileDocument,
-    to: '/article',
-  },
-  {
-    name: 'Contact',
-    icon: mdiEmail,
-    to: '/contact',
-  },
-];
-
-const showDrawer = ref<boolean>(false);
-const locale = ref<string>('en');
-
-onMounted(() => {
-  const cookieLocale = getLocaleCookie();
-  const browserLocale = getBrowserLocale();
-  setLocale(cookieLocale || browserLocale || defaultLocale);
-  locale.value = cookieLocale || browserLocale || defaultLocale;
-});
-
-const changeLocale = (selectedLocale: 'en' | 'ja') => {
-  setLocaleCookie(selectedLocale);
-  setLocale(selectedLocale);
+type Props = {
+  /** ハンバーガーメニューを開閉する */
+  handleHamburgerMenu: () => void;
+  /** ハンバーガーメニューを開いているかどうか */
+  isHamburgerMenuOpen: boolean;
 };
+
+const { handleHamburgerMenu, isHamburgerMenuOpen } = defineProps<Props>();
 </script>
 
 <template>
-  <VAppBar
-    color="primary"
-    class="w-100"
-  >
-    <template #prepend>
-      <VImg
-        :src="logoImg"
+  <header class="header-wrapper">
+    <GlobalLink to="/">
+      <NuxtImg
+        src="/logos/white.png"
         width="100"
       />
-    </template>
-    <template
-      v-if="!smAndDown"
-      #append
-    >
-      <CommonButton
-        v-for="link in HEADER_LINKS"
-        :key="link.name"
-        variant="flat"
-        :value="link.name"
-        :prepend-icon="link.icon"
-        :to="link.to"
-      />
-      <VBtnToggle
-        v-model="locale"
-        divided
-        rounded="xl"
-        color="primary"
-        density="compact"
-        mandatory
-        class="ml-2"
-      >
-        <VBtn value="en" size="small" @click="changeLocale('en')">
-          EN
-        </VBtn>
-        <VBtn value="ja" size="small" @click="changeLocale('ja')">
-          JA
-        </VBtn>
-      </VBtnToggle>
-    </template>
+    </GlobalLink>
+    <nav class="header-navigation">
+      <ul class="links">
+        <li>
+          <GlobalLink to="/game">
+            <div class="icon-button">
+              <IconController class="icon" fill="white" />
+              <span class="text">OPEN VIDEO GAME</span>
+            </div>
+          </GlobalLink>
+        </li>
+        <li>
+          <GlobalLink to="/tool">
+            <div class="icon-button">
+              <IconTools class="icon" fill="white" />
+              <span class="text">TOOL</span>
+            </div>
+          </GlobalLink>
+        </li>
+        <li>
+          <GlobalLink to="/article">
+            <div class="icon-button">
+              <IconDocument class="icon" fill="white" />
+              <span class="text">ARTICLE</span>
+            </div>
+          </GlobalLink>
+        </li>
+        <li>
+          <GlobalLink to="/contact">
+            <div class="icon-button">
+              <IconEmail class="icon" fill="white" />
+              <span class="text">CONTACT</span>
+            </div>
+          </GlobalLink>
+        </li>
+        <li>
+          <GlobalLocaleSelect />
+        </li>
+      </ul>
+    </nav>
 
-    <VAppBarNavIcon
-      v-if="smAndDown"
-      variant="text"
-      @click.stop="showDrawer = !showDrawer"
-    />
-  </VAppBar>
-
-  <VNavigationDrawer
-    v-if="smAndDown"
-    v-model="showDrawer"
-    color="primary"
-    location="right"
-    temporary
-  >
-    <VList>
-      <VListItem
-        v-for="link in HEADER_LINKS"
-        :key="link.name"
-      >
-        <CommonButton
-          variant="flat"
-          :value="link.name"
-          :prepend-icon="link.icon"
-          :to="link.to"
-        />
-      </VListItem>
-      <VListItem>
-        <VBtnToggle
-          v-model="locale"
-          divided
-          rounded="xl"
-          color="primary"
-          density="compact"
-          mandatory
-        >
-          <VBtn value="en" size="small" @click="changeLocale('en')">
-            EN
-          </VBtn>
-          <VBtn value="ja" size="small" @click="changeLocale('ja')">
-            JA
-          </VBtn>
-        </VBtnToggle>
-      </VListItem>
-    </VList>
-  </VNavigationDrawer>
+    <!-- ハンバーガーメニューアイコン -->
+    <button class="hamburger-button" :class="isHamburgerMenuOpen && 'open'" @click="handleHamburgerMenu">
+      <IconMenu class="icon" fill="white" />
+    </button>
+  </header>
 </template>
+
+<style scoped lang="scss">
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 64px;
+  background-color: #5e1ce2;
+  box-shadow: 0 0 8px #0e0c0d;
+  z-index: 10;
+  color: white;
+  padding: 0 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-navigation {
+  display: none;
+
+  @media screen and (min-width: 640px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  > .links {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.hamburger-button {
+  position: relative;
+  border: none;
+  background-color: #5e1ce2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  transition: background-color 0.4s 0s ease;
+
+  @media screen and (min-width: 640px) {
+    display: none;
+  }
+
+  &.open {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  > .icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+</style>

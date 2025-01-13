@@ -75,5 +75,43 @@
   "contact": {
     "title": "お問い合わせ",
     "description": "オープンビデオゲームライブラリに興味を持っていただきありがとうございます。今後、研究者にとってより良いものに改良していくために、ご意見・ご要望をお聞かせください。共同研究、依頼などについてのご連絡も承っております。"
+  },
+  "footer": {
+    "about": {
+      "title": "この取り組みを知る",
+      "summary": "概要",
+      "member": "メンバー",
+      "publication": "論文"
+    },
+    "game": {
+      "title": "ゲームを見つける",
+      "ovgl": "オープンビデオゲーム",
+      "source": "オープンソースゲーム",
+      "browser": "ブラウザで遊べるゲーム",
+      "asset": "アセット"
+    },
+    "tool": {
+      "title": "実験ツールを見つける",
+      "recorder": "Multi View Recorder",
+      "aloud": "あアラウド法",
+      "others": "その他外部ツール"
+    },
+    "others": {
+      "title": "その他",
+      "contact": "お問い合わせ",
+      "organization": "運営組織"
+    },
+    "links": {
+      "title": "リンク",
+      "github": "GitHub",
+      "x": "X(旧Twitter)",
+      "zenn": "Zenn"
+    },
+    "webgl": {
+      "title": "ゲーム掲載サイト",
+      "unity": "Unity Play",
+      "unityroom": "unityroom",
+      "itch": "itch.io"
+    }
   }
 }

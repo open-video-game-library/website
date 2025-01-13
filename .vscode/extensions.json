@@ -1,0 +1,10 @@
+{
+  /** VSCodeのおすすめ拡張機能 */
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "lokalise.i18n-ally",
+    "vue.volar"
+  ]
+}

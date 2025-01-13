@@ -26,9 +26,9 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url)
               <a href="https://github.com/open-video-game-library">{{ $t("game.details.gitHub") }}</a>
             </template>
             <template #survey>
-              <CommonLink to="/game/survey">
+              <GlobalLink to="/game/survey">
                 {{ $t("game.details.survey") }}
-              </CommonLink>
+              </GlobalLink>
             </template>
           </I18nT>
           <v-row>
@@ -56,14 +56,14 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url)
                   :elevation="isHovering ? 8 : 2"
                   v-bind="props"
                 >
-                  <CommonLink
+                  <GlobalLink
                     to="/contact"
                     class="full-link"
                   />
-                  <v-img
+                  <NuxtImg
                     :src="moreImg"
                     height="320"
-                    cover
+                    fit="cover"
                   />
                   <v-row
                     v-if="isHovering"
@@ -89,20 +89,20 @@ const outputImg = new URL('../../assets/image/output.png', import.meta.url)
       </div>
     </section>
 
-    <section class="content-wrapper bg-gray">
+    <section class="content-wrapper background-gray">
       <div class="content-container">
         <v-container>
           <h2>{{ $t('game.parameter.title') }}</h2>
           <aside>{{ $t('game.parameter.description') }}</aside>
           <h3>{{ $t('game.parameter.adjustment.title') }}</h3>
           <aside>{{ $t('game.parameter.adjustment.description') }}</aside>
-          <v-img
+          <NuxtImg
             class="mx-auto"
             :src="inputImg"
           />
           <h3>{{ $t('game.parameter.retrieval.title') }}</h3>
           <aside>{{ $t('game.parameter.retrieval.description') }}</aside>
-          <v-img
+          <NuxtImg
             class="mx-auto"
             :src="outputImg"
           />

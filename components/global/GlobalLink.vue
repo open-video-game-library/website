@@ -5,20 +5,18 @@ type Props = {
   target?: 'blank';
   locale?: 'en' | 'ja';
 };
-const { to, tag, target, locale } = withDefaults(defineProps<Props>(), {
-  tag: 'NuxtLink',
-});
+const { to, tag = 'NuxtLink', target, locale } = defineProps<Props>();
 
 const localePath = useLocalePath();
 
 /**
  * リンクのタグ
- * * 絶対リンクの場合はaタグにする
+ * - 絶対リンクの場合はaタグにする
  */
 const component = computed(() => to.includes('http') ? 'a' : tag);
 /**
  * リンクのパス
- * * 言語も考慮したリンクにする
+ * - 言語も考慮したリンクにする
  */
 const localeLink = computed(() => locale ? localePath(to, locale) : localePath(to));
 </script>
@@ -29,15 +27,16 @@ const localeLink = computed(() => locale ? localePath(to, locale) : localePath(t
     :to="localeLink"
     :target="target && '_blank'"
     :rel="target && 'noopener noreferrer'"
+    class="global-link"
   >
     <slot />
   </NuxtLink>
   <a
     v-else-if="component === 'a'"
-    :to="to"
+    :href="to"
     :target="target && '_blank'"
     :rel="target && 'noopener noreferrer'"
-    class="external-link"
+    class="global-link external-link"
   >
     <slot />
   </a>
@@ -46,7 +45,11 @@ const localeLink = computed(() => locale ? localePath(to, locale) : localePath(t
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.global-link {
+  color: #5e1ce2;
+}
+
 .external-link:hover {
   cursor: pointer;
 };

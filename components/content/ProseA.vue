@@ -13,8 +13,8 @@ defineProps({
 
 <template>
   <span class="marked">
-    <CommonLink :to="href" tag="a">
+    <GlobalLink :to="href" tag="a">
       <slot />
-    </CommonLink>
+    </GlobalLink>
   </span>
 </template>

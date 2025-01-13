@@ -22,34 +22,34 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '@/assets/json
           <h3>Contents</h3>
           <ul class="pl-8">
             <li>
-              <!-- <CommonLink to="/game/survey#animals"
+              <!-- <GlobalLink to="/game/survey#animals"
                 >動物ゲームに関するサーベイ</NuxtLink
               > -->
-              <CommonLink to="/game/survey#animals">
+              <GlobalLink to="/game/survey#animals">
                 Survey on Animal Games
-              </CommonLink>
+              </GlobalLink>
             </li>
             <li>
-              <!-- <CommonLink to="/game/survey#fps">OpenFPSに関するサーベイ</CommonLink> -->
-              <CommonLink to="/game/survey#fps">
+              <!-- <GlobalLink to="/game/survey#fps">OpenFPSに関するサーベイ</GlobalLink> -->
+              <GlobalLink to="/game/survey#fps">
                 Survey on OpenFPS
-              </CommonLink>
+              </GlobalLink>
             </li>
             <li>
-              <!-- <CommonLink to="/game/survey#tennis"
+              <!-- <GlobalLink to="/game/survey#tennis"
                 >Minimum Tennisに関するサーベイ</NuxtLink
               > -->
-              <CommonLink to="/game/survey#tennis">
+              <GlobalLink to="/game/survey#tennis">
                 Survey on Minimum Tennis
-              </CommonLink>
+              </GlobalLink>
             </li>
             <li>
-              <!-- <CommonLink to="/game/survey#ces"
+              <!-- <GlobalLink to="/game/survey#ces"
                 >触覚体験サンプル（CES）に関するサーベイ</NuxtLink
               > -->
-              <CommonLink to="/game/survey#ces">
+              <GlobalLink to="/game/survey#ces">
                 Survey on Common Experience Sample(CES)
-              </CommonLink>
+              </GlobalLink>
             </li>
           </ul>
         </v-container>
@@ -58,7 +58,7 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '@/assets/json
 
     <section
       id="animals"
-      class="content-wrapper bg-gray"
+      class="content-wrapper background-gray"
     >
       <div class="content-container">
         <v-container>
@@ -200,7 +200,7 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '@/assets/json
 
     <section
       id="tennis"
-      class="content-wrapper bg-gray"
+      class="content-wrapper background-gray"
     >
       <div class="content-container">
         <v-container>

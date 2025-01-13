@@ -1,31 +1,19 @@
 <script setup lang="ts">
-import { mdiGithub, mdiController, mdiFilePdfBox } from '@mdi/js';
 import { members, publications } from '@/assets/json/about.json';
-import logoImg from '@/assets/image/logo_white.png';
-import bgVideo from '@/assets/image/background.mp4';
-import bgPoster from '@/assets/image/background.png';
-import canImg1 from '@/assets/image/can1.png';
-import canImg2 from '@/assets/image/can2.png';
-import canImg3 from '@/assets/image/can3.png';
-
-const canImg = [canImg1, canImg2, canImg3];
-
-/**
- * 論文のPDFファイルが存在するか
- * @param {number} id 論文のID
- */
-const hasPdfFile = (id: number): boolean => {
-  const generatedUrl = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href;
-  return !generatedUrl.includes('undefined');
-};
 
 /**
  * 指定されたIDの論文をダウンロード（別タブでPDFファイルを表示）させる
  * @param {number} id 論文のID
  */
 const download = (id: number) => {
+  const generatedUrl = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href;
+  if (generatedUrl.includes('undefined')) {
+    alert('論文がアップロードされていません。\nお手数おかけしますが、左記の学会URLから論文をご覧ください。');
+    return;
+  }
+
   const a = document.createElement('a');
-  a.href = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href;
+  a.href = generatedUrl;
   a.target = '_blank';
   a.rel = 'noopener noreferrer';
   a.click();
@@ -35,247 +23,177 @@ const download = (id: number) => {
 
 <template>
   <div>
-    <div class="video-wrapper">
-      <v-img
-        :src="bgPoster"
-        cover
-        height="100%"
-      />
+    <div class="first-view">
       <video
         autoplay
         muted
         loop
         playsinline
-      >
-        <source
-          :src="bgVideo"
-          type="video/mp4"
-        >
-      </video>
-      <v-container class="top-msg">
-        <v-row
-          justify="center"
-          align="center"
-          style="height: calc(100vh - 61px)"
-        >
-          <div>
-            <v-img
-              :src="logoImg"
-              class="my-4 py-4"
-              height="125"
-            />
-            <p>{{ $t('about.firstView.catchCopy') }}</p>
-            <v-row
-              justify="center"
-              class="my-4 py-4"
-            >
-              <CommonButton
-                :value="$t('about.firstView.links.gitHub')"
-                :icon="mdiGithub"
-                color="info"
-                href="https://github.com/open-video-game-library"
-              />
-              <v-btn
-                color="primary"
-                class="mx-8"
-                :prepend-icon="mdiController"
-                to="/game"
-              >
-                {{ $t('about.firstView.links.game') }}
-              </v-btn>
-            </v-row>
-          </div>
-        </v-row>
-      </v-container>
+        src="/images/background.mp4"
+        poster="/images/background.png"
+        class="background"
+      />
+      <div class="message">
+        <NuxtImg
+          src="/logos/white.png"
+          height="125"
+        />
+        <p class="description">{{ $t('about.firstView.catchCopy') }}</p>
+        <div class="buttons">
+          <GlobalLink to="https://github.com/open-video-game-library">
+            <div class="icon-button background-black">
+              <IconGithub class="icon" fill="white" />
+              <span class="text">{{ $t('about.firstView.links.gitHub') }}</span>
+            </div>
+          </GlobalLink>
+          <GlobalLink to="/game">
+            <div class="icon-button background-primary">
+              <IconController class="icon" fill="white" />
+              <span class="text">{{ $t('about.firstView.links.game') }}</span>
+            </div>
+          </GlobalLink>
+        </div>
+      </div>
     </div>
 
-    <section
-      id="abstract"
-      class="content-wrapper"
-    >
+    <section id="feature" class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <h2>{{ $t('about.features.title') }}</h2>
-          <v-row>
-            <v-col
-              cols="12"
-              sm="4"
-              class="abstract-part"
-            >
-              <v-img
-                :src="canImg[0]"
-                max-height="120"
+        <h2>{{ $t('about.features.title') }}</h2>
+        <div class="features-wrapper">
+          <div class="feature">
+            <div class="image">
+              <NuxtImg
+                src="/images/feature1.png"
+                height="120"
               />
-              <h4>{{ $t('about.features.feature1.title') }}</h4>
-              <p>{{ $t('about.features.feature1.description') }}</p>
-              <div class="d-flex justify-center">
-                <v-btn
-                  color="primary"
-                  to="/game"
-                >
-                  {{ $t('about.features.feature1.link') }}
-                </v-btn>
-              </div>
-            </v-col>
-            <v-col
-              cols="12"
-              sm="4"
-              class="abstract-part"
-            >
-              <v-img
-                :src="canImg[1]"
-                max-height="120"
+            </div>
+            <h4>{{ $t('about.features.feature1.title') }}</h4>
+            <p class="description">
+              {{ $t('about.features.feature1.description') }}
+            </p>
+            <div class="button">
+              <GlobalLink to="/game">
+                <div class="icon-button background-primary">
+                  <span class="text">{{ $t('about.features.feature1.link') }}</span>
+                </div>
+              </GlobalLink>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="image">
+              <NuxtImg
+                src="/images/feature2.png"
+                height="120"
               />
-              <h4>{{ $t('about.features.feature2.title') }}</h4>
-              <p>{{ $t('about.features.feature2.description') }}</p>
-              <div class="d-flex justify-center">
-                <v-btn
-                  color="primary"
-                  to="/tool"
-                >
-                  {{ $t('about.features.feature2.link') }}
-                </v-btn>
-              </div>
-            </v-col>
-            <v-col
-              cols="12"
-              sm="4"
-              class="abstract-part"
-            >
-              <v-img
-                :src="canImg[2]"
-                max-height="120"
+            </div>
+            <h4>{{ $t('about.features.feature2.title') }}</h4>
+            <p class="description">
+              {{ $t('about.features.feature2.description') }}
+            </p>
+            <div class="button">
+              <GlobalLink to="/tool">
+                <div class="icon-button background-primary">
+                  <span class="text">{{ $t('about.features.feature2.link') }}</span>
+                </div>
+              </GlobalLink>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="image">
+              <NuxtImg
+                src="/images/feature3.png"
+                height="120"
               />
-              <h4>{{ $t('about.features.feature3.title') }}</h4>
-              <p>{{ $t('about.features.feature3.description') }}</p>
-              <div class="d-flex justify-center">
-                <!-- <v-btn color="primary" to="/article">記事を読む</v-btn> -->
-                <v-btn
-                  color="primary"
-                  to="/article"
-                >
-                  {{ $t('about.features.feature3.link') }}
-                </v-btn>
-              </div>
-            </v-col>
-          </v-row>
-        </v-container>
+            </div>
+            <h4>{{ $t('about.features.feature3.title') }}</h4>
+            <p class="description">
+              {{ $t('about.features.feature3.description') }}
+            </p>
+            <div class="button">
+              <GlobalLink to="/article">
+                <div class="icon-button background-primary">
+                  <span class="text">{{ $t('about.features.feature3.link') }}</span>
+                </div>
+              </GlobalLink>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section
-      id="member"
-      class="content-wrapper bg-gray"
-    >
+    <section id="member" class="content-wrapper background-gray">
       <div class="content-container">
-        <v-container>
-          <h2>{{ $t('about.member.title') }}</h2>
-          <v-row>
-            <v-col
-              v-for="member in members"
-              :key="member.name"
-              cols="12"
-              sm="4"
-              justify="space-around"
-            >
-              <MemberCard
-                :name="member.name"
-                :engname="member.engname"
-                :icon="member.icon"
-                :description="member.description"
-                :affiliation="member.affiliation"
-                :hp="member.hp"
-                :twitter="member.twitter"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+        <h2>{{ $t('about.member.title') }}</h2>
+        <div class="member-wrapper">
+          <MemberCard
+            v-for="{ name, engname, icon, description, affiliation, hp, twitter } in members"
+            :key="name"
+            :name="name"
+            :engname="engname"
+            :icon="icon"
+            :description="description"
+            :affiliation="affiliation"
+            :hp="hp"
+            :twitter="twitter"
+          />
+        </div>
       </div>
     </section>
 
-    <section
-      id="publication"
-      class="content-wrapper"
-    >
+    <section id="publication" class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <h2>{{ $t('about.publications.title') }}</h2>
-          <v-row
-            v-for="publication in publications"
-            :key="publication.title"
-            cols="12"
-            sm="4"
-            class="my-2 py-2"
+        <h2>{{ $t('about.publications.title') }}</h2>
+        <div class="publication-wrapper">
+          <div
+            v-for="{ title, author, journal, vol, no, pp, date, doi, ID } in publications"
+            :key="title"
+            class="publication"
           >
-            <v-col
-              cols="10"
-              sm="11"
-              style="word-wrap: break-word"
-            >
-              {{ publication.author }}. "{{ publication.title }}".
-              {{ publication.journal }},
-              <span v-if="publication.vol">Vol. {{ publication.vol }}, </span>
-              <span v-if="publication.no">No. {{ publication.no }}, </span>
-              <span v-if="publication.pp">pp. {{ publication.pp }}, </span>
-              {{ publication.date }}.
-              <span v-if="publication.doi"><a :href="publication.doi">{{ publication.doi }}</a>.</span>
-            </v-col>
-            <v-col
-              v-if="hasPdfFile(publication.ID)"
-              cols="2"
-              sm="1"
-              align-self="center"
-            >
-              <v-btn
-                color="primary"
-                :icon="mdiFilePdfBox"
-                variant="plain"
-                @click="download(publication.ID)"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+            <div>
+              <span>{{ author }}. "{{ title }}". {{ journal }}, </span>
+              <span v-if="vol">Vol. {{ vol }}, </span>
+              <span v-if="no">No. {{ no }}, </span>
+              <span v-if="pp">pp. {{ pp }}, </span>
+              {{ date }}.
+              <span v-if="doi">
+                <GlobalLink :to="doi" target="blank">
+                  <span class="publication-doi">{{ doi }}</span>
+                </GlobalLink>.
+              </span>
+            </div>
+            <div class="button">
+              <button class="download-button" @click="download(ID)">
+                <IconPdf class="icon" fill="#5e1ce2" />
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </div>
 </template>
 
 <style scoped lang="scss">
-.top-msg {
-  z-index: 1000;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  color: white;
-  font-weight: bold;
-}
-
-.video-wrapper {
+.first-view {
   position: relative;
   width: 100%;
   height: calc(100vh - 61px);
   overflow: hidden;
 
-  video {
+  > .background {
     object-fit: cover;
     position: absolute;
     height: 100%;
     width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset: 0;
   }
 
+  // テキストを見やすくするための黒ドット
   &::after {
     content: "";
     display: block;
     position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
+    inset: 0;
     height: calc(100vh - 61px);
     background-color: rgba(0, 0, 0, 0.3);
     background-image: radial-gradient(#111 30%, transparent 31%),
@@ -284,21 +202,121 @@ const download = (id: number) => {
     background-position: 0 0, 2px 2px;
     background-repeat: repeat;
   }
+
+  > .message {
+    margin: 0 16px;
+    z-index: 5;
+    inset: 0;
+    position: absolute;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    gap: 32px 0;
+
+    > .description {
+      color: white;
+      font-weight: bold;
+    }
+
+    > .buttons {
+      display: flex;
+      gap: 0 32px;
+    }
+  }
 }
 
-.abstract-part {
-  display: flex;
-  flex-direction: column;
-  gap: 20px 0;
-  margin: 20px 0;
+.icon-button {
+  width: 100%;
+}
 
-  h4 {
-    margin: 0;
-    flex-grow: 0;
+.features-wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 64px 16px;
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  p {
-    flex-grow: 1;
+  > .feature {
+    display: flex;
+    flex-direction: column;
+    gap: 16px 0;
+
+    > .image {
+      display: flex;
+      place-content: center;
+    }
+
+    > .description {
+      flex-grow: 1;
+    }
+
+    > .button {
+      display: flex;
+      place-content: center;
+    }
+  }
+}
+
+.member-wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 32px;
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.publication-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px 0;
+
+  > .publication {
+    display: flex;
+    align-items: center;
+    gap: 0 16px;
+    word-break: break-all;
+
+    @media screen and (min-width: 640px) {
+      gap: 0 32px;
+    }
+
+    > .button {
+      flex: 0 0 40px;
+    }
+  }
+}
+
+.publication-doi {
+  border-bottom: 1px solid transparent;
+  transition: border-bottom 0.4s 0s ease;
+
+  &:hover {
+    border-color: #5e1ce2;
+  }
+}
+
+.download-button {
+  border: none;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+
+  > .icon {
+    opacity: 0.5;
+    transition: opacity 0.4s 0s ease;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 </style>

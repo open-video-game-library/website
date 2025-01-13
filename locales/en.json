@@ -3,8 +3,8 @@
     "firstView": {
       "catchCopy": "A library for game researchers with the aim of \"facilitating game research and contributing to the development of game research\"",
       "links": {
-        "gitHub": "Download",
-        "game": "Play"
+        "gitHub": "DOWNLOAD",
+        "game": "PLAY"
       }
     },
     "features": {
@@ -75,5 +75,43 @@
   "contact": {
     "title": "Contact",
     "description": "Thank you for your interest in the Open Video Game Library! Please let us know your opinions and requests, so that we continue to develop it to make it even better for you."
+  },
+  "footer": {
+    "about": {
+      "title": "Learn about OVGL",
+      "summary": "Summary",
+      "member": "Member",
+      "publication": "Publications"
+    },
+    "game": {
+      "title": "Find games",
+      "ovgl": "Open Video Games",
+      "source": "Open Source Games",
+      "browser": "Browser Games",
+      "asset": "Assets"
+    },
+    "tool": {
+      "title": "Find research tools",
+      "recorder": "Multi View Recorder",
+      "aloud": "Ah-Aloud Method",
+      "others": "Other research tools"
+    },
+    "others": {
+      "title": "Others",
+      "contact": "Contact",
+      "organization": "Organization"
+    },
+    "links": {
+      "title": "Links",
+      "github": "GitHub",
+      "x": "X(Twitter)",
+      "zenn": "Zenn"
+    },
+    "webgl": {
+      "title": "Game listing sites",
+      "unity": "Unity Play",
+      "unityroom": "unityroom",
+      "itch": "itch.io"
+    }
   }
 }

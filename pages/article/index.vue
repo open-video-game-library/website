@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { type QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
-import logoX from '@/assets/image/logo_x.svg';
 
 /** 記事のクエリの設定 */
 const query: QueryBuilderParams = {
@@ -27,7 +26,7 @@ const query: QueryBuilderParams = {
               rounded="pill"
               class="ml-2 fill-white"
             >
-              <VImg :src="logoX" width="16" />
+              <NuxtIcon name="icons:x" />
             </VBtn>
           </VRow>
 
