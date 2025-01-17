@@ -1,1 +1,0 @@
-import{_ as o,o as s,c as t,a as c,y as a}from"./entry.Tk55YoIa.js";const r={},n={class:"marked"};function l(e,_){return s(),t("div",n,[c("blockquote",null,[a(e.$slots,"default")])])}const f=o(r,[["render",l]]);export{f as default};
