@@ -33,7 +33,9 @@
     <section class="content-wrapper background-gray">
       <div class="content-container parameter-wrapper">
         <h2>{{ $t('game.parameter.title') }}</h2>
-        <p class="description">{{ $t('game.parameter.description') }}</p>
+        <p class="description">
+          {{ $t('game.parameter.description') }}
+        </p>
         <div class="adjustment">
           <h3>{{ $t('game.parameter.adjustment.title') }}</h3>
           <p>{{ $t('game.parameter.adjustment.description') }}</p>

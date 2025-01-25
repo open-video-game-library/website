@@ -84,7 +84,9 @@ const descriptionConfig = {
     <NuxtCarousel v-bind="descriptionConfig" v-model="currentSlide">
       <NuxtSlide v-for="{ name, description, github, webgl, standalone } in games" :key="`description-${name}`">
         <div class="description-slide">
-          <h3 class="title">{{ name }}</h3>
+          <h3 class="title">
+            {{ name }}
+          </h3>
           <p>{{ description }}</p>
           <div class="buttons">
             <div class="button">
