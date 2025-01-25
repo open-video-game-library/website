@@ -15,6 +15,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+  carousel: {
+    prefix: 'Nuxt',
+  },
   compatibilityDate: '2025-01-12',
   content: {
     highlight: {
@@ -49,7 +52,7 @@ export default defineNuxtConfig({
       defaultLocale: 'en',
       langDir: 'locales/',
     },
-  ]],
+  ], 'vue3-carousel-nuxt', '@nuxtjs/device'],
   runtimeConfig: {
     public: {
       internalDbApi: process.env.NUXT_INTERNAL_DB_API,

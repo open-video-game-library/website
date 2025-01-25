@@ -34,10 +34,13 @@ const download = (id: number) => {
         class="background"
       />
       <div class="message">
-        <NuxtImg
-          src="/logos/white.png"
-          height="125"
-        />
+        <h1>
+          <NuxtImg
+            src="/logos/white.png"
+            height="125"
+            :alt="$t('about.firstView.title')"
+          />
+        </h1>
         <p class="description">
           {{ $t('about.firstView.catchCopy') }}
         </p>

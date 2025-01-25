@@ -82,6 +82,11 @@ const handleHamburgerMenu = () => {
   transition: opacity 0.4s 0s ease;
   background-color: #0e0c0d;
   opacity: 0.5;
+  display: block;
+
+  @media screen and (min-width: 640px) {
+    display: none;
+  }
 }
 
 .hamburger-navigation {
@@ -95,6 +100,7 @@ const handleHamburgerMenu = () => {
   padding-top: 80px;
   height: 100vh;
   width: 240px;
+  display: block;
 
   > .links {
     display: flex;
@@ -106,6 +112,10 @@ const handleHamburgerMenu = () => {
     > .locale {
       margin-top: 16px;
     }
+  }
+
+  @media screen and (min-width: 640px) {
+    display: none;
   }
 }
 

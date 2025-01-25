@@ -37,5 +37,10 @@ const changeLocale = () => {
   margin: 0 16px;
   padding: 8px 16px;
   border-radius: 4px;
+  width: 194px;
+
+  @media screen and (min-width: 640px) {
+    width: auto;
+  }
 }
 </style>

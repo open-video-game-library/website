@@ -1,6 +1,7 @@
 {
   "about": {
     "firstView": {
+      "title": "Open Video Game Library",
       "catchCopy": "A library for game researchers with the aim of \"facilitating game research and contributing to the development of game research\"",
       "links": {
         "gitHub": "DOWNLOAD",
@@ -35,6 +36,15 @@
   "game": {
     "title": "Open Video Games",
     "description": "Open Video Game is released under the {license}. Please see {gitHub} for more information. For the design and development of each open video game, please click {survey}.",
+    "buttons": {
+      "github": "Code",
+      "webgl": "WebGL",
+      "standalone": "Standalone"
+    },
+    "more": {
+      "title": "Do you need more games?",
+      "description": "If you have other video games in your genre that you would like to research and use, please contact us."
+    },
     "details": {
       "license": "MIT License",
       "gitHub": "GitHub",
