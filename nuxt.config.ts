@@ -42,6 +42,9 @@ export default defineNuxtConfig({
       },
     },
   },
+  imports: {
+    autoImport: false,
+  },
   modules: ['@nuxt/content', '@nuxt/eslint', '@nuxt/image', [
     '@nuxtjs/i18n',
     {

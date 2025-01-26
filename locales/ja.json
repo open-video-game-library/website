@@ -39,7 +39,8 @@
     "buttons": {
       "github": "ソースコード",
       "webgl": "WebGL版",
-      "standalone": "スタンドアロン版"
+      "standalone": "スタンドアロン版",
+      "sp": "ゲームで遊ぶにはPCでご覧ください。"
     },
     "more": {
       "title": "欲しいゲームがありますか？",

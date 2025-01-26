@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import GlobalLink from '@/components/global/GlobalLink.vue';
+import IconHome from '@/components/icon/IconHome.vue';
+import IconX from '@/components/icon/IconX.vue';
+
 type Props = {
   /** 名前（日本語） */
   name: string;
@@ -35,12 +39,12 @@ const { name, engname, icon, affiliation, hp, twitter } = defineProps<Props>();
         {{ engname }} / {{ affiliation }}
       </p>
       <div class="buttons">
-        <GlobalLink v-if="hp" :to="hp">
+        <GlobalLink v-if="hp" :to="hp" :is-underlined-on-hover="false">
           <div class="sns-icon">
             <IconHome class="home" fill="#0e0c0d" />
           </div>
         </GlobalLink>
-        <GlobalLink v-if="twitter" :to="`https://x.com/${twitter}`">
+        <GlobalLink v-if="twitter" :to="`https://x.com/${twitter}`" :is-underlined-on-hover="false">
           <div class="sns-icon">
             <IconX class="x" fill="#0e0c0d" />
           </div>

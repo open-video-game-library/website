@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import { computed, useLocalePath } from '#imports';
+
 type Props = {
   to: string;
   tag?: 'NuxtLink' | 'a' | 'div';
   target?: 'blank';
   locale?: 'en' | 'ja';
+  isUnderlinedOnHover?: boolean;
 };
-const { to, tag = 'NuxtLink', target, locale } = defineProps<Props>();
+const { to, tag = 'NuxtLink', target, locale, isUnderlinedOnHover = true } = defineProps<Props>();
 
 const localePath = useLocalePath();
 
@@ -28,6 +31,7 @@ const localeLink = computed(() => locale ? localePath(to, locale) : localePath(t
     :target="target && '_blank'"
     :rel="target && 'noopener noreferrer'"
     class="global-link"
+    :class="isUnderlinedOnHover && '-underlined'"
   >
     <slot />
   </NuxtLink>
@@ -37,6 +41,7 @@ const localeLink = computed(() => locale ? localePath(to, locale) : localePath(t
     :target="target && '_blank'"
     :rel="target && 'noopener noreferrer'"
     class="global-link external-link"
+    :class="isUnderlinedOnHover && '-underlined'"
   >
     <slot />
   </a>
@@ -48,6 +53,15 @@ const localeLink = computed(() => locale ? localePath(to, locale) : localePath(t
 <style scoped lang="scss">
 .global-link {
   color: #5e1ce2;
+
+  &.-underlined {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.4s 0s ease;
+
+    &:hover {
+      border-color: #5e1ce2;
+    }
+  }
 }
 
 .external-link:hover {

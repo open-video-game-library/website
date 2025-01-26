@@ -1,4 +1,14 @@
 <script setup lang="ts">
+import GlobalButton from '@/components/global/GlobalButton.vue';
+import GlobalLink from '@/components/global/GlobalLink.vue';
+import GlobalLocaleSelect from '@/components/global/GlobalLocaleSelect.vue';
+import IconController from '@/components/icon/IconController.vue';
+import IconDocument from '@/components/icon/IconDocument.vue';
+import IconEmail from '@/components/icon/IconEmail.vue';
+import IconMenu from '@/components/icon/IconMenu.vue';
+import IconTools from '@/components/icon/IconTools.vue';
+import { INTERNAL_URL } from '@/constants';
+
 type Props = {
   /** ハンバーガーメニューを開閉する */
   handleHamburgerMenu: () => void;
@@ -20,36 +30,44 @@ const { handleHamburgerMenu, isHamburgerMenuOpen } = defineProps<Props>();
     <nav class="header-navigation">
       <ul class="links">
         <li>
-          <GlobalLink to="/game">
-            <div class="icon-button">
-              <IconController class="icon" fill="white" />
-              <span class="text">OPEN VIDEO GAME</span>
-            </div>
-          </GlobalLink>
+          <GlobalButton
+            :link="{
+              to: INTERNAL_URL.GAME,
+            }"
+            :icon="IconController"
+          >
+            OPEN VIDEO GAME
+          </GlobalButton>
         </li>
         <li>
-          <GlobalLink to="/tool">
-            <div class="icon-button">
-              <IconTools class="icon" fill="white" />
-              <span class="text">TOOL</span>
-            </div>
-          </GlobalLink>
+          <GlobalButton
+            :link="{
+              to: INTERNAL_URL.TOOL,
+            }"
+            :icon="IconTools"
+          >
+            TOOL
+          </GlobalButton>
         </li>
         <li>
-          <GlobalLink to="/article">
-            <div class="icon-button">
-              <IconDocument class="icon" fill="white" />
-              <span class="text">ARTICLE</span>
-            </div>
-          </GlobalLink>
+          <GlobalButton
+            :link="{
+              to: INTERNAL_URL.ARTICLE,
+            }"
+            :icon="IconDocument"
+          >
+            ARTICLE
+          </GlobalButton>
         </li>
         <li>
-          <GlobalLink to="/contact">
-            <div class="icon-button">
-              <IconEmail class="icon" fill="white" />
-              <span class="text">CONTACT</span>
-            </div>
-          </GlobalLink>
+          <GlobalButton
+            :link="{
+              to: INTERNAL_URL.CONTACT,
+            }"
+            :icon="IconEmail"
+          >
+            CONTACT
+          </GlobalButton>
         </li>
         <li>
           <GlobalLocaleSelect />

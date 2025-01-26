@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onMounted, ref, useI18n } from '#imports';
+
 const { defaultLocale, getBrowserLocale, getLocaleCookie, setLocale, setLocaleCookie } = useI18n();
 
 /** 言語 */

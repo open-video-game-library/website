@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import GlobalLink from '@/components/global/GlobalLink.vue';
+</script>
+
 <template>
   <footer class="global-footer content-wrapper">
     <div class="content-container footer-navigation">

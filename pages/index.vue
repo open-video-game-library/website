@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import GlobalButton from '@/components/global/GlobalButton.vue';
+import GlobalLink from '@/components/global/GlobalLink.vue';
+import AboutFirstView from '@/components/partials/AboutFirstView.vue';
+import MemberCard from '@/components/partials/MemberCard.vue';
 import { members, publications } from '@/assets/json/about.json';
+import { INTERNAL_URL } from '@/constants';
 
 /**
  * 指定されたIDの論文をダウンロード（別タブでPDFファイルを表示）させる
@@ -23,43 +28,7 @@ const download = (id: number) => {
 
 <template>
   <div>
-    <div class="first-view">
-      <video
-        autoplay
-        muted
-        loop
-        playsinline
-        src="/images/background.mp4"
-        poster="/images/background.png"
-        class="background"
-      />
-      <div class="message">
-        <h1>
-          <NuxtImg
-            src="/logos/white.png"
-            height="125"
-            :alt="$t('about.firstView.title')"
-          />
-        </h1>
-        <p class="description">
-          {{ $t('about.firstView.catchCopy') }}
-        </p>
-        <div class="buttons">
-          <GlobalLink to="https://github.com/open-video-game-library">
-            <div class="icon-button background-black">
-              <IconGithub class="icon" fill="white" />
-              <span class="text">{{ $t('about.firstView.links.gitHub') }}</span>
-            </div>
-          </GlobalLink>
-          <GlobalLink to="/game">
-            <div class="icon-button background-primary">
-              <IconController class="icon" fill="white" />
-              <span class="text">{{ $t('about.firstView.links.game') }}</span>
-            </div>
-          </GlobalLink>
-        </div>
-      </div>
-    </div>
+    <AboutFirstView />
 
     <section id="feature" class="content-wrapper">
       <div class="content-container">
@@ -77,11 +46,13 @@ const download = (id: number) => {
               {{ $t('about.features.feature1.description') }}
             </p>
             <div class="button">
-              <GlobalLink to="/game">
-                <div class="icon-button background-primary">
-                  <span class="text">{{ $t('about.features.feature1.link') }}</span>
-                </div>
-              </GlobalLink>
+              <GlobalButton
+                :link="{
+                  to: INTERNAL_URL.GAME,
+                }"
+              >
+                {{ $t('about.features.feature1.link') }}
+              </GlobalButton>
             </div>
           </div>
           <div class="feature">
@@ -96,11 +67,13 @@ const download = (id: number) => {
               {{ $t('about.features.feature2.description') }}
             </p>
             <div class="button">
-              <GlobalLink to="/tool">
-                <div class="icon-button background-primary">
-                  <span class="text">{{ $t('about.features.feature2.link') }}</span>
-                </div>
-              </GlobalLink>
+              <GlobalButton
+                :link="{
+                  to: INTERNAL_URL.TOOL,
+                }"
+              >
+                {{ $t('about.features.feature2.link') }}
+              </GlobalButton>
             </div>
           </div>
           <div class="feature">
@@ -115,11 +88,13 @@ const download = (id: number) => {
               {{ $t('about.features.feature3.description') }}
             </p>
             <div class="button">
-              <GlobalLink to="/article">
-                <div class="icon-button background-primary">
-                  <span class="text">{{ $t('about.features.feature3.link') }}</span>
-                </div>
-              </GlobalLink>
+              <GlobalButton
+                :link="{
+                  to: INTERNAL_URL.ARTICLE,
+                }"
+              >
+                {{ $t('about.features.feature3.link') }}
+              </GlobalButton>
             </div>
           </div>
         </div>
@@ -162,7 +137,7 @@ const download = (id: number) => {
               {{ date }}.
               <span v-if="doi">
                 <GlobalLink :to="doi" target="blank">
-                  <span class="publication-doi">{{ doi }}</span>
+                  {{ doi }}
                 </GlobalLink>.
               </span>
             </div>
@@ -179,61 +154,6 @@ const download = (id: number) => {
 </template>
 
 <style scoped lang="scss">
-.first-view {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 61px);
-  overflow: hidden;
-
-  > .background {
-    object-fit: cover;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    inset: 0;
-  }
-
-  // テキストを見やすくするための黒ドット
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    inset: 0;
-    height: calc(100vh - 61px);
-    background-color: rgba(0, 0, 0, 0.3);
-    background-image: radial-gradient(#111 30%, transparent 31%),
-      radial-gradient(#111 30%, transparent 31%);
-    background-size: 4px 4px;
-    background-position: 0 0, 2px 2px;
-    background-repeat: repeat;
-  }
-
-  > .message {
-    margin: 0 16px;
-    z-index: 5;
-    inset: 0;
-    position: absolute;
-    display: grid;
-    place-content: center;
-    place-items: center;
-    gap: 32px 0;
-
-    > .description {
-      color: white;
-      font-weight: bold;
-    }
-
-    > .buttons {
-      display: flex;
-      gap: 0 32px;
-    }
-  }
-}
-
-.icon-button {
-  width: 100%;
-}
-
 .features-wrapper {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
@@ -292,15 +212,6 @@ const download = (id: number) => {
     > .button {
       flex: 0 0 40px;
     }
-  }
-}
-
-.publication-doi {
-  border-bottom: 1px solid transparent;
-  transition: border-bottom 0.4s 0s ease;
-
-  &:hover {
-    border-color: #5e1ce2;
   }
 }
 

@@ -1,3 +1,7 @@
+<script setup lang="ts">
+import GameCarousel from '@/components/partials/GameCarousel.vue';
+</script>
+
 <template>
   <div>
     <section class="content-wrapper">

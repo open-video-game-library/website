@@ -22,48 +22,8 @@ h2, h3 {
   padding: 0 16px;
 }
 
-.icon-button {
-  display: flex;
-  position: relative;
-  align-items: center;
-  padding: 8px 16px;
-  border-radius: 4px;
-  cursor: pointer;
-  justify-content: center;
-
-  &:after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    transition: background-color 0.4s 0s ease;
-    border-radius: 4px;
-  }
-
-  &:hover:after {
-    background-color: rgba(255, 255, 255, 0.2);
-  }
-
-  > .icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-  }
-
-  > .text {
-    color: white;
-  }
-}
-
 .background-gray {
   background-color: #fafafa;
-}
-
-.background-primary {
-  background-color: #5e1ce2;
-}
-
-.background-black {
-  background-color: #0e0c0d;
 }
 
 .text-normal {

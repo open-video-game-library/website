@@ -39,10 +39,11 @@
     "buttons": {
       "github": "Code",
       "webgl": "WebGL",
-      "standalone": "Standalone"
+      "standalone": "Standalone",
+      "sp": "To play games, please view on desktop PC."
     },
     "more": {
-      "title": "Do you need more games?",
+      "title": "Do you need other games?",
       "description": "If you have other video games in your genre that you would like to research and use, please contact us."
     },
     "details": {

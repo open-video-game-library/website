@@ -1,5 +1,12 @@
-<script lang="ts" setup>
+<script setup lang="ts">
+import { ref, useDevice } from '#imports';
+import GlobalButton from '@/components/global/GlobalButton.vue';
+import IconController from '@/components/icon/IconController.vue';
+import IconEmail from '@/components/icon/IconEmail.vue';
+import IconGithub from '@/components/icon/IconGithub.vue';
+import IconHtml5 from '@/components/icon/IconHtml5.vue';
 import { games } from '@/assets/json/game.json';
+import { INTERNAL_URL } from '@/constants';
 
 const { isMobile } = useDevice();
 
@@ -45,7 +52,7 @@ const descriptionConfig = {
           <NuxtImg
             src="/images/more.png"
             loading="lazy"
-            :alt="name"
+            :alt="$t('game.more.title')"
             class="image"
           />
         </div>
@@ -74,7 +81,7 @@ const descriptionConfig = {
           <NuxtImg
             src="/images/more.png"
             loading="lazy"
-            :alt="name"
+            :alt="$t('game.more.title')"
             class="image"
           />
         </div>
@@ -89,30 +96,39 @@ const descriptionConfig = {
           </h3>
           <p>{{ description }}</p>
           <div class="buttons">
-            <div class="button">
-              <GlobalLink v-if="github" :to="github">
-                <div class="icon-button background-black">
-                  <IconGithub class="icon" fill="white" />
-                  <span class="text">{{ $t('game.buttons.github') }}</span>
-                </div>
-              </GlobalLink>
-            </div>
-            <div class="button">
-              <GlobalLink v-if="webgl" :to="webgl">
-                <div class="icon-button background-primary">
-                  <IconHtml5 class="icon" fill="white" />
-                  <span class="text">{{ $t('game.buttons.webgl') }}</span>
-                </div>
-              </GlobalLink>
-            </div>
-            <div class="button">
-              <GlobalLink v-if="standalone" :to="standalone">
-                <div class="icon-button background-primary">
-                  <IconController class="icon" fill="white" />
-                  <span class="text">{{ $t('game.buttons.standalone') }}</span>
-                </div>
-              </GlobalLink>
-            </div>
+            <GlobalButton
+              v-if="github"
+              color="black"
+              :link="{
+                to: github,
+              }"
+              :icon="IconGithub"
+            >
+              {{ $t('game.buttons.github') }}
+            </GlobalButton>
+            <template v-if="isMobile">
+              <p>{{ $t('game.buttons.sp') }}</p>
+            </template>
+            <template v-else>
+              <GlobalButton
+                v-if="webgl"
+                :link="{
+                  to: webgl,
+                }"
+                :icon="IconHtml5"
+              >
+                {{ $t('game.buttons.webgl') }}
+              </GlobalButton>
+              <GlobalButton
+                v-if="standalone"
+                :link="{
+                  to: standalone,
+                }"
+                :icon="IconController"
+              >
+                {{ $t('game.buttons.standalone') }}
+              </GlobalButton>
+            </template>
           </div>
         </div>
       </NuxtSlide>
@@ -120,11 +136,16 @@ const descriptionConfig = {
         <div class="description-slide">
           <h3>{{ $t("game.more.title") }}</h3>
           <p>{{ $t("game.more.description") }}</p>
-          <p class="link">
-            <GlobalLink to="/contact">
+          <div class="buttons">
+            <GlobalButton
+              :link="{
+                to: INTERNAL_URL.CONTACT,
+              }"
+              :icon="IconEmail"
+            >
               {{ $t("contact.title") }}
-            </GlobalLink>
-          </p>
+            </GlobalButton>
+          </div>
         </div>
       </NuxtSlide>
     </NuxtCarousel>
@@ -197,10 +218,6 @@ const descriptionConfig = {
       flex-direction: row;
       gap: 16px;
     }
-  }
-
-  > .link {
-    margin-top: 32px;
   }
 }
 </style>
