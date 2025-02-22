@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '@/assets/json/survey.json';
 import GlobalLink from '@/components/global/GlobalLink.vue';
+import { ID_NAME, INTERNAL_URL } from '@/constants';
 
 /** IDの要素にスクロールする */
 const scrollToId = (id: string) => {
@@ -15,25 +16,27 @@ const scrollToId = (id: string) => {
       <div class="content-container">
         <h2>{{ $t('survey.title') }}</h2>
         <p>{{ $t('survey.description') }}</p>
-        <h3 class="contents-title">{{ $t('survey.contents.title') }}</h3>
+        <h3 class="contents-title">
+          {{ $t('survey.contents.title') }}
+        </h3>
         <ul class="pl-8">
           <li>
-            <GlobalLink to="/game/survey#animals" @click="scrollToId('animals')">
+            <GlobalLink :to="`${INTERNAL_URL.GAME_SURVEY}#${ID_NAME.ANIMAL}`" @click="scrollToId(ID_NAME.ANIMAL)">
               {{ $t('survey.contents.animal') }}
             </GlobalLink>
           </li>
           <li>
-            <GlobalLink to="/game/survey#fps" @click="scrollToId('fps')">
+            <GlobalLink :to="`${INTERNAL_URL.GAME_SURVEY}#${ID_NAME.FPS}`" @click="scrollToId(ID_NAME.FPS)">
               {{ $t('survey.contents.fps') }}
             </GlobalLink>
           </li>
           <li>
-            <GlobalLink to="/game/survey#tennis" @click="scrollToId('tennis')">
+            <GlobalLink :to="`${INTERNAL_URL.GAME_SURVEY}#${ID_NAME.TENNIS}`" @click="scrollToId(ID_NAME.TENNIS)">
               {{ $t('survey.contents.tennis') }}
             </GlobalLink>
           </li>
           <li>
-            <GlobalLink to="/game/survey#ces" @click="scrollToId('ces')">
+            <GlobalLink :to="`${INTERNAL_URL.GAME_SURVEY}#${ID_NAME.CES}`" @click="scrollToId(ID_NAME.CES)">
               {{ $t('survey.contents.ces') }}
             </GlobalLink>
           </li>
@@ -42,10 +45,7 @@ const scrollToId = (id: string) => {
     </section>
 
     <!-- 動物ゲーム -->
-    <section
-      id="animals"
-      class="content-wrapper background-gray"
-    >
+    <section :id="ID_NAME.ANIMAL" class="content-wrapper background-gray">
       <div class="content-container">
         <h3>{{ $t("survey.animal.title") }}</h3>
         <I18nT
@@ -111,10 +111,7 @@ const scrollToId = (id: string) => {
     </section>
 
     <!-- Open FPS -->
-    <section
-      id="fps"
-      class="content-wrapper"
-    >
+    <section :id="ID_NAME.FPS" class="content-wrapper">
       <div class="content-container">
         <h3>{{ $t("survey.fps.title") }}</h3>
         <I18nT
@@ -168,10 +165,7 @@ const scrollToId = (id: string) => {
     </section>
 
     <!-- Minimum Tennis -->
-    <section
-      id="tennis"
-      class="content-wrapper background-gray"
-    >
+    <section :id="ID_NAME.TENNIS" class="content-wrapper background-gray">
       <div class="content-container">
         <h3>{{ $t("survey.tennis.title") }}</h3>
         <I18nT
@@ -224,11 +218,8 @@ const scrollToId = (id: string) => {
       </div>
     </section>
 
-    <!-- 触覚体験サンプル（CES） -->
-    <section
-      id="ces"
-      class="content-wrapper"
-    >
+    <!-- 共通体験サンプル（CES） -->
+    <section :id="ID_NAME.CES" class="content-wrapper">
       <div class="content-container">
         <h3>{{ $t("survey.ces.title") }}</h3>
         <I18nT

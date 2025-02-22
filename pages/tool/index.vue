@@ -1,181 +1,159 @@
-<script setup>
+<script setup lang="ts">
 import { internalTools, externalTools, pickedTools } from '@/assets/json/tool.json';
+import ToolCard from '@/components/partials/ToolCard.vue';
+import ToolMiniCard from '@/components/partials/ToolMiniCard.vue';
+import GlobalButton from '@/components/global/GlobalButton.vue';
+import { ID_NAME, INTERNAL_URL } from '@/constants';
 
+/** オープンソースゲームのデータ */
 const openSourceGames = pickedTools.filter(tool => tool.category == 'opensourcegame');
+/** ブラウザゲームのデータ */
 const browserGames = pickedTools.filter(tool => tool.category == 'browsergame');
+/** 開発フレームワークのデータ */
 const frameworks = pickedTools.filter(tool => tool.category == 'framework');
+/** アセットのデータ */
 const assets = pickedTools.filter(tool => tool.category == 'asset');
 </script>
 
 <template>
-  <div>
-    <section
-      id="tool"
-      class="content-wrapper"
-    >
+  <main>
+    <section :id="ID_NAME.TOOL" class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <h2>{{ $t('tool.internal.title') }}</h2>
-          <aside>{{ $t('tool.internal.description') }}</aside>
-          <v-row>
-            <v-col
-              v-for="tool in internalTools"
-              :key="tool.name"
-              cols="12"
-            >
-              <ToolCard
-                :name="tool.name"
-                :image="tool.image"
-                :description="tool.description"
-                :link="tool.link"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+        <h2>{{ $t('tool.internal.title') }}</h2>
+        <p>{{ $t('tool.internal.description') }}</p>
+        <div class="tool-cards">
+          <ToolCard
+            v-for="{ name, image, description, link } in internalTools"
+            :key="name"
+            :name="name"
+            :image="image"
+            :description="description"
+            :link="link"
+          />
+        </div>
       </div>
     </section>
 
-    <section
-      id="extool"
-      class="content-wrapper background-gray"
-    >
+    <section :id="ID_NAME.EXTOOL" class="content-wrapper background-gray">
       <div class="content-container">
-        <v-container>
-          <h2>{{ $t('tool.external.title') }}</h2>
-          <aside>{{ $t('tool.external.description') }}</aside>
-          <v-row>
-            <v-col
-              v-for="tool in externalTools"
-              :key="tool.name"
-              cols="12"
-            >
-              <ToolCard
-                :name="tool.name"
-                :image="tool.image"
-                :description="tool.description"
-                :link="tool.link"
-                :article-link="tool.articleLink"
-              />
-            </v-col>
-          </v-row>
+        <h2>{{ $t('tool.external.title') }}</h2>
+        <p>{{ $t('tool.external.description') }}</p>
+        <div class="tool-cards">
+          <ToolCard
+            v-for="{ name, image, description, link, articleLink } in externalTools"
+            :key="name"
+            :name="name"
+            :image="image"
+            :description="description"
+            :link="link"
+            :article-link="articleLink"
+          />
+        </div>
 
+        <div class="extool-wrapper">
           <h3>{{ $t('tool.external.openSourceGame') }}</h3>
-          <v-row>
-            <v-col
-              v-for="game in openSourceGames"
-              :key="game.name"
-              cols="12"
-              sm="4"
-            >
-              <ToolMiniCard
-                :name="game.name"
-                :image="game.image"
-                :sub="game.description"
-                :link="game.link"
-                :tags="game.tags"
-              />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-spacer />
-            <v-btn
-              color="primary"
-              class="my-8"
-              to="/tool/opensourcegame"
-            >
+          <div class="cards">
+            <ToolMiniCard
+              v-for="{ name, image, description, link, tags } in openSourceGames"
+              :key="name"
+              :name="name"
+              :image="image"
+              :description="description"
+              :link="link"
+              :tags="tags"
+            />
+          </div>
+          <div class="button">
+            <GlobalButton :link="{ to: INTERNAL_URL.TOOL_OPENSOURCEGAME }">
               {{ $t('tool.seeMore') }}
-            </v-btn>
-            <v-spacer />
-          </v-row>
+            </GlobalButton>
+          </div>
+        </div>
 
+        <div class="extool-wrapper">
           <h3>{{ $t('tool.external.browserGame') }}</h3>
-          <v-row>
-            <v-col
-              v-for="game in browserGames"
-              :key="game.name"
-              cols="12"
-              sm="4"
-            >
-              <ToolMiniCard
-                :name="game.name"
-                :image="game.image"
-                :sub="game.description"
-                :link="game.link"
-                :tags="game.tags"
-              />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-spacer />
-            <v-btn
-              color="primary"
-              class="my-8"
-              to="/tool/browsergame"
-            >
+          <div class="cards">
+            <ToolMiniCard
+              v-for="{ name, image, description, link, tags } in browserGames"
+              :key="name"
+              :name="name"
+              :image="image"
+              :description="description"
+              :link="link"
+              :tags="tags"
+            />
+          </div>
+          <div class="button">
+            <GlobalButton :link="{ to: INTERNAL_URL.TOOL_BROWSERGAME }">
               {{ $t('tool.seeMore') }}
-            </v-btn>
-            <v-spacer />
-          </v-row>
+            </GlobalButton>
+          </div>
+        </div>
 
+        <div class="extool-wrapper">
           <h3>{{ $t('tool.external.developmentFramework') }}</h3>
-          <v-row>
-            <v-col
-              v-for="framework in frameworks"
-              :key="framework.name"
-              cols="12"
-              sm="4"
-            >
-              <ToolMiniCard
-                :name="framework.name"
-                :image="framework.image"
-                :sub="framework.description"
-                :link="framework.link"
-                :tags="framework.tags"
-              />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-spacer />
-            <v-btn
-              color="primary"
-              class="my-8"
-              to="/tool/framework"
-            >
+          <div class="cards">
+            <ToolMiniCard
+              v-for="{ name, image, description, link, tags } in frameworks"
+              :key="name"
+              :name="name"
+              :image="image"
+              :description="description"
+              :link="link"
+              :tags="tags"
+            />
+          </div>
+          <div class="button">
+            <GlobalButton :link="{ to: INTERNAL_URL.TOOL_FRAMEWORK }">
               {{ $t('tool.seeMore') }}
-            </v-btn>
-            <v-spacer />
-          </v-row>
+            </GlobalButton>
+          </div>
+        </div>
 
+        <div class="extool-wrapper">
           <h3>{{ $t('tool.external.asset') }}</h3>
-          <v-row>
-            <v-col
-              v-for="asset in assets"
-              :key="asset.name"
-              cols="12"
-              sm="4"
-            >
-              <ToolMiniCard
-                :name="asset.name"
-                :image="asset.image"
-                :sub="asset.description"
-                :link="asset.link"
-                :tags="asset.tags"
-              />
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-spacer />
-            <v-btn
-              color="primary"
-              class="my-8"
-              to="/tool/asset"
-            >
+          <div class="cards">
+            <ToolMiniCard
+              v-for="{ name, image, description, link, tags } in assets"
+              :key="name"
+              :name="name"
+              :image="image"
+              :description="description"
+              :link="link"
+              :tags="tags"
+            />
+          </div>
+          <div class="button">
+            <GlobalButton :link="{ to: INTERNAL_URL.TOOL_ASSET }">
               {{ $t('tool.seeMore') }}
-            </v-btn>
-            <v-spacer />
-          </v-row>
-        </v-container>
+            </GlobalButton>
+          </div>
+        </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
+
+<style scoped lang="scss">
+.tool-cards {
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.extool-wrapper {
+  margin-top: 64px;
+
+  > .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  > .button {
+    display: flex;
+    place-content: center;
+    margin-top: 32px;
+  }
+}
+</style>
