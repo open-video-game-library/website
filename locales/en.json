@@ -64,6 +64,36 @@
       }
     }
   },
+  "survey": {
+    "title": "List of surveyed papers",
+    "description": "We will share papers that use video games in experiments and application examples that were the reason for the design of each open video game.",
+    "contents": {
+      "title": "Contents",
+      "animal": "- Survey on Animal Games",
+      "fps": "- Survey on OpenFPS",
+      "tennis": "- Survey on Minimum Tennis",
+      "ces": "- Survey on Common Experience Sample(CES)"
+    },
+    "animal": {
+      "title": "Animal Games",
+      "description": "This is a survey of papers on the Hunter Chameleon, Escape Fish, and Sliding Penguin, the first three developed in this project. To determine the genres to be developed, we searched the ACM Digital Library and the IPSJ electronic library using the following queries. From there, we conducted further screening and finally extracted {length} papers. The genre classification was based on {reference}.",
+      "query": "'Title:((game AND device) OR (game AND controller) OR (game AND experience)) AND Abstract:((game AND device) OR (game AND controller) OR (game AND experience))'",
+      "reference": "Wolf et al"
+    },
+    "fps": {
+      "title": "Open FPS",
+      "description": "We researched papers in which FPS games are used. In total, we found {length} papers."
+    },
+    "tennis": {
+      "title": "Minimum Tennis",
+      "description": "We surveyed the papers in which tennis games are used. In total, we found {length} papers."
+    },
+    "ces": {
+      "title": "Common Experience Sample(CES)",
+      "description": "To understand researchers' needs for tactile display experience applications, we surveyed papers on tactile displays. In total, we found {length} papers. We investigated the characteristics of objects that provide tactile feedback and classified them into six dimensions (texture, hardness, temperature, weight, shape, and motion) with reference to the paper by {reference}. in the development of CES.",
+      "reference": "Lederman et al"
+    }
+  },
   "tool": {
     "internal": {
       "title": "Tools",

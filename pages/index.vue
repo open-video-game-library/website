@@ -27,7 +27,7 @@ const download = (id: number) => {
 </script>
 
 <template>
-  <div>
+  <main>
     <AboutFirstView />
 
     <section id="feature" class="content-wrapper">
@@ -150,7 +150,7 @@ const download = (id: number) => {
         </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped lang="scss">

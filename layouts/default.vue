@@ -34,7 +34,7 @@ const handleHamburgerMenu = () => {
       :handle-hamburger-menu="handleHamburgerMenu"
       :is-hamburger-menu-open="isHamburgerMenuOpen"
     />
-    <main><slot /></main>
+    <slot />
     <GlobalFooter />
 
     <!-- ハンバーガーメニュー -->

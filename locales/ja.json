@@ -64,6 +64,36 @@
       }
     }
   }, 
+  "survey": {
+    "title": "サーベイした論文一覧",
+    "description": "各オープンビデオゲームの設計理由となった、実験やアプリケーション例などでビデオゲームを利用した論文を共有します。",
+    "contents": {
+      "title": "目次",
+      "animal": "- 動物ゲームに関するサーベイ",
+      "fps": "- OpenFPSに関するサーベイ",
+      "tennis": "- Minimum Tennisに関するサーベイ",
+      "ces": "- 触覚体験サンプル（CES）に関するサーベイ"
+    },
+    "animal": {
+      "title": "動物ゲーム",
+      "description": "このプロジェクトで最初に開発した、Hunter Chameleon・Escape Fish・Sliding Penguinに関してサーベイした論文です。開発するジャンルを決定するため、ACM Digital Libraryと情報処理学会の電子図書館で以下のクエリで検索しました。{query}そこからさらにスクリーニングをおこない、最終的に{length}本の論文を抽出しました。 ジャンル分けは{reference}を参考にしました。",
+      "query": "'Title:((game AND device) OR (game AND controller) OR (game AND experience)) AND Abstract:((game AND device) OR (game AND controller) OR (game AND experience))'",
+      "reference": "Wolfらの論文"
+    },
+    "fps": {
+      "title": "Open FPS",
+      "description": "FPSゲームが利用されている論文を調査しました。 全部で{length}本の論文が見つかりました。"
+    },
+    "tennis": {
+      "title": "Minimum Tennis",
+      "description": "テニスゲームが利用されている論文を調査しました。 全部で{length}本の論文が見つかりました。"
+    },
+    "ces": {
+      "title": "触覚体験サンプル（CES）",
+      "description": "研究者の触覚ディスプレイ体験アプリケーションに対するニーズを把握するため、触覚ディスプレイの論文を調査しました。全部で{length}本の論文が見つかりました。触覚フィードバックするのものの特性を調査し、CESの開発では{reference}を参考に6次元（質感・硬さ・温度・重さ・形状・動き）に分類しました。",
+      "reference": "Ledermanらの論文"
+    }
+  },
   "tool": {
     "internal": {
       "title": "ツール",

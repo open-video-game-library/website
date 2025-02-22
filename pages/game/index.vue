@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import GameCarousel from '@/components/partials/GameCarousel.vue';
+import GlobalLink from '@/components/global/GlobalLink.vue';
 </script>
 
 <template>
-  <div>
+  <main>
     <section class="content-wrapper">
       <div class="content-container game-wrapper">
         <h1 class="title">
@@ -62,7 +63,7 @@ import GameCarousel from '@/components/partials/GameCarousel.vue';
         </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
 <style scoped lang="scss">
