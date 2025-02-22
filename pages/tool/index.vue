@@ -146,8 +146,11 @@ const assets = pickedTools.filter(tool => tool.category == 'asset');
 
   > .cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
+
+    @media screen and (min-width: 640px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   > .button {
