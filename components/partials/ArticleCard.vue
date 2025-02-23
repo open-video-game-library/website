@@ -1,6 +1,9 @@
 <script setup lang="ts">
+import { useLocalePath } from '#imports';
 import GlobalLink from '@/components/global/GlobalLink.vue';
 import IconTab from '@/components/icon/IconTab.vue';
+
+const localePath = useLocalePath();
 
 type Props = {
   to?: string;
@@ -13,12 +16,15 @@ type Props = {
 };
 
 const { to, title, description, thumbnail, exlink, createdAt, updatedAt } = defineProps<Props>();
+
+console.log(to);
+console.log(localePath(to ?? '/', 'en'));
 </script>
 
 <template>
   <Component
     :is="(exlink || to) ? GlobalLink : 'div'"
-    :to="exlink || to"
+    :to="exlink || localePath(to ?? '/', 'en')"
     :target="exlink && 'blank'"
     :is-underlined-on-hover="false"
   >

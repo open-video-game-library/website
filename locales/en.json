@@ -136,8 +136,9 @@
     "description": "Get latest information from",
     "x": "X(Twitter)",
     "createdAt": "Created at",
-    "updatedAt": "｜Updated at",
-    "back": "Back to the article list"
+    "updatedAt": "｜ Updated at",
+    "back": "Back to the article list",
+    "error": "This article is not found."
   },
   "contact": {
     "title": "Contact",
