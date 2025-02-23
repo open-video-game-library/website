@@ -15,7 +15,6 @@ onMounted(() => {
 
 /** 言語を変更する */
 const changeLocale = () => {
-  console.log('changeLocale', locale.value);
   setLocaleCookie(locale.value);
   setLocale(locale.value);
 };
