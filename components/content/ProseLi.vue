@@ -1,7 +1,7 @@
 <template>
-    <div class="marked">
-        <li>
-            <slot />
-        </li>
-    </div>
+  <div class="marked">
+    <li>
+      <slot />
+    </li>
+  </div>
 </template>

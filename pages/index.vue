@@ -1,258 +1,238 @@
-<script setup>
-import { mdiGithub, mdiController, mdiFilePdfBox } from "@mdi/js";
+<script setup lang="ts">
+import GlobalButton from '@/components/global/GlobalButton.vue';
+import GlobalLink from '@/components/global/GlobalLink.vue';
+import AboutFirstView from '@/components/partials/AboutFirstView.vue';
+import MemberCard from '@/components/partials/MemberCard.vue';
 import { members, publications } from '@/assets/json/about.json';
-import logoImg from '@/assets/image/logo_white.png';
-import bgVideo from '@/assets/image/background.mp4';
-import bgPoster from '@/assets/image/background.png';
-import canImg1 from '@/assets/image/can1.png';
-import canImg2 from '@/assets/image/can2.png';
-import canImg3 from '@/assets/image/can3.png';
-
-const canImg = [canImg1, canImg2, canImg3];
+import { INTERNAL_URL } from '@/constants';
 
 /**
  * 指定されたIDの論文をダウンロード（別タブでPDFファイルを表示）させる
- * @param {Number} id 論文のID
+ * @param {number} id 論文のID
  */
-const download = (id) => {
-  const a = document.createElement("a");
-  a.href = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href;
-  a.target = "_blank";
-  a.rel = "noopener noreferrer";
+const download = (id: number) => {
+  const generatedUrl = new URL(`../assets/pdf/${id}.pdf`, import.meta.url).href;
+  if (generatedUrl.includes('undefined')) {
+    alert('論文がアップロードされていません。\nお手数おかけしますが、左記の学会URLから論文をご覧ください。');
+    return;
+  }
+
+  const a = document.createElement('a');
+  a.href = generatedUrl;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
   a.click();
   a.remove();
 };
 </script>
 
 <template>
-  <div>
-    <div class="video-wrapper">
-      <v-img :src="bgPoster" cover height="100%" />
-      <video autoplay muted loop playsinline>
-        <source :src="bgVideo" type="video/mp4" />
-      </video>
-      <v-container class="top-msg">
-        <v-row
-          justify="center"
-          align="center"
-          style="height: calc(100vh - 61px)"
-        >
-          <div>
-            <v-img :src="logoImg" class="my-4 py-4" height="125"></v-img>
-            <!-- <p>
-              「ゲーム研究を行いやすくし、ゲーム研究の発展に貢献すること」を目的とした、ゲーム研究者のためのライブラリ
-            </p> -->
-            <p>
-              A library for game researchers with the aim of "facilitating game
-              research and contributing to the development of game research"
-            </p>
-            <v-row justify="center" class="my-4 py-4">
-              <v-btn
-                color="info"
-                class="mx-8"
-                :prepend-icon="mdiGithub"
-                href="https://github.com/open-video-game-library"
-                >Download</v-btn
-              >
-              <v-btn
-                color="primary"
-                class="mx-8"
-                :prepend-icon="mdiController"
-                to="/game"
-                >Play</v-btn
-              >
-            </v-row>
-          </div>
-        </v-row>
-      </v-container>
-    </div>
+  <main>
+    <AboutFirstView />
 
-    <section class="content-wrapper" id="abstract">
+    <section id="feature" class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <!-- <h2>Open Video Game Library で できること</h2> -->
-          <h2>What you can do with OVGL</h2>
-          <v-row>
-            <v-col cols="12" sm="4" class="abstract-part">
-              <v-img :src="canImg[0]" max-height="120"></v-img>
-              <!-- <h4>研究で使えるゲームを見つける</h4> -->
-              <h4>Finding games to use in your research</h4>
-              <!-- <p>
-                研究で利用されることを前提に我々が作成したオープンビデオゲームや、研究に合わせて編集できる外部のオープンソースゲームを見つけ、利用することができます。
-              </p> -->
-              <p>
-                You can find and use open video games that we have created to be
-                used in your research, or external open source games that you
-                can edit to suit your research.
-              </p>
-              <div class="d-flex justify-center">
-                <!-- <v-btn color="primary" to="/game">ゲームを見つける</v-btn> -->
-                <v-btn color="primary" to="/game">Find a game</v-btn>
-              </div>
-            </v-col>
-            <v-col cols="12" sm="4" class="abstract-part">
-              <v-img :src="canImg[1]" max-height="120"></v-img>
-              <!-- <h4>研究で使えるツールを見つける</h4> -->
-              <h4>Find tools to use in your research</h4>
-              <!-- <p>
-                ゲームを用いた体験やデバイスの評価実験を行う際に有益な録画機能や、アンケートを見つけ、利用することができます。
-              </p> -->
-              <p>
-                You can find and use recording functions and questionnaires that
-                are useful when conducting experiments to evaluate experiences
-                and devices with games.
-              </p>
-              <div class="d-flex justify-center">
-                <!-- <v-btn color="primary" to="/tool">ツールを見つける</v-btn> -->
-                <v-btn color="primary" to="/tool">Find Tools</v-btn>
-              </div>
-            </v-col>
-            <v-col cols="12" sm="4" class="abstract-part">
-              <v-img :src="canImg[2]" max-height="120"></v-img>
-              <!-- <h4>ゲーム研究の知見を深める</h4> -->
-              <h4>Deepen your knowledge of game research</h4>
-              <!-- <p>
-                ゲーム開発をする上でためになる情報や、ゲーム研究をする上で抑えておくべきポイントを知ることができます。
-              </p> -->
-              <p>
-                You will be able to find out information that will be useful for
-                game development and points to keep in mind when conducting game
-                research.
-              </p>
-              <div class="d-flex justify-center">
-                <!-- <v-btn color="primary" to="/article">記事を読む</v-btn> -->
-                <v-btn color="primary" to="/article">Read Article</v-btn>
-              </div>
-            </v-col>
-          </v-row>
-        </v-container>
-      </div>
-    </section>
-
-    <section class="content-wrapper bg-gray" id="member">
-      <div class="content-container">
-        <v-container>
-          <h2>Member</h2>
-          <v-row>
-            <v-col
-              cols="12"
-              sm="4"
-              justify="space-around"
-              v-for="member in members"
-              :key="member.name"
-            >
-              <MemberCard
-                :name="member.name"
-                :engname="member.engname"
-                :icon="member.icon"
-                :description="member.description"
-                :affiliation="member.affiliation"
-                :hp="member.hp"
-                :twitter="member.twitter"
+        <h2>{{ $t('about.features.title') }}</h2>
+        <div class="features-wrapper">
+          <div class="feature">
+            <div class="image">
+              <NuxtImg
+                src="/images/feature1.png"
+                height="120"
               />
-            </v-col>
-          </v-row>
-        </v-container>
+            </div>
+            <h4>{{ $t('about.features.feature1.title') }}</h4>
+            <p class="description">
+              {{ $t('about.features.feature1.description') }}
+            </p>
+            <div class="button">
+              <GlobalButton
+                :link="{
+                  to: INTERNAL_URL.GAME,
+                }"
+              >
+                {{ $t('about.features.feature1.link') }}
+              </GlobalButton>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="image">
+              <NuxtImg
+                src="/images/feature2.png"
+                height="120"
+              />
+            </div>
+            <h4>{{ $t('about.features.feature2.title') }}</h4>
+            <p class="description">
+              {{ $t('about.features.feature2.description') }}
+            </p>
+            <div class="button">
+              <GlobalButton
+                :link="{
+                  to: INTERNAL_URL.TOOL,
+                }"
+              >
+                {{ $t('about.features.feature2.link') }}
+              </GlobalButton>
+            </div>
+          </div>
+          <div class="feature">
+            <div class="image">
+              <NuxtImg
+                src="/images/feature3.png"
+                height="120"
+              />
+            </div>
+            <h4>{{ $t('about.features.feature3.title') }}</h4>
+            <p class="description">
+              {{ $t('about.features.feature3.description') }}
+            </p>
+            <div class="button">
+              <GlobalButton
+                :link="{
+                  to: INTERNAL_URL.ARTICLE,
+                }"
+              >
+                {{ $t('about.features.feature3.link') }}
+              </GlobalButton>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section class="content-wrapper" id="publication">
+    <section id="member" class="content-wrapper background-gray">
       <div class="content-container">
-        <v-container>
-          <h2>Publications</h2>
-          <v-row
-            cols="12"
-            sm="4"
-            v-for="publication in publications"
-            :key="publication.title"
-            class="my-2 py-2"
-          >
-            <v-col cols="10" sm="11" style="word-wrap: break-word">
-              {{ publication.author }}. "{{ publication.title }}".
-              {{ publication.journal }},
-              <span v-if="publication.vol">Vol. {{ publication.vol }}, </span>
-              <span v-if="publication.no">No. {{ publication.no }}, </span>
-              <span v-if="publication.pp">pp. {{ publication.pp }}, </span>
-              {{ publication.date }}.
-              <span v-if="publication.doi"
-                ><a :href="publication.doi">{{ publication.doi }}</a
-                >.</span
-              >
-            </v-col>
-            <v-col cols="2" sm="1" align-self="center">
-              <v-btn
-                color="primary"
-                :icon="mdiFilePdfBox"
-                variant="plain"
-                @click="download(publication.ID)"
-              ></v-btn>
-            </v-col>
-          </v-row>
-        </v-container>
+        <h2>{{ $t('about.member.title') }}</h2>
+        <div class="member-wrapper">
+          <MemberCard
+            v-for="{ name, engname, icon, description, affiliation, hp, twitter } in members"
+            :key="name"
+            :name="name"
+            :engname="engname"
+            :icon="icon"
+            :description="description"
+            :affiliation="affiliation"
+            :hp="hp"
+            :twitter="twitter"
+          />
+        </div>
       </div>
     </section>
-  </div>
+
+    <section id="publication" class="content-wrapper">
+      <div class="content-container">
+        <h2>{{ $t('about.publications.title') }}</h2>
+        <div class="publication-wrapper">
+          <div
+            v-for="{ title, author, journal, vol, no, pp, date, doi, ID } in publications"
+            :key="title"
+            class="publication"
+          >
+            <div>
+              <span>{{ author }}. "{{ title }}". {{ journal }}, </span>
+              <span v-if="vol">Vol. {{ vol }}, </span>
+              <span v-if="no">No. {{ no }}, </span>
+              <span v-if="pp">pp. {{ pp }}, </span>
+              {{ date }}.
+              <span v-if="doi">
+                <GlobalLink :to="doi" target="blank">
+                  {{ doi }}
+                </GlobalLink>.
+              </span>
+            </div>
+            <div class="button">
+              <button class="download-button" @click="download(ID)">
+                <IconPdf class="icon" fill="#5e1ce2" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </template>
 
 <style scoped lang="scss">
-.top-msg {
-  z-index: 1000;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  color: white;
-  font-weight: bold;
-}
+.features-wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 64px 16px;
 
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  height: calc(100vh - 61px);
-  overflow: hidden;
-
-  video {
-    object-fit: cover;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
+  @media screen and (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 61px);
-    background-color: rgba(0, 0, 0, 0.3);
-    background-image: radial-gradient(#111 30%, transparent 31%),
-      radial-gradient(#111 30%, transparent 31%);
-    background-size: 4px 4px;
-    background-position: 0 0, 2px 2px;
-    background-repeat: repeat;
+  > .feature {
+    display: flex;
+    flex-direction: column;
+    gap: 16px 0;
+
+    > .image {
+      display: flex;
+      place-content: center;
+    }
+
+    > .description {
+      flex-grow: 1;
+    }
+
+    > .button {
+      display: flex;
+      place-content: center;
+    }
   }
 }
 
-.abstract-part {
+.member-wrapper {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 32px;
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.publication-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px 0;
-  margin: 20px 0;
+  gap: 32px 0;
 
-  h4 {
-    margin: 0;
-    flex-grow: 0;
+  > .publication {
+    display: flex;
+    align-items: center;
+    gap: 0 16px;
+    word-break: break-all;
+
+    @media screen and (min-width: 640px) {
+      gap: 0 32px;
+    }
+
+    > .button {
+      flex: 0 0 40px;
+    }
   }
+}
 
-  p {
-    flex-grow: 1;
+.download-button {
+  border: none;
+  background-color: white;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 9999px;
+
+  > .icon {
+    opacity: 0.5;
+    transition: opacity 0.4s 0s ease;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 </style>

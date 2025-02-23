@@ -1,0 +1,17 @@
+{
+  "i18n-ally.localesPaths": [
+    "locales"
+  ],
+  "i18n-ally.keystyle": "nested",
+  "cSpell.words": [
+    "bibtex",
+    "browsergame",
+    "engname",
+    "extool",
+    "opensourcegame",
+    "OVGL",
+    "unityroom",
+    "webgl",
+    "Zenn"
+  ]
+}

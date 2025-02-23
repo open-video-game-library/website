@@ -1,33 +1,42 @@
-<script setup>
-import { browserGames } from '~/assets/json/extool.json';
+<script setup lang="ts">
+import { browserGames } from '@/assets/json/extool.json';
+import ToolMiniCard from '@/components/partials/ToolMiniCard.vue';
 </script>
 
 <template>
-  <div>
+  <main>
     <section class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <!-- <h2>ブラウザで遊べるゲーム</h2> -->
-          <h2>Browser Games</h2>
-          <v-row>
-            <v-col
-              v-for="game in browserGames"
-              cols="12"
-              sm="4"
-              :key="game.name"
-            >
-              <ToolMiniCard
-                :name="game.name"
-                :image="game.image"
-                :description="game.description"
-                :link="game.link"
-                :articleLink="game.articleLink"
-                style="height: 100%"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+        <h1 class="tool-title">
+          {{ $t("tool.browsergame.title") }}
+        </h1>
+        <div class="tool-cards">
+          <ToolMiniCard
+            v-for="{ name, image, description, link } in browserGames"
+            :key="name"
+            :name="name"
+            :image="image"
+            :description="description"
+            :link="link"
+          />
+        </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
+
+<style scoped lang="scss">
+.tool-title {
+  margin-bottom: 32px;
+  font-size: 24px;
+}
+
+.tool-cards {
+  display: grid;
+  gap: 16px;
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="marked">
-        <ol><slot /></ol>
-    </div>
+  <div class="marked">
+    <ol><slot /></ol>
+  </div>
 </template>
