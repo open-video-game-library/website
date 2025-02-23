@@ -1,0 +1,1 @@
+import{_ as s,c as o,o as r,b as t,R as a}from"./Gh1Eydl1.js";const c={},n={class:"marked"};function l(e,_){return r(),o("div",n,[t("li",null,[a(e.$slots,"default")])])}const f=s(c,[["render",l]]);export{f as default};
