@@ -180,5 +180,10 @@
       "unityroom": "unityroom",
       "itch": "itch.io"
     }
+  },
+  "error": {
+    "notFound": "This page is not found.",
+    "common": "An error has occurred. Please reload or go back to the top page and try again.",
+    "back": "Back to top page"
   }
 }
