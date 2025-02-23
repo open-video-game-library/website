@@ -1,33 +1,42 @@
-<script setup>
+<script setup lang="ts">
 import { frameworks } from '@/assets/json/extool.json';
+import ToolMiniCard from '@/components/partials/ToolMiniCard.vue';
 </script>
 
 <template>
-  <div>
+  <main>
     <section class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <!-- <h2>開発フレームワーク</h2> -->
-          <h2>Development Frameworks</h2>
-          <v-row>
-            <v-col
-              v-for="framework in frameworks"
-              :key="framework.name"
-              cols="12"
-              sm="4"
-            >
-              <ToolMiniCard
-                :name="framework.name"
-                :image="framework.image"
-                :description="framework.description"
-                :link="framework.link"
-                :article-link="framework.articleLink"
-                style="height: 100%"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+        <h1 class="tool-title">
+          {{ $t("tool.framework.title") }}
+        </h1>
+        <div class="tool-cards">
+          <ToolMiniCard
+            v-for="{ name, image, description, link } in frameworks"
+            :key="name"
+            :name="name"
+            :image="image"
+            :description="description"
+            :link="link"
+          />
+        </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
+
+<style scoped lang="scss">
+.tool-title {
+  margin-bottom: 32px;
+  font-size: 24px;
+}
+
+.tool-cards {
+  display: grid;
+  gap: 16px;
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>

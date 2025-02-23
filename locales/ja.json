@@ -107,7 +107,29 @@
       "developmentFramework": "開発フレームワーク",
       "asset": "アセット"
     },
-    "seeMore": "もっと見る→"
+    "seeMore": "もっと見る→",
+    "asset": {
+      "title": "アセット",
+      "models": "3Dモデル",
+      "sounds": "BGM / SE",
+      "graphics": "グラフィック / UI"
+    },
+    "browsergame": {
+      "title": "ブラウザで遊べるゲーム"
+    },
+    "framework": {
+      "title": "開発フレームワーク"
+    },
+    "opensourcegame": {
+      "title": "オープンソースゲーム",
+      "sports": "スポーツ",
+      "shooting": "シューティング",
+      "platform": "プラットフォーム",
+      "driving": "レーシング / ドライビング",
+      "fighting": "格闘",
+      "puzzle": "パズル / ボードゲーム",
+      "other": "その他"
+    }
   },
   "article": {
     "title": "記事一覧",

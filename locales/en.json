@@ -107,7 +107,29 @@
       "developmentFramework": "Development Frameworks",
       "asset": "Assets"
     },
-    "seeMore": "See more→"
+    "seeMore": "See more→",
+    "asset": {
+      "title": "Asset",
+      "models": "3D models",
+      "sounds": "BGM / SE",
+      "graphics": "Graphics / UI"
+    },
+    "browsergame": {
+      "title": "Browser Games"
+    },
+    "framework": {
+      "title": "Development Frameworks"
+    },
+    "opensourcegame": {
+      "title": "Open Source Games",
+      "sports": "Sports",
+      "shooting": "Shootings",
+      "platform": "Platforms",
+      "driving": "Racings / Drivings",
+      "fighting": "Fighting",
+      "puzzle": "Puzzles",
+      "other": "Others"
+    }
   },
   "article": {
     "title": "Articles",
