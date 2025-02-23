@@ -4,7 +4,7 @@ description: In order to promote comparative evaluation of tactile displays amon
 thumbnail: https://user-images.githubusercontent.com/52689532/216533540-69085258-2064-412b-9c33-898a634e4bb2.png
 exlink:
 created_at: 2023.03.06
-updated_at:
+updated_at: 2023.11.25
 ---
 
 # What is the Common Experience Sample?

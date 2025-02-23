@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import { type QueryBuilderParams } from '@nuxt/content/dist/runtime/types';
+import { useI18n } from '#imports';
 import GlobalButton from '@/components/global/GlobalButton.vue';
 import ArticleCard from '@/components/partials/ArticleCard.vue';
 import IconX from '@/components/icon/IconX.vue';
 
-/** 記事のクエリの設定 */
-const query: QueryBuilderParams = {
-  path: '/articles',
-  sort: [{ created_at: -1 }],
-};
+const { locale } = useI18n();
 </script>
 
 <template>
@@ -31,14 +27,16 @@ const query: QueryBuilderParams = {
 
         <ContentList
           v-slot="{ list: articleList }"
-          :query="query"
-          path="/article"
+          :query="{
+            path: locale === 'en' ? '/article/en' : '/article/ja',
+            sort: [{ created_at: -1 }],
+          }"
         >
           <div class="article-list">
             <ArticleCard
               v-for="{ _path, title, description, thumbnail, exlink, created_at, updated_at } in articleList"
-              :key="_path"
-              :to="_path"
+              :key="title"
+              :to="_path?.replace('/ja/', '/').replace('/en/', '/')"
               :title="title"
               :description="description"
               :thumbnail="thumbnail"

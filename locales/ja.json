@@ -136,8 +136,9 @@
     "description": "SNSでもゲーム研究・開発に関する情報を発信しています",
     "x": "X(Twitter)",
     "createdAt": "作成日：",
-    "updatedAt": "｜更新日：",
-    "back": "記事一覧へ戻る"
+    "updatedAt": "｜ 更新日：",
+    "back": "記事一覧へ戻る",
+    "error": "記事が見つかりません。"
   },
   "contact": {
     "title": "お問い合わせ",
