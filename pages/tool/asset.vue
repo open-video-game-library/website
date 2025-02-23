@@ -1,84 +1,78 @@
-<script setup>
-import { assets } from '~/assets/json/extool.json';
+<script setup lang="ts">
+import { assets } from '@/assets/json/extool.json';
+import ToolMiniCard from '@/components/partials/ToolMiniCard.vue';
+
+const { models, sounds, graphics } = assets;
 </script>
 
 <template>
-  <div>
+  <main>
     <section class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <!-- <h2>3Dモデル</h2> -->
-          <h2>3D models</h2>
-          <v-row>
-            <v-col
-              v-for="model in assets.models"
-              :key="model.name"
-              cols="12"
-              sm="4"
-              xl="3"
-            >
-              <ToolMiniCard
-                :name="model.name"
-                :image="model.image"
-                :description="model.description"
-                :link="model.link"
-                style="height: 100%"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+        <h1 class="tool-title">
+          {{ $t("tool.asset.title") }}
+        </h1>
+
+        <h2>{{ $t("tool.asset.models") }}</h2>
+        <div class="tool-cards">
+          <ToolMiniCard
+            v-for="{ name, image, description, link } in models"
+            :key="name"
+            :name="name"
+            :image="image"
+            :description="description"
+            :link="link"
+          />
+        </div>
       </div>
     </section>
 
-    <section class="content-wrapper bg-gray">
+    <section class="content-wrapper background-gray">
       <div class="content-container">
-        <v-container>
-          <h2>BGM / SE</h2>
-          <v-row>
-            <v-col
-              v-for="sound in assets.sounds"
-              :key="sound.name"
-              cols="12"
-              sm="4"
-              xl="3"
-            >
-              <ToolMiniCard
-                :name="sound.name"
-                :image="sound.image"
-                :description="sound.description"
-                :link="sound.link"
-                style="height: 100%"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+        <h2>{{ $t("tool.asset.sounds") }}</h2>
+        <div class="tool-cards">
+          <ToolMiniCard
+            v-for="{ name, image, description, link } in sounds"
+            :key="name"
+            :name="name"
+            :image="image"
+            :description="description"
+            :link="link"
+          />
+        </div>
       </div>
     </section>
 
     <section class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <!-- <h2>グラフィック / UI</h2> -->
-          <h2>Graphics / UI</h2>
-          <v-row>
-            <v-col
-              v-for="graphic in assets.graphics"
-              :key="graphic.name"
-              cols="12"
-              sm="4"
-            >
-              <ToolMiniCard
-                :name="graphic.name"
-                :image="graphic.image"
-                :description="graphic.description"
-                :link="graphic.link"
-                :article-link="graphic.articleLink"
-                style="height: 100%"
-              />
-            </v-col>
-          </v-row>
-        </v-container>
+        <h2>{{ $t("tool.asset.graphics") }}</h2>
+        <div class="tool-cards">
+          <ToolMiniCard
+            v-for="{ name, image, description, link } in graphics"
+            :key="name"
+            :name="name"
+            :image="image"
+            :description="description"
+            :link="link"
+          />
+        </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
+
+<style scoped lang="scss">
+.tool-title {
+  margin-bottom: 32px;
+  font-size: 24px;
+}
+
+.tool-cards {
+  display: grid;
+  gap: 16px;
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+</style>

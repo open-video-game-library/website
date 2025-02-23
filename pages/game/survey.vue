@@ -1,112 +1,78 @@
-<script setup>
-import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json/survey.json';
+<script setup lang="ts">
+import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '@/assets/json/survey.json';
+import GlobalLink from '@/components/global/GlobalLink.vue';
+import { ID_NAME, INTERNAL_URL } from '@/constants';
+
+/** IDの要素にスクロールする */
+const scrollToId = (id: string) => {
+  const target = document.getElementById(id);
+  target?.scrollIntoView({ behavior: 'smooth' });
+};
 </script>
 
 <template>
-  <div>
+  <main>
     <section class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <!-- <h2>サーベイした論文一覧</h2> -->
-          <h2>List of surveyed papers</h2>
-          <!-- <aside>
-            各オープンビデオゲームの設計理由となった、実験やアプリケーション例などでビデオゲームを利用した論文を共有します。
-          </aside> -->
-          <aside>
-            We will share papers that use video games in experiments and
-            application examples that were the reason for the design of each
-            open video game.
-          </aside>
-
-          <!-- <h3>目次</h3> -->
-          <h3>Contents</h3>
-          <ul class="pl-8">
-            <li>
-              <!-- <NuxtLink to="/game/survey#animals"
-                >動物ゲームに関するサーベイ</NuxtLink
-              > -->
-              <NuxtLink to="/game/survey#animals">
-                Survey on Animal Games
-              </NuxtLink>
-            </li>
-            <li>
-              <!-- <NuxtLink to="/game/survey#fps">OpenFPSに関するサーベイ</NuxtLink> -->
-              <NuxtLink to="/game/survey#fps">
-                Survey on OpenFPS
-              </NuxtLink>
-            </li>
-            <li>
-              <!-- <NuxtLink to="/game/survey#tennis"
-                >Minimum Tennisに関するサーベイ</NuxtLink
-              > -->
-              <NuxtLink to="/game/survey#tennis">
-                Survey on Minimum Tennis
-              </NuxtLink>
-            </li>
-            <li>
-              <!-- <NuxtLink to="/game/survey#ces"
-                >触覚体験サンプル（CES）に関するサーベイ</NuxtLink
-              > -->
-              <NuxtLink to="/game/survey#ces">
-                Survey on Common Experience Sample(CES)
-              </NuxtLink>
-            </li>
-          </ul>
-        </v-container>
+        <h2>{{ $t('survey.title') }}</h2>
+        <p>{{ $t('survey.description') }}</p>
+        <h3 class="contents-title">
+          {{ $t('survey.contents.title') }}
+        </h3>
+        <ul class="pl-8">
+          <li>
+            <GlobalLink :to="`${INTERNAL_URL.GAME_SURVEY}#${ID_NAME.ANIMAL}`" @click="scrollToId(ID_NAME.ANIMAL)">
+              {{ $t('survey.contents.animal') }}
+            </GlobalLink>
+          </li>
+          <li>
+            <GlobalLink :to="`${INTERNAL_URL.GAME_SURVEY}#${ID_NAME.FPS}`" @click="scrollToId(ID_NAME.FPS)">
+              {{ $t('survey.contents.fps') }}
+            </GlobalLink>
+          </li>
+          <li>
+            <GlobalLink :to="`${INTERNAL_URL.GAME_SURVEY}#${ID_NAME.TENNIS}`" @click="scrollToId(ID_NAME.TENNIS)">
+              {{ $t('survey.contents.tennis') }}
+            </GlobalLink>
+          </li>
+          <li>
+            <GlobalLink :to="`${INTERNAL_URL.GAME_SURVEY}#${ID_NAME.CES}`" @click="scrollToId(ID_NAME.CES)">
+              {{ $t('survey.contents.ces') }}
+            </GlobalLink>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section
-      id="animals"
-      class="content-wrapper bg-gray"
-    >
+    <!-- 動物ゲーム -->
+    <section :id="ID_NAME.ANIMAL" class="content-wrapper background-gray">
       <div class="content-container">
-        <v-container>
-          <!-- <h3>動物ゲーム</h3> -->
-          <h3>Animal Games</h3>
-          <!-- <aside>
-            このプロジェクトで最初に開発した、Hunter Chameleon・Escape
-            Fish・Sliding Penguinに関してサーベイした論文です。
-            開発するジャンルを決定するため、ACM Digital
-            Libraryと情報処理学会の電子図書館で以下のクエリで検索しました。
-            <p class="my-4">
-              <i
-                >"Title:((game AND device) OR (game AND controller) OR (game AND
-                experience)) AND Abstract:((game AND device) OR (game AND
-                controller) OR (game AND experience))"</i
-              >
+        <h3>{{ $t("survey.animal.title") }}</h3>
+        <I18nT
+          keypath="survey.animal.description"
+          tag="p"
+          for="tos"
+          scope="global"
+        >
+          <template #query>
+            <p class="query">
+              <i>{{ $t("survey.animal.query") }}</i>
             </p>
-            そこからさらにスクリーニングをおこない、最終的に<b>{{
-              animalsPapers.length + 1
-            }}</b
-            >本の論文を抽出しました。 ジャンル分けは<a
-              href="https://www.academia.edu/download/1979904/9h2wevyakguizku.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Wolfらの論文</a
-            >を参考にしました。
-          </aside> -->
-          <aside>
-            This is a survey of papers on the Hunter Chameleon, Escape Fish, and
-            Sliding Penguin, the first three developed in this project. To
-            determine the genres to be developed, we searched the ACM Digital
-            Library and the IPSJ electronic library using the following queries.
-            <p class="my-4">
-              <i>"Title:((game AND device) OR (game AND controller) OR (game AND
-                experience)) AND Abstract:((game AND device) OR (game AND
-                controller) OR (game AND experience))"</i>
-            </p>
-            From there, we conducted further screening and finally extracted
-            <b>{{ animalsPapers.length + 1 }}</b> papers. The genre classification
-            was based on
-            <a
-              href="https://www.academia.edu/download/1979904/9h2wevyakguizku.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Wolf et al</a>.
-          </aside>
-
-          <v-table>
+          </template>
+          <template #length>
+            <b>{{ animalsPapers.length - 1 }}</b>
+          </template>
+          <template #reference>
+            <GlobalLink
+              to="https://www.academia.edu/download/1979904/9h2wevyakguizku.pdf"
+              target="blank"
+            >
+              {{ $t("survey.animal.reference") }}
+            </GlobalLink>
+          </template>
+        </I18nT>
+        <div class="papers-table">
+          <table>
             <thead>
               <tr>
                 <th
@@ -128,40 +94,39 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
                   :key="value"
                   class="text-left"
                 >
-                  <a
+                  <GlobalLink
                     v-if="value.match(/http+s*:\/\/+/)"
-                    :href="value"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >{{ value }}</a>
+                    :to="value"
+                    target="blank"
+                  >
+                    {{ value }}
+                  </GlobalLink>
                   <span v-else>{{ value }}</span>
                 </td>
               </tr>
             </tbody>
-          </v-table>
-        </v-container>
+          </table>
+        </div>
       </div>
     </section>
 
-    <section
-      id="fps"
-      class="content-wrapper"
-    >
+    <!-- Open FPS -->
+    <section :id="ID_NAME.FPS" class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <h3>Open FPS</h3>
-          <!-- <aside>
-            FPSゲームが利用されている論文を調査しました。 全部で<b>{{
-              fpsPapers.length + 1
-            }}</b
-            >本の論文が見つかりました。
-          </aside> -->
-          <aside>
-            We researched papers in which FPS games are used. In total, we found
-            <b>{{ fpsPapers.length + 1 }}</b> papers.
-          </aside>
+        <h3>{{ $t("survey.fps.title") }}</h3>
+        <I18nT
+          keypath="survey.fps.description"
+          tag="p"
+          for="tos"
+          scope="global"
+        >
+          <template #length>
+            <b>{{ fpsPapers.length - 1 }}</b>
+          </template>
+        </I18nT>
 
-          <v-table>
+        <div class="papers-table">
+          <table>
             <thead>
               <tr>
                 <th
@@ -183,40 +148,39 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
                   :key="value"
                   class="text-left"
                 >
-                  <a
+                  <GlobalLink
                     v-if="value.match(/http+s*:\/\/+/)"
-                    :href="value"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >{{ value }}</a>
+                    :to="value"
+                    target="blank"
+                  >
+                    {{ value }}
+                  </GlobalLink>
                   <span v-else>{{ value }}</span>
                 </td>
               </tr>
             </tbody>
-          </v-table>
-        </v-container>
+          </table>
+        </div>
       </div>
     </section>
 
-    <section
-      id="tennis"
-      class="content-wrapper bg-gray"
-    >
+    <!-- Minimum Tennis -->
+    <section :id="ID_NAME.TENNIS" class="content-wrapper background-gray">
       <div class="content-container">
-        <v-container>
-          <h3>Minimum Tennis</h3>
-          <!-- <aside>
-            テニスゲームが利用されている論文を調査しました。 全部で<b>{{
-              tennisPapers.length + 1
-            }}</b
-            >本の論文が見つかりました。
-          </aside> -->
-          <aside>
-            We surveyed the papers in which tennis games are used. In total, we
-            found <b>{{ tennisPapers.length + 1 }}</b> papers.
-          </aside>
+        <h3>{{ $t("survey.tennis.title") }}</h3>
+        <I18nT
+          keypath="survey.tennis.description"
+          tag="p"
+          for="tos"
+          scope="global"
+        >
+          <template #length>
+            <b>{{ tennisPapers.length - 1 }}</b>
+          </template>
+        </I18nT>
 
-          <v-table>
+        <div class="papers-table">
+          <table>
             <thead>
               <tr>
                 <th
@@ -238,55 +202,46 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
                   :key="value"
                   class="text-left"
                 >
-                  <a
+                  <GlobalLink
                     v-if="value.match(/http+s*:\/\/+/)"
-                    :href="value"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >{{ value }}</a>
+                    :to="value"
+                    target="blank"
+                  >
+                    {{ value }}
+                  </GlobalLink>
                   <span v-else>{{ value }}</span>
                 </td>
               </tr>
             </tbody>
-          </v-table>
-        </v-container>
+          </table>
+        </div>
       </div>
     </section>
 
-    <section
-      id="ces"
-      class="content-wrapper"
-    >
+    <!-- 共通体験サンプル（CES） -->
+    <section :id="ID_NAME.CES" class="content-wrapper">
       <div class="content-container">
-        <v-container>
-          <!-- <h3>触覚体験サンプル（CES）</h3> -->
-          <h3>Common Experience Sample（CES）</h3>
-          <!-- <aside>
-            研究者の触覚ディスプレイ体験アプリケーションに対するニーズを把握するため、触覚ディスプレイの論文を調査しました。
-            全部で<b>{{ cesPapers.length + 1 }}</b
-            >本の論文が見つかりました。
-            触覚フィードバックするのものの特性を調査し、CESの開発では<a
-              href="https://doi.org/10.1016/0010-0285(87)90008-9"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Ledermanらの論文</a
-            >を参考に6次元（質感・硬さ・温度・重さ・形状・動き）に分類しました。
-          </aside> -->
-          <aside>
-            To understand researchers' needs for tactile display experience
-            applications, we surveyed papers on tactile displays. In total, we
-            found <b>{{ cesPapers.length + 1 }}</b> papers. We investigated the
-            characteristics of objects that provide tactile feedback and
-            classified them into six dimensions (texture, hardness, temperature,
-            weight, shape, and motion) with reference to the paper by
-            <a
-              href="https://doi.org/10.1016/0010-0285(87)90008-9"
-              target="_blank"
-              rel="noopener noreferrer"
-            >Lederman et al</a>. in the development of CES.
-          </aside>
-
-          <v-table>
+        <h3>{{ $t("survey.ces.title") }}</h3>
+        <I18nT
+          keypath="survey.ces.description"
+          tag="p"
+          for="tos"
+          scope="global"
+        >
+          <template #length>
+            <b>{{ cesPapers.length - 1 }}</b>
+          </template>
+          <template #reference>
+            <GlobalLink
+              to="https://doi.org/10.1016/0010-0285(87)90008-9"
+              target="blank"
+            >
+              {{ $t("survey.ces.reference") }}
+            </GlobalLink>
+          </template>
+        </I18nT>
+        <div class="papers-table">
+          <table>
             <thead>
               <tr>
                 <th
@@ -308,26 +263,52 @@ import { animalsPapers, fpsPapers, tennisPapers, cesPapers } from '~/assets/json
                   :key="value"
                   class="text-left"
                 >
-                  <a
+                  <GlobalLink
                     v-if="value.match(/http+s*:\/\/+/)"
-                    :href="value"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >{{ value }}</a>
+                    :to="value"
+                    target="blank"
+                  >
+                    {{ value }}
+                  </GlobalLink>
                   <span v-else>{{ value }}</span>
                 </td>
               </tr>
             </tbody>
-          </v-table>
-        </v-container>
+          </table>
+        </div>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.contents-title {
+  margin-top: 32px;
+}
+
+.papers-table {
+  overflow-x: auto;
+  margin-top: 32px;
+
+  > table {
+    background-color: white;
+    border-radius: 4px;
+  }
+
+  > table > thead > tr > th {
+    padding: 16px;
+    border-bottom: 1px lightgray solid;
+  }
+
+  > table > tbody > tr  > td {
+    padding: 8px 16px;
+    border-bottom: 1px lightgray solid;
+  }
+}
+
 th,
 td {
+  text-align: left;
   min-width: 240px;
 }
 </style>

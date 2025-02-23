@@ -13,8 +13,8 @@ defineProps({
 
 <template>
   <span class="marked">
-    <NuxtLink :href="href">
+    <GlobalLink :to="href" tag="a">
       <slot />
-    </NuxtLink>
+    </GlobalLink>
   </span>
 </template>
