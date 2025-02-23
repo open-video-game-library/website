@@ -17,11 +17,12 @@ const { to, title, description, thumbnail, exlink, createdAt, updatedAt } = defi
 
 <template>
   <Component
-    :is="(to || exlink) ? GlobalLink : 'div'"
-    :to="to || exlink"
+    :is="(exlink || to) ? GlobalLink : 'div'"
+    :to="exlink || to"
+    :target="exlink && 'blank'"
     :is-underlined-on-hover="false"
   >
-    <div class="article-card">
+    <div class="article-card background-gray">
       <div class="image">
         <NuxtImg
           :src="thumbnail"

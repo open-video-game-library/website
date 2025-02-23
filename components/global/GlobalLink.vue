@@ -53,6 +53,7 @@ const localeLink = computed(() => locale ? localePath(to, locale) : localePath(t
 <style scoped lang="scss">
 .global-link {
   color: #5e1ce2;
+  word-break: break-all;
 
   &.-underlined {
     border-bottom: 1px solid transparent;
