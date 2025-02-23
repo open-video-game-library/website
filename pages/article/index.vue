@@ -28,7 +28,7 @@ const { locale } = useI18n();
         <ContentList
           v-slot="{ list: articleList }"
           :query="{
-            path: locale === 'en' ? '/article/en' : '/article/ja',
+            path: `/article/${locale}`,
             sort: [{ created_at: -1 }],
           }"
         >
