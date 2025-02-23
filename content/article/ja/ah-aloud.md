@@ -1,7 +1,7 @@
 ---
 title: 「あアラウド法」を学会で発表しました
 description: オープンビデオゲームのユースケースも紹介します。「あアラウド法」という感情の観測手法を2つの学会で発表しました。
-thumbnail: http://img.youtube.com/vi/xpkJ13SegK4/maxresdefault.jpg
+thumbnail: https://storage.googleapis.com/studio-design-asset-files/projects/wQOVXEVxaD/s-2400x820_v-frms_webp_89f7b28d-0c37-4b9b-bfdf-be762db3d8f9.webp
 exlink:
 created_at: 2022.11.19
 updated_at:
