@@ -123,11 +123,11 @@
     "opensourcegame": {
       "title": "Open Source Games",
       "sports": "Sports",
-      "shooting": "Shootings",
-      "platform": "Platforms",
-      "driving": "Racings / Drivings",
+      "shooting": "Shooting",
+      "platform": "Platform",
+      "driving": "Racing / Driving",
       "fighting": "Fighting",
-      "puzzle": "Puzzles",
+      "puzzle": "Puzzle",
       "other": "Others"
     }
   },
