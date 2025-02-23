@@ -1,7 +1,7 @@
 ---
 title: The "Ah-Aloud Method" was presented at an academic conference.
 description: Open video game use cases will also be presented. We have presented our method of observing emotions, called the "Ah-Aloud Method" at two conferences.
-thumbnail: http://img.youtube.com/vi/xpkJ13SegK4/maxresdefault.jpg
+thumbnail: https://storage.googleapis.com/studio-design-asset-files/projects/wQOVXEVxaD/s-2400x820_v-frms_webp_89f7b28d-0c37-4b9b-bfdf-be762db3d8f9.webp
 exlink:
 created_at: 2022.11.19
 updated_at: 2023.11.25
