@@ -1,0 +1,1 @@
+import{_ as s,c as o,o as r,b as t,S as a}from"./CeTulVTg.js";const c={},n={class:"marked"};function l(e,_){return r(),o("div",n,[t("p",null,[a(e.$slots,"default")])])}const f=s(c,[["render",l]]);export{f as default};
