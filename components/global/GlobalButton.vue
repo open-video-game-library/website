@@ -16,6 +16,7 @@ const { link, color = 'purple', icon } = defineProps<Props>();
     <div class="global-link-button" :class="color === 'purple' ? '-purple' : '-black'">
       <Component
         :is="icon"
+        v-if="icon"
         class="icon"
         fill="white"
       />

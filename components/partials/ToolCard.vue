@@ -41,7 +41,6 @@ const { name, image, description, link, articleLink = '' } = defineProps<Props>(
 .tool-card {
   padding: 16px;
   display: grid;
-  grid-template-columns: 1fr;
   color: #0e0c0d;
   gap: 32px;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);

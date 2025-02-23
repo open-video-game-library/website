@@ -133,7 +133,8 @@
   },
   "article": {
     "title": "Articles",
-    "description": "Get latest information from"
+    "description": "Get latest information from",
+    "x": "X(Twitter)"
   },
   "contact": {
     "title": "Contact",

@@ -133,7 +133,8 @@
   },
   "article": {
     "title": "記事一覧",
-    "description": "SNSでもゲーム研究・開発に関する情報を発信しています"
+    "description": "SNSでもゲーム研究・開発に関する情報を発信しています",
+    "x": "X(Twitter)"
   },
   "contact": {
     "title": "お問い合わせ",
