@@ -1,6 +1,10 @@
 <script setup lang="ts">
+import { useI18n, useRoute } from '#imports';
 import GlobalButton from '@/components/global/GlobalButton.vue';
 import { INTERNAL_URL } from '@/constants';
+
+const { params: { slug } } = useRoute();
+const { locale } = useI18n();
 </script>
 
 <template>
@@ -8,23 +12,31 @@ import { INTERNAL_URL } from '@/constants';
     <section class="content-wrapper">
       <div class="content-container">
         <article>
-          <ContentDoc v-slot="{ doc }">
-            <div class="article-meta">
-              <h1 class="title">
-                {{ doc.title }}
-              </h1>
-              <p class="date">
-                <span>{{ $t('article.createdAt') }} {{ doc.created_at }}</span>
-                <span v-if="doc.updated_at">{{ $t('article.updatedAt') }} {{ doc.updated_at }}</span>
-              </p>
-              <p class="description">
-                {{ doc.description }}
-              </p>
-              <div class="image">
-                <NuxtImg :src="doc.thumbnail" class="img" />
+          <ContentDoc :path="`/article/${locale}/${slug[0]}`">
+            <template #default="{ doc }">
+              <div class="article-meta">
+                <h1 class="title">
+                  {{ doc.title }}
+                </h1>
+                <p class="date">
+                  <span>{{ $t('article.createdAt') }} {{ doc.created_at }}</span>
+                  <span v-if="doc.updated_at">{{ $t('article.updatedAt') }} {{ doc.updated_at }}</span>
+                </p>
+                <p class="description">
+                  {{ doc.description }}
+                </p>
+                <div class="image">
+                  <NuxtImg :src="doc.thumbnail" class="img" />
+                </div>
               </div>
-            </div>
-            <ContentRenderer :value="doc" />
+              <ContentRenderer :value="doc" />
+            </template>
+            <template #not-found>
+              <h1>{{ $t('article.error') }}</h1>
+            </template>
+            <template #empty>
+              <h1>{{ $t('article.error') }}</h1>
+            </template>
           </ContentDoc>
         </article>
         <div class="back-button">

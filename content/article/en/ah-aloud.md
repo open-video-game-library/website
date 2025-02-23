@@ -4,7 +4,7 @@ description: Open video game use cases will also be presented. We have presented
 thumbnail: http://img.youtube.com/vi/xpkJ13SegK4/maxresdefault.jpg
 exlink:
 created_at: 2022.11.19
-updated_at:
+updated_at: 2023.11.25
 ---
 
 ## What is the Ah-Aloud Method?
