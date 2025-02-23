@@ -21,7 +21,9 @@ import GlobalLink from '@/components/global/GlobalLink.vue';
             <strong>{{ $t("game.details.license") }}</strong>
           </template>
           <template #gitHub>
-            <a href="https://github.com/open-video-game-library">{{ $t("game.details.gitHub") }}</a>
+            <GlobalLink to="https://github.com/open-video-game-library">
+              {{ $t("game.details.gitHub") }}
+            </GlobalLink>
           </template>
           <template #survey>
             <GlobalLink to="/game/survey">
