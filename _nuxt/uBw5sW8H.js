@@ -1,1 +1,0 @@
-import{d as o,c as s,b as a,R as t,o as n}from"./CKk7T9Yy.js";const r={class:"marked"},_=o({__name:"ProseCode",props:{code:{},language:{},filename:{},highlights:{}},setup(c){return(e,l)=>(n(),s("div",r,[a("code",null,[t(e.$slots,"default")])]))}});export{_};

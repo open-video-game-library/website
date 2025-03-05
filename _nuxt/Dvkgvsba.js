@@ -1,0 +1,1 @@
+import{d as o,c as s,o as n,e as l,w as r,R as c,j as d}from"./Bt8tDSOp.js";const f={class:"marked"},i=o({__name:"ProseA",props:{href:{type:String,default:""},blank:{type:Boolean,default:!1}},setup(e){return(t,p)=>{const a=d;return n(),s("span",f,[l(a,{to:e.href,tag:"a"},{default:r(()=>[c(t.$slots,"default")]),_:3},8,["to"])])}}});export{i as default};
