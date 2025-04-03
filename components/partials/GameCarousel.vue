@@ -28,6 +28,7 @@ const galleryConfig = {
 
 const descriptionConfig = {
   slideEffect: 'fade',
+  wrapAround: true,
   mouseDrag: false,
   touchDrag: false,
   height: 'auto',
