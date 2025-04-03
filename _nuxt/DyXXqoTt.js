@@ -1,1 +1,0 @@
-import{_ as s,c as o,o as r,b as t,R as a}from"./Bt8tDSOp.js";const c={},n={class:"marked"};function l(e,_){return r(),o("div",n,[t("ol",null,[a(e.$slots,"default")])])}const f=s(c,[["render",l]]);export{f as default};

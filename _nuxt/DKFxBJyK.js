@@ -1,1 +1,0 @@
-import{_ as o,c as s,o as t,b as c,R as r}from"./Bt8tDSOp.js";const a={},n={class:"marked"};function l(e,_){return t(),s("div",n,[c("blockquote",null,[r(e.$slots,"default")])])}const f=o(a,[["render",l]]);export{f as default};

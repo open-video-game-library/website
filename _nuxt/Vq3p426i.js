@@ -1,0 +1,1 @@
+import{_ as o,o as t,c as s,b as n}from"./DDSo6TNT.js";const c={},r={xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 24 24"};function a(_,e){return t(),s("svg",r,e[0]||(e[0]=[n("path",{d:"M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"},null,-1)]))}const H=o(c,[["render",a]]);export{H as I};
