@@ -57,7 +57,7 @@ jobs:
           fi
       - name: 静的ビルド
         run: |
-          npm run install
+          npm install
           npm run generate
       - name: GitHub Pagesにデプロイ
         uses: peaceiris/actions-gh-pages@v3
