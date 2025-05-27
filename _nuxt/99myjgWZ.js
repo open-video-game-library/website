@@ -1,1 +1,0 @@
-import{d as o,o as s,c as a,b as t,R as n}from"./DDSo6TNT.js";const r={class:"marked"},_=o({__name:"ProseCode",props:{code:{},language:{},filename:{},highlights:{}},setup(c){return(e,l)=>(s(),a("div",r,[t("code",null,[n(e.$slots,"default")])]))}});export{_};
