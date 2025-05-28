@@ -1,1 +1,0 @@
-import{_ as s,o,c as r,b as t,R as a}from"./yWGmiswo.js";const c={},n={class:"marked"};function l(e,_){return o(),r("div",n,[t("ol",null,[a(e.$slots,"default")])])}const f=s(c,[["render",l]]);export{f as default};

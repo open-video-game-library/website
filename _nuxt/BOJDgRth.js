@@ -1,1 +1,0 @@
-import{_ as o,o as s,c as t,b as c,R as r}from"./yWGmiswo.js";const a={},n={class:"marked"};function l(e,_){return s(),t("div",n,[c("blockquote",null,[r(e.$slots,"default")])])}const f=o(a,[["render",l]]);export{f as default};
