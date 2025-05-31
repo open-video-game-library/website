@@ -6,7 +6,7 @@ type Props = {
   to?: string;
   title?: string;
   description: string;
-  thumbnail: string;
+  thumbnail?: string;
   exlink?: string;
   createdAt?: string;
   updatedAt?: string;
@@ -25,6 +25,7 @@ const { to, title, description, thumbnail, exlink, createdAt, updatedAt } = defi
     <div class="article-card background-gray">
       <div class="image">
         <NuxtImg
+          v-if="thumbnail"
           :src="thumbnail"
           height="160px"
         />

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useI18n } from '#imports';
+import { h, useI18n } from '#imports';
 import GlobalButton from '@/components/global/GlobalButton.vue';
 import ArticleCard from '@/components/partials/ArticleCard.vue';
 import IconX from '@/components/icon/IconX.vue';
@@ -19,7 +19,7 @@ const { locale } = useI18n();
           <GlobalButton
             :link="{ to: 'https://twitter.com/openvideogame' }"
             color="black"
-            :icon="IconX"
+            :icon="h(IconX, { class: 'button-icon' })"
           >
             {{ $t('article.x') }}
           </GlobalButton>

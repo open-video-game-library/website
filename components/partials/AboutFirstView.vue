@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { h } from '#imports';
 import GlobalButton from '@/components/global/GlobalButton.vue';
 import IconController from '@/components/icon/IconController.vue';
 import IconGithub from '@/components/icon/IconGithub.vue';
@@ -33,7 +34,7 @@ import { INTERNAL_URL, EXTERNAL_URL } from '@/constants';
           :link="{
             to: EXTERNAL_URL.GITHUB,
           }"
-          :icon="IconGithub"
+          :icon="h(IconGithub, { class: 'button-icon' })"
         >
           {{ $t('about.firstView.links.gitHub') }}
         </GlobalButton>
@@ -41,7 +42,7 @@ import { INTERNAL_URL, EXTERNAL_URL } from '@/constants';
           :link="{
             to: INTERNAL_URL.GAME,
           }"
-          :icon="IconController"
+          :icon="h(IconController, { class: 'button-icon' })"
         >
           {{ $t('about.firstView.links.game') }}
         </GlobalButton>

@@ -3,7 +3,7 @@ import { type VNode } from '#imports';
 import GlobalLink from '@/components/global/GlobalLink.vue';
 
 type Props = {
-  link: InstanceType<typeof GlobalLink>;
+  link: InstanceType<typeof GlobalLink>['$props'];
   color?: 'purple' | 'black';
   icon?: VNode;
 };
@@ -17,7 +17,6 @@ const { link, color = 'purple', icon } = defineProps<Props>();
       <Component
         :is="icon"
         v-if="icon"
-        class="icon"
         fill="white"
       />
       <span class="text"><slot /></span>
@@ -53,12 +52,6 @@ const { link, color = 'purple', icon } = defineProps<Props>();
 
   &:hover:after {
     background-color: rgba(255, 255, 255, 0.2);
-  }
-
-  > .icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
   }
 
   > .text {

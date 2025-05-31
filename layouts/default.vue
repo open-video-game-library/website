@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from '#imports';
+import { h, ref } from '#imports';
 import GlobalButton from '@/components/global/GlobalButton.vue';
 import GlobalFooter from '@/components/global/GlobalFooter.vue';
 import GlobalHeader from '@/components/global/GlobalHeader.vue';
@@ -49,7 +49,7 @@ const handleHamburgerMenu = () => {
               :link="{
                 to: INTERNAL_URL.GAME,
               }"
-              :icon="IconController"
+              :icon="h(IconController, { class: 'button-icon' })"
             >
               OPEN VIDEO GAME
             </GlobalButton>
@@ -59,7 +59,7 @@ const handleHamburgerMenu = () => {
               :link="{
                 to: INTERNAL_URL.TOOL,
               }"
-              :icon="IconTools"
+              :icon="h(IconTools, { class: 'button-icon' })"
             >
               TOOL
             </GlobalButton>
@@ -69,7 +69,7 @@ const handleHamburgerMenu = () => {
               :link="{
                 to: INTERNAL_URL.ARTICLE,
               }"
-              :icon="IconDocument"
+              :icon="h(IconDocument, { class: 'button-icon' })"
             >
               ARTICLE
             </GlobalButton>
@@ -79,7 +79,7 @@ const handleHamburgerMenu = () => {
               :link="{
                 to: INTERNAL_URL.CONTACT,
               }"
-              :icon="IconEmail"
+              :icon="h(IconEmail, { class: 'button-icon' })"
             >
               CONTACT
             </GlobalButton>

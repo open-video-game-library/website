@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { h } from '#imports';
 import GlobalButton from '@/components/global/GlobalButton.vue';
 import GlobalLink from '@/components/global/GlobalLink.vue';
 import GlobalLocaleSelect from '@/components/global/GlobalLocaleSelect.vue';
@@ -34,7 +35,7 @@ const { handleHamburgerMenu, isHamburgerMenuOpen } = defineProps<Props>();
             :link="{
               to: INTERNAL_URL.GAME,
             }"
-            :icon="IconController"
+            :icon="h(IconController, { class: 'button-icon' })"
           >
             OPEN VIDEO GAME
           </GlobalButton>
@@ -44,7 +45,7 @@ const { handleHamburgerMenu, isHamburgerMenuOpen } = defineProps<Props>();
             :link="{
               to: INTERNAL_URL.TOOL,
             }"
-            :icon="IconTools"
+            :icon="h(IconTools, { class: 'button-icon' })"
           >
             TOOL
           </GlobalButton>
@@ -54,7 +55,7 @@ const { handleHamburgerMenu, isHamburgerMenuOpen } = defineProps<Props>();
             :link="{
               to: INTERNAL_URL.ARTICLE,
             }"
-            :icon="IconDocument"
+            :icon="h(IconDocument, { class: 'button-icon' })"
           >
             ARTICLE
           </GlobalButton>
@@ -64,7 +65,7 @@ const { handleHamburgerMenu, isHamburgerMenuOpen } = defineProps<Props>();
             :link="{
               to: INTERNAL_URL.CONTACT,
             }"
-            :icon="IconEmail"
+            :icon="h(IconEmail, { class: 'button-icon' })"
           >
             CONTACT
           </GlobalButton>
