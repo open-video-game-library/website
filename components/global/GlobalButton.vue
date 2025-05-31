@@ -13,7 +13,7 @@ const { link, color = 'purple', icon } = defineProps<Props>();
 
 <template>
   <GlobalLink v-bind="link" :is-underlined-on-hover="false">
-    <div class="global-link-button" :class="color === 'purple' ? '-purple' : '-black'">
+    <div class="global-button" :class="color === 'purple' ? '-purple' : '-black'">
       <Component
         :is="icon"
         v-if="icon"
@@ -25,7 +25,7 @@ const { link, color = 'purple', icon } = defineProps<Props>();
 </template>
 
 <style scoped lang="scss">
-.global-link-button {
+.global-button {
   display: flex;
   position: relative;
   align-items: center;
