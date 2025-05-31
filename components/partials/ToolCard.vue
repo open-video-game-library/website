@@ -4,13 +4,13 @@ import IconDocument from '@/components/icon/IconDocument.vue';
 
 type Props = {
   name: string;
-  image: string;
+  image?: string;
   description: string;
   link: string;
   articleLink?: string;
 };
 
-const { name, image, description, link, articleLink = '' } = defineProps<Props>();
+const { name, image = '', description, link, articleLink = '' } = defineProps<Props>();
 </script>
 
 <template>

@@ -52,7 +52,7 @@ export default defineNuxtConfig({
       defaultLocale: 'en',
       langDir: 'locales/',
     },
-  ], '@nuxtjs/device'],
+  ]],
   runtimeConfig: {
     public: {
       internalDbApi: process.env.NUXT_INTERNAL_DB_API,

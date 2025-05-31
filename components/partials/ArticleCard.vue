@@ -12,7 +12,7 @@ type Props = {
   updatedAt?: string;
 };
 
-const { to, title, description, thumbnail, exlink, createdAt, updatedAt } = defineProps<Props>();
+const { to, title, description, thumbnail = '', exlink, createdAt, updatedAt } = defineProps<Props>();
 </script>
 
 <template>

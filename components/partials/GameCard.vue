@@ -1,80 +1,72 @@
 <script setup lang="ts">
-import { h, useDevice, useI18n } from '#imports';
+import { h } from '#imports';
 import GlobalButton from '@/components/global/GlobalButton.vue';
 import IconController from '@/components/icon/IconController.vue';
 import IconGithub from '@/components/icon/IconGithub.vue';
 import IconHtml5 from '@/components/icon/IconHtml5.vue';
 
-const { isMobile } = useDevice();
-const { locale } = useI18n();
-
-type Game = {
+type Props = {
   name: string;
   image: string;
   description: string;
   github?: string;
   webgl?: string;
   standalone?: string;
-  description_JP?: string;
 };
 
-type Props = {
-  game: Game;
-};
-
-const { game } = defineProps<Props>();
+const { name, image, description, github = '', webgl = '', standalone = '' } = defineProps<Props>();
 </script>
 
 <template>
   <div class="game-card">
     <NuxtImg
-      :src="game.image"
+      :src="image"
       loading="lazy"
-      :alt="game.name"
+      :alt="name"
       class="image"
     />
     <div class="overlay">
       <h3 class="title">
-        {{ game.name }}
+        {{ name }}
       </h3>
       <p class="description">
-        {{ locale === 'en' ? game.description : game.description_JP || game.description }}
+        {{ description }}
       </p>
       <div class="buttons">
         <slot />
         <GlobalButton
-          v-if="game.github"
+          v-if="github"
           color="black"
           :link="{
-            to: game.github,
+            to: github,
           }"
           :icon="h(IconGithub, { class: 'button-icon' })"
         >
           {{ $t('game.buttons.github') }}
         </GlobalButton>
-        <template v-if="isMobile">
-          <p>{{ $t('game.buttons.sp') }}</p>
-        </template>
-        <template v-else>
-          <GlobalButton
-            v-if="game.webgl"
-            :link="{
-              to: game.webgl,
-            }"
-            :icon="h(IconHtml5, { class: 'button-icon' })"
-          >
-            {{ $t('game.buttons.webgl') }}
-          </GlobalButton>
-          <GlobalButton
-            v-if="game.standalone"
-            :link="{
-              to: game.standalone,
-            }"
-            :icon="h(IconController, { class: 'button-icon' })"
-          >
-            {{ $t('game.buttons.standalone') }}
-          </GlobalButton>
-        </template>
+        <p class="hidden-pc">
+          {{ $t('game.buttons.sp') }}
+        </p>
+        <GlobalButton
+          v-if="webgl"
+          :link="{
+            to: webgl,
+          }"
+          :icon="h(IconHtml5, { class: 'button-icon' })"
+          class="hidden-sp"
+        >
+          {{ $t('game.buttons.webgl') }}
+        </GlobalButton>
+        <GlobalButton
+          v-if="standalone"
+          :link="{
+            to: standalone,
+          }"
+          :icon="h(IconController, { class: 'button-icon' })"
+          class="hidden-sp"
+        >
+          {{ $t('game.buttons.standalone') }}
+        </GlobalButton>
       </div>
     </div>
   </div>
@@ -115,6 +107,20 @@ const { game } = defineProps<Props>();
         grid-template-columns: repeat(3, auto);
       }
     }
+  }
+}
+
+.hidden-sp {
+  display: none;
+
+  @media screen and (min-width: 640px) {
+    display: block;
+  }
+}
+
+.hidden-pc {
+  @media screen and (min-width: 640px) {
+    display: none;
   }
 }
 </style>

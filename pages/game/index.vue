@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import { h } from '#imports';
+import { h, useI18n } from '#imports';
 import GameCard from '@/components/partials/GameCard.vue';
 import GlobalButton from '@/components/global/GlobalButton.vue';
 import GlobalLink from '@/components/global/GlobalLink.vue';
 import IconEmail from '@/components/icon/IconEmail.vue';
 import { games } from '@/assets/json/game.json';
 import { INTERNAL_URL } from '@/constants';
+
+const { locale } = useI18n();
 </script>
 
 <template>
@@ -38,16 +40,19 @@ import { INTERNAL_URL } from '@/constants';
         </I18nT>
         <div class="list">
           <GameCard
-            v-for="game in games"
-            :key="game.name"
-            :game="game"
+            v-for="{ name, image, description, description_JP, github, webgl, standalone } in games"
+            :key="name"
+            :name="name"
+            :image="image"
+            :description="(locale === 'ja' && description_JP) ? description_JP : description"
+            :github="github"
+            :webgl="webgl"
+            :standalone="standalone"
           />
           <GameCard
-            :game="{
-              name: $t('game.more.title'),
-              description: $t('game.more.description'),
-              image: '/images/more.png',
-            }"
+            :name="$t('game.more.title')"
+            :description="$t('game.more.description')"
+            image="/images/more.png"
           >
             <GlobalButton
               :link="{
