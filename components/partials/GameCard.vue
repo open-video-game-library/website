@@ -34,7 +34,9 @@ const { game } = defineProps<Props>();
       class="image"
     />
     <div class="overlay">
-      <h3 class="title">{{ game.name }}</h3>
+      <h3 class="title">
+        {{ game.name }}
+      </h3>
       <p class="description">
         {{ locale === 'en' ? game.description : game.description_JP || game.description }}
       </p>
