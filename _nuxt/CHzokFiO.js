@@ -1,0 +1,1 @@
+import{_ as o,o as s,c as t,b as c,l as r}from"./BfoVTZbx.js";const a={},l={class:"marked"};function n(e,_){return s(),t("div",l,[c("blockquote",null,[r(e.$slots,"default")])])}const f=o(a,[["render",n]]);export{f as default};

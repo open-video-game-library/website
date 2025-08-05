@@ -1,0 +1,1 @@
+import{_ as s,o,c as r,b as t,l as a}from"./BfoVTZbx.js";const c={},l={class:"marked"};function n(e,_){return o(),r("div",l,[t("ul",null,[a(e.$slots,"default")])])}const f=s(c,[["render",n]]);export{f as default};
