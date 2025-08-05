@@ -1,6 +1,13 @@
 <script setup lang="ts">
-import GameCarousel from '@/components/partials/GameCarousel.vue';
+import { useI18n } from '#imports';
+import { games } from '@/assets/json/game.json';
+import GameCard from '@/components/partials/GameCard.vue';
+import GlobalButton from '@/components/global/GlobalButton.vue';
 import GlobalLink from '@/components/global/GlobalLink.vue';
+import IconEmail from '@/components/icon/IconEmail.vue';
+import { INTERNAL_URL } from '@/constants';
+
+const { locale } = useI18n();
 </script>
 
 <template>
@@ -31,8 +38,31 @@ import GlobalLink from '@/components/global/GlobalLink.vue';
             </GlobalLink>
           </template>
         </I18nT>
-        <div>
-          <GameCarousel />
+        <div class="list">
+          <GameCard
+            v-for="{ name, image, description, description_JP, github, webgl, standalone } in games"
+            :key="name"
+            :name="name"
+            :image="image"
+            :description="(locale === 'ja' && description_JP) ? description_JP : description"
+            :github="github"
+            :webgl="webgl"
+            :standalone="standalone"
+          />
+          <GameCard
+            :name="$t('game.more.title')"
+            :description="$t('game.more.description')"
+            image="/images/more.png"
+          >
+            <GlobalButton
+              :link="{
+                to: INTERNAL_URL.CONTACT,
+              }"
+              :icon="IconEmail"
+            >
+              {{ $t("contact.title") }}
+            </GlobalButton>
+          </GameCard>
         </div>
       </div>
     </section>
@@ -76,6 +106,14 @@ import GlobalLink from '@/components/global/GlobalLink.vue';
 
   > .description {
     margin-bottom: 32px;
+  }
+
+  > .list {
+    display: grid;
+    gap: 40px;
+    @media screen and (min-width: 640px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 
